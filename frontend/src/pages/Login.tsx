@@ -44,24 +44,29 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
-      <div className="w-full max-w-sm">
+    <div className="min-h-screen bg-[#121212] flex items-center justify-center">
+      <div className="w-full max-w-sm px-4">
+        {/* 로고 */}
         <div className="text-center mb-8">
-          <img
-            src="/meerkat.png"
-            alt="Meerkat Logo"
-            className="mx-auto h-50 w-50 rounded-full border-2 border-slate-500 object-cover bg-slate-800"
-          />
-          <h1 className="text-2xl font-bold text-slate-800">Meerkat Safety</h1>
-          <p className="text-slate-500 text-sm mt-1">산업안전 관리 시스템</p>
+          <div className="relative inline-block mb-4">
+            <img
+              src="/meerkat.png"
+              alt="Meerkat Logo"
+              className="mx-auto h-20 w-20 rounded-full border-2 border-[#2C2C2E] object-cover bg-[#1E1E1E]"
+            />
+            <span className="absolute bottom-0.5 right-0.5 w-3 h-3 bg-[#32D74B] rounded-full border-2 border-[#121212]" />
+          </div>
+          <h1 className="text-2xl font-semibold text-white">Meerkat Safety</h1>
+          <p className="text-[#98989D] text-sm mt-1">산업안전 관리 시스템</p>
         </div>
 
+        {/* 폼 */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 space-y-5"
+          className="bg-[#1E1E1E] rounded-2xl border border-[#2C2C2E] p-8 space-y-5"
         >
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-xs font-medium text-[#98989D] uppercase tracking-widest mb-2">
               관리자 ID
             </label>
             <input
@@ -71,12 +76,12 @@ export default function Login() {
               value={loginId}
               onChange={(e) => setLoginId(e.target.value)}
               placeholder="admin.dev"
-              className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full bg-[#121212] border border-[#2C2C2E] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#3A3A3C] focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 focus:border-[#00E5FF]/50 transition-all"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1.5">
+            <label className="block text-xs font-medium text-[#98989D] uppercase tracking-widest mb-2">
               비밀번호
             </label>
             <input
@@ -85,36 +90,34 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full bg-[#121212] border border-[#2C2C2E] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#3A3A3C] focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 focus:border-[#00E5FF]/50 transition-all"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
-              {error}
-            </p>
+            <div className="bg-[#3A1C1C] border-l-4 border-[#FF453A] rounded-r-lg px-3 py-2.5">
+              <p className="text-sm text-[#FF453A]">{error}</p>
+            </div>
           )}
 
           <button
             type="submit"
             disabled={loading || !loginId.trim() || !password}
-            className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium text-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full bg-[#00E5FF] text-[#121212] py-2.5 rounded-lg font-semibold text-sm hover:bg-[#33EAFF] disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-150"
           >
             {loading ? "로그인 중..." : "로그인"}
           </button>
         </form>
 
-        <p className="text-center text-sm text-slate-500 mt-5">
+        <p className="text-center text-sm text-[#98989D] mt-5">
           계정이 없으신가요?{" "}
-          <Link
-            to="/register"
-            className="text-blue-600 hover:underline font-medium"
-          >
+          <Link to="/register" className="text-[#00E5FF] hover:underline font-medium">
             회원가입
           </Link>
         </p>
-        <p className="text-center text-xs text-slate-400 mt-3">
-          개발 계정: <code className="font-mono">admin.dev / devpass1234</code>
+        <p className="text-center text-xs text-[#3A3A3C] mt-3">
+          개발 계정:{" "}
+          <code className="font-mono text-[#98989D]">admin.dev / devpass1234</code>
         </p>
       </div>
     </div>

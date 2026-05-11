@@ -5,7 +5,6 @@ interface Props {
   onRetry?: () => void;
 }
 
-// FastAPI 422 detail 항목 형태
 interface ValidationError {
   loc: (string | number)[];
   msg: string;
@@ -13,13 +12,11 @@ interface ValidationError {
 }
 
 function formatDetail(data: unknown): string {
-  // 422: detail이 배열인 경우
   if (Array.isArray(data)) {
     return (data as ValidationError[])
       .map((e) => `${e.loc?.join(' → ') ?? ''}: ${e.msg}`)
       .join('\n');
   }
-  // 그 외: 문자열 또는 객체
   if (typeof data === 'string') return data;
   return JSON.stringify(data, null, 2);
 }
@@ -44,7 +41,6 @@ export default function ErrorBox({ error, onRetry }: Props) {
       msg += ' - 입력값을 확인해 주세요';
     }
 
-    // detail 필드 추출 (문자열 또는 배열 모두 처리)
     const detailField = responseData?.detail ?? responseData ?? error.message;
     detail = formatDetail(detailField);
   } else if (error instanceof Error) {
@@ -52,17 +48,17 @@ export default function ErrorBox({ error, onRetry }: Props) {
   }
 
   return (
-    <div className="rounded-lg border border-red-200 bg-red-50 p-4">
-      <p className="font-semibold text-red-700">{msg}</p>
+    <div className="bg-[#3A1C1C] border-l-4 border-[#FF453A] rounded-r-xl p-4">
+      <p className="font-semibold text-[#FF453A]">{msg}</p>
       {detail && (
-        <pre className="mt-2 text-xs text-red-600 overflow-auto max-h-52 bg-red-100 rounded p-2 whitespace-pre-wrap">
+        <pre className="mt-2 text-xs text-[#FF453A]/80 overflow-auto max-h-52 bg-[#121212] rounded-lg p-2 whitespace-pre-wrap font-mono border border-[#FF453A]/20">
           {detail}
         </pre>
       )}
       {onRetry && (
         <button
           onClick={onRetry}
-          className="mt-3 text-sm text-red-700 underline hover:text-red-900"
+          className="mt-3 text-sm text-[#FF453A] hover:text-white underline transition-colors"
         >
           다시 시도
         </button>

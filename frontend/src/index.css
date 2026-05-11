@@ -1,4 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-wv-bg:      #121212;
+  --color-wv-surface: #1E1E1E;
+  --color-wv-border:  #2C2C2E;
+  --color-wv-accent:  #00E5FF;
+  --color-wv-alert:   #FF453A;
+  --color-wv-success: #32D74B;
+  --color-wv-muted:   #98989D;
+  --color-wv-hover:   #252525;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -6,10 +21,45 @@
 
 body {
   margin: 0;
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 #root {
   min-height: 100vh;
+}
+
+/* 스크롤바 */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #1E1E1E; }
+::-webkit-scrollbar-thumb { background: #2C2C2E; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3A3A3C; }
+
+select { color-scheme: dark; }
+
+/* ── 페이지 전환 fade-in ── */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: pageEnter 0.22s ease-out both;
+}
+
+/* ── 토스트 슬라이드-인 ── */
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.toast-enter {
+  animation: toastSlide 0.2s ease-out both;
+}
+
+/* ── 사이드바 width 트랜지션 ── */
+.sidebar-transition {
+  transition: width 0.2s ease-in-out;
 }
