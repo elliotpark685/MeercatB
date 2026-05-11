@@ -5,7 +5,7 @@ BEGIN;
 
 -- users: 1 admin + 2 workers (upsert by email)
 INSERT INTO public.users (email, full_name, hashed_password, is_active, role)
-VALUES ('admin.dev@meerkat.local', 'Dev Admin', 'dev-hash', TRUE, 'admin')
+VALUES ('admin.dev@meerkat.local', 'Dev Admin', '__SET_WITH_SCRIPT__', TRUE, 'admin')
 ON CONFLICT (email) DO UPDATE
 SET full_name = EXCLUDED.full_name,
     is_active = EXCLUDED.is_active,
@@ -13,8 +13,8 @@ SET full_name = EXCLUDED.full_name,
 
 INSERT INTO public.users (email, full_name, hashed_password, is_active, role)
 VALUES
-('worker1.dev@meerkat.local', 'Dev Worker One', 'dev-hash', TRUE, 'worker'),
-('worker2.dev@meerkat.local', 'Dev Worker Two', 'dev-hash', TRUE, 'worker')
+('worker1.dev@meerkat.local', 'Dev Worker One', '__SET_WITH_SCRIPT__', TRUE, 'worker'),
+('worker2.dev@meerkat.local', 'Dev Worker Two', '__SET_WITH_SCRIPT__', TRUE, 'worker')
 ON CONFLICT (email) DO UPDATE
 SET full_name = EXCLUDED.full_name,
     is_active = EXCLUDED.is_active,

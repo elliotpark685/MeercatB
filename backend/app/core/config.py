@@ -30,6 +30,9 @@ class Settings(BaseSettings):
     embedding_model: str = Field(default="text-embedding-3-large", alias="EMBEDDING_MODEL")
     vector_dimension: int = Field(default=1536, alias="VECTOR_DIMENSION")
     use_pgvector: bool = Field(default=False, alias="USE_PGVECTOR")
+    auth_secret_key: str = Field(default="change-me-in-production", alias="AUTH_SECRET_KEY")
+    auth_access_token_expire_minutes: int = Field(default=60 * 12, alias="AUTH_ACCESS_TOKEN_EXPIRE_MINUTES")
+    auth_allow_legacy_user_header: bool = Field(default=False, alias="AUTH_ALLOW_LEGACY_USER_HEADER")
 
     @property
     def sqlalchemy_database_uri(self) -> str:

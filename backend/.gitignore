@@ -4,4 +4,9 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .env
-
+.venv/
+venv/
+*.pyc
+.pytest_cache/
+pytest-cache-files-*/
+.vscode/

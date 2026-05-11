@@ -1,7 +1,9 @@
-﻿from fastapi import Depends, Header, HTTPException, status
+from fastapi import Depends, Header, HTTPException, status
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.core.database import get_db
+from app.core.security import decode_access_token
 from app.models.user import User
 from app.services.embedding_service import EmbeddingService
 from app.services.law_validation_service import LawValidationService
@@ -25,20 +27,40 @@ def get_law_search_service(
 
 def get_current_user(
     db: Session = Depends(get_db),
+    authorization: str | None = Header(
+        default=None,
+        alias="Authorization",
+        description="Bearer access token",
+        examples=["Bearer <token>"],
+    ),
     x_user_id: str | None = Header(
         default=None,
         alias="X-User-Id",
-        description="Authenticated user id. Admin endpoints require an admin user id.",
+        description="Legacy auth header for development compatibility.",
         examples=["1"],
     ),
 ) -> User:
-    if x_user_id is None:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="X-User-Id header is required")
+    user_id: int | None = None
 
-    try:
-        user_id = int(x_user_id)
-    except ValueError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="X-User-Id must be integer") from exc
+    if authorization:
+        scheme, _, token = authorization.partition(" ")
+        if scheme.lower() != "bearer" or not token:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Authorization header")
+        try:
+            payload = decode_access_token(token)
+            user_id = int(payload.get("sub"))
+        except (ValueError, TypeError):
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid or expired token")
+    elif settings.auth_allow_legacy_user_header and x_user_id is not None:
+        try:
+            user_id = int(x_user_id)
+        except ValueError as exc:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="X-User-Id must be integer") from exc
+    else:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authorization header is required")
+
+    if user_id is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication failed")
 
     user = db.get(User, user_id)
     if user is None or not user.is_active:
@@ -50,4 +72,3 @@ def require_admin(user: User = Depends(get_current_user)) -> User:
     if user.role != "admin":
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin role required")
     return user
-

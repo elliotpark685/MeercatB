@@ -1,4 +1,5 @@
-﻿from dataclasses import dataclass
+from dataclasses import dataclass
+import re
 
 from sqlalchemy.orm import Session
 
@@ -34,7 +35,15 @@ class LawSearchService:
         site_id: int | None = None,
     ) -> LawSearchResponse:
         analysis = self.query_analyzer.analyze(query)
-        rows = self.repo.search_by_keyword(keyword=query, top_k=max(top_k * 5, top_k))
+        expanded_keywords = self._expand_query_keywords(query)
+
+        row_map: dict[int, tuple[LawArticle, LawDocument]] = {}
+        for keyword in expanded_keywords:
+            rows = self.repo.search_by_keyword(keyword=keyword, top_k=max(top_k * 5, top_k))
+            for article, document in rows:
+                row_map[article.id] = (article, document)
+
+        rows = list(row_map.values())
         scored = [self._score_article(article, document, analysis) for article, document in rows]
         scored.sort(key=lambda item: item.score, reverse=True)
         top_scored = scored[:top_k]
@@ -164,3 +173,32 @@ class LawSearchService:
             "아래 인용 조문을 확인해 작업 계획에 반영하세요."
         )
 
+    @staticmethod
+    def _expand_query_keywords(query: str) -> list[str]:
+        normalized = " ".join(query.split()).strip()
+        if not normalized:
+            return [query]
+
+        variants = [normalized]
+        compact = normalized.replace(" ", "")
+        if compact != normalized:
+            variants.append(compact)
+
+        suffixes = ["방지", "예방", "조치", "점검", "작업", "관리"]
+        for suffix in suffixes:
+            if compact.endswith(suffix) and len(compact) > len(suffix):
+                head = compact[: -len(suffix)]
+                variants.extend([f"{head} {suffix}", head, suffix])
+
+        seen: set[str] = set()
+        result: list[str] = []
+        for candidate in variants:
+            for token in re.split(r"\s+", candidate.strip()):
+                if len(token) < 2:
+                    continue
+                if token in seen:
+                    continue
+                seen.add(token)
+                result.append(token)
+
+        return result or [normalized]

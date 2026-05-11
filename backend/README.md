@@ -12,12 +12,36 @@ USE_PGVECTOR=false
 Notes:
 - `LAW_API_OC` can exist in `.env`, but is not called in current flow.
 - Current search mode is keyword-only (`USE_PGVECTOR=false`).
+- Auth defaults:
+  - `AUTH_SECRET_KEY=change-me-in-production`
+  - `AUTH_ACCESS_TOKEN_EXPIRE_MINUTES=720`
+  - `AUTH_ALLOW_LEGACY_USER_HEADER=false` (recommended)
 
 ## Run server (Windows)
 ```bash
 conda activate llm_env
 cd /d C:\Meerkat\Backend\backend
 uvicorn app.main:app --reload
+```
+
+## Auth flow (new)
+0) Prepare dev user password hashes:
+```bash
+cd /d C:\Meerkat\Backend\backend
+python scripts/set_dev_passwords.py
+```
+
+1) Login and get bearer token:
+```bash
+curl -X POST http://localhost:8000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d "{\"login_id\":\"admin.dev\",\"password\":\"devpass1234\"}"
+```
+
+2) Call protected endpoint:
+```bash
+curl http://localhost:8000/api/v1/admin/dashboard \
+  -H "Authorization: Bearer <access_token>"
 ```
 
 ## Local data folder convention
@@ -52,16 +76,3 @@ SELECT COUNT(*) FROM meerkat_pjt.law_embeddings;
 
 The same SQL is available at:
 - [verify_law_flow.sql](C:\Meerkat\Backend\backend\scripts\sql\verify_law_flow.sql)
-
-## CI/CD (GitHub Actions + Render)
-- Workflow file: `.github/workflows/backend-ci-cd-render.yml`
-- Trigger:
-  - PR to `main` with backend changes: test only
-  - Push to `main` with backend changes: test -> deploy
-- Required GitHub Actions secret:
-  - `RENDER_DEPLOY_HOOK_URL`: Render Web Service deploy hook URL
-
-Render service settings example:
-- Root Directory: `backend`
-- Build Command: `pip install -r requirements.txt`
-- Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
