@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-      env:
+        env:
           OPENAI_API_KEY: dummy
           LAW_API_OC: dummy
           DB_SCHEMA: public

@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.pool import StaticPool
 
 from app.api.v1.api import api_router
+from app.core.security import create_access_token
 from app.core.database import Base, get_db
 from app.models.generated_document import GeneratedDocument
 from app.models.law_article import LawArticle
@@ -23,6 +24,11 @@ REQUIRED_SECTIONS = {
     "work_plan": ["## 작업목적", "## 작업절차", "## 장비/인원", "## 위험요소", "## 안전조치", "## 관련법령"],
     "inspection_checklist": ["## 점검항목", "## 점검기준", "## 적합/부적합", "## 조치사항", "## 관련법령"],
 }
+
+
+def _auth_header(user_id: int, role: str) -> dict[str, str]:
+    token = create_access_token(subject=str(user_id), role=role)
+    return {"Authorization": f"Bearer {token}"}
 
 
 def _build_client_with_db() -> tuple[TestClient, sessionmaker]:
@@ -153,7 +159,7 @@ def test_admin_dashboard_returns_aggregates():
         },
     )
 
-    response = client.get("/api/v1/admin/dashboard?site_id=1", headers={"X-User-Id": "100"})
+    response = client.get("/api/v1/admin/dashboard?site_id=1", headers=_auth_header(100, "admin"))
     assert response.status_code == 200
 
     body = response.json()
@@ -173,7 +179,7 @@ def test_worker_cannot_access_admin_dashboard():
     client, session_factory = _build_client_with_db()
     _seed_base_data(session_factory)
 
-    response = client.get("/api/v1/admin/dashboard?site_id=1", headers={"X-User-Id": "200"})
+    response = client.get("/api/v1/admin/dashboard?site_id=1", headers=_auth_header(200, "worker"))
     assert response.status_code == 403
 
 
@@ -205,7 +211,7 @@ def test_admin_dashboard_returns_zero_and_empty_lists_when_no_data():
         )
         db.commit()
 
-    response = client.get("/api/v1/admin/dashboard", headers={"X-User-Id": "101"})
+    response = client.get("/api/v1/admin/dashboard", headers=_auth_header(101, "admin"))
     assert response.status_code == 200
     body = response.json()
     assert body["total_generated_documents"] == 0
@@ -215,20 +221,20 @@ def test_admin_dashboard_returns_zero_and_empty_lists_when_no_data():
     assert body["latest_law_searches"] == []
 
 
-def test_missing_x_user_id_rejected_for_admin_dashboard():
+def test_missing_authorization_rejected_for_admin_dashboard():
     client, _ = _build_client_with_db()
     response = client.get("/api/v1/admin/dashboard")
-    assert response.status_code in (401, 403)
+    assert response.status_code == 401
 
 
 def test_nonexistent_user_rejected_for_admin_dashboard():
     client, _ = _build_client_with_db()
-    response = client.get("/api/v1/admin/dashboard", headers={"X-User-Id": "999999"})
-    assert response.status_code in (401, 403)
+    response = client.get("/api/v1/admin/dashboard", headers=_auth_header(999999, "admin"))
+    assert response.status_code == 401
 
 
 def test_admin_can_access_dashboard():
     client, session_factory = _build_client_with_db()
     _seed_base_data(session_factory)
-    response = client.get("/api/v1/admin/dashboard?site_id=1", headers={"X-User-Id": "100"})
+    response = client.get("/api/v1/admin/dashboard?site_id=1", headers=_auth_header(100, "admin"))
     assert response.status_code == 200
