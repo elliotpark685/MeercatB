@@ -18,7 +18,12 @@ def _build_client_with_db() -> tuple[TestClient, sessionmaker]:
         poolclass=StaticPool,
         future=True,
     )
-    bind = engine.execution_options(schema_translate_map={"meerkat_pjt": None})
+    bind = engine.execution_options(
+        schema_translate_map={
+            "meerkat_pjt": None,
+            "public": None,
+        }
+    )
     Base.metadata.create_all(bind=bind)
     testing_session_local = sessionmaker(bind=bind, autocommit=False, autoflush=False, class_=Session)
 

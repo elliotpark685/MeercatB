@@ -38,7 +38,12 @@ def _build_client_with_db() -> tuple[TestClient, sessionmaker]:
         poolclass=StaticPool,
         future=True,
     )
-    bind = engine.execution_options(schema_translate_map={"meerkat_pjt": None})
+    bind = engine.execution_options(
+        schema_translate_map={
+            "meerkat_pjt": None,
+            "public": None,
+        }
+    )
     Base.metadata.create_all(bind=bind)
     TestingSessionLocal = sessionmaker(bind=bind, autocommit=False, autoflush=False, class_=Session)
 
@@ -190,7 +195,12 @@ def test_law_search_logs_table_created_by_create_all():
         poolclass=StaticPool,
         future=True,
     )
-    bind = engine.execution_options(schema_translate_map={"meerkat_pjt": None})
+    bind = engine.execution_options(
+        schema_translate_map={
+            "meerkat_pjt": None,
+            "public": None,
+        }
+    )
     Base.metadata.create_all(bind=bind)
     table_names = set(inspect(bind).get_table_names())
     assert "law_search_logs" in table_names
