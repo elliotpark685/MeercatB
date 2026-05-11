@@ -92,7 +92,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .then((me) => {
         setAccessToken(stored.access_token);
         setUserId(me.user_id);
-        setSiteId(me.site_id ?? null);
+        // 백엔드 /me 응답에 site_id 없음 → localStorage 저장값 fallback
+        setSiteId(me.site_id ?? stored.site_id ?? null);
         setRole(me.role);
       })
       .catch(() => {

@@ -20,7 +20,7 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const data = await loginUser({ login_id: loginId.trim(), password });
+      const data = await loginUser({ identifier: loginId.trim(), password });
       login(data);
       navigate("/", { replace: true });
     } catch (err) {

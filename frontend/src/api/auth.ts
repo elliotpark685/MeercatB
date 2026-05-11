@@ -1,7 +1,7 @@
 import { apiClient } from './client';
 
 export interface LoginRequest {
-  login_id: string;
+  identifier: string;  // 백엔드 LoginRequest 스키마 필드명
   password: string;
 }
 
@@ -17,7 +17,10 @@ export interface LoginResponse {
 export interface MeResponse {
   user_id: number;
   role: string;
-  site_id: number | null;
+  site_id?: number | null;  // 백엔드 MeResponse에 site_id 없음 — optional 처리
+  email?: string;
+  full_name?: string;
+  is_active?: boolean;
 }
 
 export interface RegisterRequest {
