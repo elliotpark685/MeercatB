@@ -20,7 +20,7 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const data = await loginUser({ identifier: loginId.trim(), password });
+      const data = await loginUser({ login_id: loginId.trim(), password });
       login(data);
       navigate("/", { replace: true });
     } catch (err) {
@@ -32,8 +32,16 @@ export default function Login() {
           setError("ID 또는 비밀번호를 확인해 주세요.");
         } else if (status === 403) {
           setError("관리자 권한이 없는 계정입니다.");
+        } else if (status === 422) {
+          setError("입력 형식을 확인해주세요.");
         } else {
-          setError(`로그인 실패: ${err.response?.data?.detail ?? err.message}`);
+          const detail = err.response?.data?.detail;
+          const msg = Array.isArray(detail)
+            ? detail.map((d: { msg?: string }) => d.msg ?? '').join(', ')
+            : typeof detail === 'string'
+            ? detail
+            : err.message;
+          setError(`로그인 실패: ${msg}`);
         }
       } else {
         setError("서버에 연결할 수 없습니다. 백엔드가 실행 중인지 확인하세요.");

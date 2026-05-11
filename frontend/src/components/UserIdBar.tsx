@@ -29,14 +29,14 @@ export default function UserIdBar() {
       <label className="text-yellow-800">User ID:</label>
       <input
         className="border border-yellow-300 rounded px-2 py-0.5 w-44 font-mono text-xs"
-        value={tmpUser}
-        onChange={(e) => setTmpUser(e.target.value)}
+        value={tmpUser ?? ''}
+        onChange={(e) => setTmpUser(e.target.value === '' ? null : Number(e.target.value))}
       />
       <label className="text-yellow-800">Site ID:</label>
       <input
         className="border border-yellow-300 rounded px-2 py-0.5 w-36 font-mono text-xs"
-        value={tmpSite}
-        onChange={(e) => setTmpSite(e.target.value)}
+        value={tmpSite ?? ''}
+        onChange={(e) => setTmpSite(e.target.value === '' ? null : Number(e.target.value))}
       />
       <button
         onClick={() => { setUserId(tmpUser); setSiteId(tmpSite); setEditing(false); }}

@@ -7,7 +7,16 @@
  *
  * STORAGE_KEY는 client.ts의 'meerkat_auth'와 동일해야 한다.
  */
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  type Dispatch,
+  type SetStateAction,
+  type ReactNode,
+} from 'react';
 import { getMe, type LoginResponse } from '../api/auth';
 
 export const STORAGE_KEY = 'meerkat_auth';
@@ -23,6 +32,8 @@ export interface AuthContextValue {
   accessToken: string | null;
   userId: number | null;
   siteId: number | null;
+  setUserId: Dispatch<SetStateAction<number | null>>;
+  setSiteId: Dispatch<SetStateAction<number | null>>;
   role: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -114,6 +125,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     accessToken,
     userId,
     siteId,
+    setUserId,
+    setSiteId,
     role,
     isAuthenticated: !!accessToken,
     isLoading,

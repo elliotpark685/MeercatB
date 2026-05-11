@@ -1,7 +1,7 @@
 import { apiClient } from './client';
 
 export interface LoginRequest {
-  identifier: string;  // 백엔드 LoginRequest 스키마 필드명
+  login_id: string;
   password: string;
 }
 

@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { getAdminDashboard, type DashboardData } from '../api/admin';
-import Spinner from '../components/Spinner';
 import ErrorBox from '../components/ErrorBox';
 import EmptyState from '../components/EmptyState';
 import { StatCardSkeleton, ListItemSkeleton } from '../components/Skeleton';
