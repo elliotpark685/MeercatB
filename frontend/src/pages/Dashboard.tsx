@@ -1,8 +1,9 @@
-﻿import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { getAdminDashboard, type DashboardData } from '../api/admin';
 import Spinner from '../components/Spinner';
 import ErrorBox from '../components/ErrorBox';
+import { AxiosError } from 'axios';
 
 const DOC_TYPE_LABEL: Record<string, string> = {
   tbm: 'TBM',
@@ -21,36 +22,25 @@ function StatCard({ label, value }: { label: string; value: number }) {
 }
 
 export default function Dashboard() {
-  const { userId, siteId } = useAuth();
+  const { siteId } = useAuth();
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
 
   const load = useCallback(async () => {
-    if (!userId) return;
     setLoading(true);
     setError(null);
     try {
-      const result = await getAdminDashboard({ userId, siteId });
+      const result = await getAdminDashboard(siteId ?? undefined);
       setData(result);
     } catch (e) {
       setError(e);
     } finally {
       setLoading(false);
     }
-  }, [userId, siteId]);
+  }, [siteId]);
 
-  useEffect(() => {
-    load();
-  }, [load]);
-
-  if (!userId) {
-    return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 text-yellow-800">
-        화면 상단 User ID를 실제 admin 정수 id로 입력해 주세요.
-      </div>
-    );
-  }
+  useEffect(() => { load(); }, [load]);
 
   return (
     <div className="space-y-6">
@@ -66,7 +56,28 @@ export default function Dashboard() {
       </div>
 
       {loading && <Spinner text="대시보드 데이터를 불러오는 중..." />}
-      {!!error && <ErrorBox error={error} onRetry={load} />}
+      {!!error && (() => {
+        const status = error instanceof AxiosError ? error.response?.status : undefined;
+        if (status === 403) {
+          return (
+            <div className="flex flex-col items-center justify-center py-16 gap-4">
+              <img src="/403error.png" alt="403 Forbidden" className="max-w-sm w-full" />
+              <p className="text-slate-500 text-sm">관리자 권한이 없습니다.</p>
+              <button onClick={load} className="text-sm text-blue-600 hover:text-blue-800 underline">다시 시도</button>
+            </div>
+          );
+        }
+        if (status === 404) {
+          return (
+            <div className="flex flex-col items-center justify-center py-16 gap-4">
+              <img src="/404error.png" alt="404 Not Found" className="max-w-sm w-full" />
+              <p className="text-slate-500 text-sm">데이터를 찾을 수 없습니다.</p>
+              <button onClick={load} className="text-sm text-blue-600 hover:text-blue-800 underline">다시 시도</button>
+            </div>
+          );
+        }
+        return <ErrorBox error={error} onRetry={load} />;
+      })()}
 
       {data && (
         <>
@@ -80,7 +91,7 @@ export default function Dashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-5">
               <h2 className="font-semibold text-slate-700 mb-3">최근 생성 문서</h2>
               {data.latest_generated_documents.length === 0 ? (
-                <p className="text-slate-400 text-sm">표시할 문서가 없습니다.</p>
+                <p className="text-slate-400 text-sm">아직 데이터가 없습니다.</p>
               ) : (
                 <ul className="space-y-2">
                   {data.latest_generated_documents.map((doc) => (
@@ -101,7 +112,7 @@ export default function Dashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-5">
               <h2 className="font-semibold text-slate-700 mb-3">최근 법령 검색</h2>
               {data.latest_law_searches.length === 0 ? (
-                <p className="text-slate-400 text-sm">표시할 검색 이력이 없습니다.</p>
+                <p className="text-slate-400 text-sm">아직 데이터가 없습니다.</p>
               ) : (
                 <ul className="space-y-2">
                   {data.latest_law_searches.map((s) => (

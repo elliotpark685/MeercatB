@@ -1,4 +1,11 @@
-﻿import { apiClient } from './client';
+/**
+ * 관리자 API 함수 모음
+ * 인증: Authorization: Bearer <access_token> (client.ts에서 자동 포함)
+ * X-User-Id 헤더는 더 이상 사용하지 않는다.
+ */
+import { apiClient } from './client';
+
+// ─── 타입 정의 ───────────────────────────────────────────
 
 export interface DashboardData {
   site_id: number | null;
@@ -78,9 +85,9 @@ export type DocumentType = 'tbm' | 'risk_assessment' | 'work_plan' | 'inspection
 
 export interface GenerateDocumentParams {
   site_id: number;
-  user_id: number;
+  user_id: number | null; // 선택값, null 허용
   document_type: DocumentType;
-  prompt: string;
+  prompt: string; // 5~4000자
 }
 
 export interface GeneratedDocument {
@@ -90,32 +97,24 @@ export interface GeneratedDocument {
   citations: { article_id: number; law_name: string; article_no: string }[];
 }
 
-function parseOptionalInt(value: string | undefined): number | undefined {
-  if (!value) return undefined;
-  const n = Number(value);
-  return Number.isInteger(n) ? n : undefined;
-}
+// ─── API 함수 ─────────────────────────────────────────────
 
-export async function getAdminDashboard(params: { siteId?: string; userId: string }): Promise<DashboardData> {
-  const parsedSiteId = parseOptionalInt(params.siteId);
+export async function getAdminDashboard(siteId?: number): Promise<DashboardData> {
   const res = await apiClient.get('/api/v1/admin/dashboard', {
-    params: parsedSiteId !== undefined ? { site_id: parsedSiteId } : undefined,
-    headers: { 'X-User-Id': params.userId },
+    params: siteId != null ? { site_id: siteId } : undefined,
   });
   return res.data;
 }
 
 export async function searchLaws(
-  params: LawSearchParams & { userId?: string; siteId?: string }
+  params: LawSearchParams & { userId?: number | null; siteId?: number | null }
 ): Promise<LawSearchResult> {
   const { userId, siteId, ...body } = params;
-  const parsedUserId = parseOptionalInt(userId);
-  const parsedSiteId = parseOptionalInt(siteId);
-
+  // 가이드 스펙: user_id/site_id는 없을 때 null로 명시적 전송
   const res = await apiClient.post('/api/v1/laws/search', {
     ...body,
-    ...(parsedUserId !== undefined ? { user_id: parsedUserId } : {}),
-    ...(parsedSiteId !== undefined ? { site_id: parsedSiteId } : {}),
+    user_id: Number.isFinite(userId) ? userId : null,
+    site_id: Number.isFinite(siteId) ? siteId : null,
   });
   return res.data;
 }
@@ -127,5 +126,15 @@ export async function getLawArticle(articleId: number): Promise<ArticleDetail> {
 
 export async function generateDocument(params: GenerateDocumentParams): Promise<GeneratedDocument> {
   const res = await apiClient.post('/api/v1/documents/generate', params);
+  return res.data;
+}
+
+export async function getDailyQuizzes(siteId?: number, userId?: number) {
+  const res = await apiClient.get('/api/v1/quizzes/daily', {
+    params: {
+      ...(siteId != null ? { site_id: siteId } : {}),
+      ...(userId != null ? { user_id: userId } : {}),
+    },
+  });
   return res.data;
 }

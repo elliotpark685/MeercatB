@@ -11,7 +11,14 @@
       "PowerShell(New-Item -ItemType Directory -Path \"C:\\\\Meerkat\\\\Frontend\\\\src\\\\pages\" -Force)",
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); Set-Location \"C:\\\\Meerkat\\\\Frontend\"; npx tsc --noEmit 2>&1)",
       "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); Set-Location \"C:\\\\Meerkat\\\\Frontend\"; npm run build 2>&1)",
-      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); Set-Location \"C:\\\\Meerkat\\\\Frontend\"; npm run dev 2>&1)"
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); Set-Location \"C:\\\\Meerkat\\\\Frontend\"; npm run dev 2>&1)",
+      "PowerShell($env:PATH = [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"PATH\", \"User\"\\); Set-Location \"C:\\\\Meerkat\\\\Frontend\"; npm install react-markdown 2>&1 | Select-String -Pattern \"added|warn|error\")",
+      "Bash(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\meerkat.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\meerkat.png\")",
+      "Bash(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\403error.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\403error.png\")",
+      "Bash(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\404error.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\404error.png\")",
+      "PowerShell(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\meerkat.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\meerkat.png\")",
+      "PowerShell(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\403error.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\403error.png\")",
+      "PowerShell(Copy-Item \"C:\\\\Meerkat\\\\Frontend\\\\docs\\\\404error.png\" \"C:\\\\Meerkat\\\\Frontend\\\\public\\\\404error.png\")"
     ]
   }
 }
