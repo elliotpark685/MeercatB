@@ -53,3 +53,15 @@ SELECT COUNT(*) FROM meerkat_pjt.law_embeddings;
 The same SQL is available at:
 - [verify_law_flow.sql](C:\Meerkat\Backend\backend\scripts\sql\verify_law_flow.sql)
 
+## CI/CD (GitHub Actions + Render)
+- Workflow file: `.github/workflows/backend-ci-cd-render.yml`
+- Trigger:
+  - PR to `main` with backend changes: test only
+  - Push to `main` with backend changes: test -> deploy
+- Required GitHub Actions secret:
+  - `RENDER_DEPLOY_HOOK_URL`: Render Web Service deploy hook URL
+
+Render service settings example:
+- Root Directory: `backend`
+- Build Command: `pip install -r requirements.txt`
+- Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
