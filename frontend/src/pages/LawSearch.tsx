@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import {
   searchLaws,
@@ -9,6 +9,9 @@ import {
 import Spinner from '../components/Spinner';
 import ErrorBox from '../components/ErrorBox';
 import EmptyState from '../components/EmptyState';
+import LawScopeFilter from '../components/LawScopeFilter';
+import LawResultCard from '../components/LawResultCard';
+import { LAW_SCOPE_OPTIONS, getLawBadgeColor } from '../types/law';
 
 const TOP_K_OPTIONS = [3, 5, 10];
 const HISTORY_KEY = 'meerkat_law_history';
@@ -38,6 +41,8 @@ export default function LawSearch() {
   const [query, setQuery] = useState('');
   const [topK, setTopK] = useState(5);
   const [validateLatest, setValidateLatest] = useState(false);
+  // 빈 배열 = 전체(5개 법령) 검색
+  const [lawScope, setLawScope] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -87,6 +92,7 @@ export default function LawSearch() {
         query: q,
         top_k: topK,
         validate_latest: validateLatest,
+        law_names: lawScope.length > 0 ? lawScope : undefined,
         userId: userId ?? undefined,
         siteId: siteId ?? undefined,
       });
@@ -127,9 +133,39 @@ export default function LawSearch() {
     query ? h.toLowerCase().includes(query.toLowerCase()) : true
   );
 
+  const searchResults = useMemo(() => result?.results ?? [], [result]);
+
+  const groupedResults = useMemo(() => {
+    const groups = new Map<string, typeof searchResults>();
+    for (const item of searchResults) {
+      const key = item.law_name?.trim() || '법령명 미상';
+      const list = groups.get(key);
+      if (list) {
+        list.push(item);
+      } else {
+        groups.set(key, [item]);
+      }
+    }
+    return Array.from(groups.entries());
+  }, [searchResults]);
+
+  const scopeLabel = lawScope.length > 0 ? lawScope.join(', ') : `전체 (${LAW_SCOPE_OPTIONS.length}개 법령)`;
+
+  const hasNoResults =
+    !!result &&
+    !result.answer &&
+    result.citations.length === 0 &&
+    searchResults.length === 0;
+
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold text-white">법령 검색</h1>
+      <div className="space-y-1">
+        <h1 className="text-2xl font-semibold text-white">법령 검색</h1>
+        <p className="text-sm text-[#00E5FF] font-medium">5개 건설 안전 관련 법령 통합 검색</p>
+        <p className="text-xs text-[#98989D]">
+          산업안전보건법, 시설물안전법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을 통합 검색합니다.
+        </p>
+      </div>
 
       {/* 검색 폼 */}
       <form
@@ -214,22 +250,54 @@ export default function LawSearch() {
             validate_latest
           </label>
         </div>
+
+        <LawScopeFilter selected={lawScope} onChange={setLawScope} />
       </form>
 
       {loading && <Spinner text="검색 중..." />}
       {!!error && <ErrorBox error={error} />}
 
       {/* 결과 없음 */}
-      {!loading && result && !result.answer && result.citations.length === 0 && (
+      {!loading && hasNoResults && (
         <EmptyState
           icon="🔍"
-          title="검색 결과가 없습니다"
+          title="관련 법령을 찾지 못했습니다. 검색어를 다르게 입력해보세요."
           description="다른 키워드로 검색하거나 검색 결과 수를 늘려보세요."
         />
       )}
 
       {result && (
         <div className="space-y-5">
+          {/* 검색 결과 요약 */}
+          {!hasNoResults && (
+            <div className="text-xs text-[#98989D]">
+              총 {searchResults.length}건 / 검색 대상: {scopeLabel}
+            </div>
+          )}
+
+          {/* 법령별 검색 결과 카드 */}
+          {groupedResults.length > 0 && (
+            <div className="space-y-5">
+              {groupedResults.map(([lawName, items]) => (
+                <div key={lawName} className="space-y-3">
+                  <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                    <span
+                      className={`px-2 py-0.5 rounded-md border text-xs ${getLawBadgeColor(lawName)}`}
+                    >
+                      {lawName}
+                    </span>
+                    <span className="text-xs text-[#98989D] font-normal">{items.length}건</span>
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {items.map((item, idx) => (
+                      <LawResultCard key={item.chunk_id ?? item.article_id ?? `${lawName}-${idx}`} item={item} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* 검색 답변 */}
           {result.answer && (
             <div className="bg-[#1E1E1E] border border-[#00E5FF]/20 rounded-2xl p-5">

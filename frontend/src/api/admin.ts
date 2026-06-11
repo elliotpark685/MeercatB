@@ -4,6 +4,9 @@
  * X-User-Id 헤더는 더 이상 사용하지 않는다.
  */
 import { apiClient } from './client';
+import type { LawSearchResultItem } from '../types/law';
+
+export type { LawSearchResultItem } from '../types/law';
 
 // ─── 타입 정의 ───────────────────────────────────────────
 
@@ -36,6 +39,10 @@ export interface LawSearchParams {
   query: string;
   top_k?: number;
   validate_latest?: boolean;
+  /** 검색 대상 법령명 목록. 비어있으면 백엔드 기본값(5개 법령 전체)으로 검색한다. */
+  law_names?: string[];
+  /** law_names의 별칭. 백엔드 호환을 위해 둘 다 지원한다. */
+  law_scope?: string[];
 }
 
 export interface CitationItem {
@@ -60,6 +67,8 @@ export interface LawSearchResult {
   answer: string;
   citations: CitationItem[];
   raw_hits: RawHitItem[];
+  /** 법령별 검색 결과 카드 목록 (신규 필드, 없을 수 있음) */
+  results?: LawSearchResultItem[];
 }
 
 export interface ArticleDetail {
@@ -109,12 +118,15 @@ export async function getAdminDashboard(siteId?: number): Promise<DashboardData>
 export async function searchLaws(
   params: LawSearchParams & { userId?: number | null; siteId?: number | null }
 ): Promise<LawSearchResult> {
-  const { userId, siteId, ...body } = params;
+  const { userId, siteId, law_names, law_scope, ...body } = params;
   // 가이드 스펙: user_id/site_id는 없을 때 null로 명시적 전송
+  // law_names/law_scope는 선택값이며, 비어있으면 보내지 않아 백엔드 기본값(5개 법령 전체)을 사용한다.
+  const scope = law_names && law_names.length > 0 ? law_names : law_scope;
   const res = await apiClient.post('/api/v1/laws/search', {
     ...body,
     user_id: Number.isFinite(userId) ? userId : null,
     site_id: Number.isFinite(siteId) ? siteId : null,
+    ...(scope && scope.length > 0 ? { law_names: scope } : {}),
   });
   return res.data;
 }
