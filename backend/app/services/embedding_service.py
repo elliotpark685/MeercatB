@@ -9,7 +9,7 @@ class EmbeddingService:
     def __init__(self, model_name: str | None = None) -> None:
         self.model_name = model_name or settings.embedding_model
         self.vector_dimension = settings.vector_dimension
-        self._client = OpenAI(api_key=settings.openai_api_key)
+        self._client = OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
 
     def generate_embedding(self, text: str) -> list[float]:
         if not settings.openai_api_key:

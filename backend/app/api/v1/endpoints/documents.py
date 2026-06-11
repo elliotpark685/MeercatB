@@ -41,5 +41,6 @@ def generate_document(
         title=document.title,
         content=document.content,
         citations=json.loads(document.citations_json) if document.citations_json else [],
+        generated_text=document.content,
+        references=json.loads(document.references_json or document.citations_json) if (document.references_json or document.citations_json) else [],
     )
-

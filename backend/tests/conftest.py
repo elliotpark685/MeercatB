@@ -11,6 +11,8 @@ if str(BACKEND_ROOT) not in sys.path:
 @pytest.fixture(autouse=True)
 def stub_embedding_service(monkeypatch: pytest.MonkeyPatch):
     """Prevent tests from making real OpenAI embedding API calls."""
+    monkeypatch.setattr("app.services.law_embedding_service.settings.openai_api_key", None)
+    monkeypatch.setattr("app.services.document_generation_service.settings.openai_api_key", None)
 
     def _fake_generate_embedding(self, text: str) -> list[float]:
         if not text or not text.strip():

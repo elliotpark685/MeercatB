@@ -34,10 +34,5 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        env:
-          OPENAI_API_KEY: dummy
-          LAW_API_OC: dummy
-          DB_SCHEMA: public
-          USE_PGVECTOR: "false"
         run: |
           pytest

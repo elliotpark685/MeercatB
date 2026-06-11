@@ -13,4 +13,5 @@ class DocumentGenerateResponse(BaseModel):
     title: str
     content: str
     citations: list[dict]
-
+    generated_text: str
+    references: list[dict]

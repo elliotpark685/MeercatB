@@ -16,7 +16,7 @@ class GeneratedDocument(Base, TimestampMixin):
     prompt: Mapped[str] = mapped_column(Text, nullable=False)
     content: Mapped[str] = mapped_column(Text, nullable=False)
     citations_json: Mapped[str | None] = mapped_column(Text)
+    references_json: Mapped[str | None] = mapped_column(Text)
 
     site = relationship("Site", back_populates="generated_documents")
     created_by_user = relationship("User", back_populates="generated_documents")
-
