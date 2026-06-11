@@ -3,6 +3,8 @@
 __all__ = [
     "DocumentGenerationService",
     "EmbeddingService",
+    "LawChunkingService",
+    "LawEmbeddingService",
     "LawIngestionService",
     "LawSearchService",
     "LawValidationService",

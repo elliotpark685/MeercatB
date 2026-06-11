@@ -13,6 +13,13 @@ class QueryAnalyzer:
     LAW_NAMES = [
         "산업안전보건법",
         "산업안전보건기준에 관한 규칙",
+        "시설물의 안전 및 유지관리에 관한 특별법",
+        "시설물안전법",
+        "건설산업기본법",
+        "건설기술 진흥법",
+        "건설기술진흥법",
+        "중대재해 처벌 등에 관한 법률",
+        "중대재해처벌법",
     ]
     WORK_TYPES = ["비계", "굴착", "철골", "해체", "밀폐공간", "전기", "양중", "지게차", "크레인", "보호구"]
     RISK_TYPES = ["추락", "붕괴", "감전", "화재폭발", "질식", "협착", "낙하물", "전도"]
@@ -20,8 +27,9 @@ class QueryAnalyzer:
 
     def analyze(self, query: str) -> QueryAnalysis:
         law_name = "unknown"
+        compact_query = query.replace(" ", "")
         for candidate in self.LAW_NAMES:
-            if candidate in query:
+            if candidate in query or candidate.replace(" ", "") in compact_query:
                 law_name = candidate
                 break
 
@@ -34,4 +42,3 @@ class QueryAnalyzer:
             risk_types=risk_types,
             action_types=action_types,
         )
-

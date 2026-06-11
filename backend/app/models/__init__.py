@@ -3,6 +3,7 @@
 __all__ = [
     "GeneratedDocument",
     "LawArticle",
+    "LawChunk",
     "LawDocument",
     "LawEmbedding",
     "LawSearchLog",

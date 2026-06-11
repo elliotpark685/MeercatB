@@ -17,11 +17,14 @@ class LawArticle(Base, TimestampMixin):
         index=True,
     )
     article_number: Mapped[str] = mapped_column(String(50), nullable=False, index=True)
+    article_no: Mapped[str | None] = mapped_column(String(50), index=True)
     title: Mapped[str | None] = mapped_column(String(255))
+    article_title: Mapped[str | None] = mapped_column(String(255))
     chapter: Mapped[str | None] = mapped_column(String(255))
     section: Mapped[str | None] = mapped_column(String(255))
-    full_text: Mapped[str] = mapped_column(Text, nullable=False)
-    content: Mapped[str] = mapped_column(Text, nullable=False)
+    full_text: Mapped[str | None] = mapped_column(Text)
+    content: Mapped[str | None] = mapped_column(Text)
+    article_text: Mapped[str | None] = mapped_column(Text)
     effective_date: Mapped[date | None] = mapped_column(Date)
     status: Mapped[str] = mapped_column(String(20), nullable=False, default="unknown")
     source_page_start: Mapped[int | None] = mapped_column(Integer)
@@ -30,3 +33,4 @@ class LawArticle(Base, TimestampMixin):
 
     law_document = relationship("LawDocument", back_populates="articles")
     embeddings = relationship("LawEmbedding", back_populates="article", cascade="all, delete-orphan")
+    chunks = relationship("LawChunk", back_populates="article", cascade="all, delete-orphan")

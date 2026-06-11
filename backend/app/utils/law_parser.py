@@ -5,12 +5,12 @@ import re
 from app.utils.article_title_index_loader import CanonicalArticleIndexItem
 
 PAGE_MARKER_RE = re.compile(r"^\[PAGE:(\d+)\]\s*$")
-PART_RE = re.compile(r"^\s*제\d+편\b.*$")
-CHAPTER_RE = re.compile(r"^\s*제\d+장\b.*$")
-SECTION_RE = re.compile(r"^\s*제\d+절\b.*$")
-EFFECTIVE_DATE_RE = re.compile(r"\[시행일:\s*(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*\]")
-STRICT_ARTICLE_HEADER_RE = re.compile(r"^\s*(제\d+조(?:의\d+)?)(?:\(([^)]*)\)).*$")
-REFERENCE_ONLY_RE = re.compile(r"제\d+조(?:의\d+)?제\d+항(?:제\d+호)?")
+PART_RE = re.compile(r"^\s*제\d+편.*$")
+CHAPTER_RE = re.compile(r"^\s*제\d+장.*$")
+SECTION_RE = re.compile(r"^\s*제\d+절.*$")
+EFFECTIVE_DATE_RE = re.compile(r"\[?(?:시행일?|矫青老)\s*:?\s*(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*\]")
+STRICT_ARTICLE_HEADER_RE = re.compile(r"^\s*((?:제\d+조(?:의\d+)?)|(?:力\d+炼))(?:\(([^)]*)\))?.*$")
+REFERENCE_ONLY_RE = re.compile(r"(?:제\d+조(?:의\d+)?(?:제\d+항)?(?:제\d+호)?)|(?:力\d+炼)")
 
 
 @dataclass
@@ -85,7 +85,6 @@ def parse_korean_law_articles(
             return
 
         body_lines = [line for line in current_article["lines"][1:] if line.strip()]
-        # TOC entries are often title-only lines without body text.
         if not body_lines:
             current_article = None
             return
@@ -146,16 +145,18 @@ def parse_korean_law_articles(
         article_match = STRICT_ARTICLE_HEADER_RE.match(line)
         if article_match:
             article_no = article_match.group(1)
-            article_title = article_match.group(2).strip()
+            article_title = article_match.group(2).strip() if article_match.group(2) else None
 
             if canonical_map:
-                key = _normalize(f"{article_no}({article_title})")
+                title_key = article_title or ""
+                key = _normalize(f"{article_no}({title_key})")
                 canonical_item = canonical_map.get(key)
                 if not canonical_item:
                     if current_article is not None:
                         current_article["lines"].append(line)
                         current_article["source_page_end"] = current_page
                     continue
+                article_title = canonical_item.article_title
                 chapter = canonical_item.chapter or current_chapter
                 section = canonical_item.section or current_section
             else:
@@ -181,4 +182,3 @@ def parse_korean_law_articles(
 
     flush_article()
     return articles
-

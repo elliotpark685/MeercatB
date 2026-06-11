@@ -18,6 +18,8 @@ def search_laws(
         validate_latest=payload.validate_latest,
         user_id=payload.user_id,
         site_id=payload.site_id,
+        law_names=payload.law_names,
+        law_scope=payload.law_scope,
     )
 
 
