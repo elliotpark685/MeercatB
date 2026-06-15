@@ -64,6 +64,23 @@ python -m ingestion.ingest_laws ^
   --effective-date "2026-03-02"
 ```
 
+## Ingestion / update (5 target laws via 법제처 Open API)
+Re-running this command pulls the latest text for the 5 target laws (산업안전보건법,
+시설물의 안전 및 유지관리에 관한 특별법, 건설산업기본법, 건설기술 진흥법,
+중대재해 처벌 등에 관한 법률) from the 법제처 Open API and re-embeds them.
+
+If a law's content hasn't changed since the last run, it's automatically skipped
+(`status: skipped_duplicate`). If it has changed, the old version is kept in the DB
+but marked `is_active=false` so search only returns the latest version.
+
+```bash
+cd backend
+python -m ingestion.ingest_laws --all-target-laws
+```
+
+`LAW_API_OC` is read from `.env` automatically. Run this whenever one of the 5 laws
+is amended (e.g. periodically via a scheduled job).
+
 ## DB verification SQL
 ```sql
 SELECT current_database();

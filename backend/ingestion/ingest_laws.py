@@ -1,6 +1,7 @@
 import argparse
 from dataclasses import dataclass
 import json
+import re
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlencode
@@ -9,10 +10,11 @@ from urllib.request import urlopen
 from app.core.config import settings
 from app.core.database import SessionLocal, init_db
 from app.services.embedding_service import EmbeddingService
-from app.services.law_ingestion_service import LawIngestionService, LawSourceArticle, LawSourceDocument
+from app.services.law_ingestion_service import LawIngestionService, LawSourceDocument
 
 
 LAW_API_BASE_URL = "https://www.law.go.kr/DRF/lawService.do"
+LAW_API_SEARCH_URL = "https://www.law.go.kr/DRF/lawSearch.do"
 
 
 @dataclass(frozen=True)
@@ -55,97 +57,163 @@ def parse_args() -> argparse.Namespace:
 
 
 class LawOpenApiClient:
-    def __init__(self, oc: str, base_url: str = LAW_API_BASE_URL) -> None:
+    def __init__(
+        self,
+        oc: str,
+        base_url: str = LAW_API_BASE_URL,
+        search_url: str = LAW_API_SEARCH_URL,
+    ) -> None:
         self.oc = oc
         self.base_url = base_url
+        self.search_url = search_url
+
+    def _find_law_serial_number(self, law_name: str) -> str | None:
+        params = {"OC": self.oc, "target": "law", "type": "JSON", "query": law_name}
+        url = f"{self.search_url}?{urlencode(params)}"
+        with urlopen(url, timeout=20) as response:
+            payload = json.loads(response.read().decode("utf-8"))
+
+        laws = (payload.get("LawSearch") or {}).get("law") or []
+        if isinstance(laws, dict):
+            laws = [laws]
+
+        for item in laws:
+            if isinstance(item, dict) and item.get("법령명한글", "").strip() == law_name:
+                return item.get("법령일련번호")
+        if laws and isinstance(laws[0], dict):
+            return laws[0].get("법령일련번호")
+        return None
 
     def fetch_law(self, target: TargetLaw) -> LawSourceDocument:
-        params = {
-            "OC": self.oc,
-            "target": "law",
-            "type": "JSON",
-            "query": target.law_name,
-        }
+        mst = self._find_law_serial_number(target.law_name)
+        if not mst:
+            raise ValueError(f"Law not found via Open API search: {target.law_name}")
+
+        params = {"OC": self.oc, "target": "law", "MST": mst, "type": "JSON"}
         source_url = f"{self.base_url}?{urlencode(params)}"
-        with urlopen(source_url, timeout=20) as response:
+        with urlopen(source_url, timeout=30) as response:
             payload = json.loads(response.read().decode("utf-8"))
         return law_api_payload_to_source_document(payload=payload, target=target, source_url=source_url)
 
 
 def law_api_payload_to_source_document(payload: dict[str, Any], target: TargetLaw, source_url: str) -> LawSourceDocument:
-    law_body = _first_mapping(payload, ["법령", "Law", "law"]) or payload
-    articles_payload = _extract_articles(law_body)
-    raw_text = _extract_text(law_body)
-    articles = [_payload_to_source_article(item) for item in articles_payload]
-    articles = [article for article in articles if article.article_no and article.article_text]
+    law_body = payload.get("법령") or payload.get("Law") or payload
+    basic_info = law_body.get("기본정보") or {}
+
+    raw_text = _reconstruct_law_text(law_body)
+    if not raw_text.strip():
+        raise ValueError(f"No article content returned for {target.law_name}")
 
     return LawSourceDocument(
-        law_name=_first_string(law_body, ["법령명_한글", "법령명", "lawName"]) or target.law_name,
+        law_name=_first_string(basic_info, ["법령명_한글"]) or target.law_name,
         law_short_name=target.law_short_name,
-        law_type=_first_string(law_body, ["법종구분", "lawType"]) or target.law_type,
-        law_no=_first_string(law_body, ["공포번호", "lawNo"]),
+        law_type=_dict_content(basic_info.get("법종구분")) or target.law_type,
+        law_no=_first_string(basic_info, ["공포번호"]),
         source_url=source_url,
-        effective_date=_first_string(law_body, ["시행일자", "effectiveDate"]),
-        amendment_date=_first_string(law_body, ["공포일자", "개정일자", "amendmentDate"]),
+        effective_date=_first_string(basic_info, ["시행일자"]),
+        amendment_date=_first_string(basic_info, ["공포일자"]),
         raw_text=raw_text,
-        articles=articles or None,
+        articles=None,
     )
 
 
-def _extract_articles(payload: dict[str, Any]) -> list[dict[str, Any]]:
-    candidates = [
-        payload.get("조문"),
-        payload.get("조문단위"),
-        payload.get("articles"),
-        _first_mapping(payload, ["조문"]) or {},
-    ]
-    for candidate in candidates:
-        if isinstance(candidate, list):
-            return [item for item in candidate if isinstance(item, dict)]
-        if isinstance(candidate, dict):
-            nested = candidate.get("조문단위") or candidate.get("article")
-            if isinstance(nested, list):
-                return [item for item in nested if isinstance(item, dict)]
-            if isinstance(nested, dict):
-                return [nested]
-    return []
+ARTICLE_CONTENT_SPLIT_RE = re.compile(r"^\s*((?:제\d+조(?:의\d+)?)(?:\([^)]*\))?)\s*(.*)$")
 
 
-def _payload_to_source_article(payload: dict[str, Any]) -> LawSourceArticle:
-    article_no = _first_string(payload, ["조문번호", "조문키", "articleNo"]) or ""
-    title = _first_string(payload, ["조문제목", "articleTitle"])
-    article_text = _first_string(payload, ["조문내용", "조문본문", "articleText"]) or _flatten_text(payload)
-    if article_no and not article_no.startswith("제"):
-        article_no = f"제{article_no}조"
-    return LawSourceArticle(
-        article_no=article_no,
-        article_title=title,
-        article_text=article_text,
-        effective_date=_first_string(payload, ["조문시행일자", "시행일자"]),
-        status="effective",
-    )
+def _reconstruct_law_text(law_body: dict[str, Any]) -> str:
+    """Flatten the 법제처 Open API 조문 tree into PDF-like article text.
+
+    `parse_korean_law_articles` expects line-by-line text where article/chapter
+    headers start their own line, so this mirrors that shape from the JSON tree.
+    Article headers (e.g. "제1조(목적) 이 법은 ...") are split onto their own
+    line from the body text, because `parse_korean_law_articles` drops any
+    article whose header line has no following body line.
+    """
+    units = _as_list((law_body.get("조문") or {}).get("조문단위"))
+
+    lines: list[str] = []
+    for unit in units:
+        if not isinstance(unit, dict):
+            continue
+        content = _text_content(unit.get("조문내용"))
+        is_article = unit.get("조문여부") == "조문"
+        if content:
+            if is_article:
+                match = ARTICLE_CONTENT_SPLIT_RE.match(content)
+                if match and match.group(2).strip():
+                    lines.append(match.group(1))
+                    lines.append(match.group(2).strip())
+                else:
+                    lines.append(content)
+            else:
+                lines.append(content)
+        if not is_article:
+            continue
+        for hang in _as_list(unit.get("항")):
+            _append_hang_lines(lines, hang)
+        for ho in _as_list(unit.get("호")):
+            _append_ho_lines(lines, ho)
+    return "\n".join(lines)
 
 
-def _extract_text(payload: dict[str, Any]) -> str | None:
-    text = _first_string(payload, ["원문", "본문", "rawText", "text"])
-    return text.strip() if text and text.strip() else None
+def _append_hang_lines(lines: list[str], hang: Any) -> None:
+    if not isinstance(hang, dict):
+        return
+    content = _text_content(hang.get("항내용"))
+    if content:
+        lines.append(content)
+    for ho in _as_list(hang.get("호")):
+        _append_ho_lines(lines, ho)
 
 
-def _flatten_text(payload: Any) -> str:
-    if isinstance(payload, str):
-        return payload
-    if isinstance(payload, list):
-        return "\n".join(_flatten_text(item) for item in payload if item is not None)
-    if isinstance(payload, dict):
-        return "\n".join(_flatten_text(value) for value in payload.values() if value is not None)
-    return str(payload) if payload is not None else ""
+def _append_ho_lines(lines: list[str], ho: Any) -> None:
+    if not isinstance(ho, dict):
+        return
+    content = _text_content(ho.get("호내용"))
+    if content:
+        lines.append(content)
+    for mok in _as_list(ho.get("목")):
+        if isinstance(mok, dict):
+            content = _text_content(mok.get("목내용"))
+            if content:
+                lines.append(content)
 
 
-def _first_mapping(payload: dict[str, Any], keys: list[str]) -> dict[str, Any] | None:
-    for key in keys:
-        value = payload.get(key)
-        if isinstance(value, dict):
-            return value
+def _as_list(value: Any) -> list[Any]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    return [value]
+
+
+def _text_content(value: Any) -> str | None:
+    """Normalize a 조문/항/호/목 *내용 value into a single text block.
+
+    The Open API usually returns these as plain strings, but for amended
+    articles it can return nested lists of strings (e.g. body text plus a
+    trailing [시행일] note). Flatten any nesting into newline-joined text.
+    """
+    if value is None:
+        return None
+    if isinstance(value, str):
+        text = value.strip()
+        return text or None
+    if isinstance(value, list):
+        parts = [_text_content(item) for item in value]
+        parts = [part for part in parts if part]
+        return "\n".join(parts) if parts else None
+    if isinstance(value, dict):
+        return _text_content(value.get("content"))
+    return None
+
+
+def _dict_content(value: Any) -> str | None:
+    if isinstance(value, dict):
+        content = value.get("content")
+        return content.strip() if isinstance(content, str) else None
+    if isinstance(value, str):
+        return value.strip() or None
     return None
 
 

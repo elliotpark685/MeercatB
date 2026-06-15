@@ -120,6 +120,7 @@ class LawIngestionService:
             version_hash=version_hash,
             is_active=True,
         )
+        self.repo.deactivate_other_documents(law_name=source.law_name, keep_document_id=law_document.id)
 
         if source.articles:
             parsed_articles = self._source_articles_to_parsed(

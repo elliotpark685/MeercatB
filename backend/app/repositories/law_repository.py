@@ -1,4 +1,4 @@
-from sqlalchemy import and_, case, or_, select
+from sqlalchemy import and_, case, or_, select, update
 from sqlalchemy.orm import Session, joinedload
 
 from app.models.law_article import LawArticle
@@ -45,6 +45,19 @@ class LawRepository:
     def get_law_document_by_version_hash(self, version_hash: str) -> LawDocument | None:
         stmt = select(LawDocument).where(LawDocument.version_hash == version_hash)
         return self.db.scalars(stmt).first()
+
+    def deactivate_other_documents(self, law_name: str, keep_document_id: int) -> None:
+        """Mark older versions of a law as inactive once a newer one is ingested."""
+        stmt = (
+            update(LawDocument)
+            .where(
+                LawDocument.law_name == law_name,
+                LawDocument.id != keep_document_id,
+                LawDocument.is_active.is_(True),
+            )
+            .values(is_active=False)
+        )
+        self.db.execute(stmt)
 
     def list_articles_with_documents(self) -> list[LawArticle]:
         stmt = select(LawArticle).options(joinedload(LawArticle.law_document), joinedload(LawArticle.chunks))
@@ -126,6 +139,7 @@ class LawRepository:
             else_=3,
         )
         filters = [
+            LawDocument.is_active.is_(True),
             or_(
                 LawArticle.full_text.ilike(pattern),
                 LawArticle.article_text.ilike(pattern),
@@ -138,7 +152,7 @@ class LawRepository:
                 LawDocument.law_short_name.ilike(pattern),
                 LawArticle.chapter.ilike(pattern),
                 LawArticle.section.ilike(pattern),
-            )
+            ),
         ]
         scope_filter = self._law_scope_filter(law_scope)
         if scope_filter is not None:
@@ -160,6 +174,7 @@ class LawRepository:
             .join(LawArticle, LawArticle.id == LawChunk.law_article_id)
             .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
             .outerjoin(LawEmbedding, LawEmbedding.chunk_id == LawChunk.id)
+            .where(LawDocument.is_active.is_(True))
         )
 
     @staticmethod

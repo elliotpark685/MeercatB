@@ -45,6 +45,9 @@ class _FakeRepo:
     def get_law_document_by_version_hash(self, version_hash: str):
         return self.existing_by_hash.get(version_hash)
 
+    def deactivate_other_documents(self, law_name: str, keep_document_id: int):
+        pass
+
 
 def test_ingestion_uses_document_effective_date_as_default():
     law_name = "산업안전보건기준에 관한 규칙"
@@ -105,17 +108,20 @@ def test_ingestion_skips_duplicate_version_hash():
 def test_law_api_payload_to_source_document_extracts_metadata_and_articles():
     payload = {
         "법령": {
-            "법령명_한글": "건설기술 진흥법",
-            "법종구분": "법률",
-            "공포번호": "12345",
-            "시행일자": "20240101",
-            "공포일자": "20231212",
+            "기본정보": {
+                "법령명_한글": "건설기술 진흥법",
+                "법종구분": {"content": "법률"},
+                "공포번호": "12345",
+                "시행일자": "20240101",
+                "공포일자": "20231212",
+            },
             "조문": {
                 "조문단위": [
                     {
                         "조문번호": "62",
+                        "조문여부": "조문",
                         "조문제목": "건설공사의 안전관리",
-                        "조문내용": "건설공사의 참여자는 안전관리계획을 수립하여야 한다.",
+                        "조문내용": "제62조(건설공사의 안전관리) 건설공사의 참여자는 안전관리계획을 수립하여야 한다.",
                     }
                 ]
             },
@@ -130,11 +136,13 @@ def test_law_api_payload_to_source_document_extracts_metadata_and_articles():
 
     assert source.law_name == "건설기술 진흥법"
     assert source.law_short_name == "건설기술진흥법"
+    assert source.law_type == "법률"
     assert source.law_no == "12345"
     assert source.effective_date == "20240101"
     assert source.amendment_date == "20231212"
-    assert source.articles is not None
-    assert source.articles[0].article_no == "제62조"
+    assert source.articles is None
+    assert "제62조(건설공사의 안전관리)" in source.raw_text
+    assert "건설공사의 참여자는 안전관리계획을 수립하여야 한다." in source.raw_text
 
 
 def test_target_law_ingestion_continues_with_local_fallback_on_api_error():
