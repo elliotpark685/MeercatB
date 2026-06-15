@@ -37,10 +37,10 @@ export default function Login() {
         } else {
           const detail = err.response?.data?.detail;
           const msg = Array.isArray(detail)
-            ? detail.map((d: { msg?: string }) => d.msg ?? '').join(', ')
-            : typeof detail === 'string'
-            ? detail
-            : err.message;
+            ? detail.map((d: { msg?: string }) => d.msg ?? "").join(", ")
+            : typeof detail === "string"
+              ? detail
+              : err.message;
           setError(`로그인 실패: ${msg}`);
         }
       } else {
@@ -119,13 +119,18 @@ export default function Login() {
 
         <p className="text-center text-sm text-[#98989D] mt-5">
           계정이 없으신가요?{" "}
-          <Link to="/register" className="text-[#00E5FF] hover:underline font-medium">
+          <Link
+            to="/register"
+            className="text-[#00E5FF] hover:underline font-medium"
+          >
             회원가입
           </Link>
         </p>
         <p className="text-center text-xs text-[#3A3A3C] mt-3">
           개발 계정:{" "}
-          <code className="font-mono text-[#98989D]">admin.dev / devpass1234</code>
+          <code className="font-mono text-[#98989D]">
+            admin.dev / devpass****
+          </code>
         </p>
       </div>
     </div>
