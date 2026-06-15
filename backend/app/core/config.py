@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from pydantic import Field
+from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -33,6 +33,22 @@ class Settings(BaseSettings):
     auth_secret_key: str = Field(default="change-me-in-production", alias="AUTH_SECRET_KEY")
     auth_access_token_expire_minutes: int = Field(default=60 * 12, alias="AUTH_ACCESS_TOKEN_EXPIRE_MINUTES")
     auth_allow_legacy_user_header: bool = Field(default=False, alias="AUTH_ALLOW_LEGACY_USER_HEADER")
+
+    cors_origins: list[str] = Field(
+        default=[
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "https://meercat-b.vercel.app",
+        ],
+        alias="CORS_ORIGINS",
+    )
+
+    @field_validator("cors_origins", mode="before")
+    @classmethod
+    def _split_cors_origins(cls, value):
+        if isinstance(value, str):
+            return [origin.strip() for origin in value.split(",") if origin.strip()]
+        return value
 
     @property
     def sqlalchemy_database_uri(self) -> str:
