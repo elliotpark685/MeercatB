@@ -80,10 +80,52 @@ def main() -> None:
             )
 
     if args.embed:
+        logger.info("규칙 문서 청크 보정 중 (청크 없는 safety_standard/rule 아티클)...")
+        _ensure_rule_chunks()
         logger.info("임베딩 생성 시작...")
         _run_embedding()
 
     logger.info("완료.")
+
+
+def _ensure_rule_chunks() -> None:
+    """source_type='rule' 문서 중 청크 없는 아티클에 청크를 자동 생성."""
+    from app.core.database import SessionLocal
+    from app.models.law_article import LawArticle
+    from app.models.law_chunk import LawChunk
+    from app.models.law_document import LawDocument
+    from app.services.admrul_ingestion_service import SOURCE_CATEGORY
+    from sqlalchemy import select
+
+    with SessionLocal() as db:
+        stmt = (
+            select(LawArticle)
+            .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
+            .outerjoin(LawChunk, LawChunk.law_article_id == LawArticle.id)
+            .where(
+                LawDocument.source_category == SOURCE_CATEGORY,
+                LawDocument.source_type == "rule",
+                LawDocument.is_active.is_(True),
+                LawChunk.id.is_(None),
+            )
+        )
+        articles = list(db.scalars(stmt).unique().all())
+        logger.info("청크 없는 규칙 아티클: %d개", len(articles))
+        created = 0
+        for art in articles:
+            text = art.article_text or art.full_text or art.content or ""
+            if not text.strip():
+                continue
+            db.add(LawChunk(
+                law_article_id=art.id,
+                chunk_level="article",
+                chunk_no="1",
+                chunk_text=text,
+                token_count=len(text.split()),
+            ))
+            created += 1
+        db.commit()
+        logger.info("규칙 청크 생성 완료: %d개", created)
 
 
 def _run_embedding() -> None:
@@ -116,8 +158,7 @@ def _run_embedding() -> None:
                 ),
             )
             .where(
-                LawDocument.source_category == SOURCE_CATEGORY,
-                LawDocument.source_type == SOURCE_TYPE,
+                LawDocument.source_category == SOURCE_CATEGORY,  # rule 포함 전체 안전기준
                 LawDocument.is_active.is_(True),
                 LawEmbedding.id.is_(None),
             )
