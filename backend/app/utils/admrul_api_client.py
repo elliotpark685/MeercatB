@@ -86,21 +86,36 @@ class AdmrulApiClient:
             logger.warning("admrul search JSON parse failed: %s", exc)
             return []
 
-        search_result = payload.get("LawSearch") or {}
-        items = search_result.get("law") or []
+        # 행정규칙 API 응답 구조: AdmRulSearch.admrul[]
+        search_result = payload.get("AdmRulSearch") or payload.get("LawSearch") or {}
+        items = search_result.get("admrul") or search_result.get("law") or []
         if isinstance(items, dict):
             items = [items]
 
         result: list[AdmrulListItem] = []
         for item in items:
             try:
+                # 행정규칙일련번호: lawService.do?ID= 에 사용하는 실제 ID
+                doc_id = str(
+                    item.get("행정규칙일련번호")
+                    or item.get("행정규칙ID")
+                    or item.get("법령ID")
+                    or item.get("ID")
+                    or ""
+                )
+                name = str(
+                    item.get("행정규칙명")
+                    or item.get("법령명")
+                    or item.get("법령명한글")
+                    or ""
+                )
                 result.append(
                     AdmrulListItem(
-                        id=str(item.get("법령ID") or item.get("ID") or ""),
-                        lid=str(item.get("법령ID") or item.get("LID") or item.get("ID") or ""),
-                        name=str(item.get("법령명") or item.get("법령명한글") or ""),
+                        id=doc_id,
+                        lid=doc_id,
+                        name=name,
                         enforcement_date=str(item.get("시행일자") or ""),
-                        revision_date=str(item.get("최근개정일자") or ""),
+                        revision_date=str(item.get("개정일자") or item.get("최근개정일자") or ""),
                         ministry=str(item.get("소관부처명") or ""),
                     )
                 )
@@ -153,80 +168,119 @@ class AdmrulApiClient:
 
     @staticmethod
     def _parse_document(doc_id: str, payload: dict) -> AdmrulDocument | None:
-        """API 응답 JSON → AdmrulDocument 변환."""
-        law_data = payload.get("법령") or payload.get("AdmRul") or {}
-        if not law_data:
-            # 다른 최상위 키 시도
-            for key in payload:
-                if isinstance(payload[key], dict):
-                    law_data = payload[key]
+        """API 응답 JSON → AdmrulDocument 변환.
+
+        법제처 행정규칙 API 실제 응답 구조:
+        {
+          "AdmRulService": {
+            "행정규칙기본정보": { "행정규칙명": "...", "발령일자": "...", ... },
+            "조문내용": ["제1장 총칙", "제1조(목적) ...", "제2조(정의) ...", ...],
+            ...
+          }
+        }
+        """
+        import re as _re
+
+        service = (
+            payload.get("AdmRulService")
+            or payload.get("법령")
+            or payload.get("AdmRul")
+            or {}
+        )
+        if not service:
+            for v in payload.values():
+                if isinstance(v, dict):
+                    service = v
                     break
 
-        if not law_data:
-            logger.warning("admrul document parse: empty law_data for id=%s", doc_id)
+        if not service:
+            logger.warning("admrul document parse: empty service data for id=%s", doc_id)
             return None
 
         # 기본 메타
+        meta = service.get("행정규칙기본정보") or service.get("기본정보") or {}
         name = str(
-            law_data.get("기본정보", {}).get("법령명칭")
-            or law_data.get("법령명")
-            or law_data.get("법령명한글")
+            meta.get("행정규칙명")
+            or meta.get("법령명칭")
+            or service.get("행정규칙명")
+            or service.get("법령명")
             or ""
         )
         enforcement_date = str(
-            law_data.get("기본정보", {}).get("시행일자")
-            or law_data.get("시행일자")
-            or ""
+            meta.get("발령일자") or meta.get("시행일자") or service.get("시행일자") or ""
         )
 
         doc = AdmrulDocument(id=doc_id, name=name, enforcement_date=enforcement_date)
 
-        # 조문 파싱
-        body = law_data.get("조문") or law_data.get("규정내용") or law_data.get("본문") or {}
-        articles_raw = body.get("조문단위") if isinstance(body, dict) else None
-        if isinstance(articles_raw, dict):
-            articles_raw = [articles_raw]
+        # 조문 파싱 — 실제 응답에서 조문내용은 문자열 리스트
+        content_list = service.get("조문내용") or []
+        if isinstance(content_list, str):
+            content_list = [content_list]
 
-        raw_texts: list[str] = []
-
-        if articles_raw:
-            for item in articles_raw:
-                article_no = str(item.get("조문번호") or item.get("조번호") or "")
-                title = str(item.get("조문제목") or item.get("제목") or "")
-                content_raw = item.get("조문내용") or item.get("내용") or ""
-                if isinstance(content_raw, list):
-                    content = "\n".join(str(c) for c in content_raw)
-                else:
-                    content = str(content_raw)
-
-                chapter = str(item.get("편번호") or item.get("장번호") or "")
-                section = str(item.get("절번호") or "")
-                raw_texts.append(f"{article_no} {title}\n{content}".strip())
-                doc.articles.append(
-                    AdmrulArticle(
-                        article_no=article_no,
-                        title=title,
-                        content=content,
-                        chapter=chapter,
-                        section=section,
-                    )
-                )
+        if content_list:
+            doc.raw_text = "\n".join(str(s) for s in content_list)
+            doc.articles = _parse_admrul_text_list(content_list, name)
         else:
-            # 조문 구조가 없으면 전체 텍스트를 하나의 청크로
-            text = (
-                law_data.get("규정내용")
-                or law_data.get("본문내용")
-                or law_data.get("내용")
-                or ""
-            )
-            if isinstance(text, list):
-                text = "\n".join(str(t) for t in text)
-            text = str(text)
-            raw_texts.append(text)
+            # 문자열 blob fallback
+            text = str(service.get("규정내용") or service.get("본문내용") or "")
+            doc.raw_text = text
             if text:
-                doc.articles.append(
-                    AdmrulArticle(article_no="", title=name, content=text)
+                doc.articles = [AdmrulArticle(article_no="", title=name, content=text)]
+
+        return doc
+
+
+# ── 조문 텍스트 리스트 파서 ────────────────────────────────────────────────────
+
+import re as _re
+
+_ARTICLE_PATTERN = _re.compile(r"^제\s*(\d+)\s*조\s*(?:\(([^)]+)\))?\s*(.*)", _re.DOTALL)
+_CHAPTER_PATTERN = _re.compile(r"^제\s*\d+\s*장")
+_SECTION_PATTERN = _re.compile(r"^제\s*\d+\s*절")
+
+
+def _parse_admrul_text_list(lines: list, doc_name: str) -> list[AdmrulArticle]:
+    """행정규칙 조문 텍스트 리스트를 AdmrulArticle 목록으로 변환."""
+    articles: list[AdmrulArticle] = []
+    current_chapter = ""
+    current_section = ""
+
+    for line in lines:
+        text = str(line).strip()
+        if not text:
+            continue
+
+        if _CHAPTER_PATTERN.match(text):
+            current_chapter = text
+            current_section = ""
+            continue
+
+        if _SECTION_PATTERN.match(text):
+            current_section = text
+            continue
+
+        m = _ARTICLE_PATTERN.match(text)
+        if m:
+            article_no = f"제{m.group(1)}조"
+            title = m.group(2) or ""
+            content = (m.group(3) or "").strip()
+            full = f"{article_no}({title}) {content}".strip() if title else f"{article_no} {content}".strip()
+            articles.append(
+                AdmrulArticle(
+                    article_no=article_no,
+                    title=title,
+                    content=full,
+                    chapter=current_chapter,
+                    section=current_section,
+                )
+            )
+        else:
+            # 조문 형식이 아닌 줄은 마지막 article에 덧붙임
+            if articles:
+                articles[-1].content += "\n" + text
+            else:
+                articles.append(
+                    AdmrulArticle(article_no="", title=doc_name, content=text)
                 )
 
-        doc.raw_text = "\n\n".join(raw_texts)
-        return doc
+    return articles
