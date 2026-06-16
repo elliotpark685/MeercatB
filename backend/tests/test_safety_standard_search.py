@@ -218,18 +218,24 @@ def _make_urlopen_mock(payload: dict):
 
 
 def test_admrul_api_client_search_list_mock():
-    """외부 API 미호출, mock으로만 동작 검증."""
+    """외부 API 미호출, mock으로만 동작 검증 (실제 API 응답 구조: AdmRulSearch.admrul)."""
     from app.utils.admrul_api_client import AdmrulApiClient
 
+    # 실제 법제처 행정규칙 목록 API 응답 구조
     mock_payload = {
-        "LawSearch": {
-            "law": [
+        "AdmRulSearch": {
+            "resultCode": "00",
+            "resultMsg": "success",
+            "admrul": [
                 {
-                    "법령ID": "123456",
-                    "법령명": "가설공사 표준안전 작업지침",
-                    "시행일자": "20200101",
+                    "행정규칙일련번호": "2100000186031",
+                    "행정규칙ID": "22332",
+                    "행정규칙명": "가설공사 표준안전 작업지침",
+                    "시행일자": "20200116",
+                    "개정일자": "20200107",
+                    "소관부처명": "고용노동부",
                 }
-            ]
+            ],
         }
     }
 
@@ -239,37 +245,39 @@ def test_admrul_api_client_search_list_mock():
 
     assert len(items) == 1
     assert items[0].name == "가설공사 표준안전 작업지침"
-    assert items[0].id == "123456"
+    assert items[0].id == "2100000186031"  # 행정규칙일련번호가 ID
 
 
 def test_admrul_api_client_get_document_mock():
-    """본문 조회 mock 테스트."""
+    """본문 조회 mock 테스트 (실제 API 응답 구조: AdmRulService.조문내용 문자열 리스트)."""
     from app.utils.admrul_api_client import AdmrulApiClient
 
+    # 실제 법제처 행정규칙 본문 API 응답 구조
     mock_payload = {
-        "법령": {
-            "기본정보": {
-                "법령명칭": "가설공사 표준안전 작업지침",
-                "시행일자": "20200101",
+        "AdmRulService": {
+            "행정규칙기본정보": {
+                "행정규칙명": "가설공사 표준안전 작업지침",
+                "발령일자": "20200107",
+                "소관부처명": "고용노동부",
             },
-            "조문": {
-                "조문단위": [{
-                    "조문번호": "제1조",
-                    "조문제목": "목적",
-                    "조문내용": "이 지침은 가설공사 작업자의 안전을 위한 기준을 정한다.",
-                }]
-            },
+            "조문내용": [
+                "제1장  총    칙",
+                "제1조(목적) 이 지침은 가설공사 작업자의 안전을 위한 기준을 정한다.",
+                "제2조(정의) 이 지침에서 사용하는 용어의 뜻은 관계 법령에서 정하는 바에 따른다.",
+            ],
         }
     }
 
     client = AdmrulApiClient(oc="test-oc")
     with patch("app.utils.admrul_api_client.urlopen", _make_urlopen_mock(mock_payload)):
-        doc = client.get_document("123456")
+        doc = client.get_document("2100000186031")
 
     assert doc is not None
     assert doc.name == "가설공사 표준안전 작업지침"
-    assert len(doc.articles) == 1
+    # 조문내용 파싱: 제N장은 chapter로 처리, 제1조/제2조 → articles
+    assert len(doc.articles) == 2
     assert doc.articles[0].article_no == "제1조"
+    assert doc.articles[1].article_no == "제2조"
 
 
 def test_admrul_api_client_handles_request_failure():
