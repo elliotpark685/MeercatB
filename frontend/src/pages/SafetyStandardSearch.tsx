@@ -1,47 +1,52 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import {
   searchSafetyStandards,
   type SafetyStandardResultItem,
   type SafetyStandardSearchResult,
-} from '../api/admin';
-import Spinner from '../components/Spinner';
-import ErrorBox from '../components/ErrorBox';
-import EmptyState from '../components/EmptyState';
+} from "../api/admin";
+import Spinner from "../components/Spinner";
+import ErrorBox from "../components/ErrorBox";
+import EmptyState from "../components/EmptyState";
 
 const TOP_K_OPTIONS = [3, 5, 10];
-const HISTORY_KEY = 'meerkat_safety_history';
+const HISTORY_KEY = "meerkat_safety_history";
 const HISTORY_MAX = 8;
 
-type FilterType = 'all' | 'rule' | 'moel_standard_safety_guideline';
+type FilterType = "all" | "rule" | "moel_standard_safety_guideline";
 
-const FILTER_OPTIONS: { value: FilterType; label: string; shortLabel: string }[] = [
-  { value: 'all', label: '전체', shortLabel: '전체' },
+const FILTER_OPTIONS: {
+  value: FilterType;
+  label: string;
+  shortLabel: string;
+}[] = [
+  { value: "all", label: "전체", shortLabel: "전체" },
   {
-    value: 'rule',
-    label: '산업안전보건기준에 관한 규칙',
-    shortLabel: '규칙',
+    value: "rule",
+    label: "산업안전보건기준에 관한 규칙",
+    shortLabel: "규칙",
   },
   {
-    value: 'moel_standard_safety_guideline',
-    label: '고용노동부 표준안전작업지침',
-    shortLabel: '작업지침',
+    value: "moel_standard_safety_guideline",
+    label: "고용노동부 표준안전작업지침",
+    shortLabel: "작업지침",
   },
 ];
 
 const SOURCE_TYPE_LABEL: Record<string, string> = {
-  rule: '산업안전보건기준에 관한 규칙',
-  moel_standard_safety_guideline: '고용노동부 표준안전작업지침',
+  rule: "산업안전보건기준에 관한 규칙",
+  moel_standard_safety_guideline: "고용노동부 표준안전작업지침",
 };
 
 const SOURCE_TYPE_COLOR: Record<string, string> = {
-  rule: 'border-[#00E5FF]/25 text-[#00E5FF] bg-[#00E5FF]/10',
-  moel_standard_safety_guideline: 'border-[#FF9F0A]/25 text-[#FF9F0A] bg-[#FF9F0A]/10',
+  rule: "border-[#00E5FF]/25 text-[#00E5FF] bg-[#00E5FF]/10",
+  moel_standard_safety_guideline:
+    "border-[#FF9F0A]/25 text-[#FF9F0A] bg-[#FF9F0A]/10",
 };
 
 function loadHistory(): string[] {
   try {
-    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]");
   } catch {
     return [];
   }
@@ -64,10 +69,16 @@ function formatScore(score: number): string {
 function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
   const [expanded, setExpanded] = useState(false);
   const typeLabel = SOURCE_TYPE_LABEL[item.source_type] ?? item.source_type;
-  const typeColor = SOURCE_TYPE_COLOR[item.source_type] ?? 'border-[#98989D]/30 text-[#98989D] bg-[#98989D]/10';
+  const typeColor =
+    SOURCE_TYPE_COLOR[item.source_type] ??
+    "border-[#98989D]/30 text-[#98989D] bg-[#98989D]/10";
   const preview = expanded ? item.content : item.content.slice(0, 200);
   const scoreColor =
-    item.score >= 0.7 ? 'text-[#32D74B]' : item.score >= 0.4 ? 'text-[#FF9F0A]' : 'text-[#98989D]';
+    item.score >= 0.7
+      ? "text-[#32D74B]"
+      : item.score >= 0.4
+        ? "text-[#FF9F0A]"
+        : "text-[#98989D]";
 
   return (
     <article className="group relative overflow-hidden rounded-2xl border border-[#2C2C2E] bg-[#1A1A1A] shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#3A3A3C]">
@@ -75,10 +86,14 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
       <div className="p-4 sm:p-5 space-y-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="flex min-w-0 flex-1 items-center gap-2">
-            <span className={`inline-flex shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-medium ${typeColor}`}>
+            <span
+              className={`inline-flex shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-medium ${typeColor}`}
+            >
               {typeLabel}
             </span>
-            <span className={`text-xs font-mono ${scoreColor}`}>{formatScore(item.score)}</span>
+            <span className={`text-xs font-mono ${scoreColor}`}>
+              {formatScore(item.score)}
+            </span>
           </div>
           <span className="rounded-full border border-[#2C2C2E] bg-[#121212] px-2.5 py-1 text-[11px] text-[#98989D]">
             {item.provider}
@@ -86,7 +101,9 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
         </div>
 
         <div className="space-y-1.5">
-          <p className="truncate text-[13px] font-medium text-[#C7C7CC]">{item.source_name}</p>
+          <p className="truncate text-[13px] font-medium text-[#C7C7CC]">
+            {item.source_name}
+          </p>
           <div className="flex flex-wrap items-center gap-2">
             {item.article_no && (
               <span className="inline-flex rounded-md bg-[#FF9F0A]/10 px-2 py-1 text-xs font-semibold text-[#FF9F0A]">
@@ -104,7 +121,7 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
         <div className="space-y-2">
           <p className="text-sm leading-6 text-[#C7C7CC] whitespace-pre-wrap break-words">
             {preview}
-            {item.content.length > 200 && !expanded && '...'}
+            {item.content.length > 200 && !expanded && "..."}
           </p>
           {item.content.length > 200 && (
             <button
@@ -112,8 +129,8 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
               onClick={() => setExpanded((v) => !v)}
               className="inline-flex items-center gap-1 text-sm font-medium text-[#FF9F0A] transition-colors hover:text-[#FFB347]"
             >
-              {expanded ? '접기' : '더보기'}
-              <span aria-hidden="true">{expanded ? '−' : '+'}</span>
+              {expanded ? "접기" : "더보기"}
+              <span aria-hidden="true">{expanded ? "−" : "+"}</span>
             </button>
           )}
         </div>
@@ -143,13 +160,15 @@ function FilterTab({
       onClick={onClick}
       className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all ${
         active
-          ? 'border-[#FF9F0A]/35 bg-[#FF9F0A]/10 text-[#FF9F0A] shadow-[0_0_0_1px_rgba(255,159,10,0.12)]'
-          : 'border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white'
+          ? "border-[#FF9F0A]/35 bg-[#FF9F0A]/10 text-[#FF9F0A] shadow-[0_0_0_1px_rgba(255,159,10,0.12)]"
+          : "border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white"
       }`}
     >
       <span className="sm:hidden">{shortLabel}</span>
       <span className="hidden sm:inline">{label}</span>
-      <span className={`rounded-full px-1.5 py-0.5 text-[10px] ${active ? 'bg-[#FF9F0A]/15' : 'bg-[#1E1E1E]'}`}>
+      <span
+        className={`rounded-full px-1.5 py-0.5 text-[10px] ${active ? "bg-[#FF9F0A]/15" : "bg-[#1E1E1E]"}`}
+      >
         {count}
       </span>
     </button>
@@ -159,9 +178,9 @@ function FilterTab({
 export default function SafetyStandardSearch() {
   const { userId, siteId } = useAuth();
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [topK, setTopK] = useState(5);
-  const [filterType, setFilterType] = useState<FilterType>('all');
+  const [filterType, setFilterType] = useState<FilterType>("all");
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -182,8 +201,8 @@ export default function SafetyStandardSearch() {
         setShowHistory(false);
       }
     }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   async function handleSearch(e: React.FormEvent, overrideQuery?: string) {
@@ -200,7 +219,7 @@ export default function SafetyStandardSearch() {
     setResult(null);
 
     try {
-      const sourceTypes = filterType === 'all' ? undefined : [filterType];
+      const sourceTypes = filterType === "all" ? undefined : [filterType];
       const res = await searchSafetyStandards({
         query: q,
         top_k: topK,
@@ -229,23 +248,25 @@ export default function SafetyStandardSearch() {
   }
 
   const filteredHistory = history.filter((h) =>
-    query ? h.toLowerCase().includes(query.toLowerCase()) : true
+    query ? h.toLowerCase().includes(query.toLowerCase()) : true,
   );
 
   const allResults = useMemo(() => result?.results ?? [], [result]);
 
   const displayResults = useMemo(
     () =>
-      filterType === 'all'
+      filterType === "all"
         ? allResults
         : allResults.filter((r) => r.source_type === filterType),
-    [allResults, filterType]
+    [allResults, filterType],
   );
 
   const countsByFilter = useMemo(() => {
-    const ruleCount = allResults.filter((item) => item.source_type === 'rule').length;
+    const ruleCount = allResults.filter(
+      (item) => item.source_type === "rule",
+    ).length;
     const guidelineCount = allResults.filter(
-      (item) => item.source_type === 'moel_standard_safety_guideline'
+      (item) => item.source_type === "moel_standard_safety_guideline",
     ).length;
     return {
       all: allResults.length,
@@ -255,7 +276,8 @@ export default function SafetyStandardSearch() {
   }, [allResults]);
 
   const activeFilterLabel =
-    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ?? '전체';
+    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ??
+    "전체";
   const hasNoResults = !!result && displayResults.length === 0;
   const searchSummary =
     result && allResults.length > 0
@@ -279,12 +301,15 @@ export default function SafetyStandardSearch() {
             </span>
           </div>
           <div className="space-y-1">
-            <h1 className="text-2xl font-semibold text-white sm:text-3xl">안전기준 검색</h1>
+            <h1 className="text-2xl font-semibold text-white sm:text-3xl">
+              안전기준 검색
+            </h1>
             <p className="text-sm font-medium text-[#FF9F0A]">
               산업안전보건기준에 관한 규칙과 표준안전작업지침을 함께 찾습니다.
             </p>
             <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
-              결과 카드에서 출처 유형, 유사도, 조문번호, 본문 미리보기를 한 번에 확인할 수 있습니다.
+              결과 카드에서 출처 유형, 유사도, 조문번호, 본문 미리보기를 한 번에
+              확인할 수 있습니다.
             </p>
           </div>
         </div>
@@ -375,12 +400,16 @@ export default function SafetyStandardSearch() {
           </div>
 
           <div className="text-xs text-[#3A3A3C]">
-            {allResults.length > 0 ? '필터는 탭으로 전환됩니다.' : '검색 후 필터 탭이 활성화됩니다.'}
+            {allResults.length > 0
+              ? "필터는 탭으로 전환됩니다."
+              : "검색 후 필터 탭이 활성화됩니다."}
           </div>
         </div>
 
         <div className="space-y-2">
-          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">출처 필터</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">
+            출처 필터
+          </div>
           <div
             role="tablist"
             aria-label="출처 필터"
@@ -419,12 +448,12 @@ export default function SafetyStandardSearch() {
           <p className="mt-4 text-sm font-medium text-[#C7C7CC]">
             안전기준 데이터가 준비되면 검색 결과가 여기에 표시됩니다.
           </p>
-          <p className="mt-2 text-xs leading-5 text-[#3A3A3C]">
+          {/* <p className="mt-2 text-xs leading-5 text-[#3A3A3C]">
             ingestion 실행 예시:
             <code className="ml-1 rounded bg-[#121212] px-1.5 py-0.5 font-mono text-[#FF9F0A]">
               python ingestion/ingest_admrul_safety_guidelines.py --embed
             </code>
-          </p>
+          </p> */}
         </div>
       )}
 
@@ -436,7 +465,10 @@ export default function SafetyStandardSearch() {
           </div>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {displayResults.map((item, idx) => (
-              <SafetyResultCard key={item.chunk_id ?? item.article_id ?? idx} item={item} />
+              <SafetyResultCard
+                key={item.chunk_id ?? item.article_id ?? idx}
+                item={item}
+              />
             ))}
           </div>
         </div>
