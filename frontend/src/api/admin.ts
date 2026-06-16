@@ -141,6 +141,46 @@ export async function generateDocument(params: GenerateDocumentParams): Promise<
   return res.data;
 }
 
+// ─── 안전기준 검색 ────────────────────────────────────────────────────────────
+
+export interface SafetyStandardResultItem {
+  source_type: string;
+  source_name: string;
+  article_no: string | null;
+  article_title: string | null;
+  content: string;
+  score: number;
+  provider: string;
+  article_id: number | null;
+  chunk_id: number | null;
+  matched_reason: string[];
+}
+
+export interface SafetyStandardSearchResult {
+  query: string;
+  results: SafetyStandardResultItem[];
+}
+
+export interface SafetyStandardSearchParams {
+  query: string;
+  top_k?: number;
+  source_types?: string[];
+  userId?: number | null;
+  siteId?: number | null;
+}
+
+export async function searchSafetyStandards(
+  params: SafetyStandardSearchParams
+): Promise<SafetyStandardSearchResult> {
+  const { userId, siteId, ...body } = params;
+  const res = await apiClient.post('/api/v1/safety-standards/search', {
+    ...body,
+    user_id: Number.isFinite(userId) ? userId : null,
+    site_id: Number.isFinite(siteId) ? siteId : null,
+  });
+  return res.data;
+}
+
 export async function getDailyQuizzes(siteId?: number, userId?: number) {
   const res = await apiClient.get('/api/v1/quizzes/daily', {
     params: {
