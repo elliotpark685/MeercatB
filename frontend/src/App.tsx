@@ -5,6 +5,7 @@ import AdminLayout from './components/AdminLayout';
 import Dashboard from './pages/Dashboard';
 import LawSearch from './pages/LawSearch';
 import DocumentGenerate from './pages/DocumentGenerate';
+import SafetyStandardSearch from './pages/SafetyStandardSearch';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Spinner from './components/Spinner';
@@ -58,6 +59,7 @@ export default function App() {
             >
               <Route index element={<Dashboard />} />
               <Route path="laws" element={<LawSearch />} />
+              <Route path="safety-standards" element={<SafetyStandardSearch />} />
               <Route path="documents" element={<DocumentGenerate />} />
             </Route>
           </Routes>

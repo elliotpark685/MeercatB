@@ -25,5 +25,9 @@ class LawDocument(Base, TimestampMixin):
     source_file_path: Mapped[str | None] = mapped_column(String(1024))
     raw_text: Mapped[str | None] = mapped_column(Text)
     is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    # 안전기준 구분 필드 (NULL = 기존 5개 법령)
+    source_category: Mapped[str | None] = mapped_column(String(50), index=True)
+    source_type: Mapped[str | None] = mapped_column(String(100), index=True)
+    provider: Mapped[str | None] = mapped_column(String(100))
 
     articles = relationship("LawArticle", back_populates="law_document", cascade="all, delete-orphan")

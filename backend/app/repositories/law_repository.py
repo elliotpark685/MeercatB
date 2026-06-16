@@ -7,6 +7,8 @@ from app.models.law_document import LawDocument
 from app.models.law_embedding import LawEmbedding
 from app.models.law_search_log import LawSearchLog
 
+SAFETY_STANDARD_CATEGORY = "safety_standard"
+
 
 class LawRepository:
     def __init__(self, db: Session) -> None:
@@ -167,6 +169,77 @@ class LawRepository:
         rows = self.db.execute(stmt).all()
         return [(row[0], row[1]) for row in rows]
 
+    # ── 안전기준 검색 메서드 ──────────────────────────────────────────────────
+
+    def search_chunks_by_keyword_for_category(
+        self,
+        keywords: list[str],
+        source_category: str,
+        source_types: list[str] | None = None,
+        limit: int = 100,
+    ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
+        keyword_filter = self._keyword_filter(keywords)
+        category_filter = self._source_category_filter(source_category, source_types)
+        filters = [f for f in [category_filter, keyword_filter] if f is not None]
+        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        if filters:
+            stmt = stmt.where(and_(*filters))
+        rows = self.db.execute(stmt).all()
+        return [(row[0], row[1], row[2], row[3]) for row in rows]
+
+    def list_chunks_for_category(
+        self,
+        source_category: str,
+        source_types: list[str] | None = None,
+        limit: int = 500,
+    ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
+        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        category_filter = self._source_category_filter(source_category, source_types)
+        if category_filter is not None:
+            stmt = stmt.where(category_filter)
+        rows = self.db.execute(stmt).all()
+        return [(row[0], row[1], row[2], row[3]) for row in rows]
+
+    def search_by_keyword_for_category(
+        self,
+        keyword: str,
+        source_category: str,
+        source_types: list[str] | None = None,
+        top_k: int = 20,
+    ) -> list[tuple[LawArticle, LawDocument]]:
+        pattern = f"%{keyword}%"
+        status_rank = case(
+            (LawArticle.status == "effective", 0),
+            (LawArticle.status == "unknown", 1),
+            (LawArticle.status == "scheduled", 2),
+            else_=3,
+        )
+        filters = [
+            LawDocument.is_active.is_(True),
+            or_(
+                LawArticle.full_text.ilike(pattern),
+                LawArticle.article_text.ilike(pattern),
+                LawArticle.title.ilike(pattern),
+                LawArticle.article_title.ilike(pattern),
+                LawDocument.title.ilike(pattern),
+                LawDocument.law_name.ilike(pattern),
+            ),
+        ]
+        category_filter = self._source_category_filter(source_category, source_types)
+        if category_filter is not None:
+            filters.append(category_filter)
+        stmt = (
+            select(LawArticle, LawDocument)
+            .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
+            .where(and_(*filters))
+            .order_by(status_rank.asc(), LawArticle.id.desc())
+            .limit(top_k)
+        )
+        rows = self.db.execute(stmt).all()
+        return [(row[0], row[1]) for row in rows]
+
+    # ── 공통 헬퍼 ─────────────────────────────────────────────────────────────
+
     @staticmethod
     def _chunk_select_stmt():
         return (
@@ -176,6 +249,13 @@ class LawRepository:
             .outerjoin(LawEmbedding, LawEmbedding.chunk_id == LawChunk.id)
             .where(LawDocument.is_active.is_(True))
         )
+
+    @staticmethod
+    def _source_category_filter(source_category: str, source_types: list[str] | None = None):
+        filters: list = [LawDocument.source_category == source_category]
+        if source_types:
+            filters.append(LawDocument.source_type.in_(source_types))
+        return and_(*filters)
 
     @staticmethod
     def _keyword_filter(keywords: list[str]):
