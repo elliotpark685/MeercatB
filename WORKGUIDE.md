@@ -235,20 +235,50 @@ GET  /api/v1/admin/dashboard          # admin 역할 필요
 법제처 API lawSearch.do (target=admrul, query=표준안전작업지침)
   → 목록(AdmrulListItem) 수집
   → 각 ID로 lawService.do (target=admrul, ID={id}) 본문 조회
-  → AdmrulDocument 파싱 (조문 → AdmrulArticle)
+  → AdmrulDocument 파싱 (조문내용 문자열 리스트 → AdmrulArticle)
   → LawDocument(source_category='safety_standard', source_type='moel_standard_safety_guideline')
   → LawArticle (조문 단위)
   → LawChunk (청크)
-  → (--embed 옵션 시) LawEmbedding 생성
+  → (--embed 옵션 시) _ensure_rule_chunks() + LawEmbedding 생성
 ```
 
 중복 방지: `version_hash = SHA256(doc_id + "::" + name)` — 동일 해시 있으면 skip
 
+### ★중요: 법제처 행정규칙 API 실제 응답 구조 (2026-06 확인됨)
+
+당초 설계 시 가정했던 구조와 실제 API 응답이 달라서 파서를 한 차례 수정했다. 이후 재작업 시 참고:
+
+| | 목록 조회 (lawSearch.do) | 본문 조회 (lawService.do) |
+|---|---|---|
+| 최상위 키 | `AdmRulSearch` (❌ `LawSearch` 아님) | `AdmRulService` (❌ `법령` 아님) |
+| 항목/메타 위치 | `AdmRulSearch.admrul[]` (❌ `.law[]` 아님) | `AdmRulService.행정규칙기본정보` (❌ `.기본정보` 아님) |
+| 문서 ID 필드 | `행정규칙일련번호` (lawService.do의 `ID` 파라미터로 사용. `행정규칙ID`는 내부 DB ID로 다른 값) | — |
+| 이름 필드 | `행정규칙명` | `행정규칙기본정보.행정규칙명` |
+| 조문 구조 | — | `조문내용`: **딱셔너리 배열이 아니라 문자열 배열**. `["제1장 총칙", "제1조(목적) ...", "제2조(정의) ...", ...]` 형태로, 정규식(`_ARTICLE_PATTERN`)으로 "제N조(제목) 내용"을 직접 파싱해야 함 |
+
+`app/utils/admrul_api_client.py`의 `_parse_admrul_text_list()`가 이 문자열 리스트 → `AdmrulArticle` 변환을 담당.
+
+### ★중요: 기존 5개 법령 중 "산업안전보건기준에 관한 규칙"은 청크가 없었음
+
+기존 `ingest_laws.py`로 들어간 산업안전보건기준에 관한 규칙(법령ID=2)은 `LawArticle`만 있고 **`LawChunk`가 0개**였다 (청크화 단계를 거치지 않고 들어간 데이터). 안전기준 검색은 청크 기반 검색을 우선하므로, 청크가 없으면 검색 결과에서 완전히 누락된다.
+
+`ingest_admrul_safety_guidelines.py --embed` 실행 시 `_ensure_rule_chunks()`가 `source_type='rule'`인 문서 중 청크 없는 아티클을 자동으로 청크화한다. 이 로직이 빠지면 "추락" 같은 흔한 키워드도 규칙 쪼개서는 안 나옴 — 디버깅 시 가장 먼저 확인할 지점.
+
 실행 명령:
 ```bash
 cd backend
-python ingestion/ingest_admrul_safety_guidelines.py --embed
+python ingestion/ingest_admrul_safety_guidelines.py          # 목록 수집 + DB 저장
+python ingestion/ingest_admrul_safety_guidelines.py --embed   # 위 + 규칙 청크 보정 + 임베딩 생성
 ```
+
+### 2026-06-16 기준 실제 수집 현황 (운영 DB, Supabase)
+
+| source_type | 문서 수 | 비고 |
+|---|---|---|
+| `rule` (산업안전보건기준에 관한 규칙) | 1 | 청크 722개, 임베딩 722개 (수동 보정 완료) |
+| `moel_standard_safety_guideline` | 11 | 가설공사/굴착공사/발파/벌목/산림사업/운반하역/철골공사/추락재해방지/콘크리트공사/터널공사(NATM)/해체공사. 청크·임베딩 총 429개 |
+
+신규 키워드 계열(예: 크레인작업) 추가 수집이 필요하면 `ADMRUL_QUERIES`(`admrul_ingestion_service.py`)에 쿼리 추가 후 재실행.
 
 ---
 
@@ -285,7 +315,7 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed
 
 ```bash
 cd backend
-python -m pytest -q   # 48 passed (2025-06 기준)
+python -m pytest -q   # 48 passed (2026-06 기준)
 ```
 
 - `conftest.py`: `autouse` fixture — OpenAI API 키 없어도 통과 (mock embedding)
@@ -294,15 +324,20 @@ python -m pytest -q   # 48 passed (2025-06 기준)
   import app.models.user, app.models.site, app.models.generated_document
   import app.models.safety_quiz, app.models.law_search_log
   ```
+- `test_safety_standard_search.py`의 admrul mock은 **실제 API 응답 구조**를 반영해야 함
+  (`AdmRulSearch.admrul[]`, `AdmRulService.조문내용`(문자열 리스트)). 7번 항목의 표 참고.
+  과거에 가정만으로 작성한 mock(`LawSearch.law`, `법령.조문.조문단위`)을 쓰면 실제 파서와
+  구조가 달라서 CI에서만 실패하는 식으로 드러남 — mock을 임의로 짜지 말고 실제 응답 캡처본을 기준으로 작성할 것.
 
 ---
 
 ## 12. 배포 전 체크리스트
 
-1. `sql/migrations/005_safety_standard_columns.sql` Supabase 실행
-2. 산업안전보건기준에 관한 규칙 레코드 `source_category` UPDATE (규칙 8 SQL 참조)
-3. Render 환경변수 `LAW_API_OC` 설정 확인
-4. ingestion 실행 후 `/safety-standards` 검색 확인
+1. ~~`sql/migrations/005_safety_standard_columns.sql` Supabase 실행~~ — 완료 (운영 DB 적용됨)
+2. ~~산업안전보건기준에 관한 규칙 레코드 `source_category` UPDATE~~ — 완료
+3. Render 환경변수 `LAW_API_OC` 설정 확인 — 로컬 `.env`엔 있음, Render에도 동일하게 설정 필요
+4. ~~ingestion 실행~~ — 완료 (12개 문서, 청크/임베딩 1151개)
+5. `/safety-standards` 검색 동작 확인 — "추락" 키워드로 로컬 검증 완료
 
 ---
 
@@ -310,4 +345,6 @@ python -m pytest -q   # 48 passed (2025-06 기준)
 
 - [ ] KOSHA Guide (한국산업안전보건공단 기술지침) 연동 — 별도 API 클라이언트 필요
 - [ ] `feature/safety-standards` → `main` PR 머지
-- [ ] 산업안전보건기준에 관한 규칙 DB 레코드 source_category 태깅 (운영 DB)
+- [ ] CI 그린 확인 후 머지 (admrul mock 구조 수정 커밋 포함됨)
+- [ ] 크레인작업 등 미수집 키워드 계열 추가 ingestion (`ADMRUL_QUERIES`에 쿼리 추가)
+- [ ] Render 환경변수에 `LAW_API_OC` 반영 여부 확인 (배포 후 운영 ingestion 실행 시 필요)
