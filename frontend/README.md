@@ -1,5 +1,14 @@
 # React + TypeScript + Vite
 
+## Node 22 Baseline
+
+This frontend is pinned to Node 22 for both local development and Vercel builds.
+
+- Source of truth: [`package.json`](./package.json) uses `engines.node = 22.x`.
+- Local fallback: [`.nvmrc`](./.nvmrc) also targets Node 22.
+- Local migration steps: see [`docs/node-22-transition.md`](./docs/node-22-transition.md).
+- If Vercel shows a different runtime, update the project Node.js version to `22.x` so it stays aligned with this repo.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

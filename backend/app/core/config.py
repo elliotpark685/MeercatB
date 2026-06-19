@@ -27,6 +27,7 @@ class Settings(BaseSettings):
 
     openai_api_key: str | None = Field(default=None, alias="OPENAI_API_KEY")
     law_api_oc: str | None = Field(default=None, alias="LAW_API_OC")
+    kosha_api_key: str | None = Field(default=None, alias="DATA_KEY")
     embedding_model: str = Field(default="text-embedding-3-large", alias="EMBEDDING_MODEL")
     vector_dimension: int = Field(default=1536, alias="VECTOR_DIMENSION")
     use_pgvector: bool = Field(default=False, alias="USE_PGVECTOR")

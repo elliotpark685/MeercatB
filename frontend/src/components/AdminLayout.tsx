@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { to: '/', label: '대시보드', icon: '⚡' },
   { to: '/laws', label: '법령 검색', icon: '⚖️' },
   { to: '/safety-standards', label: '안전기준 검색', icon: '🦺' },
+  { to: '/kosha-guide', label: 'KOSHA GUIDE', icon: '📘' },
   { to: '/documents', label: '문서 생성', icon: '📋' },
 ];
 

@@ -181,6 +181,69 @@ export async function searchSafetyStandards(
   return res.data;
 }
 
+// ─── KOSHA GUIDE 검색 ─────────────────────────────────────────────────────────
+
+export type KoshaCategory = '4' | '5' | '6' | '7';
+
+export const KOSHA_CATEGORY_LABEL: Record<KoshaCategory, string> = {
+  '4': '산업안전보건기준에 관한 규칙',
+  '5': '고시·훈령·예규',
+  '6': '안전보건 미디어',
+  '7': 'KOSHA GUIDE',
+};
+
+export interface KoshaResultItem {
+  title: string;
+  content: string;
+  category: string;
+  /** 검색어와 일치한 강조 단어 (KOSHA API의 highlight_content에서 추출, API 자체 키워드 필드는 없음) */
+  keywords: string[];
+  score: number;
+  /** KOSHA OpenAPI는 원문 URL을 제공하지 않아 항상 빈 문자열 */
+  url: string;
+  /** 문서 식별 문자열 (예: "KOSHA07_..._1"), 원문 링크 대체용 참고 정보 */
+  doc_id: string;
+}
+
+export interface KoshaSearchResult {
+  query: string;
+  category: KoshaCategory;
+  page: number;
+  size: number;
+  total: number;
+  results: KoshaResultItem[];
+  related_keywords: string[];
+}
+
+export interface KoshaSearchParams {
+  query: string;
+  category?: KoshaCategory;
+  page?: number;
+  size?: number;
+}
+
+export async function searchKosha(params: KoshaSearchParams): Promise<KoshaSearchResult> {
+  const res = await apiClient.get('/api/v1/kosha/search', { params });
+  return res.data;
+}
+
+export interface KoshaSummaryResult {
+  query: string;
+  core_content: string;
+  applicable_scope: string;
+  field_application: string;
+  precautions: string;
+  related_regulations: string;
+}
+
+export async function summarizeKosha(
+  query: string,
+  items: KoshaResultItem[]
+): Promise<KoshaSummaryResult> {
+  const res = await apiClient.post('/api/v1/kosha/summarize', { query, items });
+  return res.data;
+}
+
 export async function getDailyQuizzes(siteId?: number, userId?: number) {
   const res = await apiClient.get('/api/v1/quizzes/daily', {
     params: {

@@ -352,6 +352,9 @@ class LawSearchService:
             score=candidate.score,
             source_url=candidate.document.source_url,
             effective_date=effective_date.isoformat() if effective_date else None,
+            document_effective_date=(
+                candidate.document.effective_date.isoformat() if candidate.document.effective_date else None
+            ),
             article_id=candidate.article.id,
             chunk_id=candidate.chunk.id if candidate.chunk else None,
             matched_reason=candidate.matched_reason or [],
@@ -384,6 +387,9 @@ class LawSearchService:
             score=item.score,
             source_url=item.document.source_url,
             effective_date=effective_date.isoformat() if effective_date else None,
+            document_effective_date=(
+                item.document.effective_date.isoformat() if item.document.effective_date else None
+            ),
             article_id=item.article.id,
             chunk_id=None,
             matched_reason=item.matched_reason,
