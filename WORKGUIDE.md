@@ -33,6 +33,7 @@ MeercatB/
 │   │   │           ├── auth.py      # POST /auth/login, /register, GET /auth/me
 │   │   │           ├── laws.py      # POST /laws/search, GET /laws/articles/{id}
 │   │   │           ├── safety_standards.py  # POST /safety-standards/search ★신규
+│   │   │           ├── kosha.py     # GET /kosha/search, POST /kosha/summarize ★신규
 │   │   │           ├── documents.py # POST /documents/generate
 │   │   │           ├── quizzes.py   # GET /quizzes/daily
 │   │   │           ├── admin.py     # GET /admin/dashboard
@@ -55,6 +56,7 @@ MeercatB/
 │   │   ├── schemas/
 │   │   │   ├── law.py               # LawSearchRequest/Response, CitationItem 등
 │   │   │   ├── safety_standard.py   # ★신규: SafetyStandardSearchRequest/Response
+│   │   │   ├── kosha.py             # ★신규: KoshaCategory(enum), KoshaSearchResponse, KoshaSummaryRequest/Response
 │   │   │   ├── auth.py
 │   │   │   ├── document.py
 │   │   │   ├── health.py
@@ -63,6 +65,8 @@ MeercatB/
 │   │   ├── services/
 │   │   │   ├── law_search_service.py          # 기존 5개 법령 하이브리드 검색
 │   │   │   ├── safety_standard_search_service.py  # ★신규: 안전기준 검색
+│   │   │   ├── kosha_search_service.py        # ★신규: KOSHA GUIDE 검색 (graceful fallback)
+│   │   │   ├── kosha_summary_service.py       # ★신규: 검색결과 상위 3건 AI 요약 (GPT-4o-mini, 온디맨드)
 │   │   │   ├── admrul_ingestion_service.py    # ★신규: 행정규칙 ingestion
 │   │   │   ├── law_ingestion_service.py       # PDF/TXT 법령 파싱·저장
 │   │   │   ├── law_chunking_service.py        # 조문→청크 분할
@@ -75,6 +79,7 @@ MeercatB/
 │   │   │   └── law_repository.py    # DB 접근 레이어 (LawRepository)
 │   │   └── utils/
 │   │       ├── admrul_api_client.py # ★신규: 법제처 행정규칙 API 클라이언트
+│   │       ├── kosha_api_client.py  # ★신규: KOSHA 스마트검색 OpenAPI 클라이언트 (HTML 태그 제거 포함)
 │   │       ├── law_parser.py        # 한국 법령 조문 파서
 │   │       ├── pdf_loader.py
 │   │       ├── text_loader.py
@@ -90,6 +95,7 @@ MeercatB/
 │   ├── tests/
 │   │   ├── conftest.py              # autouse: OpenAI stub (OPENAI_API_KEY 없어도 통과)
 │   │   ├── test_safety_standard_search.py  # ★신규 (9개)
+│   │   ├── test_kosha_search.py     # ★신규 (13개): API client/service/endpoint, graceful fallback, 미디어 filepath/keyword
 │   │   └── test_law_*.py, test_auth_*.py 등 기존 39개
 │   ├── .env.example
 │   ├── pytest.ini
@@ -100,16 +106,17 @@ MeercatB/
         ├── App.tsx                  # 라우터 정의
         ├── api/
         │   ├── client.ts            # Axios (JWT 자동 주입, 401→auth:unauthorized 이벤트)
-        │   └── admin.ts             # API 함수 모음 (searchLaws, searchSafetyStandards 등)
+        │   └── admin.ts             # API 함수 모음 (searchLaws, searchSafetyStandards, searchKosha, summarizeKosha 등)
         ├── pages/
         │   ├── Login.tsx
         │   ├── Register.tsx
         │   ├── Dashboard.tsx        # KPI 카드 + 최근 활동 (admin 전용)
         │   ├── LawSearch.tsx        # 기존 5개 법령 검색
         │   ├── SafetyStandardSearch.tsx  # ★신규: 안전기준 검색
+        │   ├── KoshaGuide.tsx       # ★신규: KOSHA GUIDE 검색 + AI 요약 + 즐겨찾기(localStorage)
         │   └── DocumentGenerate.tsx
         ├── components/
-        │   ├── AdminLayout.tsx      # 사이드바 + Outlet (nav: 대시보드/법령/안전기준/문서)
+        │   ├── AdminLayout.tsx      # 사이드바 + Outlet (nav: 대시보드/법령/안전기준/KOSHA GUIDE/문서)
         │   ├── LawResultCard.tsx
         │   ├── LawScopeFilter.tsx
         │   ├── Spinner.tsx
@@ -135,6 +142,7 @@ MeercatB/
 | `DB_SCHEMA` | - | 기본값 `meerkat_pjt` |
 | `OPENAI_API_KEY` | - | 없으면 mock 임베딩 사용 |
 | `LAW_API_OC` | 법령/행정규칙 수집 시 필수 | 법제처 Open API 키 (법령 검색 + 행정규칙 ingestion 공용) |
+| `DATA_KEY` | KOSHA GUIDE 검색 시 필수 | data.go.kr 계열 API 키. ★신규: KOSHA 안전보건법령 스마트검색 OpenAPI에서 사용. 없으면 `/kosha/search`는 빈 결과로 graceful fallback |
 | `AUTH_SECRET_KEY` | ✅ | JWT 서명 키 |
 | `USE_PGVECTOR` | - | `true`면 pgvector, 기본 `false`(JSON 저장) |
 | `EMBEDDING_MODEL` | - | 기본 `text-embedding-3-large` (dim=1536) |
@@ -197,6 +205,9 @@ GET  /api/v1/laws/articles/{id}
 
 POST /api/v1/safety-standards/search # ★신규: 안전기준 검색
 
+GET  /api/v1/kosha/search             # ★신규: KOSHA GUIDE 검색 (query/category/page/size)
+POST /api/v1/kosha/summarize          # ★신규: 검색결과 상위 3건 AI 요약 (온디맨드)
+
 POST /api/v1/documents/generate       # RAG 문서 생성
 
 GET  /api/v1/quizzes/daily
@@ -235,20 +246,50 @@ GET  /api/v1/admin/dashboard          # admin 역할 필요
 법제처 API lawSearch.do (target=admrul, query=표준안전작업지침)
   → 목록(AdmrulListItem) 수집
   → 각 ID로 lawService.do (target=admrul, ID={id}) 본문 조회
-  → AdmrulDocument 파싱 (조문 → AdmrulArticle)
+  → AdmrulDocument 파싱 (조문내용 문자열 리스트 → AdmrulArticle)
   → LawDocument(source_category='safety_standard', source_type='moel_standard_safety_guideline')
   → LawArticle (조문 단위)
   → LawChunk (청크)
-  → (--embed 옵션 시) LawEmbedding 생성
+  → (--embed 옵션 시) _ensure_rule_chunks() + LawEmbedding 생성
 ```
 
 중복 방지: `version_hash = SHA256(doc_id + "::" + name)` — 동일 해시 있으면 skip
 
+### ★중요: 법제처 행정규칙 API 실제 응답 구조 (2026-06 확인됨)
+
+당초 설계 시 가정했던 구조와 실제 API 응답이 달라서 파서를 한 차례 수정했다. 이후 재작업 시 참고:
+
+| | 목록 조회 (lawSearch.do) | 본문 조회 (lawService.do) |
+|---|---|---|
+| 최상위 키 | `AdmRulSearch` (❌ `LawSearch` 아님) | `AdmRulService` (❌ `법령` 아님) |
+| 항목/메타 위치 | `AdmRulSearch.admrul[]` (❌ `.law[]` 아님) | `AdmRulService.행정규칙기본정보` (❌ `.기본정보` 아님) |
+| 문서 ID 필드 | `행정규칙일련번호` (lawService.do의 `ID` 파라미터로 사용. `행정규칙ID`는 내부 DB ID로 다른 값) | — |
+| 이름 필드 | `행정규칙명` | `행정규칙기본정보.행정규칙명` |
+| 조문 구조 | — | `조문내용`: **딱셔너리 배열이 아니라 문자열 배열**. `["제1장 총칙", "제1조(목적) ...", "제2조(정의) ...", ...]` 형태로, 정규식(`_ARTICLE_PATTERN`)으로 "제N조(제목) 내용"을 직접 파싱해야 함 |
+
+`app/utils/admrul_api_client.py`의 `_parse_admrul_text_list()`가 이 문자열 리스트 → `AdmrulArticle` 변환을 담당.
+
+### ★중요: 기존 5개 법령 중 "산업안전보건기준에 관한 규칙"은 청크가 없었음
+
+기존 `ingest_laws.py`로 들어간 산업안전보건기준에 관한 규칙(법령ID=2)은 `LawArticle`만 있고 **`LawChunk`가 0개**였다 (청크화 단계를 거치지 않고 들어간 데이터). 안전기준 검색은 청크 기반 검색을 우선하므로, 청크가 없으면 검색 결과에서 완전히 누락된다.
+
+`ingest_admrul_safety_guidelines.py --embed` 실행 시 `_ensure_rule_chunks()`가 `source_type='rule'`인 문서 중 청크 없는 아티클을 자동으로 청크화한다. 이 로직이 빠지면 "추락" 같은 흔한 키워드도 규칙 쪼개서는 안 나옴 — 디버깅 시 가장 먼저 확인할 지점.
+
 실행 명령:
 ```bash
 cd backend
-python ingestion/ingest_admrul_safety_guidelines.py --embed
+python ingestion/ingest_admrul_safety_guidelines.py          # 목록 수집 + DB 저장
+python ingestion/ingest_admrul_safety_guidelines.py --embed   # 위 + 규칙 청크 보정 + 임베딩 생성
 ```
+
+### 2026-06-16 기준 실제 수집 현황 (운영 DB, Supabase)
+
+| source_type | 문서 수 | 비고 |
+|---|---|---|
+| `rule` (산업안전보건기준에 관한 규칙) | 1 | 청크 722개, 임베딩 722개 (수동 보정 완료) |
+| `moel_standard_safety_guideline` | 11 | 가설공사/굴착공사/발파/벌목/산림사업/운반하역/철골공사/추락재해방지/콘크리트공사/터널공사(NATM)/해체공사. 청크·임베딩 총 429개 |
+
+신규 키워드 계열(예: 크레인작업) 추가 수집이 필요하면 `ADMRUL_QUERIES`(`admrul_ingestion_service.py`)에 쿼리 추가 후 재실행.
 
 ---
 
@@ -261,10 +302,11 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed
   ├── /               → Dashboard
   ├── /laws           → LawSearch (기존 5개 법령)
   ├── /safety-standards → SafetyStandardSearch ★신규
+  ├── /kosha-guide    → KoshaGuide ★신규
   └── /documents      → DocumentGenerate
 ```
 
-사이드바 색상 기조: `#121212` bg / `#00E5FF` accent(법령) / `#FF9F0A` accent(안전기준)
+사이드바 색상 기조: `#121212` bg / `#00E5FF` accent(법령) / `#FF9F0A` accent(안전기준) / `#BF5AF2` accent(KOSHA GUIDE)
 
 ---
 
@@ -275,6 +317,8 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed
 | `searchLaws(params)` | POST /laws/search | 법령 검색 |
 | `getLawArticle(id)` | GET /laws/articles/{id} | 조문 상세 |
 | `searchSafetyStandards(params)` | POST /safety-standards/search | 안전기준 검색 ★신규 |
+| `searchKosha(params)` | GET /kosha/search | KOSHA GUIDE 검색 (query/category/page/size) ★신규 |
+| `summarizeKosha(query, items)` | POST /kosha/summarize | 검색결과 상위 3건 AI 요약 (온디맨드 버튼) ★신규 |
 | `generateDocument(params)` | POST /documents/generate | 문서 생성 |
 | `getAdminDashboard(siteId)` | GET /admin/dashboard | 대시보드 |
 | `getDailyQuizzes(siteId, userId)` | GET /quizzes/daily | 퀴즈 |
@@ -285,7 +329,7 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed
 
 ```bash
 cd backend
-python -m pytest -q   # 48 passed (2025-06 기준)
+python -m pytest -q   # 61 passed (2026-06 기준)
 ```
 
 - `conftest.py`: `autouse` fixture — OpenAI API 키 없어도 통과 (mock embedding)
@@ -294,20 +338,69 @@ python -m pytest -q   # 48 passed (2025-06 기준)
   import app.models.user, app.models.site, app.models.generated_document
   import app.models.safety_quiz, app.models.law_search_log
   ```
+- `test_safety_standard_search.py`의 admrul mock은 **실제 API 응답 구조**를 반영해야 함
+  (`AdmRulSearch.admrul[]`, `AdmRulService.조문내용`(문자열 리스트)). 7번 항목의 표 참고.
+  과거에 가정만으로 작성한 mock(`LawSearch.law`, `법령.조문.조문단위`)을 쓰면 실제 파서와
+  구조가 달라서 CI에서만 실패하는 식으로 드러남 — mock을 임의로 짜지 말고 실제 응답 캡처본을 기준으로 작성할 것.
+- `test_kosha_search.py`(★신규, 13개): `KoshaApiClient`/`KoshaSearchService`/엔드포인트/`KoshaSummaryService` 커버.
+  mock은 **실제 `DATA_KEY`로 호출해 확인한 실제 응답 구조**를 그대로 반영함 (아래 14번 항목 참고).
+
+### ★중요: KOSHA 스마트검색 API 실제 요청/응답 구조 (2026-06, 실제 DATA_KEY 호출 + 공식 활용가이드로 확인됨)
+
+처음엔 admrul처럼 "query/category/page/size + response.body.items.item" 형태로 가정하고 짰으나,
+실제로 `DATA_KEY`로 호출해보니 가정과 다른 부분이 있어 두 차례 코드를 수정했다.
+1차 확인은 data.go.kr 상세페이지(`https://www.data.go.kr/data/15123696/openapi.do`) 안에 JS로
+내려오는 Swagger JSON(`swaggerJson` 변수, `curl`로 raw HTML 받아 `swaggerOprtinVOs` grep)으로,
+2차 확인은 **`backend/docs/한국산업안전보건공단_안전보건법령 스마트검색 활용가이드.docx`** (공단이
+공식 제공하는 활용가이드, "b) 요청 메시지 명세"/"c) 응답 메시지 명세"/"d) 요청·응답 메시지 예제" 절)로
+교차검증했다. 두 출처가 일치했고, 실제 호출 결과도 동일했다.
+
+| | 가정(최초 작성) | 실제 (확인됨) |
+|---|---|---|
+| 검색어 파라미터명 | `query` | `searchValue` |
+| 필수 파라미터 | query/category/page/size | `serviceKey`, `pageNo`, `numOfRows`, `searchValue`, `category` (전부 문자열, 전부 필수) |
+| 응답 최상위 | `response.header`/`response.body` | 동일 (이 부분은 가정이 맞았음) |
+| 결과 목록 | `response.body.items.item` | 동일 |
+| item 공통 필드 | title/content/category/keywords/score/url | `category`, `content`, `doc_id`, `highlight_content`, `score`(0~1 아닌 원본 점수, 예: 69.8285), `title` |
+| item 카테고리별 추가 필드 | 고려 안 함 | **category=6(미디어)만** `keyword`(쉼표구분 문자열), `filepath`(실제 원문 URL, 예: `https://kosha.or.kr/aicuration/index.do?mode=detail&medSeq=43740`), `image_path`, `med_thumb_yn`, `media_style` 추가 제공. category=4/5/7은 이 필드들이 **존재 자체를 안 함**(빈 값이 아니라 키가 없음) |
+| 연관검색어 | 추정 없음 (item별 keywords로 대체) | `response.body.associated_word` (body 레벨 1개, 검색어 전체 기준 연관어 목록) |
+| 성공 여부 | 가정 없음 | `response.header.resultCode == "00"` (`"NORMAL_SERVICE"`). 키가 유효해도 잘못된 파라미터명을 쓰면 `resultCode: "42"`(제공기관 에러코드 "기타에러", 활용가이드 2-2절)로 응답함 — 401이 아니라서 "키가 틀렸나" 헷갈리기 쉽다 |
+
+대응 (`kosha_api_client.py`):
+- `KoshaApiClient.search()`가 `searchValue`로 요청
+- `_parse_item()`이 `keyword`/`filepath` 필드가 있으면(category=6) 그대로 쓰고,
+  없으면(category=4/5/7) `highlight_content`의 `<em class='smart'>...</em>` 강조 구간을
+  `extract_highlighted_terms()`로 추출해 keywords 대체 신호로 사용. `url`은 `filepath`가
+  없으면 빈 문자열 — KOSHA GUIDE/규칙/고시 검색에서는 원문 링크가 항상 빈 값이라는 뜻
+  (이 카테고리들은 API 자체에 원문 URL이 없음). 프론트엔드는 url 없으면 "원문 바로가기" 대신
+  `doc_id`를 텍스트로 표시
+- `related_keywords`는 item이 아니라 `body.associated_word`에서 가져옴
+
+**남은 한계**: category=7(KOSHA GUIDE 등 비-미디어)에서는 원문 URL을 이 API만으로 채울 수 없다.
+`doc_id`만 표시 중. "한국산업안전보건공단_안전보건자료 링크 서비스"(별도 data.go.kr 데이터셋, ID
+15139398)가 `doc_id` → URL 매핑을 제공할 가능성이 있어 보이나 아직 확인/연동하지 않았다.
 
 ---
 
 ## 12. 배포 전 체크리스트
 
-1. `sql/migrations/005_safety_standard_columns.sql` Supabase 실행
-2. 산업안전보건기준에 관한 규칙 레코드 `source_category` UPDATE (규칙 8 SQL 참조)
-3. Render 환경변수 `LAW_API_OC` 설정 확인
-4. ingestion 실행 후 `/safety-standards` 검색 확인
+1. ~~`sql/migrations/005_safety_standard_columns.sql` Supabase 실행~~ — 완료 (운영 DB 적용됨)
+2. ~~산업안전보건기준에 관한 규칙 레코드 `source_category` UPDATE~~ — 완료
+3. Render 환경변수 `LAW_API_OC` 설정 확인 — 로컬 `.env`엔 있음, Render에도 동일하게 설정 필요
+4. ~~ingestion 실행~~ — 완료 (12개 문서, 청크/임베딩 1151개)
+5. `/safety-standards` 검색 동작 확인 — "추락" 키워드로 로컬 검증 완료
+6. Render 환경변수 `DATA_KEY` 설정 (KOSHA GUIDE 검색용) ★신규 — 로컬 `.env`엔 있음, Render에도 동일하게 설정 필요
+7. ~~`DATA_KEY` 발급 후 `/kosha/search` 실제 응답으로 `kosha_api_client.py` 파서 검증~~ — 완료
+   (실제 호출 결과 `searchValue` 파라미터명 등 가정과 다른 부분 발견·수정, 14번 항목 표 참고)
 
 ---
 
 ## 13. 남은 TODO
 
-- [ ] KOSHA Guide (한국산업안전보건공단 기술지침) 연동 — 별도 API 클라이언트 필요
+- [x] KOSHA Guide (한국산업안전보건공단 기술지침) 연동 — `/api/v1/kosha/search`, `/api/v1/kosha/summarize` 구현 완료.
+      실제 `DATA_KEY`로 호출해 응답 구조 검증 완료 (14번 항목 참고). 단, 원문 URL(`url` 필드)은 API에 없어서
+      `doc_id`만 표시 중 — "안전보건자료 링크 서비스"(15139398) 연동 시 채울 수 있을지 추가 조사 필요
 - [ ] `feature/safety-standards` → `main` PR 머지
-- [ ] 산업안전보건기준에 관한 규칙 DB 레코드 source_category 태깅 (운영 DB)
+- [ ] CI 그린 확인 후 머지 (admrul mock 구조 수정 커밋 포함됨)
+- [ ] 크레인작업 등 미수집 키워드 계열 추가 ingestion (`ADMRUL_QUERIES`에 쿼리 추가)
+- [ ] Render 환경변수에 `LAW_API_OC` 반영 여부 확인 (배포 후 운영 ingestion 실행 시 필요)

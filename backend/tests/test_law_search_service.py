@@ -1,5 +1,10 @@
 from datetime import date
 
+import app.models.generated_document  # noqa: F401
+import app.models.law_search_log  # noqa: F401
+import app.models.safety_quiz  # noqa: F401
+import app.models.site  # noqa: F401
+import app.models.user  # noqa: F401
 from app.models.law_article import LawArticle
 from app.models.law_document import LawDocument
 from app.services.law_search_service import LawSearchService

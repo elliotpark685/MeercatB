@@ -78,6 +78,7 @@ class LawSearchResultItem(BaseModel):
     score: float
     source_url: str | None = None
     effective_date: str | None = None
+    document_effective_date: str | None = None
     article_id: int | None = None
     chunk_id: int | None = None
     matched_reason: list[str] = []

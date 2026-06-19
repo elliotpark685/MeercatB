@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import LawSearch from './pages/LawSearch';
 import DocumentGenerate from './pages/DocumentGenerate';
 import SafetyStandardSearch from './pages/SafetyStandardSearch';
+import KoshaGuide from './pages/KoshaGuide';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Spinner from './components/Spinner';
@@ -60,6 +61,7 @@ export default function App() {
               <Route index element={<Dashboard />} />
               <Route path="laws" element={<LawSearch />} />
               <Route path="safety-standards" element={<SafetyStandardSearch />} />
+              <Route path="kosha-guide" element={<KoshaGuide />} />
               <Route path="documents" element={<DocumentGenerate />} />
             </Route>
           </Routes>

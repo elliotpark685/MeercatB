@@ -45,6 +45,7 @@ export interface LawSearchResultItem {
   score?: number | null;
   source_url?: string | null;
   effective_date?: string | null;
+  document_effective_date?: string | null;
   article_id?: number | null;
   chunk_id?: number | null;
   matched_reason?: string[] | null;
