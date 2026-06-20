@@ -18,6 +18,7 @@ const HISTORY_MAX = 8;
 const PAGE_SIZE = 10;
 
 const CATEGORY_OPTIONS: { value: KoshaCategory; label: string }[] = [
+  { value: "0", label: KOSHA_CATEGORY_LABEL["0"] },
   { value: "7", label: KOSHA_CATEGORY_LABEL["7"] },
   { value: "4", label: KOSHA_CATEGORY_LABEL["4"] },
   { value: "5", label: KOSHA_CATEGORY_LABEL["5"] },
@@ -133,7 +134,7 @@ function ResultCard({
             onClick={onToggleBookmark}
             aria-pressed={bookmarked}
             className={`text-lg transition-colors ${bookmarked ? "text-[#FFD60A]" : "text-[#3A3A3C] hover:text-[#FFD60A]"}`}
-            title={bookmarked ? "利먭꺼李얘린 ?댁젣" : "利먭꺼李얘린 異붽?"}
+            title={bookmarked ? "북마크 제거" : "북마크 추가"}
           >
             {bookmarked ? "★" : "☆"}
           </button>
@@ -184,7 +185,7 @@ function ResultCard({
         ) : (
           item.doc_id && (
             <p className="truncate text-[11px] text-[#3A3A3C]" title={item.doc_id}>
-              臾몄꽌ID: {item.doc_id}
+              문서ID: {item.doc_id}
             </p>
           )
         )}
@@ -202,16 +203,16 @@ function SummaryPanel({
   loading: boolean;
   error: unknown;
 }) {
-  if (loading) return <Spinner text="AI ?붿빟 ?앹꽦 以?.." />;
+  if (loading) return <Spinner text="AI 요약 생성 중..." />;
   if (error) return <ErrorBox error={error} />;
   if (!summary) return null;
 
   const rows: { label: string; value: string }[] = [
-    { label: "?듭떖 ?댁슜", value: summary.core_content },
+    { label: "핵심 내용", value: summary.core_content },
     { label: "적용 대상", value: summary.applicable_scope },
-    { label: "?꾩옣 ?곸슜 諛⑸쾿", value: summary.field_application },
-    { label: "二쇱쓽?ы빆", value: summary.precautions },
-    { label: "愿??踰뺣졊", value: summary.related_regulations },
+    { label: "활용 분야", value: summary.field_application },
+    { label: "주의사항", value: summary.precautions },
+    { label: "관련 법령", value: summary.related_regulations },
   ];
 
   return (
@@ -238,7 +239,7 @@ function SummaryPanel({
 
 export default function KoshaGuide() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<KoshaCategory>("7");
+  const [category, setCategory] = useState<KoshaCategory>("0");
   const [page, setPage] = useState(1);
 
   const [loading, setLoading] = useState(false);
@@ -375,14 +376,15 @@ export default function KoshaGuide() {
               onClick={() => setShowBookmarks((v) => !v)}
               className="rounded-full border border-[#2C2C2E] bg-[#121212] px-3 py-1 text-xs text-[#98989D] hover:text-white"
             >
-              ??利먭꺼李얘린 ({bookmarkList.length})
+              북마크 목록 ({bookmarkList.length})
             </button>
           </div>
           <h1 className="text-2xl font-semibold text-white sm:text-3xl">
-            KOSHA GUIDE 寃??          </h1>
+            KOSHA GUIDE 검색
+          </h1>
           <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
-            ?쒓뎅?곗뾽?덉쟾蹂닿굔怨듬떒 ?덉쟾蹂닿굔踰뺣졊 ?ㅻ쭏?멸??됱쓣 ?댁슜??KOSHA GUIDE, 怨좎떆쨌?덈졊쨌?덇퇋,
-            ?덉쟾蹂닿굔 誘몃뵒?? ?곗뾽?덉쟾蹂닿굔湲곗???愿??洹쒖튃??寃?됲빀?덈떎.
+            산업안전보건 관련 기준과 가이드를 활용해 KOSHA GUIDE,
+            고시, 예규, 지침을 빠르게 검색할 수 있습니다.
           </p>
         </div>
       </section>
@@ -421,9 +423,9 @@ export default function KoshaGuide() {
 
       {showBookmarks && (
         <div className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
-          <h2 className="text-sm font-semibold text-white">利먭꺼李얘린</h2>
+          <h2 className="text-sm font-semibold text-white">북마크</h2>
           {bookmarkList.length === 0 ? (
-            <p className="text-sm text-[#98989D]">利먭꺼李얘린????ぉ???놁뒿?덈떎.</p>
+            <p className="text-sm text-[#98989D]">북마크한 항목이 없습니다.</p>
           ) : (
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {bookmarkList.map((item) => (
@@ -450,7 +452,7 @@ export default function KoshaGuide() {
               type="text"
               className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-[#3A3A3C] outline-none transition focus:ring-2"
               style={{ borderColor: undefined }}
-              placeholder="?? 異붾씫?ы빐諛⑹?"
+              placeholder="검색어 또는 키워드를 입력하세요"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => history.length > 0 && setShowHistory(true)}
@@ -463,7 +465,7 @@ export default function KoshaGuide() {
                 className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-2xl"
               >
                 <div className="border-b border-[#2C2C2E] px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[#98989D]">
-                  理쒓렐 寃?됱뼱
+                  최근 검색어
                 </div>
                 <div className="max-h-64 overflow-auto">
                   {filteredHistory.map((h) => (
@@ -492,12 +494,13 @@ export default function KoshaGuide() {
             className="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold text-[#121212] transition-all disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-28"
             style={{ backgroundColor: ACCENT }}
           >
-            寃??          </button>
+            검색
+          </button>
         </div>
 
         <div className="space-y-2">
-          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">移댄뀒怨좊━</div>
-          <div role="tablist" aria-label="移댄뀒怨좊━ ?꾪꽣" className="flex gap-2 overflow-x-auto pb-1">
+          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">카테고리</div>
+          <div role="tablist" aria-label="카테고리 탭" className="flex gap-2 overflow-x-auto pb-1">
             {CATEGORY_OPTIONS.map((option) => (
               <button
                 key={option.value}
@@ -519,12 +522,12 @@ export default function KoshaGuide() {
         </div>
       </form>
 
-      {loading && <Spinner text="KOSHA GUIDE 寃??以?.." />}
+      {loading && <Spinner text="KOSHA GUIDE 검색 중..." />}
       {!!error && <ErrorBox error={error} />}
 
-            {!loading && result && relatedKeywords.length > 0 && (
+        {!loading && result && relatedKeywords.length > 0 && (
         <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-[#2C2C2E] bg-[#1A1A1A] p-4">
-          <span className="text-xs text-[#98989D]">?곌?寃?됱뼱</span>
+          <span className="text-xs text-[#98989D]">연관 검색어</span>
           {relatedKeywords.map((kw) => (
             <button
               key={kw}
@@ -546,7 +549,7 @@ export default function KoshaGuide() {
           className="rounded-2xl border px-4 py-2 text-sm font-semibold disabled:opacity-40"
           style={{ borderColor: `${ACCENT}40`, color: ACCENT }}
         >
-          {summaryLoading ? "?붿빟 ?앹꽦 以?.." : "?곸쐞 3嫄?AI ?붿빟 蹂닿린"}
+          {summaryLoading ? "AI 요약 생성 중..." : "상위 3개 AI 요약 보기"}
         </button>
       )}
 
@@ -555,8 +558,8 @@ export default function KoshaGuide() {
       {!loading && result && !hasResults && (
         <div className="space-y-4 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6">
           <EmptyState
-            icon="?뱲"
-            title="寃??寃곌낵媛 ?놁뒿?덈떎."
+            icon="🔍"
+            title="검색 결과가 없습니다."
             description={`"${query}"에 대한 직접 결과가 없었습니다. 검색어를 더 구체적으로 바꾸거나 연관 키워드로 다시 검색해 보세요.`}
           />
           <div className="rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4 text-sm text-[#C7C7CC]">
@@ -588,7 +591,7 @@ export default function KoshaGuide() {
       {!loading && !result && (
         <div className="rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6 text-center">
           <p className="text-sm font-medium text-[#C7C7CC]">
-            寃?됱뼱瑜??낅젰?섎㈃ KOSHA GUIDE 寃곌낵媛 ?ш린???쒖떆?⑸땲??
+            검색어를 입력하면 KOSHA GUIDE 결과가 여기에 표시됩니다.
           </p>
         </div>
       )}
@@ -596,7 +599,7 @@ export default function KoshaGuide() {
       {!loading && result && hasResults && (
         <div className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#98989D]">
-            <span>珥?{result.total}嫄?쨌 {result.page}?섏씠吏</span>
+            <span>총 {result.total}건 · {result.page}페이지</span>
           </div>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {result.results.map((item, idx) => (
@@ -616,7 +619,7 @@ export default function KoshaGuide() {
                 onClick={() => handlePageChange(page - 1)}
                 className="rounded-xl border border-[#2C2C2E] bg-[#121212] px-3 py-2 text-sm text-[#98989D] disabled:opacity-30"
               >
-                ?댁쟾
+                이전
               </button>
               <span className="text-sm text-[#98989D]">
                 {page} / {totalPages}
@@ -627,7 +630,7 @@ export default function KoshaGuide() {
                 onClick={() => handlePageChange(page + 1)}
                 className="rounded-xl border border-[#2C2C2E] bg-[#121212] px-3 py-2 text-sm text-[#98989D] disabled:opacity-30"
               >
-                ?ㅼ쓬
+                다음
               </button>
             </div>
           )}

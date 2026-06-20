@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 class KoshaCategory(str, Enum):
     """KOSHA 스마트검색 카테고리 코드."""
 
+    ALL = "0"  # 전체
     SAFETY_HEALTH_RULE = "4"  # 산업안전보건기준에 관한 규칙
     NOTICE_DIRECTIVE = "5"  # 고시·훈령·예규
     SAFETY_MEDIA = "6"  # 안전보건 미디어
