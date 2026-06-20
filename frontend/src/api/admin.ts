@@ -1,14 +1,14 @@
-/**
- * 관리자 API 함수 모음
- * 인증: Authorization: Bearer <access_token> (client.ts에서 자동 포함)
- * X-User-Id 헤더는 더 이상 사용하지 않는다.
+﻿/**
+ * 愿由ъ옄 API ?⑥닔 紐⑥쓬
+ * ?몄쬆: Authorization: Bearer <access_token> (client.ts?먯꽌 ?먮룞 ?ы븿)
+ * X-User-Id ?ㅻ뜑?????댁긽 ?ъ슜?섏? ?딅뒗??
  */
 import { apiClient } from './client';
 import type { LawSearchResultItem } from '../types/law';
 
 export type { LawSearchResultItem } from '../types/law';
 
-// ─── 타입 정의 ───────────────────────────────────────────
+// ??? ????뺤쓽 ???????????????????????????????????????????
 
 export interface DashboardData {
   site_id: number | null;
@@ -39,9 +39,9 @@ export interface LawSearchParams {
   query: string;
   top_k?: number;
   validate_latest?: boolean;
-  /** 검색 대상 법령명 목록. 비어있으면 백엔드 기본값(5개 법령 전체)으로 검색한다. */
+  /** 寃?????踰뺣졊紐?紐⑸줉. 鍮꾩뼱?덉쑝硫?諛깆뿏??湲곕낯媛?5媛?踰뺣졊 ?꾩껜)?쇰줈 寃?됲븳?? */
   law_names?: string[];
-  /** law_names의 별칭. 백엔드 호환을 위해 둘 다 지원한다. */
+  /** law_names??蹂꾩묶. 諛깆뿏???명솚???꾪빐 ????吏?먰븳?? */
   law_scope?: string[];
 }
 
@@ -67,7 +67,7 @@ export interface LawSearchResult {
   answer: string;
   citations: CitationItem[];
   raw_hits: RawHitItem[];
-  /** 법령별 검색 결과 카드 목록 (신규 필드, 없을 수 있음) */
+  /** 踰뺣졊蹂?寃??寃곌낵 移대뱶 紐⑸줉 (?좉퇋 ?꾨뱶, ?놁쓣 ???덉쓬) */
   results?: LawSearchResultItem[];
 }
 
@@ -94,9 +94,9 @@ export type DocumentType = 'tbm' | 'risk_assessment' | 'work_plan' | 'inspection
 
 export interface GenerateDocumentParams {
   site_id: number;
-  user_id: number | null; // 선택값, null 허용
+  user_id: number | null; // ?좏깮媛? null ?덉슜
   document_type: DocumentType;
-  prompt: string; // 5~4000자
+  prompt: string; // 5~4000??
 }
 
 export interface GeneratedDocument {
@@ -106,7 +106,7 @@ export interface GeneratedDocument {
   citations: { article_id: number; law_name: string; article_no: string }[];
 }
 
-// ─── API 함수 ─────────────────────────────────────────────
+// ??? API ?⑥닔 ?????????????????????????????????????????????
 
 export async function getAdminDashboard(siteId?: number): Promise<DashboardData> {
   const res = await apiClient.get('/api/v1/admin/dashboard', {
@@ -119,8 +119,8 @@ export async function searchLaws(
   params: LawSearchParams & { userId?: number | null; siteId?: number | null }
 ): Promise<LawSearchResult> {
   const { userId, siteId, law_names, law_scope, ...body } = params;
-  // 가이드 스펙: user_id/site_id는 없을 때 null로 명시적 전송
-  // law_names/law_scope는 선택값이며, 비어있으면 보내지 않아 백엔드 기본값(5개 법령 전체)을 사용한다.
+  // 媛?대뱶 ?ㅽ럺: user_id/site_id???놁쓣 ??null濡?紐낆떆???꾩넚
+  // law_names/law_scope???좏깮媛믪씠硫? 鍮꾩뼱?덉쑝硫?蹂대궡吏 ?딆븘 諛깆뿏??湲곕낯媛?5媛?踰뺣졊 ?꾩껜)???ъ슜?쒕떎.
   const scope = law_names && law_names.length > 0 ? law_names : law_scope;
   const res = await apiClient.post('/api/v1/laws/search', {
     ...body,
@@ -141,7 +141,7 @@ export async function generateDocument(params: GenerateDocumentParams): Promise<
   return res.data;
 }
 
-// ─── 안전기준 검색 ────────────────────────────────────────────────────────────
+// ??? ?덉쟾湲곗? 寃??????????????????????????????????????????????????????????????
 
 export interface SafetyStandardResultItem {
   source_type: string;
@@ -181,11 +181,12 @@ export async function searchSafetyStandards(
   return res.data;
 }
 
-// ─── KOSHA GUIDE 검색 ─────────────────────────────────────────────────────────
+// ??? KOSHA GUIDE 寃???????????????????????????????????????????????????????????
 
-export type KoshaCategory = '4' | '5' | '6' | '7';
+export type KoshaCategory = '0' | '4' | '5' | '6' | '7';
 
 export const KOSHA_CATEGORY_LABEL: Record<KoshaCategory, string> = {
+  '0': '전체',
   '4': '산업안전보건기준에 관한 규칙',
   '5': '고시·훈령·예규',
   '6': '안전보건 미디어',
@@ -196,12 +197,12 @@ export interface KoshaResultItem {
   title: string;
   content: string;
   category: string;
-  /** 검색어와 일치한 강조 단어 (KOSHA API의 highlight_content에서 추출, API 자체 키워드 필드는 없음) */
+  /** 寃?됱뼱? ?쇱튂??媛뺤“ ?⑥뼱 (KOSHA API??highlight_content?먯꽌 異붿텧, API ?먯껜 ?ㅼ썙???꾨뱶???놁쓬) */
   keywords: string[];
   score: number;
-  /** KOSHA OpenAPI는 원문 URL을 제공하지 않아 항상 빈 문자열 */
+  /** KOSHA OpenAPI???먮Ц URL???쒓났?섏? ?딆븘 ??긽 鍮?臾몄옄??*/
   url: string;
-  /** 문서 식별 문자열 (예: "KOSHA07_..._1"), 원문 링크 대체용 참고 정보 */
+  /** 臾몄꽌 ?앸퀎 臾몄옄??(?? "KOSHA07_..._1"), ?먮Ц 留곹겕 ?泥댁슜 李멸퀬 ?뺣낫 */
   doc_id: string;
 }
 
@@ -253,3 +254,5 @@ export async function getDailyQuizzes(siteId?: number, userId?: number) {
   });
   return res.data;
 }
+
+

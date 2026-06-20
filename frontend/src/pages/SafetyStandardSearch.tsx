@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import {
   searchSafetyStandards,
@@ -29,7 +29,7 @@ const FILTER_OPTIONS: {
   {
     value: "moel_standard_safety_guideline",
     label: "고용노동부 표준안전작업지침",
-    shortLabel: "작업지침",
+    shortLabel: "지침",
   },
 ];
 
@@ -276,8 +276,7 @@ export default function SafetyStandardSearch() {
   }, [allResults]);
 
   const activeFilterLabel =
-    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ??
-    "전체";
+    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ?? "전체";
   const hasNoResults = !!result && displayResults.length === 0;
   const searchSummary =
     result && allResults.length > 0
@@ -297,7 +296,7 @@ export default function SafetyStandardSearch() {
               안전기준 검색
             </span>
             <span className="rounded-full border border-[#2C2C2E] bg-[#121212] px-3 py-1 text-xs text-[#98989D]">
-              /laws와 동일한 탐색 경험
+              /laws와 동일한 검색 경험
             </span>
           </div>
           <div className="space-y-1">
@@ -305,10 +304,10 @@ export default function SafetyStandardSearch() {
               안전기준 검색
             </h1>
             <p className="text-sm font-medium text-[#FF9F0A]">
-              산업안전보건기준에 관한 규칙과 표준안전작업지침을 함께 찾습니다.
+              산업안전보건기준 규칙과 표준안전작업지침을 함께 찾습니다.
             </p>
             <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
-              결과 카드에서 출처 유형, 유사도, 조문번호, 본문 미리보기를 한 번에
+              결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한 번에
               확인할 수 있습니다.
             </p>
           </div>
@@ -319,13 +318,13 @@ export default function SafetyStandardSearch() {
         onSubmit={handleSearch}
         className="space-y-4 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-5 shadow-[0_8px_40px_rgba(0,0,0,0.18)]"
       >
-        <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
-          <div className="relative min-w-0">
+        <div className="flex gap-3 relative">
+          <div className="relative flex-1">
             <input
               ref={inputRef}
               type="text"
-              className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white placeholder:text-[#3A3A3C] outline-none transition focus:border-[#FF9F0A]/50 focus:ring-2 focus:ring-[#FF9F0A]/20"
-              placeholder="예: 이동식비계 작업발판 기준"
+              className="w-full rounded-lg border border-[#2C2C2E] bg-[#121212] px-4 py-2.5 text-sm text-white placeholder-[#3A3A3C] outline-none transition-all focus:border-[#FF9F0A]/50 focus:ring-2 focus:ring-[#FF9F0A]/20"
+              placeholder="검색어 또는 안전기준 입력"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => history.length > 0 && setShowHistory(true)}
@@ -335,16 +334,16 @@ export default function SafetyStandardSearch() {
             {showHistory && filteredHistory.length > 0 && (
               <div
                 ref={dropdownRef}
-                className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-2xl"
+                className="absolute left-0 right-0 top-full z-20 mt-1 overflow-hidden rounded-xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-xl"
               >
-                <div className="flex items-center justify-between border-b border-[#2C2C2E] px-4 py-3">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#98989D]">
+                <div className="flex items-center justify-between border-b border-[#2C2C2E] px-3 py-2">
+                  <span className="text-[10px] uppercase tracking-widest text-[#98989D]">
                     최근 검색어
                   </span>
                   <button
                     type="button"
                     onClick={handleClearHistory}
-                    className="text-xs text-[#98989D] transition-colors hover:text-[#FF9F0A]"
+                    className="text-[10px] text-[#98989D] transition-colors hover:text-[#FF9F0A]"
                   >
                     전체 삭제
                   </button>
@@ -369,7 +368,7 @@ export default function SafetyStandardSearch() {
           <button
             type="submit"
             disabled={loading || !query.trim()}
-            className="inline-flex items-center justify-center rounded-2xl bg-[#FF9F0A] px-5 py-3 text-sm font-semibold text-[#121212] transition-all hover:bg-[#FFB347] disabled:cursor-not-allowed disabled:opacity-40 sm:min-w-28"
+            className="inline-flex shrink-0 items-center justify-center rounded-lg bg-[#FF9F0A] px-5 py-2.5 text-sm font-semibold text-[#121212] transition-all duration-150 hover:bg-[#FFB347] disabled:opacity-40"
           >
             검색
           </button>
@@ -401,8 +400,8 @@ export default function SafetyStandardSearch() {
 
           <div className="text-xs text-[#3A3A3C]">
             {allResults.length > 0
-              ? "필터는 탭으로 전환됩니다."
-              : "검색 후 필터 탭이 활성화됩니다."}
+              ? "필터를 바꾸면 결과가 즉시 다시 분류됩니다."
+              : "검색하면 여기에 필터 상태가 표시됩니다."}
           </div>
         </div>
 
@@ -410,11 +409,7 @@ export default function SafetyStandardSearch() {
           <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">
             출처 필터
           </div>
-          <div
-            role="tablist"
-            aria-label="출처 필터"
-            className="flex gap-2 overflow-x-auto pb-1"
-          >
+          <div role="tablist" aria-label="출처 필터" className="flex gap-2 overflow-x-auto pb-1">
             {FILTER_OPTIONS.map((option) => (
               <FilterTab
                 key={option.value}
@@ -434,26 +429,28 @@ export default function SafetyStandardSearch() {
 
       {!loading && hasNoResults && (
         <EmptyState
-          icon="🦺"
+          icon="🧭"
           title={`선택한 필터(${activeFilterLabel})에서 일치하는 안전기준을 찾지 못했습니다.`}
-          description="다른 키워드로 다시 검색하거나, 출처 필터를 전체로 바꿔보세요."
+          description="다른 단어로 다시 검색하거나, 출처 필터를 전체로 바꿔보세요."
         />
       )}
 
       {!loading && !result && (
         <div className="rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6 text-center shadow-[0_8px_40px_rgba(0,0,0,0.14)]">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF9F0A]/20 bg-[#FF9F0A]/10 text-2xl text-[#FF9F0A]">
-            🦺
+            🧭
           </div>
           <p className="mt-4 text-sm font-medium text-[#C7C7CC]">
             안전기준 데이터가 준비되면 검색 결과가 여기에 표시됩니다.
           </p>
-          {/* <p className="mt-2 text-xs leading-5 text-[#3A3A3C]">
+          {/*
+          <p className="mt-2 text-xs leading-5 text-[#3A3A3C]">
             ingestion 실행 예시:
             <code className="ml-1 rounded bg-[#121212] px-1.5 py-0.5 font-mono text-[#FF9F0A]">
               python ingestion/ingest_admrul_safety_guidelines.py --embed
             </code>
-          </p> */}
+          </p>
+          */}
         </div>
       )}
 

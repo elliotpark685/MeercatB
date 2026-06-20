@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
@@ -41,7 +41,6 @@ export default function LawSearch() {
   const [query, setQuery] = useState("");
   const [topK, setTopK] = useState(5);
   const [validateLatest, setValidateLatest] = useState(false);
-  // 빈 배열 = 전체(5개 법령) 검색
   const [lawScope, setLawScope] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(false);
@@ -57,7 +56,6 @@ export default function LawSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // 드롭다운 외부 클릭 시 닫기
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (
@@ -97,8 +95,8 @@ export default function LawSearch() {
         siteId: siteId ?? undefined,
       });
       setResult(res);
-    } catch (e) {
-      setError(e);
+    } catch (err) {
+      setError(err);
     } finally {
       setLoading(false);
     }
@@ -110,8 +108,8 @@ export default function LawSearch() {
     try {
       const d = await getLawArticle(articleId);
       setDetail(d);
-    } catch (e) {
-      setDetailError(e);
+    } catch (err) {
+      setDetailError(err);
     } finally {
       setDetailLoading(false);
     }
@@ -168,31 +166,28 @@ export default function LawSearch() {
           5개 건설 안전 관련 법령 통합 검색
         </p>
         <p className="text-xs text-[#98989D]">
-          산업안전보건법, 시설물안전법, 건설산업기본법, 건설기술진흥법,
-          중대재해처벌법을 통합 검색합니다.
+          산업안전보건법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을 함께
+          검색합니다.
         </p>
       </div>
 
-      {/* 검색 폼 */}
       <form
         onSubmit={handleSearch}
         className="bg-[#1E1E1E] rounded-2xl border border-[#2C2C2E] p-5 space-y-4"
       >
-        {/* 검색창 + 히스토리 드롭다운 */}
         <div className="flex gap-3 relative">
           <div className="relative flex-1">
             <input
               ref={inputRef}
               type="text"
               className="w-full bg-[#121212] border border-[#2C2C2E] rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#3A3A3C] focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 focus:border-[#00E5FF]/50 transition-all"
-              placeholder="예: 산업재해"
+              placeholder="검색어 또는 법령명 입력"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => history.length > 0 && setShowHistory(true)}
               autoComplete="off"
             />
 
-            {/* 히스토리 드롭다운 */}
             {showHistory && filteredHistory.length > 0 && (
               <div
                 ref={dropdownRef}
@@ -264,28 +259,25 @@ export default function LawSearch() {
         <LawScopeFilter selected={lawScope} onChange={setLawScope} />
       </form>
 
-      {loading && <Spinner text="검색 중..." />}
+      {loading && <Spinner text="법령 검색 중..." />}
       {!!error && <ErrorBox error={error} />}
 
-      {/* 결과 없음 */}
       {!loading && hasNoResults && (
         <EmptyState
-          icon="🔍"
+          icon="⚖️"
           title="관련 법령을 찾지 못했습니다. 검색어를 다르게 입력해보세요."
-          description="다른 키워드로 검색하거나 검색 결과 수를 늘려보세요."
+          description="다른 단어로 다시 검색하거나 검색 결과의 상세 내용을 확인해보세요."
         />
       )}
 
       {result && (
         <div className="space-y-5">
-          {/* 검색 결과 요약 */}
           {!hasNoResults && (
             <div className="text-xs text-[#98989D]">
-              총 {searchResults.length}건 / 검색 대상: {scopeLabel}
+              총 {searchResults.length}건 / 검색 조건: {scopeLabel}
             </div>
           )}
 
-          {/* 법령별 검색 결과 카드 */}
           {groupedResults.length > 0 && (
             <div className="space-y-5">
               {groupedResults.map(([lawName, items]) => (
@@ -303,11 +295,7 @@ export default function LawSearch() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {items.map((item, idx) => (
                       <LawResultCard
-                        key={
-                          item.chunk_id ??
-                          item.article_id ??
-                          `${lawName}-${idx}`
-                        }
+                        key={item.chunk_id ?? item.article_id ?? `${lawName}-${idx}`}
                         item={item}
                       />
                     ))}
@@ -317,7 +305,6 @@ export default function LawSearch() {
             </div>
           )}
 
-          {/* 검색 답변 */}
           {result.answer && (
             <div className="bg-[#1E1E1E] border border-[#00E5FF]/20 rounded-2xl p-5">
               <h2 className="text-sm font-semibold text-[#00E5FF] mb-3 flex items-center gap-2">
@@ -330,12 +317,11 @@ export default function LawSearch() {
             </div>
           )}
 
-          {/* 인용 조문 */}
           {result.citations.length > 0 && (
             <div className="bg-[#1E1E1E] rounded-2xl border border-[#2C2C2E] p-5">
               <h2 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#98989D] inline-block" />
-                인용 조문
+                인용 문서
                 <span className="text-xs text-[#98989D] font-normal ml-auto">
                   {result.citations.length}건
                 </span>
@@ -347,23 +333,20 @@ export default function LawSearch() {
                     onClick={() => handleArticleClick(c.article_id)}
                     className="w-full text-left text-sm px-3 py-2.5 rounded-lg border border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#00E5FF]/30 hover:text-[#00E5FF] hover:bg-[#00E5FF]/5 transition-all duration-150"
                   >
-                    {c.law_name} {c.article_no}{" "}
-                    {c.article_title ? `(${c.article_title})` : ""}
+                    {c.law_name} {c.article_no} {c.article_title ? `(${c.article_title})` : ""}
                   </button>
                 ))}
               </div>
             </div>
           )}
 
-          {detailLoading && <Spinner text="조문 상세 조회 중..." />}
+          {detailLoading && <Spinner text="문서 상세 조회 중..." />}
           {!!detailError && <ErrorBox error={detailError} />}
 
-          {/* 조문 상세 */}
           {detail && (
             <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
               <h3 className="font-semibold text-white mb-3">
-                {detail.law_name}{" "}
-                <span className="text-[#00E5FF]">{detail.article_no}</span>
+                {detail.law_name} <span className="text-[#00E5FF]">{detail.article_no}</span>
               </h3>
               <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
                 {detail.full_text}

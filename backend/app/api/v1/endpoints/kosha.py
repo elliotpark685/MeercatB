@@ -15,7 +15,7 @@ router = APIRouter()
 @router.get("/search", response_model=KoshaSearchResponse)
 def search_kosha(
     query: str = Query(min_length=1, max_length=1000),
-    category: KoshaCategory = Query(default=KoshaCategory.KOSHA_GUIDE),
+    category: KoshaCategory = Query(default=KoshaCategory.ALL),
     page: int = Query(default=1, ge=1),
     size: int = Query(default=10, ge=1, le=50),
 ) -> KoshaSearchResponse:
@@ -27,3 +27,4 @@ def search_kosha(
 def summarize_kosha(payload: KoshaSummaryRequest) -> KoshaSummaryResponse:
     service = KoshaSummaryService()
     return service.summarize(query=payload.query, items=payload.items)
+
