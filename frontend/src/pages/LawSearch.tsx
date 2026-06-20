@@ -1,25 +1,25 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { useState, useRef, useEffect, useMemo } from "react";
+import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
   getLawArticle,
   type LawSearchResult,
   type ArticleDetail,
-} from '../api/admin';
-import Spinner from '../components/Spinner';
-import ErrorBox from '../components/ErrorBox';
-import EmptyState from '../components/EmptyState';
-import LawScopeFilter from '../components/LawScopeFilter';
-import LawResultCard from '../components/LawResultCard';
-import { LAW_SCOPE_OPTIONS, getLawBadgeColor } from '../types/law';
+} from "../api/admin";
+import Spinner from "../components/Spinner";
+import ErrorBox from "../components/ErrorBox";
+import EmptyState from "../components/EmptyState";
+import LawScopeFilter from "../components/LawScopeFilter";
+import LawResultCard from "../components/LawResultCard";
+import { LAW_SCOPE_OPTIONS, getLawBadgeColor } from "../types/law";
 
 const TOP_K_OPTIONS = [3, 5, 10];
-const HISTORY_KEY = 'meerkat_law_history';
+const HISTORY_KEY = "meerkat_law_history";
 const HISTORY_MAX = 8;
 
 function loadHistory(): string[] {
   try {
-    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]");
   } catch {
     return [];
   }
@@ -38,7 +38,7 @@ function clearHistory() {
 export default function LawSearch() {
   const { userId, siteId } = useAuth();
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [topK, setTopK] = useState(5);
   const [validateLatest, setValidateLatest] = useState(false);
   // 빈 배열 = 전체(5개 법령) 검색
@@ -68,8 +68,8 @@ export default function LawSearch() {
         setShowHistory(false);
       }
     }
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   async function handleSearch(e: React.FormEvent, overrideQuery?: string) {
@@ -130,7 +130,7 @@ export default function LawSearch() {
   }
 
   const filteredHistory = history.filter((h) =>
-    query ? h.toLowerCase().includes(query.toLowerCase()) : true
+    query ? h.toLowerCase().includes(query.toLowerCase()) : true,
   );
 
   const searchResults = useMemo(() => result?.results ?? [], [result]);
@@ -138,7 +138,7 @@ export default function LawSearch() {
   const groupedResults = useMemo(() => {
     const groups = new Map<string, typeof searchResults>();
     for (const item of searchResults) {
-      const key = item.law_name?.trim() || '법령명 미상';
+      const key = item.law_name?.trim() || "법령명 미상";
       const list = groups.get(key);
       if (list) {
         list.push(item);
@@ -149,7 +149,10 @@ export default function LawSearch() {
     return Array.from(groups.entries());
   }, [searchResults]);
 
-  const scopeLabel = lawScope.length > 0 ? lawScope.join(', ') : `전체 (${LAW_SCOPE_OPTIONS.length}개 법령)`;
+  const scopeLabel =
+    lawScope.length > 0
+      ? lawScope.join(", ")
+      : `전체 (${LAW_SCOPE_OPTIONS.length}개 법령)`;
 
   const hasNoResults =
     !!result &&
@@ -161,9 +164,12 @@ export default function LawSearch() {
     <div className="space-y-6">
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold text-white">법령 검색</h1>
-        <p className="text-sm text-[#00E5FF] font-medium">5개 건설 안전 관련 법령 통합 검색</p>
+        <p className="text-sm text-[#00E5FF] font-medium">
+          5개 건설 안전 관련 법령 통합 검색
+        </p>
         <p className="text-xs text-[#98989D]">
-          산업안전보건법, 시설물안전법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을 통합 검색합니다.
+          산업안전보건법, 시설물안전법, 건설산업기본법, 건설기술진흥법,
+          중대재해처벌법을 통합 검색합니다.
         </p>
       </div>
 
@@ -179,7 +185,7 @@ export default function LawSearch() {
               ref={inputRef}
               type="text"
               className="w-full bg-[#121212] border border-[#2C2C2E] rounded-lg px-4 py-2.5 text-sm text-white placeholder-[#3A3A3C] focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 focus:border-[#00E5FF]/50 transition-all"
-              placeholder="예: 추락 방지"
+              placeholder="예: 산업재해"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => history.length > 0 && setShowHistory(true)}
@@ -193,7 +199,9 @@ export default function LawSearch() {
                 className="absolute top-full left-0 right-0 mt-1 bg-[#1E1E1E] border border-[#2C2C2E] rounded-xl shadow-xl z-20 overflow-hidden"
               >
                 <div className="flex items-center justify-between px-3 py-2 border-b border-[#2C2C2E]">
-                  <span className="text-[10px] text-[#98989D] uppercase tracking-widest">최근 검색어</span>
+                  <span className="text-[10px] text-[#98989D] uppercase tracking-widest">
+                    최근 검색어
+                  </span>
                   <button
                     type="button"
                     onClick={handleClearHistory}
@@ -235,7 +243,9 @@ export default function LawSearch() {
               className="bg-[#121212] border border-[#2C2C2E] text-white rounded-lg px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-[#00E5FF]/50"
             >
               {TOP_K_OPTIONS.map((k) => (
-                <option key={k} value={k}>{k}</option>
+                <option key={k} value={k}>
+                  {k}
+                </option>
               ))}
             </select>
           </label>
@@ -286,11 +296,20 @@ export default function LawSearch() {
                     >
                       {lawName}
                     </span>
-                    <span className="text-xs text-[#98989D] font-normal">{items.length}건</span>
+                    <span className="text-xs text-[#98989D] font-normal">
+                      {items.length}건
+                    </span>
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {items.map((item, idx) => (
-                      <LawResultCard key={item.chunk_id ?? item.article_id ?? `${lawName}-${idx}`} item={item} />
+                      <LawResultCard
+                        key={
+                          item.chunk_id ??
+                          item.article_id ??
+                          `${lawName}-${idx}`
+                        }
+                        item={item}
+                      />
                     ))}
                   </div>
                 </div>
@@ -317,7 +336,9 @@ export default function LawSearch() {
               <h2 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#98989D] inline-block" />
                 인용 조문
-                <span className="text-xs text-[#98989D] font-normal ml-auto">{result.citations.length}건</span>
+                <span className="text-xs text-[#98989D] font-normal ml-auto">
+                  {result.citations.length}건
+                </span>
               </h2>
               <div className="space-y-2">
                 {result.citations.map((c) => (
@@ -326,8 +347,8 @@ export default function LawSearch() {
                     onClick={() => handleArticleClick(c.article_id)}
                     className="w-full text-left text-sm px-3 py-2.5 rounded-lg border border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#00E5FF]/30 hover:text-[#00E5FF] hover:bg-[#00E5FF]/5 transition-all duration-150"
                   >
-                    {c.law_name} {c.article_no}{' '}
-                    {c.article_title ? `(${c.article_title})` : ''}
+                    {c.law_name} {c.article_no}{" "}
+                    {c.article_title ? `(${c.article_title})` : ""}
                   </button>
                 ))}
               </div>
@@ -341,7 +362,7 @@ export default function LawSearch() {
           {detail && (
             <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
               <h3 className="font-semibold text-white mb-3">
-                {detail.law_name}{' '}
+                {detail.law_name}{" "}
                 <span className="text-[#00E5FF]">{detail.article_no}</span>
               </h3>
               <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
