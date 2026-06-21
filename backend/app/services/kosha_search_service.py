@@ -10,7 +10,7 @@ import logging
 
 from app.core.config import settings
 from app.schemas.kosha import KoshaCategory, KoshaResultItem, KoshaSearchResponse
-from app.utils.kosha_api_client import KoshaApiClient, strip_html
+from app.utils.kosha_api_client import KoshaApiClient, KoshaApiError, strip_html
 
 logger = logging.getLogger(__name__)
 
@@ -31,16 +31,28 @@ class KoshaSearchService:
         if self._client is None:
             logger.warning("KOSHA search skipped: DATA_KEY is not configured")
             return KoshaSearchResponse(
-                query=query, category=category, page=page, size=size, total=0, results=[]
+                query=query,
+                category=category,
+                page=page,
+                size=size,
+                total=0,
+                results=[],
+                error="DATA_KEY is not configured on the backend",
             )
 
         try:
             raw_items, total, related_keywords = self._client.search(
                 query=query, category=category.value, page=page, size=size
             )
+            error: str | None = None
+        except KoshaApiError as exc:
+            logger.warning("KOSHA search failed: %s", exc)
+            raw_items, total, related_keywords = [], 0, []
+            error = str(exc)
         except Exception as exc:
             logger.warning("KOSHA search failed, returning empty result: %s", exc)
             raw_items, total, related_keywords = [], 0, []
+            error = "Unexpected KOSHA search failure"
 
         results = [
             KoshaResultItem(
@@ -63,4 +75,5 @@ class KoshaSearchService:
             total=total,
             results=results,
             related_keywords=related_keywords,
+            error=error,
         )

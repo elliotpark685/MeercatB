@@ -31,6 +31,7 @@ class KoshaSearchResponse(BaseModel):
     total: int
     results: list[KoshaResultItem]
     related_keywords: list[str] = Field(default_factory=list)
+    error: str | None = None
 
 
 class KoshaSummaryRequest(BaseModel):

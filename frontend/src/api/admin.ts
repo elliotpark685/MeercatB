@@ -214,6 +214,7 @@ export interface KoshaSearchResult {
   total: number;
   results: KoshaResultItem[];
   related_keywords: string[];
+  error?: string | null;
 }
 
 export interface KoshaSearchParams {
