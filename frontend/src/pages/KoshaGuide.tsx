@@ -280,6 +280,7 @@ export default function KoshaGuide() {
     try {
       const res = await searchKosha({ query: q, category: cat, page: p, size: PAGE_SIZE });
       setResult(res);
+      setError(res.error ? new Error(res.error) : null);
     } catch (err) {
       setError(err);
       setResult(null);
@@ -555,7 +556,7 @@ export default function KoshaGuide() {
 
       <SummaryPanel summary={summary} loading={summaryLoading} error={summaryError} />
 
-      {!loading && result && !hasResults && (
+      {!loading && result && !hasResults && !error && (
         <div className="space-y-4 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6">
           <EmptyState
             icon="🔍"

@@ -12,7 +12,7 @@ from app.main import app
 from app.schemas.kosha import KoshaCategory, KoshaResultItem
 from app.services.kosha_search_service import KoshaSearchService
 from app.services.kosha_summary_service import KoshaSummaryService
-from app.utils.kosha_api_client import KoshaApiClient, extract_highlighted_terms, strip_html
+from app.utils.kosha_api_client import KoshaApiClient, KoshaApiError, extract_highlighted_terms, strip_html
 
 client = TestClient(app)
 
@@ -120,23 +120,19 @@ def test_kosha_api_client_uses_filepath_and_keyword_for_media_category():
     assert items[0].keywords == ["사다리", "고소작업대", "높이"]
 
 
-def test_kosha_api_client_graceful_fallback_on_request_failure():
+def test_kosha_api_client_raises_on_request_failure():
     with patch("app.utils.kosha_api_client.urlopen", side_effect=TimeoutError("timeout")):
         cli = KoshaApiClient(service_key="dummy-key")
-        items, total, related = cli.search(query="사다리", category="7", page=1, size=10)
-    assert items == []
-    assert total == 0
-    assert related == []
+        with pytest.raises(KoshaApiError, match="request failed"):
+            cli.search(query="사다리", category="7", page=1, size=10)
 
 
-def test_kosha_api_client_graceful_fallback_on_non_success_result_code():
+def test_kosha_api_client_raises_on_non_success_result_code():
     raw = _fake_error_response()
     with patch("app.utils.kosha_api_client.urlopen", return_value=_FakeHttpResponse(raw)):
         cli = KoshaApiClient(service_key="dummy-key")
-        items, total, related = cli.search(query="사다리", category="7", page=1, size=10)
-    assert items == []
-    assert total == 0
-    assert related == []
+        with pytest.raises(KoshaApiError, match="non-success"):
+            cli.search(query="사다리", category="7", page=1, size=10)
 
 
 def test_kosha_search_service_without_api_key_returns_empty_result(monkeypatch: pytest.MonkeyPatch):
@@ -145,6 +141,7 @@ def test_kosha_search_service_without_api_key_returns_empty_result(monkeypatch: 
     result = service.search(query="사다리", category=KoshaCategory.KOSHA_GUIDE, page=1, size=10)
     assert result.results == []
     assert result.total == 0
+    assert result.error is not None
 
 
 def test_kosha_search_service_strips_html_and_uses_api_related_keywords(monkeypatch: pytest.MonkeyPatch):

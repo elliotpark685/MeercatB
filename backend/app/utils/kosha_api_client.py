@@ -72,6 +72,10 @@ class KoshaRawItem:
     url: str = ""
 
 
+class KoshaApiError(RuntimeError):
+    """Raised when the upstream KOSHA API cannot be used."""
+
+
 class KoshaApiClient:
     """KOSHA ?ㅻ쭏?멸???API ?섑띁. ?ㅽ뙣 ??鍮?由ъ뒪??諛섑솚 (graceful fallback)."""
 
@@ -101,25 +105,21 @@ class KoshaApiClient:
             with urlopen(url, timeout=self.timeout) as resp:
                 raw = resp.read().decode("utf-8")
         except Exception as exc:
-            logger.warning("kosha search request failed: %s", exc)
-            return [], 0, []
+            raise KoshaApiError(f"kosha search request failed: {exc}") from exc
 
         try:
             payload = json.loads(raw)
         except json.JSONDecodeError as exc:
-            logger.warning("kosha search JSON parse failed: %s", exc)
-            return [], 0, []
+            raise KoshaApiError(f"kosha search JSON parse failed: {exc}") from exc
 
         response = payload.get("response", payload)
         header = response.get("header") or {}
         result_code = str(header.get("resultCode") or "")
         if result_code and result_code != "00":
-            logger.warning(
-                "kosha search returned non-success resultCode=%s msg=%s",
-                result_code,
-                header.get("resultMsg"),
+            raise KoshaApiError(
+                "kosha search returned non-success "
+                f"resultCode={result_code} msg={header.get('resultMsg')}"
             )
-            return [], 0, []
 
         return self._parse_body(response.get("body") or {})
 
