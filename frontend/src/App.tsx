@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
-import AdminLayout from './components/AdminLayout';
+import AdminLayout from './components/AdminLayoutV2';
+import HomeSearch from './pages/HomeSearch';
 import Dashboard from './pages/Dashboard';
 import LawSearch from './pages/LawSearch';
 import DocumentGenerate from './pages/DocumentGenerate';
@@ -27,6 +28,19 @@ function PublicRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   if (isLoading) return null;
   return isAuthenticated ? <Navigate to="/" replace /> : <>{children}</>;
+}
+
+function AdminRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, isLoading, role } = useAuth();
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#121212]">
+        <Spinner text="권한 확인 중..." />
+      </div>
+    );
+  }
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  return role === 'admin' ? <>{children}</> : <Navigate to="/" replace />;
 }
 
 export default function App() {
@@ -58,7 +72,8 @@ export default function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Dashboard />} />
+              <Route index element={<HomeSearch />} />
+              <Route path="dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
               <Route path="laws" element={<LawSearch />} />
               <Route path="safety-standards" element={<SafetyStandardSearch />} />
               <Route path="kosha-guide" element={<KoshaGuide />} />
