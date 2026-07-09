@@ -10,7 +10,6 @@ from app.schemas.law import (
     LawSearchResultItem,
     LawSearchRequest,
     LawSearchResponse,
-    RawHitItem,
 )
 from app.schemas.quiz import DailyQuizResponse, QuizItem
 
@@ -28,6 +27,5 @@ __all__ = [
     "LawSearchResultItem",
     "LawSearchRequest",
     "LawSearchResponse",
-    "RawHitItem",
     "QuizItem",
 ]

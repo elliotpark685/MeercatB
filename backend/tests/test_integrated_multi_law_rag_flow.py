@@ -168,14 +168,11 @@ def test_full_multi_law_rag_flow_with_sqlite_and_mocked_external_calls():
     assert search_response.status_code == 200
     search_body = search_response.json()
     assert "citations" in search_body
-    assert "raw_hits" in search_body
     assert search_body["results"]
     assert search_body["results"][0]["law_name"]
     assert search_body["results"][0]["article_no"]
-    assert search_body["results"][0]["chunk_text"]
+    assert search_body["results"][0]["content_preview"]
     assert search_body["results"][0]["score"] > 0
-    assert search_body["results"][0]["source_url"]
-    assert search_body["results"][0]["effective_date"]
 
     scoped_response = client.post(
         "/api/v1/laws/search",
@@ -197,12 +194,10 @@ def test_full_multi_law_rag_flow_with_sqlite_and_mocked_external_calls():
     )
     assert document_response.status_code == 200
     document_body = document_response.json()
-    assert document_body["content"] == document_body["generated_text"]
-    assert document_body["references"]
-    assert document_body["references"][0]["law_name"]
-    assert document_body["references"][0]["article_no"]
-    assert document_body["references"][0]["chunk_text"]
-    assert "## 참고 법령 목록" in document_body["generated_text"]
+    assert document_body["content"]
+    assert document_body["citations"]
+    assert document_body["citations"][0]["law_name"]
+    assert document_body["citations"][0]["article_no"]
 
     with session_factory() as db:
         logs = db.query(LawSearchLog).order_by(LawSearchLog.id.asc()).all()
@@ -228,7 +223,6 @@ def test_backward_compatible_legacy_law_search_response_shape():
 
     assert response.status_code == 200
     body = response.json()
-    assert set(["query", "answer", "citations", "raw_hits", "results"]).issubset(body)
+    assert set(["query", "answer", "citations", "results"]).issubset(body)
     assert body["citations"]
-    assert body["raw_hits"]
     assert body["results"]

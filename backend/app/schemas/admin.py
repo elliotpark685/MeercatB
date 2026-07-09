@@ -27,3 +27,22 @@ class AdminDashboardResponse(BaseModel):
     latest_generated_documents: list[DashboardDocumentItem]
     latest_law_searches: list[DashboardLawSearchItem]
 
+
+class LawSearchLogItem(BaseModel):
+    id: int
+    query: str
+    user_id: int | None
+    site_id: int | None
+    top_k: int
+    result_count: int
+    created_at: datetime
+
+
+class LawSearchLogListResponse(BaseModel):
+    site_id: int | None
+    limit: int
+    from_date: str | None
+    to_date: str | None
+    total: int
+    items: list[LawSearchLogItem]
+

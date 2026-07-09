@@ -84,7 +84,7 @@ function SafetyResultCard({
 }: {
   item: NonNullable<SafetyStandardSearchResult['results']>[number];
 }) {
-  const text = item.content?.trim() ?? '';
+  const text = item.content_preview?.trim() ?? '';
   const preview = text.length > 260 ? `${text.slice(0, 260)}...` : text;
 
   return (
@@ -413,7 +413,7 @@ export default function HomeSearch() {
               />
               <div className="grid gap-3 md:grid-cols-2">
                 {lawResults.map((item, index) => (
-                  <LawResultCard key={item.chunk_id ?? item.article_id ?? index} item={item} />
+                  <LawResultCard key={item.article_id ?? index} item={item} />
                 ))}
               </div>
             </section>
@@ -440,7 +440,7 @@ export default function HomeSearch() {
               />
               <div className="grid gap-3 md:grid-cols-2">
                 {safetyResults.map((item, index) => (
-                  <SafetyResultCard key={item.chunk_id ?? item.article_id ?? index} item={item} />
+                  <SafetyResultCard key={item.article_id ?? index} item={item} />
                 ))}
               </div>
             </section>

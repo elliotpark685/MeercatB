@@ -58,5 +58,5 @@ def test_search_result_includes_article_and_document_effective_dates():
     result = service.search("sample", top_k=5, validate_latest=False)
 
     assert result.results
-    assert result.results[0].effective_date == "2026-03-02"
-    assert result.results[0].document_effective_date == "2026-06-01"
+    assert result.results[0].content_preview
+    assert result.citations[0].effective_date == "2026-03-02"

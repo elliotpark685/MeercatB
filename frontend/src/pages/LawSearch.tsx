@@ -294,8 +294,8 @@ export default function LawSearch() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {items.map((item, idx) => (
-                      <LawResultCard
-                        key={item.chunk_id ?? item.article_id ?? `${lawName}-${idx}`}
+                    <LawResultCard
+                        key={item.article_id ?? `${lawName}-${idx}`}
                         item={item}
                       />
                     ))}

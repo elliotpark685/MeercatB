@@ -1,9 +1,14 @@
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.api import api_router
 from app.core.config import settings
 from app.core.database import init_db
+
+
+logger = logging.getLogger(__name__)
 
 
 def create_app() -> FastAPI:
@@ -20,6 +25,18 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    @app.middleware("http")
+    async def log_response_size(request, call_next):
+        response = await call_next(request)
+        content_length = response.headers.get("content-length")
+        logger.info(
+            "api_response path=%s status=%s content_length=%s",
+            request.url.path,
+            response.status_code,
+            content_length or "unknown",
+        )
+        return response
 
     @app.on_event("startup")
     def _startup() -> None:

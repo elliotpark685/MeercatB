@@ -56,18 +56,10 @@ export interface CitationItem {
   effective_date: string | null;
 }
 
-export interface RawHitItem {
-  article_id: number;
-  score: number;
-  matched_reason: string[];
-}
-
 export interface LawSearchResult {
   query: string;
   answer: string;
   citations: CitationItem[];
-  raw_hits: RawHitItem[];
-  /** 踰뺣졊蹂?寃??寃곌낵 移대뱶 紐⑸줉 (?좉퇋 ?꾨뱶, ?놁쓣 ???덉쓬) */
   results?: LawSearchResultItem[];
 }
 
@@ -96,6 +88,10 @@ export interface GenerateDocumentParams {
   site_id: number;
   user_id: number | null; // ?좏깮媛? null ?덉슜
   document_type: DocumentType;
+  work_title: string;
+  safety_keywords: string[];
+  law_names: string[];
+  kosha_categories: KoshaCategory[];
   prompt: string; // 5~4000??
 }
 
@@ -148,12 +144,11 @@ export interface SafetyStandardResultItem {
   source_name: string;
   article_no: string | null;
   article_title: string | null;
-  content: string;
+  content_preview: string;
   score: number;
   provider: string;
   article_id: number | null;
   chunk_id: number | null;
-  matched_reason: string[];
 }
 
 export interface SafetyStandardSearchResult {

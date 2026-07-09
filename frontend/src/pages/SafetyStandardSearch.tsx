@@ -72,7 +72,7 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
   const typeColor =
     SOURCE_TYPE_COLOR[item.source_type] ??
     "border-[#98989D]/30 text-[#98989D] bg-[#98989D]/10";
-  const preview = expanded ? item.content : item.content.slice(0, 200);
+  const preview = expanded ? item.content_preview : item.content_preview.slice(0, 200);
   const scoreColor =
     item.score >= 0.7
       ? "text-[#32D74B]"
@@ -121,9 +121,9 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
         <div className="space-y-2">
           <p className="text-sm leading-6 text-[#C7C7CC] whitespace-pre-wrap break-words">
             {preview}
-            {item.content.length > 200 && !expanded && "..."}
+            {item.content_preview.length > 200 && !expanded && "..."}
           </p>
-          {item.content.length > 200 && (
+          {item.content_preview.length > 200 && (
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}

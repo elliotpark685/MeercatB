@@ -64,31 +64,19 @@ class CitationItem(BaseModel):
     source_page_end: int | None = None
 
 
-class RawHitItem(BaseModel):
-    article_id: int
-    score: float
-    matched_reason: list[str]
-
-
 class LawSearchResultItem(BaseModel):
+    article_id: int
     law_name: str
     article_no: str
-    article_title: str | None = None
-    chunk_text: str
+    title: str | None = None
+    content_preview: str
     score: float
-    source_url: str | None = None
-    effective_date: str | None = None
-    document_effective_date: str | None = None
-    article_id: int | None = None
-    chunk_id: int | None = None
-    matched_reason: list[str] = []
 
 
 class LawSearchResponse(BaseModel):
     query: str
     answer: str
     citations: list[CitationItem]
-    raw_hits: list[RawHitItem]
     results: list[LawSearchResultItem] = []
 
 

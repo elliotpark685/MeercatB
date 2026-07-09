@@ -14,12 +14,11 @@ class SafetyStandardResultItem(BaseModel):
     source_name: str
     article_no: str | None = None
     article_title: str | None = None
-    content: str
+    content_preview: str
     score: float
     provider: str = "law.go.kr"
     article_id: int | None = None
     chunk_id: int | None = None
-    matched_reason: list[str] = []
 
 
 class SafetyStandardSearchResponse(BaseModel):

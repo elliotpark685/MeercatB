@@ -16,7 +16,6 @@ from app.schemas.law import (
     LawArticleDetailResponse,
     LawSearchResponse,
     LawSearchResultItem,
-    RawHitItem,
 )
 from app.services.law_embedding_service import LawEmbeddingService
 from app.services.law_validation_service import LawValidationService
@@ -50,6 +49,14 @@ class SearchCandidate:
     vector_score: float = 0.0
     score: float = 0.0
     matched_reason: list[str] | None = None
+
+
+@dataclass
+class SearchBundle:
+    query: str
+    answer: str
+    citations: list[CitationItem]
+    candidates: list[SearchCandidate]
 
 
 class Reranker(Protocol):
@@ -123,18 +130,39 @@ class LawSearchService:
         law_names: list[str] | None = None,
         law_scope: list[str] | str | None = None,
     ) -> LawSearchResponse:
+        bundle = self.search_for_generation(
+            query=query,
+            top_k=top_k,
+            validate_latest=validate_latest,
+            user_id=user_id,
+            site_id=site_id,
+            law_names=law_names,
+            law_scope=law_scope,
+        )
+        return self._bundle_to_response(bundle)
+
+    def search_for_generation(
+        self,
+        query: str,
+        top_k: int = 5,
+        validate_latest: bool = False,
+        user_id: int | None = None,
+        site_id: int | None = None,
+        law_names: list[str] | None = None,
+        law_scope: list[str] | str | None = None,
+    ) -> SearchBundle:
         normalized_scope = self._normalize_law_scope(law_names=law_names, law_scope=law_scope)
 
         if hasattr(self.repo, "search_chunks_by_keyword") and hasattr(self.repo, "list_chunks_for_scope"):
-            response = self._search_chunks(query=query, top_k=top_k, law_scope=normalized_scope)
-            if not response.results:
-                response = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
+            bundle = self._search_chunks(query=query, top_k=top_k, law_scope=normalized_scope)
+            if not bundle.candidates:
+                bundle = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
         else:
-            response = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
+            bundle = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
 
         if validate_latest:
-            response.answer = self.law_validation_service.validate_latest(
-                [citation.model_dump() for citation in response.citations]
+            bundle.answer = self.law_validation_service.validate_latest(
+                [citation.model_dump() for citation in bundle.citations]
             )
 
         self._log_search(
@@ -143,23 +171,23 @@ class LawSearchService:
             site_id=site_id,
             law_scope=normalized_scope,
             top_k=top_k,
-            result_count=len(response.results or response.citations),
+            result_count=len(bundle.candidates or bundle.citations),
         )
-        return response
+        return bundle
 
-    def _search_chunks(self, query: str, top_k: int, law_scope: list[str]) -> LawSearchResponse:
+    def _search_chunks(self, query: str, top_k: int, law_scope: list[str]) -> SearchBundle:
         keywords = self._expand_query_keywords(query)
         row_map: dict[int, SearchCandidate] = {}
 
         keyword_rows = self.repo.search_chunks_by_keyword(
             keywords=keywords,
             law_scope=law_scope,
-            limit=max(top_k * 20, 100),
+            limit=max(top_k * 10, 50),
         )
         for chunk, article, document, embedding in keyword_rows:
             row_map[chunk.id] = SearchCandidate(chunk=chunk, article=article, document=document, embedding=embedding)
 
-        vector_rows = self.repo.list_chunks_for_scope(law_scope=law_scope, limit=500)
+        vector_rows = self.repo.list_chunks_for_scope(law_scope=law_scope, limit=max(top_k * 15, 120))
         query_vector = self._query_embedding(query) if any(row[3] is not None for row in vector_rows) else []
         for chunk, article, document, embedding in vector_rows:
             candidate = row_map.setdefault(
@@ -171,34 +199,19 @@ class LawSearchService:
 
         candidates = self.reranker.rerank(query=query, candidates=list(row_map.values()), law_scope=law_scope)
         top_candidates = candidates[:top_k]
-        results = [self._candidate_to_result(candidate) for candidate in top_candidates]
         citations = [self._candidate_to_citation(candidate) for candidate in top_candidates]
-        raw_hits = [
-            RawHitItem(
-                article_id=candidate.article.id,
-                score=candidate.score,
-                matched_reason=candidate.matched_reason or [],
-            )
-            for candidate in top_candidates
-        ]
-        return LawSearchResponse(
-            query=query,
-            answer=self._build_answer(citations),
-            citations=citations,
-            raw_hits=raw_hits,
-            results=results,
-        )
+        return SearchBundle(query=query, answer=self._build_answer(citations), citations=citations, candidates=top_candidates)
 
-    def _search_articles(self, query: str, top_k: int, law_scope: list[str]) -> LawSearchResponse:
+    def _search_articles(self, query: str, top_k: int, law_scope: list[str]) -> SearchBundle:
         analysis = self.query_analyzer.analyze(query)
         expanded_keywords = self._expand_query_keywords(query)
 
         row_map: dict[int, tuple[LawArticle, LawDocument]] = {}
         for keyword in expanded_keywords:
             try:
-                rows = self.repo.search_by_keyword(keyword=keyword, top_k=max(top_k * 5, top_k), law_scope=law_scope)
+                rows = self.repo.search_by_keyword(keyword=keyword, top_k=max(top_k * 4, top_k), law_scope=law_scope)
             except TypeError:
-                rows = self.repo.search_by_keyword(keyword=keyword, top_k=max(top_k * 5, top_k))
+                rows = self.repo.search_by_keyword(keyword=keyword, top_k=max(top_k * 4, top_k))
             for article, document in rows:
                 row_map[article.id] = (article, document)
 
@@ -207,18 +220,8 @@ class LawSearchService:
         scored.sort(key=lambda item: item.score, reverse=True)
         top_scored = scored[:top_k]
         citations = [self._to_citation(item) for item in top_scored]
-        raw_hits = [
-            RawHitItem(article_id=item.article.id, score=item.score, matched_reason=item.matched_reason)
-            for item in top_scored
-        ]
-        results = [self._article_to_result(item) for item in top_scored]
-        return LawSearchResponse(
-            query=query,
-            answer=self._build_answer(citations),
-            citations=citations,
-            raw_hits=raw_hits,
-            results=results,
-        )
+        candidates = [self._article_to_candidate(item) for item in top_scored]
+        return SearchBundle(query=query, answer=self._build_answer(citations), citations=citations, candidates=candidates)
 
     def _log_search(
         self,
@@ -264,6 +267,15 @@ class LawSearchService:
             law_no=document.law_no,
             document_effective_date=document.effective_date.isoformat() if document.effective_date else None,
             source_file_path=document.source_file_path,
+        )
+
+    @staticmethod
+    def _bundle_to_response(bundle: SearchBundle) -> LawSearchResponse:
+        return LawSearchResponse(
+            query=bundle.query,
+            answer=bundle.answer,
+            citations=bundle.citations,
+            results=[LawSearchService._candidate_to_result(candidate) for candidate in bundle.candidates],
         )
 
     def _score_article(self, article: LawArticle, document: LawDocument, analysis: QueryAnalysis) -> ScoredArticle:
@@ -345,19 +357,12 @@ class LawSearchService:
     def _candidate_to_result(candidate: SearchCandidate) -> LawSearchResultItem:
         effective_date = candidate.article.effective_date or candidate.document.effective_date
         return LawSearchResultItem(
+            article_id=candidate.article.id,
             law_name=_document_name(candidate.document),
             article_no=_article_no(candidate.article),
-            article_title=_article_title(candidate.article),
-            chunk_text=_candidate_text(candidate),
+            title=_article_title(candidate.article),
+            content_preview=_preview_text(_candidate_text(candidate)),
             score=candidate.score,
-            source_url=candidate.document.source_url,
-            effective_date=effective_date.isoformat() if effective_date else None,
-            document_effective_date=(
-                candidate.document.effective_date.isoformat() if candidate.document.effective_date else None
-            ),
-            article_id=candidate.article.id,
-            chunk_id=candidate.chunk.id if candidate.chunk else None,
-            matched_reason=candidate.matched_reason or [],
         )
 
     @staticmethod
@@ -378,20 +383,24 @@ class LawSearchService:
 
     @staticmethod
     def _article_to_result(item: ScoredArticle) -> LawSearchResultItem:
-        effective_date = item.article.effective_date or item.document.effective_date
-        return LawSearchResultItem(
-            law_name=_document_name(item.document),
-            article_no=_article_no(item.article),
-            article_title=_article_title(item.article),
-            chunk_text=_article_text(item.article),
+        candidate = SearchCandidate(
+            chunk=None,
+            article=item.article,
+            document=item.document,
+            embedding=None,
             score=item.score,
-            source_url=item.document.source_url,
-            effective_date=effective_date.isoformat() if effective_date else None,
-            document_effective_date=(
-                item.document.effective_date.isoformat() if item.document.effective_date else None
-            ),
-            article_id=item.article.id,
-            chunk_id=None,
+            matched_reason=item.matched_reason,
+        )
+        return LawSearchService._candidate_to_result(candidate)
+
+    @staticmethod
+    def _article_to_candidate(item: ScoredArticle) -> SearchCandidate:
+        return SearchCandidate(
+            chunk=None,
+            article=item.article,
+            document=item.document,
+            embedding=None,
+            score=item.score,
             matched_reason=item.matched_reason,
         )
 
@@ -472,6 +481,13 @@ def _article_text(article: LawArticle) -> str:
 
 def _candidate_text(candidate: SearchCandidate) -> str:
     return candidate.chunk.chunk_text if candidate.chunk is not None else _article_text(candidate.article)
+
+
+def _preview_text(text: str, limit: int = 280) -> str:
+    normalized = " ".join(text.split()).strip()
+    if len(normalized) <= limit:
+        return normalized
+    return f"{normalized[:limit].rstrip()}..."
 
 
 def _tokenize(text: str) -> list[str]:
