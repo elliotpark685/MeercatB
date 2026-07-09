@@ -1,5 +1,5 @@
 from sqlalchemy import and_, case, or_, select, update
-from sqlalchemy.orm import Session, joinedload
+from sqlalchemy.orm import Load, Session, joinedload
 
 from app.models.law_article import LawArticle
 from app.models.law_chunk import LawChunk
@@ -95,7 +95,7 @@ class LawRepository:
     ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
         keyword_filter = self._keyword_filter(keywords)
         filters = [item for item in [self._law_scope_filter(law_scope), keyword_filter] if item is not None]
-        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        stmt = self._chunk_select_stmt().options(*self._search_load_options()).order_by(LawChunk.id.asc()).limit(limit)
         if filters:
             stmt = stmt.where(and_(*filters))
         rows = self.db.execute(stmt).all()
@@ -106,7 +106,7 @@ class LawRepository:
         law_scope: list[str] | None = None,
         limit: int = 500,
     ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
-        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        stmt = self._chunk_select_stmt().options(*self._search_load_options()).order_by(LawChunk.id.asc()).limit(limit)
         scope_filter = self._law_scope_filter(law_scope)
         if scope_filter is not None:
             stmt = stmt.where(scope_filter)
@@ -161,6 +161,7 @@ class LawRepository:
             filters.append(scope_filter)
         stmt = (
             select(LawArticle, LawDocument)
+            .options(*self._article_search_load_options())
             .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
             .where(and_(*filters))
             .order_by(status_rank.asc(), LawArticle.id.desc())
@@ -230,6 +231,7 @@ class LawRepository:
             filters.append(category_filter)
         stmt = (
             select(LawArticle, LawDocument)
+            .options(*self._article_search_load_options())
             .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
             .where(and_(*filters))
             .order_by(status_rank.asc(), LawArticle.id.desc())
@@ -248,6 +250,95 @@ class LawRepository:
             .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
             .outerjoin(LawEmbedding, LawEmbedding.chunk_id == LawChunk.id)
             .where(LawDocument.is_active.is_(True))
+        )
+
+    @staticmethod
+    def _search_load_options():
+        return (
+            Load(LawChunk).load_only(
+                LawChunk.id,
+                LawChunk.law_article_id,
+                LawChunk.chunk_level,
+                LawChunk.chunk_no,
+                LawChunk.chunk_text,
+                LawChunk.token_count,
+                LawChunk.metadata_json,
+            ),
+            Load(LawArticle).load_only(
+                LawArticle.id,
+                LawArticle.law_document_id,
+                LawArticle.article_number,
+                LawArticle.article_no,
+                LawArticle.title,
+                LawArticle.article_title,
+                LawArticle.chapter,
+                LawArticle.section,
+                LawArticle.article_text,
+                LawArticle.full_text,
+                LawArticle.content,
+                LawArticle.effective_date,
+                LawArticle.status,
+                LawArticle.source_page_start,
+                LawArticle.source_page_end,
+            ),
+            Load(LawDocument).load_only(
+                LawDocument.id,
+                LawDocument.title,
+                LawDocument.law_name,
+                LawDocument.law_short_name,
+                LawDocument.law_type,
+                LawDocument.law_no,
+                LawDocument.effective_date,
+                LawDocument.source_url,
+                LawDocument.source_file_path,
+                LawDocument.provider,
+                LawDocument.source_type,
+                LawDocument.is_active,
+            ),
+            Load(LawEmbedding).load_only(
+                LawEmbedding.id,
+                LawEmbedding.article_id,
+                LawEmbedding.chunk_id,
+                LawEmbedding.embedding_model,
+                LawEmbedding.embedding,
+                LawEmbedding.embedding_vector,
+            ),
+        )
+
+    @staticmethod
+    def _article_search_load_options():
+        return (
+            Load(LawArticle).load_only(
+                LawArticle.id,
+                LawArticle.law_document_id,
+                LawArticle.article_number,
+                LawArticle.article_no,
+                LawArticle.title,
+                LawArticle.article_title,
+                LawArticle.chapter,
+                LawArticle.section,
+                LawArticle.article_text,
+                LawArticle.full_text,
+                LawArticle.content,
+                LawArticle.effective_date,
+                LawArticle.status,
+                LawArticle.source_page_start,
+                LawArticle.source_page_end,
+            ),
+            Load(LawDocument).load_only(
+                LawDocument.id,
+                LawDocument.title,
+                LawDocument.law_name,
+                LawDocument.law_short_name,
+                LawDocument.law_type,
+                LawDocument.law_no,
+                LawDocument.effective_date,
+                LawDocument.source_url,
+                LawDocument.source_file_path,
+                LawDocument.provider,
+                LawDocument.source_type,
+                LawDocument.is_active,
+            ),
         )
 
     @staticmethod

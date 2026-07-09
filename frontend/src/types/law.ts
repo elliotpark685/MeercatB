@@ -37,17 +37,10 @@ export function getLawBadgeColor(lawName?: string | null): string {
  * 백엔드 필드명이 변경되거나 일부가 누락될 수 있으므로 모두 optional 처리한다.
  */
 export interface LawSearchResultItem {
-  law_name?: string | null;
-  article_no?: string | null;
-  article_title?: string | null;
-  chunk_text?: string | null;
-  content?: string | null;
-  score?: number | null;
-  source_url?: string | null;
-  effective_date?: string | null;
-  document_effective_date?: string | null;
-  article_id?: number | null;
-  chunk_id?: number | null;
-  matched_reason?: string[] | null;
-  references?: string[] | string | null;
+  article_id: number;
+  law_name: string;
+  article_no: string;
+  title?: string | null;
+  content_preview: string;
+  score: number;
 }

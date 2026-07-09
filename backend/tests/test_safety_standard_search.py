@@ -129,7 +129,7 @@ def test_safety_search_returns_response():
     assert result.source_type == "rule"
     assert result.source_name == "산업안전보건기준에 관한 규칙"
     assert result.provider == "law.go.kr"
-    assert "이동식비계" in result.content
+    assert "이동식비계" in result.content_preview
 
 
 def test_safety_search_empty_when_no_data():

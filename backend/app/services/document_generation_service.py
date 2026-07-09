@@ -1,22 +1,33 @@
-import json
+﻿import json
 
 from openai import OpenAI
 from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.models.generated_document import GeneratedDocument
+from app.models.law_search_log import LawSearchLog  # noqa: F401 - mapper registration
 from app.models.site import Site
+from app.models.safety_quiz import SafetyQuiz  # noqa: F401 - mapper registration
+from app.models.user import User  # noqa: F401 - ensures SQLAlchemy mapper registration
+from app.schemas.kosha import KoshaCategory
+from app.services.kosha_search_service import KoshaSearchService
 from app.services.law_search_service import LawSearchService
 
 
 class DocumentGenerationService:
-    """Generates document drafts grounded in integrated law search results."""
+    """Generates document drafts grounded in integrated law and KOSHA context."""
 
     MODEL_NAME = "gpt-4o-mini"
 
-    def __init__(self, db: Session, law_search_service: LawSearchService) -> None:
+    def __init__(
+        self,
+        db: Session,
+        law_search_service: LawSearchService,
+        kosha_search_service: KoshaSearchService | None = None,
+    ) -> None:
         self.db = db
         self.law_search_service = law_search_service
+        self.kosha_search_service = kosha_search_service or KoshaSearchService()
         self._client = OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
 
     def generate(
@@ -25,32 +36,55 @@ class DocumentGenerationService:
         user_id: int | None,
         document_type: str,
         prompt: str,
+        work_title: str | None = None,
+        safety_keywords: list[str] | None = None,
+        law_names: list[str] | None = None,
+        kosha_categories: list[str] | None = None,
     ) -> GeneratedDocument:
         site = self.db.get(Site, site_id)
         if site is None:
             raise ValueError("Site not found")
 
         normalized_type = document_type.strip().lower()
-        search_result = self.law_search_service.search(
-            prompt,
-            top_k=5,
-            validate_latest=False,
+        normalized_work_title = (work_title or prompt or site.name).strip() or site.name
+        normalized_keywords = self._normalize_terms(safety_keywords)
+        normalized_law_names = self._normalize_terms(law_names)
+        normalized_kosha_categories = self._normalize_terms(kosha_categories)
+        search_query = self._build_search_query(normalized_work_title, normalized_keywords, prompt)
+
+        search_bundle = self._search_for_generation(
+            prompt=search_query,
             user_id=user_id,
             site_id=site_id,
+            law_names=normalized_law_names or None,
         )
-        references = self._build_references(search_result.results)
+        references = self._build_references(self._extract_reference_items(search_bundle))
         law_context = self._build_law_context(references)
+        kosha_context = self._build_kosha_context(
+            query=search_query,
+            categories=normalized_kosha_categories,
+            work_title=normalized_work_title,
+            safety_keywords=normalized_keywords,
+        )
         generation_prompt = self._build_generation_prompt(
             document_type=normalized_type,
             site_name=site.name,
+            work_title=normalized_work_title,
+            safety_keywords=normalized_keywords,
             user_prompt=prompt,
             law_context=law_context,
+            kosha_context=kosha_context,
+            selected_laws=normalized_law_names,
+            selected_kosha_categories=normalized_kosha_categories,
         )
         generated_text = self._generate_text(
             document_type=normalized_type,
             site_name=site.name,
+            work_title=normalized_work_title,
+            safety_keywords=normalized_keywords,
             user_prompt=prompt,
             law_context=law_context,
+            kosha_context=kosha_context,
             generation_prompt=generation_prompt,
             references=references,
         )
@@ -60,7 +94,7 @@ class DocumentGenerationService:
             site_id=site_id,
             created_by=user_id,
             document_type=normalized_type,
-            title=f"{normalized_type.upper()} - {site.name}",
+            title=f"{normalized_work_title} - {normalized_type.upper()}",
             prompt=prompt,
             content=generated_text,
             citations_json=references_json,
@@ -75,26 +109,97 @@ class DocumentGenerationService:
     def _build_references(search_results) -> list[dict]:
         references: list[dict] = []
         for item in search_results:
+            article_obj = getattr(item, "article", None)
+            document_obj = getattr(item, "document", None)
+            full_text = getattr(item, "content_preview", None) or getattr(item, "chunk_text", None) or getattr(
+                item, "content", None
+            )
+            if article_obj is not None:
+                full_text = item.chunk.chunk_text if getattr(item, "chunk", None) is not None else (
+                    article_obj.article_text or article_obj.full_text or article_obj.content or full_text or ""
+                )
             references.append(
                 {
-                    "law_name": item.law_name,
-                    "article_no": item.article_no,
-                    "article_title": item.article_title,
-                    "chunk_text": item.chunk_text,
-                    "effective_date": item.effective_date,
-                    "source_url": item.source_url,
-                    "score": item.score,
-                    "article_id": item.article_id,
-                    "chunk_id": item.chunk_id,
+                    "law_name": getattr(item, "law_name", None)
+                    or getattr(document_obj, "law_name", None)
+                    or getattr(document_obj, "title", None)
+                    or getattr(article_obj, "law_name", None),
+                    "article_no": getattr(item, "article_no", None)
+                    or getattr(article_obj, "article_no", None)
+                    or getattr(article_obj, "article_number", None),
+                    "article_title": getattr(item, "title", None)
+                    or getattr(item, "article_title", None)
+                    or getattr(article_obj, "article_title", None)
+                    or getattr(article_obj, "title", None),
+                    "chunk_text": full_text or "",
+                    "effective_date": (
+                        DocumentGenerationService._date_to_string(getattr(item, "effective_date", None))
+                        or DocumentGenerationService._date_to_string(getattr(article_obj, "effective_date", None))
+                    ),
+                    "source_url": getattr(document_obj, "source_url", None) or getattr(item, "source_url", None),
+                    "score": getattr(item, "score", 0.0),
+                    "article_id": getattr(item, "article_id", None) or getattr(article_obj, "id", None),
+                    "chunk_id": getattr(getattr(item, "chunk", None), "id", None),
                 }
             )
         return references
 
     @staticmethod
+    def _extract_reference_items(search_result: object) -> list[object]:
+        if hasattr(search_result, "candidates") and getattr(search_result, "candidates") is not None:
+            return list(getattr(search_result, "candidates"))
+        if hasattr(search_result, "results") and getattr(search_result, "results") is not None:
+            return list(getattr(search_result, "results"))
+        return []
+
+    @staticmethod
+    def _date_to_string(value) -> str | None:
+        return value.isoformat() if hasattr(value, "isoformat") else value
+
+    def _search_for_generation(self, prompt: str, user_id: int | None, site_id: int, law_names: list[str] | None = None) -> object:
+        if hasattr(self.law_search_service, "search_for_generation"):
+            return self.law_search_service.search_for_generation(
+                query=prompt,
+                top_k=5,
+                validate_latest=False,
+                user_id=user_id,
+                site_id=site_id,
+                law_names=law_names,
+            )
+        return self.law_search_service.search(
+            prompt,
+            top_k=5,
+            validate_latest=False,
+            user_id=user_id,
+            site_id=site_id,
+            law_names=law_names,
+        )
+
+    @staticmethod
+    def _normalize_terms(values: list[str] | None) -> list[str]:
+        if not values:
+            return []
+        normalized: list[str] = []
+        seen: set[str] = set()
+        for value in values:
+            cleaned = " ".join(str(value).split()).strip()
+            if not cleaned or cleaned in seen:
+                continue
+            seen.add(cleaned)
+            normalized.append(cleaned)
+        return normalized
+
+    @staticmethod
+    def _build_search_query(work_title: str, safety_keywords: list[str], prompt: str) -> str:
+        parts = [work_title, *safety_keywords, prompt]
+        return " ".join(part.strip() for part in parts if part and part.strip())
+
+    @staticmethod
     def _build_law_context(references: list[dict]) -> str:
         if not references:
-            return "제공된 법령 context가 없습니다."
-        lines = []
+            return "법령 context가 없습니다."
+
+        lines: list[str] = []
         for index, reference in enumerate(references, start=1):
             title = reference.get("article_title") or ""
             effective_date = reference.get("effective_date") or "unknown"
@@ -109,32 +214,90 @@ class DocumentGenerationService:
             )
         return "\n\n".join(lines)
 
+    def _build_kosha_context(
+        self,
+        query: str,
+        categories: list[str],
+        work_title: str,
+        safety_keywords: list[str],
+    ) -> str:
+        valid_categories: list[KoshaCategory] = []
+        for category in categories:
+            try:
+                valid_categories.append(KoshaCategory(category))
+            except ValueError:
+                continue
+
+        if not valid_categories:
+            return "KOSHA Guide context가 없습니다."
+
+        lookup_query = " ".join([work_title, *safety_keywords]).strip() or query
+        sections: list[str] = []
+        for category in valid_categories:
+            result = self.kosha_search_service.search(
+                query=lookup_query,
+                category=category,
+                page=1,
+                size=3,
+            )
+            if not result.results:
+                continue
+
+            lines = [f"[{category.value}] {result.query}"]
+            for index, item in enumerate(result.results, start=1):
+                preview = " ".join(item.content.split())
+                if len(preview) > 240:
+                    preview = f"{preview[:240].rstrip()}..."
+                lines.append(
+                    f"{index}. {item.title} | {preview} | score={item.score:.3f} | category={item.category}"
+                )
+            sections.append("\n".join(lines))
+
+        if not sections:
+            return "KOSHA Guide context가 없습니다."
+
+        return "\n\n".join(sections)
+
     @classmethod
     def _build_generation_prompt(
         cls,
         document_type: str,
         site_name: str,
+        work_title: str,
+        safety_keywords: list[str],
         user_prompt: str,
         law_context: str,
+        kosha_context: str,
+        selected_laws: list[str],
+        selected_kosha_categories: list[str],
     ) -> str:
         return (
             "You are a Korean construction safety document assistant.\n"
-            f"Model task: generate a {document_type} document for site '{site_name}'.\n\n"
+            f"Site name: {site_name}\n"
+            f"Document type: {document_type}\n"
+            f"Work title: {work_title}\n"
+            f"Safety keywords: {', '.join(safety_keywords) if safety_keywords else 'none'}\n"
+            f"Selected laws: {', '.join(selected_laws) if selected_laws else 'none'}\n"
+            f"Selected KOSHA categories: {', '.join(selected_kosha_categories) if selected_kosha_categories else 'none'}\n\n"
             "Mandatory constraints:\n"
-            "- 제공된 법령 context에 없는 법적 의무는 단정하지 말 것.\n"
-            "- 불확실한 내용은 추가 검토 필요로 표시할 것.\n"
-            "- 문서 마지막에 참고 법령 목록을 표시할 것.\n"
-            "- 법령 context의 조문 근거를 우선 사용하고, 일반 안전 권고와 법적 의무를 구분할 것.\n\n"
+            "- Use the supplied law context when applicable.\n"
+            "- Do not invent ungrounded legal claims.\n"
+            "- Use the KOSHA context as supporting guidance only.\n"
+            "- Keep the output specific to the work title and safety keywords.\n\n"
             f"User request:\n{user_prompt}\n\n"
-            f"Law context:\n{law_context}\n"
+            f"Law context:\n{law_context}\n\n"
+            f"KOSHA context:\n{kosha_context}\n"
         )
 
     def _generate_text(
         self,
         document_type: str,
         site_name: str,
+        work_title: str,
+        safety_keywords: list[str],
         user_prompt: str,
         law_context: str,
+        kosha_context: str,
         generation_prompt: str,
         references: list[dict],
     ) -> str:
@@ -142,17 +305,21 @@ class DocumentGenerationService:
             return self._mock_response(
                 document_type=document_type,
                 site_name=site_name,
+                work_title=work_title,
+                safety_keywords=safety_keywords,
                 user_prompt=user_prompt,
                 law_context=law_context,
+                kosha_context=kosha_context,
                 references=references,
             )
+
         try:
             response = self._client.chat.completions.create(
                 model=self.MODEL_NAME,
                 messages=[
                     {
                         "role": "system",
-                        "content": "법령 context 기반으로만 법적 의무를 설명하는 한국어 안전문서 작성 도우미입니다.",
+                        "content": "You draft Korean construction safety documents grounded in supplied law and guide context.",
                     },
                     {"role": "user", "content": generation_prompt},
                 ],
@@ -163,11 +330,15 @@ class DocumentGenerationService:
                 return content.strip()
         except Exception:
             pass
+
         return self._mock_response(
             document_type=document_type,
             site_name=site_name,
+            work_title=work_title,
+            safety_keywords=safety_keywords,
             user_prompt=user_prompt,
             law_context=law_context,
+            kosha_context=kosha_context,
             references=references,
         )
 
@@ -175,17 +346,26 @@ class DocumentGenerationService:
     def _mock_response(
         document_type: str,
         site_name: str,
+        work_title: str,
+        safety_keywords: list[str],
         user_prompt: str,
         law_context: str,
+        kosha_context: str,
         references: list[dict],
     ) -> str:
         law_summary = DocumentGenerationService._format_reference_list(references)
         body = DocumentGenerationService._mock_document_body(document_type=document_type, law_summary=law_summary)
+        keyword_text = ", ".join(safety_keywords) if safety_keywords else "-"
         return (
-            f"# {document_type.upper()} - {site_name}\n\n"
-            f"## 요청사항\n{user_prompt}\n\n"
+            f"# {work_title} - {document_type.upper()}\n\n"
+            f"현장: {site_name}\n\n"
+            f"## 작업명\n{work_title}\n\n"
+            f"## 안전 키워드\n{keyword_text}\n\n"
+            f"## 작업 설명\n{user_prompt}\n\n"
             "## 법령 Context 기반 검토\n"
             f"{law_context}\n\n"
+            "## KOSHA Guide Context\n"
+            f"{kosha_context}\n\n"
             f"{body}\n\n"
             "## 참고 법령 목록\n"
             f"{law_summary}"
@@ -194,39 +374,39 @@ class DocumentGenerationService:
     @staticmethod
     def _mock_document_body(document_type: str, law_summary: str) -> str:
         common_note = (
-            "- 제공된 법령 context에 근거해 작성합니다.\n"
-            "- context에 직접 포함되지 않은 법적 의무는 단정하지 않으며, 추가 검토 필요로 표시합니다.\n"
-            "- 현장 조건, 공종, 장비, 작업 높이 등 세부 조건은 추가 검토 필요입니다."
+            "- 현장 조건과 장비 상태를 작업 전에 다시 확인합니다.\n"
+            "- 법령 context에 직접 포함되지 않은 내용은 추가 확인이 필요합니다.\n"
+            "- 작업 높이, 협착, 추락, 낙하 위험은 별도 점검합니다."
         )
         templates = {
             "tbm": (
-                "## 작업개요\n- 작업 대상:\n- 작업 시간:\n- 담당자:\n\n"
+                "## 작업개요\n- 작업 목적\n- 작업 시간\n- 참여 인원\n\n"
                 "## 주요위험요인\n- 추락\n- 협착\n- 낙하\n\n"
                 f"## 안전대책\n{common_note}\n\n"
                 f"## 관련법령\n{law_summary}\n\n"
-                "## TBM 전달사항\n- 오늘 작업 핵심 위험과 통제 방안을 전원에게 재확인"
+                "## TBM 전달사항\n- 오늘 작업 위험 공유\n- 보호구 및 작업 전 점검\n- 작업 전 안전 확인"
             ),
             "risk_assessment": (
-                "## 작업공종\n- 공종명:\n- 세부 작업:\n\n"
-                "## 위험요인\n- 잠재 위험요인 식별\n\n"
-                "## 현재대책\n- 기존 적용중인 통제\n\n"
+                "## 작업공종\n- 공정명\n- 주요 작업\n\n"
+                "## 위험요인\n- 잠재 위험요인 정리\n\n"
+                "## 현재대책\n- 기존 적용 중인 통제\n\n"
                 f"## 개선대책\n{common_note}\n\n"
-                "## 위험도\n- 발생가능성:\n- 중대성:\n- 종합 위험도:\n\n"
+                "## 위험도\n- 발생가능성\n- 중대성\n- 종합 위험도\n\n"
                 f"## 관련법령\n{law_summary}"
             ),
             "work_plan": (
                 "## 작업목적\n- 작업 목적 정의\n\n"
-                "## 작업절차\n1. 사전 점검\n2. 작업 수행\n3. 종료 점검\n\n"
-                "## 장비/인원\n- 장비:\n- 투입 인원:\n\n"
-                "## 위험요소\n- 고위험 포인트\n\n"
+                "## 작업절차\n1. 사전 준비\n2. 작업 수행\n3. 마무리 점검\n\n"
+                "## 장비/인원\n- 인원\n- 장비\n\n"
+                "## 위험요소\n- 고소 작업 여부\n\n"
                 f"## 안전조치\n{common_note}\n\n"
                 f"## 관련법령\n{law_summary}"
             ),
             "inspection_checklist": (
-                "## 점검항목\n- 가설구조물\n- 전기설비\n- 개인보호구\n\n"
-                "## 점검기준\n- 법령 context와 현장 기준 확인\n\n"
+                "## 점검항목\n- 구조물 상태\n- 작업 장비\n- 개인보호구\n\n"
+                "## 점검기준\n- 법령 context 기준 반영\n\n"
                 "## 적합/부적합\n- 항목별 판정 기록\n\n"
-                "## 조치사항\n- 부적합 항목 개선 조치 및 기한\n\n"
+                "## 조치사항\n- 부적합 항목 개선 조치 및 확인\n\n"
                 f"## 관련법령\n{law_summary}"
             ),
         }
@@ -238,10 +418,11 @@ class DocumentGenerationService:
     @staticmethod
     def _format_reference_list(references: list[dict]) -> str:
         if not references:
-            return "- 제공된 참고 법령 없음"
-        lines = []
+            return "- 참고 법령 없음"
+
+        lines: list[str] = []
         for reference in references:
             title = f"({reference['article_title']})" if reference.get("article_title") else ""
             effective_date = reference.get("effective_date") or "unknown"
-            lines.append(f"- {reference['law_name']} {reference['article_no']}{title}, 시행일: {effective_date}")
+            lines.append(f"- {reference['law_name']} {reference['article_no']}{title}, 시행일 {effective_date}")
         return "\n".join(lines)

@@ -173,12 +173,11 @@ def _to_result(c: _Candidate) -> SafetyStandardResultItem:
         source_name=source_name,
         article_no=article_no,
         article_title=article_title,
-        content=content,
+        content_preview=_preview_text(content),
         score=c.score,
         provider=provider,
         article_id=c.article.id,
         chunk_id=c.chunk.id if c.chunk else None,
-        matched_reason=c.matched_reason or [],
     )
 
 
@@ -206,6 +205,13 @@ def _expand_query_keywords(query: str) -> list[str]:
 
 def _tokenize(text: str) -> list[str]:
     return [t for t in re.split(r"[\s,.;:()\[\]{}]+", text.strip()) if len(t) >= 2]
+
+
+def _preview_text(text: str, limit: int = 280) -> str:
+    normalized = " ".join(text.split()).strip()
+    if len(normalized) <= limit:
+        return normalized
+    return f"{normalized[:limit].rstrip()}..."
 
 
 def _cosine_similarity(left: list[float], right: list[float]) -> float:

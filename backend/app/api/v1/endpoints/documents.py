@@ -32,6 +32,10 @@ def generate_document(
             user_id=payload.user_id,
             document_type=payload.document_type,
             prompt=payload.prompt,
+            work_title=payload.work_title,
+            safety_keywords=payload.safety_keywords,
+            law_names=payload.law_names,
+            kosha_categories=payload.kosha_categories,
         )
     except ValueError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
@@ -41,6 +45,4 @@ def generate_document(
         title=document.title,
         content=document.content,
         citations=json.loads(document.citations_json) if document.citations_json else [],
-        generated_text=document.content,
-        references=json.loads(document.references_json or document.citations_json) if (document.references_json or document.citations_json) else [],
     )
