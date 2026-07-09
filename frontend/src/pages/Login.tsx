@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { loginUser } from "../api/auth";
 import { AxiosError } from "axios";
+import SiteFooter from "../components/SiteFooter";
 
 export default function Login() {
   const { login } = useAuth();
@@ -52,8 +53,9 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-[#121212] flex items-center justify-center">
-      <div className="w-full max-w-sm px-4">
+    <div className="min-h-screen bg-[#121212] text-white flex flex-col">
+      <div className="flex-1 flex items-center justify-center py-10">
+        <div className="w-full max-w-sm px-4">
         {/* 로고 */}
         <div className="text-center mb-8">
           <div className="relative inline-block mb-4">
@@ -132,7 +134,9 @@ export default function Login() {
             admin.dev / devpass****
           </code>
         </p>
+        </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }
