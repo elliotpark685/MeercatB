@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-seo-assets.mjs && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

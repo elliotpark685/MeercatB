@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import SiteFooter from './SiteFooter';
 
 type NavItem = {
   to: string;
@@ -118,8 +119,11 @@ export default function AdminLayoutV2() {
         </div>
       </aside>
 
-      <main key={location.pathname} className="page-enter flex-1 overflow-auto p-6">
-        <Outlet />
+      <main key={location.pathname} className="page-enter flex-1 overflow-auto flex flex-col">
+        <div className="flex-1 p-6">
+          <Outlet />
+        </div>
+        <SiteFooter />
       </main>
     </div>
   );
