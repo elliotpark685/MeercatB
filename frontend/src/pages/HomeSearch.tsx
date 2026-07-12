@@ -1,6 +1,13 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
   searchSafetyStandards,
@@ -10,13 +17,13 @@ import {
   type SafetyStandardSearchResult,
   type KoshaResultItem,
   type KoshaSearchResult,
-} from '../api/admin';
-import LawResultCard from '../components/LawResultCard';
-import Spinner from '../components/Spinner';
-import ErrorBox from '../components/ErrorBox';
-import EmptyState from '../components/EmptyState';
+} from "../api/admin";
+import LawResultCard from "../components/LawResultCard";
+import Spinner from "../components/Spinner";
+import ErrorBox from "../components/ErrorBox";
+import EmptyState from "../components/EmptyState";
 
-const HISTORY_KEY = 'meerkat_home_search_history';
+const HISTORY_KEY = "meerkat_home_search_history";
 const HISTORY_MAX = 8;
 const TOP_K = 5;
 
@@ -33,7 +40,7 @@ type SearchSnapshot = {
 
 function loadHistory(): string[] {
   try {
-    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "[]");
   } catch {
     return [];
   }
@@ -46,7 +53,23 @@ function saveHistory(query: string) {
 }
 
 function formatKoshaCategory(value: string): string {
-  return KOSHA_CATEGORY_LABEL[value as keyof typeof KOSHA_CATEGORY_LABEL] ?? value;
+  return (
+    KOSHA_CATEGORY_LABEL[value as keyof typeof KOSHA_CATEGORY_LABEL] ?? value
+  );
+}
+
+function dedupeByKey<T>(items: T[], getKey: (item: T) => string): T[] {
+  const seen = new Set<string>();
+  const unique: T[] = [];
+
+  for (const item of items) {
+    const key = getKey(item).trim();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    unique.push(item);
+  }
+
+  return unique;
 }
 
 function ResultHeader({
@@ -82,16 +105,16 @@ function ResultHeader({
 function SafetyResultCard({
   item,
 }: {
-  item: NonNullable<SafetyStandardSearchResult['results']>[number];
+  item: NonNullable<SafetyStandardSearchResult["results"]>[number];
 }) {
-  const text = item.content_preview?.trim() ?? '';
+  const text = item.content_preview?.trim() ?? "";
   const preview = text.length > 260 ? `${text.slice(0, 260)}...` : text;
 
   return (
     <article className="rounded-2xl border border-[#2C2C2E] bg-[#1E1E1E] p-4 transition-colors hover:border-[#FF9F0A]/30">
       <div className="flex flex-wrap items-center gap-2">
         <span className="rounded-full border border-[#FF9F0A]/25 bg-[#FF9F0A]/10 px-2.5 py-1 text-[11px] font-medium text-[#FF9F0A]">
-          {item.source_type === 'rule' ? '규칙' : '지침'}
+          {item.source_type === "rule" ? "규칙" : "지침"}
         </span>
         <span className="text-xs text-[#98989D]">{item.provider}</span>
         <span className="ml-auto text-[11px] font-mono text-[#FF9F0A]">
@@ -106,10 +129,16 @@ function SafetyResultCard({
               {item.article_no}
             </span>
           )}
-          {item.article_title && <span className="text-sm text-[#C7C7CC]">{item.article_title}</span>}
+          {item.article_title && (
+            <span className="text-sm text-[#C7C7CC]">{item.article_title}</span>
+          )}
         </div>
       </div>
-      {preview && <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[#98989D]">{preview}</p>}
+      {preview && (
+        <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[#98989D]">
+          {preview}
+        </p>
+      )}
       <div className="mt-4 flex items-center justify-end">
         <Link
           to="/safety-standards"
@@ -144,14 +173,21 @@ function KoshaResultCard({ item }: { item: KoshaResultItem }) {
         {keywords.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {keywords.map((keyword) => (
-              <span key={keyword} className="rounded-md bg-[#BF5AF2]/10 px-2 py-0.5 text-[11px] text-[#BF5AF2]">
+              <span
+                key={keyword}
+                className="rounded-md bg-[#BF5AF2]/10 px-2 py-0.5 text-[11px] text-[#BF5AF2]"
+              >
                 {keyword}
               </span>
             ))}
           </div>
         )}
       </div>
-      {preview && <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[#98989D]">{preview}</p>}
+      {preview && (
+        <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[#98989D]">
+          {preview}
+        </p>
+      )}
       <div className="mt-4 flex items-center justify-end gap-2">
         {item.url && (
           <a
@@ -176,7 +212,7 @@ function KoshaResultCard({ item }: { item: KoshaResultItem }) {
 
 export default function HomeSearch() {
   const { userId, siteId } = useAuth();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<SearchSnapshot>({
     laws: null,
@@ -200,17 +236,9 @@ export default function HomeSearch() {
       }
     }
 
-    document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
-
-  const summary = useMemo(() => {
-    return (
-      (result.laws?.results?.length ?? 0) +
-      (result.safety?.results?.length ?? 0) +
-      (result.kosha?.results?.length ?? 0)
-    );
-  }, [result]);
 
   async function handleSearch(e: FormEvent, overrideQuery?: string) {
     e.preventDefault();
@@ -239,20 +267,20 @@ export default function HomeSearch() {
       }),
       searchKosha({
         query: q,
-        category: '0',
+        category: "0",
         page: 1,
         size: TOP_K,
       }),
     ]);
 
     setResult({
-      laws: laws.status === 'fulfilled' ? laws.value : null,
-      safety: safety.status === 'fulfilled' ? safety.value : null,
-      kosha: kosha.status === 'fulfilled' ? kosha.value : null,
+      laws: laws.status === "fulfilled" ? laws.value : null,
+      safety: safety.status === "fulfilled" ? safety.value : null,
+      kosha: kosha.status === "fulfilled" ? kosha.value : null,
       errors: {
-        laws: laws.status === 'rejected' ? '법령 검색 실패' : undefined,
-        safety: safety.status === 'rejected' ? '안전기준 검색 실패' : undefined,
-        kosha: kosha.status === 'rejected' ? 'KOSHA 검색 실패' : undefined,
+        laws: laws.status === "rejected" ? "법령 검색 실패" : undefined,
+        safety: safety.status === "rejected" ? "안전기준 검색 실패" : undefined,
+        kosha: kosha.status === "rejected" ? "KOSHA 검색 실패" : undefined,
       },
     });
     setLoading(false);
@@ -268,10 +296,44 @@ export default function HomeSearch() {
     query ? item.toLowerCase().includes(query.toLowerCase()) : true,
   );
 
-  const lawResults = result.laws?.results ?? [];
-  const safetyResults = result.safety?.results ?? [];
-  const koshaResults = result.kosha?.results ?? [];
-  const hasAnyResult = lawResults.length > 0 || safetyResults.length > 0 || koshaResults.length > 0;
+  const lawResults = useMemo(
+    () =>
+      dedupeByKey(result.laws?.results ?? [], (item) =>
+        item.article_id != null
+          ? `article:${item.article_id}`
+          : `law:${item.law_name?.trim() ?? ""}:${item.article_no?.trim() ?? ""}:${item.title?.trim() ?? ""}`,
+      ),
+    [result.laws],
+  );
+
+  const safetyResults = useMemo(
+    () =>
+      dedupeByKey(result.safety?.results ?? [], (item) =>
+        item.chunk_id != null
+          ? `chunk:${item.chunk_id}`
+          : item.article_id != null
+            ? `article:${item.article_id}`
+            : `safety:${item.source_type}:${item.source_name?.trim() ?? ""}:${item.article_no?.trim() ?? ""}:${item.article_title?.trim() ?? ""}:${item.content_preview.trim()}`,
+      ),
+    [result.safety],
+  );
+
+  const koshaResults = useMemo(
+    () =>
+      dedupeByKey(result.kosha?.results ?? [], (item) =>
+        `doc:${item.doc_id.trim()}:${item.title.trim()}:${item.category}`,
+      ),
+    [result.kosha],
+  );
+
+  const summary = useMemo(() => {
+    return lawResults.length + safetyResults.length + koshaResults.length;
+  }, [lawResults.length, safetyResults.length, koshaResults.length]);
+
+  const hasAnyResult =
+    lawResults.length > 0 ||
+    safetyResults.length > 0 ||
+    koshaResults.length > 0;
   const hasError = Object.values(result.errors).some(Boolean);
 
   return (
@@ -301,8 +363,8 @@ export default function HomeSearch() {
               첫 화면에서 바로 찾는 통합 안전 검색
             </h1>
             <p className="text-sm leading-6 text-[#C7C7CC]">
-              상세 기능은 각 페이지에 두고, 여기서는 검색 결과만 빠르게 노출합니다.
-              관리자 대시보드는 관리자 계정에서만 볼 수 있습니다.
+              상세 기능은 각 페이지에 두고, 여기서는 검색 결과만 빠르게
+              노출합니다. 관리자 대시보드는 관리자 계정에서만 볼 수 있습니다.
             </p>
           </div>
 
@@ -325,7 +387,7 @@ export default function HomeSearch() {
                 {showHistory && filteredHistory.length > 0 && (
                   <div
                     ref={dropdownRef}
-                    className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-xl"
+                    className="absolute left-0 right-0 top-full z-20 mt-2  rounded-xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-xl"
                   >
                     <div className="flex items-center justify-between border-b border-[#2C2C2E] px-3 py-2">
                       <span className="text-[10px] uppercase tracking-[0.2em] text-[#98989D]">
@@ -362,7 +424,11 @@ export default function HomeSearch() {
       {loading && <Spinner text="통합 검색 중..." />}
       {hasError && !hasAnyResult && (
         <ErrorBox
-          error={new Error('일부 검색 소스에서 결과를 가져오지 못했습니다. 다른 소스는 계속 표시될 수 있습니다.')}
+          error={
+            new Error(
+              "일부 검색 소스에서 결과를 가져오지 못했습니다. 다른 소스는 계속 표시될 수 있습니다.",
+            )
+          }
         />
       )}
 
@@ -377,11 +443,14 @@ export default function HomeSearch() {
       {!loading && !query.trim() && (
         <div className="grid gap-4 md:grid-cols-3">
           {[
-            ['법령', '산업안전보건법을 포함한 5개 법령 결과', 'bg-[#00E5FF]'],
-            ['안전기준', '규칙과 표준안전작업지침 결과', 'bg-[#FF9F0A]'],
-            ['KOSHA', '안전보건 가이드와 미디어 자료', 'bg-[#BF5AF2]'],
+            ["법령", "산업안전보건법을 포함한 5개 법령 결과", "bg-[#00E5FF]"],
+            ["안전기준", "규칙과 표준안전작업지침 결과", "bg-[#FF9F0A]"],
+            ["KOSHA", "안전보건 가이드와 미디어 자료", "bg-[#BF5AF2]"],
           ].map(([title, desc, accent]) => (
-            <div key={title} className="rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
+            <div
+              key={title}
+              className="rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5"
+            >
               <div className="mb-3 flex items-center gap-2">
                 <span className={`h-2.5 w-2.5 rounded-full ${accent}`} />
                 <h2 className="text-sm font-semibold text-white">{title}</h2>
@@ -394,7 +463,9 @@ export default function HomeSearch() {
 
       {!loading && hasAnyResult && (
         <div className="space-y-6">
-          {result.errors.laws && <div className="text-xs text-[#FF453A]">{result.errors.laws}</div>}
+          {result.errors.laws && (
+            <div className="text-xs text-[#FF453A]">{result.errors.laws}</div>
+          )}
           {lawResults.length > 0 && (
             <section className="space-y-3">
               <ResultHeader
@@ -440,13 +511,18 @@ export default function HomeSearch() {
               />
               <div className="grid gap-3 md:grid-cols-2">
                 {safetyResults.map((item, index) => (
-                  <SafetyResultCard key={item.article_id ?? index} item={item} />
+                  <SafetyResultCard
+                    key={item.article_id ?? index}
+                    item={item}
+                  />
                 ))}
               </div>
             </section>
           )}
 
-          {result.errors.kosha && <div className="text-xs text-[#FF453A]">{result.errors.kosha}</div>}
+          {result.errors.kosha && (
+            <div className="text-xs text-[#FF453A]">{result.errors.kosha}</div>
+          )}
           {koshaResults.length > 0 && (
             <section className="space-y-3">
               <ResultHeader
@@ -465,7 +541,10 @@ export default function HomeSearch() {
               />
               <div className="grid gap-3 md:grid-cols-2">
                 {koshaResults.map((item) => (
-                  <KoshaResultCard key={`${item.doc_id}-${item.title}`} item={item} />
+                  <KoshaResultCard
+                    key={`${item.doc_id}-${item.title}`}
+                    item={item}
+                  />
                 ))}
               </div>
             </section>
@@ -485,7 +564,9 @@ export default function HomeSearch() {
             KOSHA
           </span>
         </div>
-        <span className="text-[#3A3A3C]">상세 조회는 각 페이지에서 계속 진행합니다.</span>
+        <span className="text-[#3A3A3C]">
+          상세 조회는 각 페이지에서 계속 진행합니다.
+        </span>
       </div>
     </div>
   );
