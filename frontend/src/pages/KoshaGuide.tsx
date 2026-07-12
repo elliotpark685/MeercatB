@@ -184,7 +184,10 @@ function ResultCard({
           </a>
         ) : (
           item.doc_id && (
-            <p className="truncate text-[11px] text-[#3A3A3C]" title={item.doc_id}>
+            <p
+              className="truncate text-[11px] text-[#3A3A3C]"
+              title={item.doc_id}
+            >
               문서ID: {item.doc_id}
             </p>
           )
@@ -217,7 +220,9 @@ function SummaryPanel({
 
   return (
     <div className="space-y-4 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
-      <h2 className="text-sm font-semibold text-white">AI 요약 — {summary.query}</h2>
+      <h2 className="text-sm font-semibold text-white">
+        AI 요약 — {summary.query}
+      </h2>
       <div className="space-y-3">
         {rows.map((row) => (
           <div key={row.label}>
@@ -252,7 +257,8 @@ export default function KoshaGuide() {
 
   const [history, setHistory] = useState<string[]>(() => loadList(HISTORY_KEY));
   const [showHistory, setShowHistory] = useState(false);
-  const [bookmarks, setBookmarks] = useState<Record<string, KoshaResultItem>>(loadBookmarks);
+  const [bookmarks, setBookmarks] =
+    useState<Record<string, KoshaResultItem>>(loadBookmarks);
   const [showBookmarks, setShowBookmarks] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -278,7 +284,12 @@ export default function KoshaGuide() {
     setSummary(null);
     setSummaryError(null);
     try {
-      const res = await searchKosha({ query: q, category: cat, page: p, size: PAGE_SIZE });
+      const res = await searchKosha({
+        query: q,
+        category: cat,
+        page: p,
+        size: PAGE_SIZE,
+      });
       setResult(res);
       setError(res.error ? new Error(res.error) : null);
     } catch (err) {
@@ -349,11 +360,14 @@ export default function KoshaGuide() {
     query ? h.toLowerCase().includes(query.toLowerCase()) : true,
   );
   const bookmarkList = useMemo(() => Object.values(bookmarks), [bookmarks]);
-  const totalPages = result ? Math.max(1, Math.ceil(result.total / PAGE_SIZE)) : 1;
+  const totalPages = result
+    ? Math.max(1, Math.ceil(result.total / PAGE_SIZE))
+    : 1;
   const relatedKeywords = result?.related_keywords ?? [];
   const hasResults = !!result && result.results.length > 0;
   const currentCategoryLabel =
-    CATEGORY_OPTIONS.find((option) => option.value === category)?.label ?? category;
+    CATEGORY_OPTIONS.find((option) => option.value === category)?.label ??
+    category;
 
   return (
     <div className="space-y-6">
@@ -368,7 +382,11 @@ export default function KoshaGuide() {
           <div className="flex flex-wrap items-center gap-2">
             <span
               className="rounded-full border px-3 py-1 text-xs font-medium"
-              style={{ borderColor: `${ACCENT}33`, color: ACCENT, backgroundColor: `${ACCENT}1A` }}
+              style={{
+                borderColor: `${ACCENT}33`,
+                color: ACCENT,
+                backgroundColor: `${ACCENT}1A`,
+              }}
             >
               KOSHA GUIDE
             </span>
@@ -384,41 +402,9 @@ export default function KoshaGuide() {
             KOSHA GUIDE 검색
           </h1>
           <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
-            산업안전보건 관련 기준과 가이드를 활용해 KOSHA GUIDE,
-            고시, 예규, 지침을 빠르게 검색할 수 있습니다.
+            산업안전보건 관련 기준과 가이드를 활용해 KOSHA GUIDE, 고시, 예규,
+            지침을 빠르게 검색할 수 있습니다.
           </p>
-        </div>
-      </section>
-
-      <section className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 className="text-sm font-semibold text-white">KOSHA GUIDE 분류 참고</h2>
-            <p className="mt-1 text-xs leading-5 text-[#98989D]">
-              알파벳 분류를 기준으로 업종·공정에 맞는 가이드를 빠르게 좁힐 수 있습니다.
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {GUIDE_REFERENCE.map((item) => (
-            <div
-              key={item.code}
-              className="rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4"
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#3A3A3C] text-sm font-semibold text-white"
-                  style={{ backgroundColor: `${ACCENT}1A` }}
-                >
-                  {item.code}
-                </span>
-                <div>
-                  <div className="text-sm font-medium text-white">{item.field}</div>
-                </div>
-              </div>
-              <p className="mt-3 text-sm leading-6 text-[#C7C7CC]">{item.info}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -488,7 +474,44 @@ export default function KoshaGuide() {
               </div>
             )}
           </div>
-
+          <section className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h2 className="text-sm font-semibold text-white">
+                  KOSHA GUIDE 분류 참고
+                </h2>
+                <p className="mt-1 text-xs leading-5 text-[#98989D]">
+                  알파벳 분류를 기준으로 업종·공정에 맞는 가이드를 빠르게 좁힐
+                  수 있습니다.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {GUIDE_REFERENCE.map((item) => (
+                <div
+                  key={item.code}
+                  className="rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4"
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#3A3A3C] text-sm font-semibold text-white"
+                      style={{ backgroundColor: `${ACCENT}1A` }}
+                    >
+                      {item.code}
+                    </span>
+                    <div>
+                      <div className="text-sm font-medium text-white">
+                        {item.field}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-[#C7C7CC]">
+                    {item.info}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
           <button
             type="submit"
             disabled={loading || !query.trim()}
@@ -500,8 +523,14 @@ export default function KoshaGuide() {
         </div>
 
         <div className="space-y-2">
-          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">카테고리</div>
-          <div role="tablist" aria-label="카테고리 탭" className="flex gap-2 overflow-x-auto pb-1">
+          <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">
+            카테고리
+          </div>
+          <div
+            role="tablist"
+            aria-label="카테고리 탭"
+            className="flex gap-2 overflow-x-auto pb-1"
+          >
             {CATEGORY_OPTIONS.map((option) => (
               <button
                 key={option.value}
@@ -514,7 +543,11 @@ export default function KoshaGuide() {
                     ? "border-transparent text-[#121212]"
                     : "border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white"
                 }`}
-                style={category === option.value ? { backgroundColor: ACCENT } : undefined}
+                style={
+                  category === option.value
+                    ? { backgroundColor: ACCENT }
+                    : undefined
+                }
               >
                 {option.label}
               </button>
@@ -526,7 +559,7 @@ export default function KoshaGuide() {
       {loading && <Spinner text="KOSHA GUIDE 검색 중..." />}
       {!!error && <ErrorBox error={error} />}
 
-        {!loading && result && relatedKeywords.length > 0 && (
+      {!loading && result && relatedKeywords.length > 0 && (
         <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-[#2C2C2E] bg-[#1A1A1A] p-4">
           <span className="text-xs text-[#98989D]">연관 검색어</span>
           {relatedKeywords.map((kw) => (
@@ -554,7 +587,11 @@ export default function KoshaGuide() {
         </button>
       )}
 
-      <SummaryPanel summary={summary} loading={summaryLoading} error={summaryError} />
+      <SummaryPanel
+        summary={summary}
+        loading={summaryLoading}
+        error={summaryError}
+      />
 
       {!loading && result && !hasResults && !error && (
         <div className="space-y-4 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6">
@@ -573,7 +610,9 @@ export default function KoshaGuide() {
           </div>
           {relatedKeywords.length > 0 && (
             <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-[#2C2C2E] bg-[#1A1A1A] p-4">
-              <span className="text-xs text-[#98989D]">연관 키워드로 재검색</span>
+              <span className="text-xs text-[#98989D]">
+                연관 키워드로 재검색
+              </span>
               {relatedKeywords.map((kw) => (
                 <button
                   key={kw}
@@ -600,7 +639,9 @@ export default function KoshaGuide() {
       {!loading && result && hasResults && (
         <div className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#98989D]">
-            <span>총 {result.total}건 · {result.page}페이지</span>
+            <span>
+              총 {result.total}건 · {result.page}페이지
+            </span>
           </div>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {result.results.map((item, idx) => (
@@ -640,4 +681,3 @@ export default function KoshaGuide() {
     </div>
   );
 }
-

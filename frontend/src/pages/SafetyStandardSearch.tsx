@@ -72,7 +72,9 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
   const typeColor =
     SOURCE_TYPE_COLOR[item.source_type] ??
     "border-[#98989D]/30 text-[#98989D] bg-[#98989D]/10";
-  const preview = expanded ? item.content_preview : item.content_preview.slice(0, 200);
+  const preview = expanded
+    ? item.content_preview
+    : item.content_preview.slice(0, 200);
   const scoreColor =
     item.score >= 0.7
       ? "text-[#32D74B]"
@@ -276,7 +278,8 @@ export default function SafetyStandardSearch() {
   }, [allResults]);
 
   const activeFilterLabel =
-    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ?? "전체";
+    FILTER_OPTIONS.find((option) => option.value === filterType)?.label ??
+    "전체";
   const hasNoResults = !!result && displayResults.length === 0;
   const searchSummary =
     result && allResults.length > 0
@@ -295,9 +298,6 @@ export default function SafetyStandardSearch() {
             <span className="rounded-full border border-[#FF9F0A]/20 bg-[#FF9F0A]/10 px-3 py-1 text-xs font-medium text-[#FF9F0A]">
               안전기준 검색
             </span>
-            <span className="rounded-full border border-[#2C2C2E] bg-[#121212] px-3 py-1 text-xs text-[#98989D]">
-              /laws와 동일한 검색 경험
-            </span>
           </div>
           <div className="space-y-1">
             <h1 className="text-2xl font-semibold text-white sm:text-3xl">
@@ -307,8 +307,8 @@ export default function SafetyStandardSearch() {
               산업안전보건기준 규칙과 표준안전작업지침을 함께 찾습니다.
             </p>
             <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
-              결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한 번에
-              확인할 수 있습니다.
+              결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한
+              번에 확인할 수 있습니다.
             </p>
           </div>
         </div>
@@ -409,7 +409,11 @@ export default function SafetyStandardSearch() {
           <div className="text-xs uppercase tracking-[0.2em] text-[#98989D]">
             출처 필터
           </div>
-          <div role="tablist" aria-label="출처 필터" className="flex gap-2 overflow-x-auto pb-1">
+          <div
+            role="tablist"
+            aria-label="출처 필터"
+            className="flex gap-2 overflow-x-auto pb-1"
+          >
             {FILTER_OPTIONS.map((option) => (
               <FilterTab
                 key={option.value}
