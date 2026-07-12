@@ -176,8 +176,8 @@ export default function LawSearch() {
               5대 안전 관련 법령 통합 검색
             </h1>
             <p className="text-sm font-medium text-[#00E5FF]">
-              산업안전보건법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을
-              함께 검색합니다.
+              산업안전보건법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법,
+              시설물의 안전 및 유지관리에 관한 특별법을 함께 검색합니다.
             </p>
             <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
               결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한
