@@ -160,16 +160,32 @@ export default function LawSearch() {
 
   return (
     <div className="space-y-6">
-      <div className="space-y-1">
-        <h1 className="text-2xl font-semibold text-white">법령 검색</h1>
-        <p className="text-sm text-[#00E5FF] font-medium">
-          5개 건설 안전 관련 법령 통합 검색
-        </p>
-        <p className="text-xs text-[#98989D]">
-          산업안전보건법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을 함께
-          검색합니다.
-        </p>
-      </div>
+      <section className="relative overflow-hidden rounded-[28px] border border-[#2C2C2E] bg-gradient-to-br from-[#1E1E1E] via-[#171717] to-[#121212] p-5 sm:p-6">
+        <div className="pointer-events-none absolute inset-0 opacity-60">
+          <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#00E5FF]/10 blur-3xl" />
+          <div className="absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-[#00E5FF]/5 blur-3xl" />
+        </div>
+        <div className="relative space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-[#00E5FF]/20 bg-[#00E5FF]/10 px-3 py-1 text-xs font-medium text-[#00E5FF]">
+              법령 검색
+            </span>
+          </div>
+          <div className="space-y-1">
+            <h1 className="text-2xl font-semibold text-white sm:text-3xl">
+              5대 안전 관련 법령 통합 검색
+            </h1>
+            <p className="text-sm font-medium text-[#00E5FF]">
+              산업안전보건법, 건설산업기본법, 건설기술진흥법, 중대재해처벌법을
+              함께 검색합니다.
+            </p>
+            <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
+              결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한
+              번에 확인할 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <form
         onSubmit={handleSearch}
@@ -294,7 +310,7 @@ export default function LawSearch() {
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {items.map((item, idx) => (
-                    <LawResultCard
+                      <LawResultCard
                         key={item.article_id ?? `${lawName}-${idx}`}
                         item={item}
                       />
@@ -333,7 +349,8 @@ export default function LawSearch() {
                     onClick={() => handleArticleClick(c.article_id)}
                     className="w-full text-left text-sm px-3 py-2.5 rounded-lg border border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#00E5FF]/30 hover:text-[#00E5FF] hover:bg-[#00E5FF]/5 transition-all duration-150"
                   >
-                    {c.law_name} {c.article_no} {c.article_title ? `(${c.article_title})` : ""}
+                    {c.law_name} {c.article_no}{" "}
+                    {c.article_title ? `(${c.article_title})` : ""}
                   </button>
                 ))}
               </div>
@@ -346,7 +363,8 @@ export default function LawSearch() {
           {detail && (
             <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
               <h3 className="font-semibold text-white mb-3">
-                {detail.law_name} <span className="text-[#00E5FF]">{detail.article_no}</span>
+                {detail.law_name}{" "}
+                <span className="text-[#00E5FF]">{detail.article_no}</span>
               </h3>
               <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
                 {detail.full_text}
