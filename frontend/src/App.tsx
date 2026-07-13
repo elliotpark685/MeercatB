@@ -61,6 +61,7 @@ export default function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
+            <Route path="/ko/about" element={<About locale="ko" />} />
             <Route path="/privacy" element={<Privacy locale="en" />} />
             <Route path="/ko/privacy" element={<Privacy locale="ko" />} />
             <Route path="/terms" element={<Terms locale="en" />} />
@@ -68,6 +69,7 @@ export default function App() {
             <Route path="/disclaimer" element={<Disclaimer locale="en" />} />
             <Route path="/ko/disclaimer" element={<Disclaimer locale="ko" />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/ko/contact" element={<Contact locale="ko" />} />
             <Route
               path="/login"
               element={

@@ -24,6 +24,8 @@ const KOSHA_CATEGORY_OPTIONS: { value: KoshaCategory; label: string }[] = [
 
 const TITLE_MIN = 2;
 const TITLE_MAX = 120;
+const WORKPLACE_MIN = 2;
+const WORKPLACE_MAX = 200;
 const DETAILS_MAX = 4000;
 
 function normalizeList(text: string): string[] {
@@ -46,8 +48,10 @@ export default function DocumentGenerate() {
   const { addToast } = useToast();
 
   const [docType, setDocType] = useState<DocumentType>('tbm');
+  const [workplaceName, setWorkplaceName] = useState('');
   const [workTitle, setWorkTitle] = useState('');
   const [safetyKeywordText, setSafetyKeywordText] = useState('');
+  const [equipmentToolsText, setEquipmentToolsText] = useState('');
   const [selectedLawNames, setSelectedLawNames] = useState<string[]>([]);
   const [selectedKoshaCategories, setSelectedKoshaCategories] = useState<KoshaCategory[]>([]);
   const [details, setDetails] = useState('');
@@ -63,11 +67,14 @@ export default function DocumentGenerate() {
   })();
 
   const normalizedTitle = workTitle.trim();
+  const normalizedWorkplace = workplaceName.trim();
   const safetyKeywords = normalizeList(safetyKeywordText);
+  const equipmentTools = normalizeList(equipmentToolsText);
   const detailsText = details.trim();
   const titleValid = normalizedTitle.length >= TITLE_MIN && normalizedTitle.length <= TITLE_MAX;
+  const workplaceValid = normalizedWorkplace.length >= WORKPLACE_MIN && normalizedWorkplace.length <= WORKPLACE_MAX;
   const keywordsValid = safetyKeywords.length > 0;
-  const canSubmit = effectiveSiteId != null && titleValid && keywordsValid;
+  const canSubmit = effectiveSiteId != null && workplaceValid && titleValid && keywordsValid;
 
   async function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
@@ -81,8 +88,10 @@ export default function DocumentGenerate() {
         site_id: effectiveSiteId,
         user_id: userId,
         document_type: docType,
+        workplace_name: normalizedWorkplace,
         work_title: normalizedTitle,
         safety_keywords: safetyKeywords,
+        equipment_tools: equipmentTools,
         law_names: selectedLawNames,
         kosha_categories: selectedKoshaCategories,
         prompt: detailsText,
@@ -126,9 +135,9 @@ export default function DocumentGenerate() {
           <span className="inline-flex rounded-full border border-[#00E5FF]/25 bg-[#00E5FF]/10 px-3 py-1 text-xs font-medium text-[#00E5FF]">
             문서 생성
           </span>
-          <h1 className="text-2xl font-semibold text-white sm:text-3xl">작업명과 안전 키워드로 문서 생성</h1>
+          <h1 className="text-2xl font-semibold text-white sm:text-3xl">현장 조건을 반영한 안전 문서 생성</h1>
           <p className="max-w-3xl text-sm leading-6 text-[#98989D]">
-            작업 제목을 기준으로 문서 구조를 만들고, 안전 키워드와 선택한 법령·KOSHA 범위를 LLM에 함께 전달합니다.
+            작업장소, 작업명, 안전 키워드, 사용 장비·도구와 선택한 법령·KOSHA 범위를 LLM에 함께 전달합니다.
           </p>
         </div>
       </section>
@@ -156,6 +165,24 @@ export default function DocumentGenerate() {
         <div className="grid gap-4 lg:grid-cols-2">
           <div className="space-y-2">
             <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
+              작업장소
+            </label>
+            <input
+              type="text"
+              value={workplaceName}
+              onChange={(e) => setWorkplaceName(e.target.value)}
+              placeholder="예: 인텔코리아 청사 신축공사 3층 A구역"
+              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
+                workplaceName && !workplaceValid
+                  ? 'border-[#FF453A]/50 focus:ring-[#FF453A]/30'
+                  : 'border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30'
+              }`}
+            />
+            <p className="text-xs text-[#98989D]">생성 문서의 현장명과 LLM 작업 맥락에 사용됩니다.</p>
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
               작업명
             </label>
             <input
@@ -170,6 +197,25 @@ export default function DocumentGenerate() {
               }`}
             />
             <p className="text-xs text-[#98989D]">문서 제목과 LLM의 중심 맥락으로 사용됩니다.</p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
+                사용 장비 · 도구
+              </label>
+              <span className="text-xs text-[#98989D]">선택 입력 · 쉼표 또는 줄바꿈으로 구분</span>
+            </div>
+            <textarea
+              rows={3}
+              value={equipmentToolsText}
+              onChange={(e) => setEquipmentToolsText(e.target.value)}
+              placeholder="예: 고소작업대, 이동식 비계, 전동드릴, 절단기, 안전대"
+              className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30"
+            />
+            <p className="text-xs text-[#98989D]">
+              {equipmentTools.length > 0 ? `${equipmentTools.length}개 항목이 LLM 및 관련 안전 기준 검색에 반영됩니다.` : '입력한 장비·도구는 관련 위험요인과 안전조치 작성에 참고됩니다.'}
+            </p>
           </div>
 
           <div className="space-y-2">

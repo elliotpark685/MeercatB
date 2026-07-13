@@ -93,8 +93,10 @@ export interface GenerateDocumentParams {
   site_id: number;
   user_id: number | null; // ?좏깮媛? null ?덉슜
   document_type: DocumentType;
+  workplace_name: string;
   work_title: string;
   safety_keywords: string[];
+  equipment_tools: string[];
   law_names: string[];
   kosha_categories: KoshaCategory[];
   prompt: string; // 5~4000??

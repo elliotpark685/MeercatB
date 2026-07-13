@@ -189,6 +189,8 @@ def test_full_multi_law_rag_flow_with_sqlite_and_mocked_external_calls():
             "site_id": 1,
             "user_id": 100,
             "document_type": "tbm",
+            "workplace_name": "통합 테스트 현장",
+            "equipment_tools": ["고소작업대"],
             "prompt": "추락 위험이 있는 고소작업 TBM 문서 작성",
         },
     )

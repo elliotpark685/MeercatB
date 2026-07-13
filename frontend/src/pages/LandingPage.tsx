@@ -29,8 +29,8 @@ export default function LandingPage() {
           <nav className="hidden items-center gap-5 text-sm text-[#98989D] md:flex">
             <a href="#features" className="hover:text-white">주요 기능</a>
             <Link to="/pricing" className="hover:text-white">요금제</Link>
-            <Link to="/about" className="hover:text-white">서비스 소개</Link>
-            <Link to="/contact" className="hover:text-white">문의</Link>
+            <Link to="/ko/about" className="hover:text-white">서비스 소개</Link>
+            <Link to="/ko/contact" className="hover:text-white">문의</Link>
           </nav>
           <div className="flex items-center gap-2">
             <Link to={isAuthenticated ? '/dashboard' : '/login'} className="rounded-lg px-3 py-2 text-sm text-[#C7C7CC] transition hover:text-white">

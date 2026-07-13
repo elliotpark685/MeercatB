@@ -35,9 +35,11 @@ class DocumentGenerationService:
         site_id: int,
         user_id: int | None,
         document_type: str,
+        workplace_name: str,
         prompt: str,
         work_title: str | None = None,
         safety_keywords: list[str] | None = None,
+        equipment_tools: list[str] | None = None,
         law_names: list[str] | None = None,
         kosha_categories: list[str] | None = None,
     ) -> GeneratedDocument:
@@ -47,10 +49,14 @@ class DocumentGenerationService:
 
         normalized_type = document_type.strip().lower()
         normalized_work_title = (work_title or prompt or site.name).strip() or site.name
+        normalized_workplace_name = workplace_name.strip()
         normalized_keywords = self._normalize_terms(safety_keywords)
+        normalized_equipment_tools = self._normalize_terms(equipment_tools)
         normalized_law_names = self._normalize_terms(law_names)
         normalized_kosha_categories = self._normalize_terms(kosha_categories)
-        search_query = self._build_search_query(normalized_work_title, normalized_keywords, prompt)
+        search_query = self._build_search_query(
+            normalized_workplace_name, normalized_work_title, normalized_keywords, normalized_equipment_tools, prompt
+        )
 
         search_bundle = self._search_for_generation(
             prompt=search_query,
@@ -68,9 +74,10 @@ class DocumentGenerationService:
         )
         generation_prompt = self._build_generation_prompt(
             document_type=normalized_type,
-            site_name=site.name,
+            workplace_name=normalized_workplace_name,
             work_title=normalized_work_title,
             safety_keywords=normalized_keywords,
+            equipment_tools=normalized_equipment_tools,
             user_prompt=prompt,
             law_context=law_context,
             kosha_context=kosha_context,
@@ -79,9 +86,10 @@ class DocumentGenerationService:
         )
         generated_text = self._generate_text(
             document_type=normalized_type,
-            site_name=site.name,
+            workplace_name=normalized_workplace_name,
             work_title=normalized_work_title,
             safety_keywords=normalized_keywords,
+            equipment_tools=normalized_equipment_tools,
             user_prompt=prompt,
             law_context=law_context,
             kosha_context=kosha_context,
@@ -190,8 +198,10 @@ class DocumentGenerationService:
         return normalized
 
     @staticmethod
-    def _build_search_query(work_title: str, safety_keywords: list[str], prompt: str) -> str:
-        parts = [work_title, *safety_keywords, prompt]
+    def _build_search_query(
+        workplace_name: str, work_title: str, safety_keywords: list[str], equipment_tools: list[str], prompt: str
+    ) -> str:
+        parts = [workplace_name, work_title, *safety_keywords, *equipment_tools, prompt]
         return " ".join(part.strip() for part in parts if part and part.strip())
 
     @staticmethod
@@ -262,9 +272,10 @@ class DocumentGenerationService:
     def _build_generation_prompt(
         cls,
         document_type: str,
-        site_name: str,
+        workplace_name: str,
         work_title: str,
         safety_keywords: list[str],
+        equipment_tools: list[str],
         user_prompt: str,
         law_context: str,
         kosha_context: str,
@@ -273,17 +284,18 @@ class DocumentGenerationService:
     ) -> str:
         return (
             "You are a Korean construction safety document assistant.\n"
-            f"Site name: {site_name}\n"
+            f"Workplace: {workplace_name}\n"
             f"Document type: {document_type}\n"
             f"Work title: {work_title}\n"
             f"Safety keywords: {', '.join(safety_keywords) if safety_keywords else 'none'}\n"
+            f"Equipment and tools: {', '.join(equipment_tools) if equipment_tools else 'none'}\n"
             f"Selected laws: {', '.join(selected_laws) if selected_laws else 'none'}\n"
             f"Selected KOSHA categories: {', '.join(selected_kosha_categories) if selected_kosha_categories else 'none'}\n\n"
             "Mandatory constraints:\n"
             "- Use the supplied law context when applicable.\n"
             "- Do not invent ungrounded legal claims.\n"
             "- Use the KOSHA context as supporting guidance only.\n"
-            "- Keep the output specific to the work title and safety keywords.\n\n"
+            "- Keep the output specific to the workplace, work title, safety keywords, and equipment/tools.\n\n"
             f"User request:\n{user_prompt}\n\n"
             f"Law context:\n{law_context}\n\n"
             f"KOSHA context:\n{kosha_context}\n"
@@ -292,9 +304,10 @@ class DocumentGenerationService:
     def _generate_text(
         self,
         document_type: str,
-        site_name: str,
+        workplace_name: str,
         work_title: str,
         safety_keywords: list[str],
+        equipment_tools: list[str],
         user_prompt: str,
         law_context: str,
         kosha_context: str,
@@ -304,9 +317,10 @@ class DocumentGenerationService:
         if self._client is None:
             return self._mock_response(
                 document_type=document_type,
-                site_name=site_name,
+                workplace_name=workplace_name,
                 work_title=work_title,
                 safety_keywords=safety_keywords,
+                equipment_tools=equipment_tools,
                 user_prompt=user_prompt,
                 law_context=law_context,
                 kosha_context=kosha_context,
@@ -333,9 +347,10 @@ class DocumentGenerationService:
 
         return self._mock_response(
             document_type=document_type,
-            site_name=site_name,
+            workplace_name=workplace_name,
             work_title=work_title,
             safety_keywords=safety_keywords,
+            equipment_tools=equipment_tools,
             user_prompt=user_prompt,
             law_context=law_context,
             kosha_context=kosha_context,
@@ -345,9 +360,10 @@ class DocumentGenerationService:
     @staticmethod
     def _mock_response(
         document_type: str,
-        site_name: str,
+        workplace_name: str,
         work_title: str,
         safety_keywords: list[str],
+        equipment_tools: list[str],
         user_prompt: str,
         law_context: str,
         kosha_context: str,
@@ -356,11 +372,13 @@ class DocumentGenerationService:
         law_summary = DocumentGenerationService._format_reference_list(references)
         body = DocumentGenerationService._mock_document_body(document_type=document_type, law_summary=law_summary)
         keyword_text = ", ".join(safety_keywords) if safety_keywords else "-"
+        equipment_tools_text = ", ".join(equipment_tools) if equipment_tools else "-"
         return (
             f"# {work_title} - {document_type.upper()}\n\n"
-            f"현장: {site_name}\n\n"
+            f"작업장소: {workplace_name}\n\n"
             f"## 작업명\n{work_title}\n\n"
             f"## 안전 키워드\n{keyword_text}\n\n"
+            f"## 사용 장비 및 도구\n{equipment_tools_text}\n\n"
             f"## 작업 설명\n{user_prompt}\n\n"
             "## 법령 Context 기반 검토\n"
             f"{law_context}\n\n"

@@ -22,7 +22,7 @@ export default function SiteFooter({ language }: SiteFooterProps) {
 
   const links = FOOTER_LINKS.map((link) => ({
     ...link,
-    to: korean && POLICY_PATHS.includes(link.to) ? `/ko${link.to}` : link.to,
+    to: korean && ['/about', '/contact', ...POLICY_PATHS].includes(link.to) ? `/ko${link.to}` : link.to,
     label: korean ? link.koreanLabel : link.label,
   }));
 

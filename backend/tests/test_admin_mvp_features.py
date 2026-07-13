@@ -137,6 +137,7 @@ def test_document_generate_has_required_sections_by_type():
                 "site_id": 1,
                 "user_id": 100,
                 "document_type": doc_type,
+                "workplace_name": "테스트 현장",
                 "prompt": "추락 위험이 있는 작업 계획 작성",
             },
         )
@@ -160,6 +161,7 @@ def test_admin_dashboard_returns_aggregates():
             "site_id": 1,
             "user_id": 100,
             "document_type": "tbm",
+            "workplace_name": "테스트 현장",
             "prompt": "고소작업 TBM",
         },
     )
