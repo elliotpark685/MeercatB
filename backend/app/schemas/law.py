@@ -60,6 +60,9 @@ class CitationItem(BaseModel):
     section: str | None = None
     status: str
     effective_date: str | None = None
+    promulgation_date: str | None = None
+    document_effective_date: str | None = None
+    amendment_type: str | None = None
     source_page_start: int | None = None
     source_page_end: int | None = None
 
@@ -71,6 +74,10 @@ class LawSearchResultItem(BaseModel):
     title: str | None = None
     content_preview: str
     score: float
+    law_no: str | None = None
+    promulgation_date: str | None = None
+    document_effective_date: str | None = None
+    amendment_type: str | None = None
 
 
 class LawSearchResponse(BaseModel):
@@ -96,4 +103,6 @@ class LawArticleDetailResponse(BaseModel):
     law_type: str | None = None
     law_no: str | None = None
     document_effective_date: str | None = None
+    promulgation_date: str | None = None
+    amendment_type: str | None = None
     source_file_path: str | None = None

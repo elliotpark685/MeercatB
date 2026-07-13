@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { loginUser } from "../api/auth";
 import { AxiosError } from "axios";
@@ -8,6 +8,7 @@ import SiteFooter from "../components/SiteFooter";
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +24,9 @@ export default function Login() {
     try {
       const data = await loginUser({ login_id: loginId.trim(), password });
       login(data);
-      navigate("/", { replace: true });
+      const redirect = searchParams.get("redirect");
+      const destination = redirect?.startsWith("/") && !redirect.startsWith("//") ? redirect : "/dashboard";
+      navigate(destination, { replace: true });
     } catch (err) {
       if (err instanceof AxiosError) {
         const status = err.response?.status;
@@ -122,11 +125,14 @@ export default function Login() {
         <p className="text-center text-sm text-[#98989D] mt-5">
           계정이 없으신가요?{" "}
           <Link
-            to="/register"
+            to="/signup"
             className="text-[#00E5FF] hover:underline font-medium"
           >
             회원가입
           </Link>
+        </p>
+        <p className="text-center text-xs text-[#3A3A3C] mt-3">
+          <Link to="/" className="hover:text-[#00E5FF]">MeerkatAI 홈으로</Link>
         </p>
         <p className="text-center text-xs text-[#3A3A3C] mt-3">
           개발 계정:{" "}

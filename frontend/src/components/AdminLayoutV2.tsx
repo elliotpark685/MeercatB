@@ -10,7 +10,7 @@ type NavItem = {
 };
 
 const BASE_NAV_ITEMS: NavItem[] = [
-  { to: '/', label: '통합검색', icon: '⌕' },
+  { to: '/dashboard', label: '통합검색', icon: '⌕' },
   { to: '/laws', label: '법령 검색', icon: '⚖' },
   { to: '/safety-standards', label: '안전기준 검색', icon: '⛑' },
   { to: '/kosha-guide', label: 'KOSHA GUIDE', icon: '✦' },
@@ -28,7 +28,7 @@ export default function AdminLayoutV2() {
   const location = useLocation();
   const navItems: NavItem[] =
     role === 'admin'
-      ? [...BASE_NAV_ITEMS, { to: '/dashboard', label: '관리자 대시보드', icon: '▣' }]
+      ? [...BASE_NAV_ITEMS, { to: '/admin', label: '관리자 대시보드', icon: '▣' }]
       : BASE_NAV_ITEMS;
 
   return (
@@ -60,7 +60,7 @@ export default function AdminLayoutV2() {
             <NavLink
               key={item.to}
               to={item.to}
-              end={item.to === '/'}
+              end={item.to === '/dashboard'}
               title={collapsed ? item.label : undefined}
               className={({ isActive }) =>
                 `flex items-center rounded-lg transition-all duration-150 ${

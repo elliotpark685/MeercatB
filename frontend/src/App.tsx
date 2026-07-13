@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
 import AdminLayout from './components/AdminLayoutV2';
@@ -16,9 +16,12 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
+import LandingPage from './pages/LandingPage';
+import Pricing from './pages/Pricing';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
+  const location = useLocation();
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#121212]">
@@ -26,13 +29,14 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
       </div>
     );
   }
-  return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
+  const redirect = `${location.pathname}${location.search}`;
+  return isAuthenticated ? <>{children}</> : <Navigate to={`/login?redirect=${encodeURIComponent(redirect)}`} replace />;
 }
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   if (isLoading) return null;
-  return isAuthenticated ? <Navigate to="/" replace /> : <>{children}</>;
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <>{children}</>;
 }
 
 function AdminRoute({ children }: { children: React.ReactNode }) {
@@ -54,10 +58,15 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/privacy" element={<Privacy locale="en" />} />
+            <Route path="/ko/privacy" element={<Privacy locale="ko" />} />
+            <Route path="/terms" element={<Terms locale="en" />} />
+            <Route path="/ko/terms" element={<Terms locale="ko" />} />
+            <Route path="/disclaimer" element={<Disclaimer locale="en" />} />
+            <Route path="/ko/disclaimer" element={<Disclaimer locale="ko" />} />
             <Route path="/contact" element={<Contact />} />
             <Route
               path="/login"
@@ -76,14 +85,22 @@ export default function App() {
               }
             />
             <Route
+              path="/signup"
+              element={
+                <PublicRoute>
+                  <Register />
+                </PublicRoute>
+              }
+            />
+            <Route
               element={
                 <ProtectedRoute>
                   <AdminLayout />
                 </ProtectedRoute>
               }
             >
-              <Route index element={<HomeSearch />} />
-              <Route path="dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
+              <Route path="dashboard" element={<HomeSearch />} />
+              <Route path="admin" element={<AdminRoute><Dashboard /></AdminRoute>} />
               <Route path="laws" element={<LawSearch />} />
               <Route path="safety-standards" element={<SafetyStandardSearch />} />
               <Route path="kosha-guide" element={<KoshaGuide />} />

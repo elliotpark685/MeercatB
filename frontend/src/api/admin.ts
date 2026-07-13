@@ -54,6 +54,9 @@ export interface CitationItem {
   section: string | null;
   status: string;
   effective_date: string | null;
+  promulgation_date?: string | null;
+  document_effective_date?: string | null;
+  amendment_type?: string | null;
 }
 
 export interface LawSearchResult {
@@ -79,6 +82,8 @@ export interface ArticleDetail {
   law_type: string | null;
   law_no: string | null;
   document_effective_date: string | null;
+  promulgation_date?: string | null;
+  amendment_type?: string | null;
   source_file_path: string | null;
 }
 

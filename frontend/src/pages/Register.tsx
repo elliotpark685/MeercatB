@@ -54,7 +54,7 @@ export default function Register() {
         password,
       });
       login(data);
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {
@@ -157,6 +157,9 @@ export default function Register() {
             </Link>
           </p>
         </form>
+        <p className="text-center text-xs text-[#3A3A3C] mt-4">
+          <Link to="/" className="hover:text-[#00E5FF]">MeerkatAI 홈으로</Link>
+        </p>
         </div>
       </div>
       <SiteFooter />

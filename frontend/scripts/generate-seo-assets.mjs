@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 const publicDir = resolve(process.cwd(), 'public');
 const siteUrl = (process.env.VITE_SITE_URL || 'https://meercat-b.vercel.app').replace(/\/+$/, '');
 
-const routes = ['/', '/about', '/privacy', '/terms', '/disclaimer', '/contact'];
+const routes = ['/', '/about', '/pricing', '/privacy', '/ko/privacy', '/terms', '/ko/terms', '/disclaimer', '/ko/disclaimer', '/contact'];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

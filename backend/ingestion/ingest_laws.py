@@ -112,6 +112,7 @@ def law_api_payload_to_source_document(payload: dict[str, Any], target: TargetLa
         source_url=source_url,
         effective_date=_first_string(basic_info, ["시행일자"]),
         amendment_date=_first_string(basic_info, ["공포일자"]),
+        amendment_type=_first_string(basic_info, ["제개정구분명", "제개정구분"]),
         raw_text=raw_text,
         articles=None,
     )

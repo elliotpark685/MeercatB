@@ -7,13 +7,25 @@
     <loc>https://meercat-b.vercel.app/about</loc>
   </url>
   <url>
+    <loc>https://meercat-b.vercel.app/pricing</loc>
+  </url>
+  <url>
     <loc>https://meercat-b.vercel.app/privacy</loc>
+  </url>
+  <url>
+    <loc>https://meercat-b.vercel.app/ko/privacy</loc>
   </url>
   <url>
     <loc>https://meercat-b.vercel.app/terms</loc>
   </url>
   <url>
+    <loc>https://meercat-b.vercel.app/ko/terms</loc>
+  </url>
+  <url>
     <loc>https://meercat-b.vercel.app/disclaimer</loc>
+  </url>
+  <url>
+    <loc>https://meercat-b.vercel.app/ko/disclaimer</loc>
   </url>
   <url>
     <loc>https://meercat-b.vercel.app/contact</loc>
