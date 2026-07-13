@@ -11,6 +11,7 @@ from app.services.embedding_service import EmbeddingService
 from app.utils.article_title_index_loader import load_article_title_index
 from app.utils.embedding_text_builder import build_law_embedding_text
 from app.utils.law_parser import parse_korean_law_articles
+from app.utils.law_amendment import prepend_amendment_marker
 from app.utils.pdf_loader import load_pdf_text_with_page_markers
 from app.utils.text_loader import load_text_file
 
@@ -36,6 +37,7 @@ class LawSourceDocument:
     source_file_path: str | None = None
     effective_date: str | None = None
     amendment_date: str | None = None
+    amendment_type: str | None = None
     raw_text: str | None = None
     articles: list[LawSourceArticle] | None = None
 
@@ -88,6 +90,7 @@ class LawIngestionService:
             raise ValueError(f"No raw text or articles supplied for {source.law_name}")
 
         raw_text = source.raw_text or self._join_source_articles(source.articles or [])
+        raw_text = prepend_amendment_marker(raw_text, source.amendment_type)
         version_hash = self._build_version_hash(source=source, raw_text=raw_text)
         existing_document = self._get_existing_document(version_hash)
         if existing_document is not None:

@@ -366,6 +366,14 @@ export default function LawSearch() {
                 {detail.law_name}{" "}
                 <span className="text-[#00E5FF]">{detail.article_no}</span>
               </h3>
+              <p className="mb-3 text-xs text-[#00E5FF]/80">
+                {[
+                  detail.law_no ? `공포번호 ${detail.law_no}` : null,
+                  detail.promulgation_date ? `공포일 ${detail.promulgation_date}` : null,
+                  detail.document_effective_date ? `시행일 ${detail.document_effective_date}` : null,
+                  detail.amendment_type ?? null,
+                ].filter(Boolean).join(' · ') || '공포·시행 정보 없음'}
+              </p>
               <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
                 {detail.full_text}
               </pre>

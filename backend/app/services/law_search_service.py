@@ -20,6 +20,7 @@ from app.schemas.law import (
 from app.services.law_embedding_service import LawEmbeddingService
 from app.services.law_validation_service import LawValidationService
 from app.services.query_analyzer import QueryAnalysis, QueryAnalyzer
+from app.utils.law_amendment import extract_amendment_type
 
 
 DEFAULT_LAW_SCOPE = [
@@ -266,6 +267,8 @@ class LawSearchService:
             law_type=document.law_type,
             law_no=document.law_no,
             document_effective_date=document.effective_date.isoformat() if document.effective_date else None,
+            promulgation_date=document.amendment_date.isoformat() if document.amendment_date else None,
+            amendment_type=extract_amendment_type(document.raw_text),
             source_file_path=document.source_file_path,
         )
 
@@ -363,6 +366,10 @@ class LawSearchService:
             title=_article_title(candidate.article),
             content_preview=_preview_text(_candidate_text(candidate)),
             score=candidate.score,
+            law_no=candidate.document.law_no,
+            promulgation_date=candidate.document.amendment_date.isoformat() if candidate.document.amendment_date else None,
+            document_effective_date=candidate.document.effective_date.isoformat() if candidate.document.effective_date else None,
+            amendment_type=extract_amendment_type(candidate.document.raw_text),
         )
 
     @staticmethod
@@ -377,6 +384,9 @@ class LawSearchService:
             section=candidate.article.section,
             status=candidate.article.status,
             effective_date=effective_date.isoformat() if effective_date else None,
+            promulgation_date=candidate.document.amendment_date.isoformat() if candidate.document.amendment_date else None,
+            document_effective_date=candidate.document.effective_date.isoformat() if candidate.document.effective_date else None,
+            amendment_type=extract_amendment_type(candidate.document.raw_text),
             source_page_start=candidate.article.source_page_start,
             source_page_end=candidate.article.source_page_end,
         )
@@ -416,6 +426,9 @@ class LawSearchService:
             section=item.article.section,
             status=item.article.status,
             effective_date=effective_date.isoformat() if effective_date else None,
+            promulgation_date=item.document.amendment_date.isoformat() if item.document.amendment_date else None,
+            document_effective_date=item.document.effective_date.isoformat() if item.document.effective_date else None,
+            amendment_type=extract_amendment_type(item.document.raw_text),
             source_page_start=item.article.source_page_start,
             source_page_end=item.article.source_page_end,
         )

@@ -17,6 +17,12 @@ export default function LawResultCard({ item }: LawResultCardProps) {
   const text = item.content_preview.trim();
   const score = formatScore(item.score);
   const badgeColor = getLawBadgeColor(item.law_name);
+  const metadata = [
+    item.law_no ? `공포번호 ${item.law_no}` : null,
+    item.promulgation_date ? `공포일 ${item.promulgation_date}` : null,
+    item.document_effective_date ? `시행일 ${item.document_effective_date}` : null,
+    item.amendment_type ? item.amendment_type : null,
+  ].filter(Boolean);
 
   return (
     <div className="bg-[#1E1E1E] rounded-2xl border border-[#2C2C2E] overflow-hidden">
@@ -31,6 +37,10 @@ export default function LawResultCard({ item }: LawResultCardProps) {
             {articleNo && <span className="text-[#00E5FF] mr-1.5">{articleNo}</span>}
             {articleTitle}
           </h3>
+        )}
+
+        {metadata.length > 0 && (
+          <p className="text-xs leading-5 text-[#00E5FF]/80">{metadata.join(' · ')}</p>
         )}
 
         {text && <p className="text-sm text-[#98989D] whitespace-pre-wrap leading-relaxed">{text}</p>}

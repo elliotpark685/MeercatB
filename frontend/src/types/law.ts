@@ -43,4 +43,8 @@ export interface LawSearchResultItem {
   title?: string | null;
   content_preview: string;
   score: number;
+  law_no?: string | null;
+  promulgation_date?: string | null;
+  document_effective_date?: string | null;
+  amendment_type?: string | null;
 }
