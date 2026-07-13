@@ -4,9 +4,10 @@ import SiteFooter from './SiteFooter';
 
 type PublicPageFrameProps = {
   children: ReactNode;
+  language?: 'en' | 'ko';
 };
 
-export default function PublicPageFrame({ children }: PublicPageFrameProps) {
+export default function PublicPageFrame({ children, language }: PublicPageFrameProps) {
   return (
     <div className="min-h-screen bg-[#121212] text-white flex flex-col">
       <main className="relative flex-1 overflow-hidden">
@@ -22,7 +23,7 @@ export default function PublicPageFrame({ children }: PublicPageFrameProps) {
           </div>
         </div>
       </main>
-      <SiteFooter />
+      <SiteFooter language={language} />
     </div>
   );
 }

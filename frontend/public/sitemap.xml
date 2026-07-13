@@ -7,6 +7,9 @@
     <loc>https://meercat-b.vercel.app/about</loc>
   </url>
   <url>
+    <loc>https://meercat-b.vercel.app/ko/about</loc>
+  </url>
+  <url>
     <loc>https://meercat-b.vercel.app/pricing</loc>
   </url>
   <url>
@@ -29,5 +32,8 @@
   </url>
   <url>
     <loc>https://meercat-b.vercel.app/contact</loc>
+  </url>
+  <url>
+    <loc>https://meercat-b.vercel.app/ko/contact</loc>
   </url>
 </urlset>

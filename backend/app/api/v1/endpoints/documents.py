@@ -31,9 +31,11 @@ def generate_document(
             site_id=payload.site_id,
             user_id=payload.user_id,
             document_type=payload.document_type,
+            workplace_name=payload.workplace_name,
             prompt=payload.prompt,
             work_title=payload.work_title,
             safety_keywords=payload.safety_keywords,
+            equipment_tools=payload.equipment_tools,
             law_names=payload.law_names,
             kosha_categories=payload.kosha_categories,
         )

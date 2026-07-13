@@ -18,7 +18,7 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <PublicPageFrame>
+    <PublicPageFrame language="ko">
       <Seo title="MeerkatAI | 요금제" description="MeerkatAI의 무료 검색 기능과 AI 문서 생성 유료 전환 계획을 확인하세요." path="/pricing" language="ko" />
       <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <section className="rounded-[32px] border border-[#2C2C2E] bg-gradient-to-br from-[#1E1E1E] via-[#171717] to-[#121212] p-6 sm:p-10"><p className="text-xs font-medium uppercase tracking-[.22em] text-[#00E5FF]">Pricing</p><h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">비용 구조에 맞춰 기능을 구분합니다.</h1><p className="mt-5 max-w-3xl text-sm leading-7 text-[#C7C7CC]">DB 기반 검색 기능은 무료로 제공하고, 외부 LLM 호출 비용이 발생하는 문서 생성은 결제와 사용량 관리가 준비된 뒤 유료 기능으로 전환합니다.</p></section>

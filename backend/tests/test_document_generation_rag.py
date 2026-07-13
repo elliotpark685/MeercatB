@@ -69,6 +69,8 @@ def test_document_generation_uses_integrated_law_context_and_stores_references(m
         site_id=1,
         user_id=100,
         document_type='tbm',
+        workplace_name='Tower A level 3',
+        equipment_tools=['Mobile scaffold', 'Safety harness'],
         prompt='Write a safety document for a high-risk construction site',
     )
 
@@ -79,6 +81,8 @@ def test_document_generation_uses_integrated_law_context_and_stores_references(m
     assert references[0]['article_no'] == 'Article 62'
     assert references[0]['chunk_text']
     assert document.citations_json == document.references_json
+    assert '작업장소: Tower A level 3' in document.content
+    assert 'Mobile scaffold, Safety harness' in document.content
     assert db.committed is True
 
 
@@ -88,7 +92,7 @@ def test_document_generation_missing_site_raises_value_error():
     service = DocumentGenerationService(db=db, law_search_service=law_search_service)  # type: ignore[arg-type]
 
     try:
-        service.generate(site_id=999, user_id=None, document_type='tbm', prompt='test prompt')
+        service.generate(site_id=999, user_id=None, document_type='tbm', workplace_name='Test site', prompt='test prompt')
     except ValueError as exc:
         assert str(exc) == 'Site not found'
     else:
