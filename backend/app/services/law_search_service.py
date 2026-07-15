@@ -6,6 +6,7 @@ from typing import Protocol
 
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.models.law_article import LawArticle
 from app.models.law_chunk import LawChunk
 from app.models.law_document import LawDocument
@@ -188,15 +189,30 @@ class LawSearchService:
         for chunk, article, document, embedding in keyword_rows:
             row_map[chunk.id] = SearchCandidate(chunk=chunk, article=article, document=document, embedding=embedding)
 
-        vector_rows = self.repo.list_chunks_for_scope(law_scope=law_scope, limit=max(top_k * 15, 120))
-        query_vector = self._query_embedding(query) if any(row[3] is not None for row in vector_rows) else []
-        for chunk, article, document, embedding in vector_rows:
-            candidate = row_map.setdefault(
-                chunk.id,
-                SearchCandidate(chunk=chunk, article=article, document=document, embedding=embedding),
+        if settings.use_pgvector:
+            query_vector = self._query_embedding(query)
+            vector_rows = self.repo.search_chunks_by_vector(
+                query_vector=query_vector,
+                embedding_model=settings.embedding_model,
+                law_scope=law_scope,
+                limit=max(top_k * 15, 50),
             )
-            if embedding is not None and query_vector:
-                candidate.vector_score = max(candidate.vector_score, _cosine_similarity(query_vector, embedding.embedding))
+            for chunk, article, document, vector_score in vector_rows:
+                candidate = row_map.setdefault(
+                    chunk.id,
+                    SearchCandidate(chunk=chunk, article=article, document=document, embedding=None),
+                )
+                candidate.vector_score = max(candidate.vector_score, vector_score)
+        else:
+            vector_rows = self.repo.list_chunks_for_scope(law_scope=law_scope, limit=max(top_k * 15, 120))
+            query_vector = self._query_embedding(query) if any(row[3] is not None for row in vector_rows) else []
+            for chunk, article, document, embedding in vector_rows:
+                candidate = row_map.setdefault(
+                    chunk.id,
+                    SearchCandidate(chunk=chunk, article=article, document=document, embedding=embedding),
+                )
+                if embedding is not None and query_vector:
+                    candidate.vector_score = max(candidate.vector_score, _cosine_similarity(query_vector, embedding.embedding))
 
         candidates = self.reranker.rerank(query=query, candidates=list(row_map.values()), law_scope=law_scope)
         top_candidates = candidates[:top_k]

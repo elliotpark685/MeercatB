@@ -1,6 +1,7 @@
 from sqlalchemy import and_, case, or_, select, update
 from sqlalchemy.orm import Load, Session, joinedload
 
+from app.core.config import settings
 from app.models.law_article import LawArticle
 from app.models.law_chunk import LawChunk
 from app.models.law_document import LawDocument
@@ -95,7 +96,12 @@ class LawRepository:
     ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
         keyword_filter = self._keyword_filter(keywords)
         filters = [item for item in [self._law_scope_filter(law_scope), keyword_filter] if item is not None]
-        stmt = self._chunk_select_stmt().options(*self._search_load_options()).order_by(LawChunk.id.asc()).limit(limit)
+        stmt = (
+            self._chunk_select_stmt()
+            .options(*self._search_load_options(include_embedding_vectors=not settings.use_pgvector))
+            .order_by(LawChunk.id.asc())
+            .limit(limit)
+        )
         if filters:
             stmt = stmt.where(and_(*filters))
         rows = self.db.execute(stmt).all()
@@ -106,7 +112,12 @@ class LawRepository:
         law_scope: list[str] | None = None,
         limit: int = 500,
     ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
-        stmt = self._chunk_select_stmt().options(*self._search_load_options()).order_by(LawChunk.id.asc()).limit(limit)
+        stmt = (
+            self._chunk_select_stmt()
+            .options(*self._search_load_options(include_embedding_vectors=not settings.use_pgvector))
+            .order_by(LawChunk.id.asc())
+            .limit(limit)
+        )
         scope_filter = self._law_scope_filter(law_scope)
         if scope_filter is not None:
             stmt = stmt.where(scope_filter)
@@ -182,7 +193,12 @@ class LawRepository:
         keyword_filter = self._keyword_filter(keywords)
         category_filter = self._source_category_filter(source_category, source_types)
         filters = [f for f in [category_filter, keyword_filter] if f is not None]
-        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        stmt = (
+            self._chunk_select_stmt()
+            .options(*self._search_load_options(include_embedding_vectors=not settings.use_pgvector))
+            .order_by(LawChunk.id.asc())
+            .limit(limit)
+        )
         if filters:
             stmt = stmt.where(and_(*filters))
         rows = self.db.execute(stmt).all()
@@ -194,7 +210,12 @@ class LawRepository:
         source_types: list[str] | None = None,
         limit: int = 500,
     ) -> list[tuple[LawChunk, LawArticle, LawDocument, LawEmbedding | None]]:
-        stmt = self._chunk_select_stmt().order_by(LawChunk.id.asc()).limit(limit)
+        stmt = (
+            self._chunk_select_stmt()
+            .options(*self._search_load_options(include_embedding_vectors=not settings.use_pgvector))
+            .order_by(LawChunk.id.asc())
+            .limit(limit)
+        )
         category_filter = self._source_category_filter(source_category, source_types)
         if category_filter is not None:
             stmt = stmt.where(category_filter)
@@ -240,6 +261,68 @@ class LawRepository:
         rows = self.db.execute(stmt).all()
         return [(row[0], row[1]) for row in rows]
 
+    def search_chunks_by_vector(
+        self,
+        query_vector: list[float],
+        embedding_model: str,
+        law_scope: list[str] | None = None,
+        limit: int = 50,
+    ) -> list[tuple[LawChunk, LawArticle, LawDocument, float]]:
+        return self._search_chunks_by_vector(
+            query_vector=query_vector,
+            embedding_model=embedding_model,
+            law_scope=law_scope,
+            limit=limit,
+        )
+
+    def search_chunks_by_vector_for_category(
+        self,
+        query_vector: list[float],
+        embedding_model: str,
+        source_category: str,
+        source_types: list[str] | None = None,
+        limit: int = 50,
+    ) -> list[tuple[LawChunk, LawArticle, LawDocument, float]]:
+        return self._search_chunks_by_vector(
+            query_vector=query_vector,
+            embedding_model=embedding_model,
+            source_category=source_category,
+            source_types=source_types,
+            limit=limit,
+        )
+
+    def _search_chunks_by_vector(
+        self,
+        query_vector: list[float],
+        embedding_model: str,
+        law_scope: list[str] | None = None,
+        source_category: str | None = None,
+        source_types: list[str] | None = None,
+        limit: int = 50,
+    ) -> list[tuple[LawChunk, LawArticle, LawDocument, float]]:
+        """Return only the nearest chunk rows; embedding arrays never leave PostgreSQL."""
+        distance = LawEmbedding.embedding_vector.cosine_distance(query_vector).label("distance")
+        filters = [
+            LawDocument.is_active.is_(True),
+            LawEmbedding.embedding_model == embedding_model,
+            LawEmbedding.embedding_vector.is_not(None),
+        ]
+        scope_filter = self._law_scope_filter(law_scope)
+        category_filter = self._source_category_filter(source_category, source_types) if source_category else None
+        filters.extend(item for item in [scope_filter, category_filter] if item is not None)
+
+        stmt = (
+            select(LawChunk, LawArticle, LawDocument, distance)
+            .join(LawArticle, LawArticle.id == LawChunk.law_article_id)
+            .join(LawDocument, LawDocument.id == LawArticle.law_document_id)
+            .join(LawEmbedding, LawEmbedding.chunk_id == LawChunk.id)
+            .options(*self._chunk_load_options())
+            .where(and_(*filters))
+            .order_by(distance.asc())
+            .limit(limit)
+        )
+        return [(row[0], row[1], row[2], max(0.0, min(1.0, 1.0 - float(row[3])))) for row in self.db.execute(stmt).all()]
+
     # ── 공통 헬퍼 ─────────────────────────────────────────────────────────────
 
     @staticmethod
@@ -253,7 +336,19 @@ class LawRepository:
         )
 
     @staticmethod
-    def _search_load_options():
+    def _search_load_options(include_embedding_vectors: bool = True):
+        embedding_columns = [
+            LawEmbedding.id,
+            LawEmbedding.article_id,
+            LawEmbedding.chunk_id,
+            LawEmbedding.embedding_model,
+        ]
+        if include_embedding_vectors:
+            embedding_columns.extend([LawEmbedding.embedding, LawEmbedding.embedding_vector])
+        return (*LawRepository._chunk_load_options(), Load(LawEmbedding).load_only(*embedding_columns))
+
+    @staticmethod
+    def _chunk_load_options():
         return (
             Load(LawChunk).load_only(
                 LawChunk.id,
@@ -294,14 +389,6 @@ class LawRepository:
                 LawDocument.provider,
                 LawDocument.source_type,
                 LawDocument.is_active,
-            ),
-            Load(LawEmbedding).load_only(
-                LawEmbedding.id,
-                LawEmbedding.article_id,
-                LawEmbedding.chunk_id,
-                LawEmbedding.embedding_model,
-                LawEmbedding.embedding,
-                LawEmbedding.embedding_vector,
             ),
         )
 
