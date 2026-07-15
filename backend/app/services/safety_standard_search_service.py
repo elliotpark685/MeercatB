@@ -11,6 +11,7 @@ from dataclasses import dataclass
 
 from sqlalchemy.orm import Session
 
+from app.core.config import settings
 from app.models.law_article import LawArticle
 from app.models.law_chunk import LawChunk
 from app.models.law_document import LawDocument
@@ -71,26 +72,37 @@ class SafetyStandardSearchService:
                 chunk=chunk, article=article, document=document, embedding=embedding
             )
 
-        vector_rows = self.repo.list_chunks_for_category(
-            source_category=SAFETY_STANDARD_CATEGORY,
-            source_types=effective_types,
-            limit=500,
-        )
-        query_vector = (
-            _query_embedding(query)
-            if any(row[3] is not None for row in vector_rows)
-            else []
-        )
-        for chunk, article, document, embedding in vector_rows:
-            candidate = row_map.setdefault(
-                chunk.id,
-                _Candidate(chunk=chunk, article=article, document=document, embedding=embedding),
+        if settings.use_pgvector:
+            vector_rows = self.repo.search_chunks_by_vector_for_category(
+                query_vector=_query_embedding(query),
+                embedding_model=settings.embedding_model,
+                source_category=SAFETY_STANDARD_CATEGORY,
+                source_types=effective_types,
+                limit=max(top_k * 15, 50),
             )
-            if embedding is not None and query_vector:
-                candidate.vector_score = max(
-                    candidate.vector_score,
-                    _cosine_similarity(query_vector, embedding.embedding),
+            for chunk, article, document, vector_score in vector_rows:
+                candidate = row_map.setdefault(
+                    chunk.id,
+                    _Candidate(chunk=chunk, article=article, document=document, embedding=None),
                 )
+                candidate.vector_score = max(candidate.vector_score, vector_score)
+        else:
+            vector_rows = self.repo.list_chunks_for_category(
+                source_category=SAFETY_STANDARD_CATEGORY,
+                source_types=effective_types,
+                limit=500,
+            )
+            query_vector = _query_embedding(query) if any(row[3] is not None for row in vector_rows) else []
+            for chunk, article, document, embedding in vector_rows:
+                candidate = row_map.setdefault(
+                    chunk.id,
+                    _Candidate(chunk=chunk, article=article, document=document, embedding=embedding),
+                )
+                if embedding is not None and query_vector:
+                    candidate.vector_score = max(
+                        candidate.vector_score,
+                        _cosine_similarity(query_vector, embedding.embedding),
+                    )
 
         # 점수 계산 + 정렬
         candidates = list(row_map.values())

@@ -338,7 +338,7 @@ export default function HomeSearch() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-[28px] border border-[#2C2C2E] bg-gradient-to-br from-[#1E1E1E] via-[#171717] to-[#121212] p-6 sm:p-8">
+      <section className="relative overflow-visible rounded-[28px] border border-[#2C2C2E] bg-gradient-to-br from-[#1E1E1E] via-[#171717] to-[#121212] p-6 sm:p-8">
         <div className="pointer-events-none absolute inset-0 opacity-70">
           <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#00E5FF]/10 blur-3xl" />
           <div className="absolute left-8 top-8 h-40 w-40 rounded-full bg-[#BF5AF2]/10 blur-3xl" />
@@ -387,7 +387,7 @@ export default function HomeSearch() {
                 {showHistory && filteredHistory.length > 0 && (
                   <div
                     ref={dropdownRef}
-                    className="absolute left-0 right-0 top-full z-20 mt-2  rounded-xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-xl"
+                    className="absolute left-0 right-0 top-full z-30 mt-2 rounded-xl border border-[#2C2C2E] bg-[#1E1E1E] shadow-xl"
                   >
                     <div className="flex items-center justify-between border-b border-[#2C2C2E] px-3 py-2">
                       <span className="text-[10px] uppercase tracking-[0.2em] text-[#98989D]">

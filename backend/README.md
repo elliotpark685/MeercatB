@@ -11,7 +11,8 @@ USE_PGVECTOR=false
 
 Notes:
 - `LAW_API_OC` can exist in `.env`, but is not called in current flow.
-- Current search mode is keyword-only (`USE_PGVECTOR=false`).
+- To enable database-side vector search, run `sql/migrations/004_enable_pgvector.sql`, then set `USE_PGVECTOR=true`.
+- `EMBEDDING_MODEL` and `VECTOR_DIMENSION` must match existing embeddings. The default is `text-embedding-3-small` with `1536` dimensions.
 - Auth defaults:
   - `AUTH_SECRET_KEY=change-me-in-production`
   - `AUTH_ACCESS_TOKEN_EXPIRE_MINUTES=720`
