@@ -313,6 +313,7 @@ export default function LawSearch() {
                       <LawResultCard
                         key={item.article_id ?? `${lawName}-${idx}`}
                         item={item}
+                        onViewDetail={handleArticleClick}
                       />
                     ))}
                   </div>
