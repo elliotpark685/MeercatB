@@ -1,14 +1,15 @@
 ﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import {
+  getLawArticle,
   searchSafetyStandards,
+  type ArticleDetail,
   type SafetyStandardResultItem,
   type SafetyStandardSearchResult,
 } from "../api/admin";
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
-import ArticleDetailModal from "../components/ArticleDetailModal";
 
 const TOP_K_OPTIONS = [3, 5, 10];
 const HISTORY_KEY = "meerkat_safety_history";
@@ -67,9 +68,14 @@ function formatScore(score: number): string {
   return `${Math.round(score * 100)}%`;
 }
 
-function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
+function SafetyResultCard({
+  item,
+  onViewDetail,
+}: {
+  item: SafetyStandardResultItem;
+  onViewDetail: (articleId: number) => void;
+}) {
   const [expanded, setExpanded] = useState(false);
-  const [showDetail, setShowDetail] = useState(false);
   const typeLabel = SOURCE_TYPE_LABEL[item.source_type] ?? item.source_type;
   const typeColor =
     SOURCE_TYPE_COLOR[item.source_type] ??
@@ -140,7 +146,7 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
           {item.article_id != null && (
             <button
               type="button"
-              onClick={() => setShowDetail(true)}
+              onClick={() => onViewDetail(item.article_id!)}
               className="ml-3 inline-flex items-center gap-1 text-sm font-medium text-[#00E5FF] transition-colors hover:text-[#33EAFF]"
             >
               전체 내용 보기
@@ -148,12 +154,6 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
           )}
         </div>
       </div>
-      {showDetail && item.article_id != null && (
-        <ArticleDetailModal
-          articleId={item.article_id}
-          onClose={() => setShowDetail(false)}
-        />
-      )}
     </article>
   );
 }
@@ -204,11 +204,15 @@ export default function SafetyStandardSearch() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<SafetyStandardSearchResult | null>(null);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [detailError, setDetailError] = useState<unknown>(null);
+  const [detail, setDetail] = useState<ArticleDetail | null>(null);
 
   const [history, setHistory] = useState<string[]>(loadHistory);
   const [showHistory, setShowHistory] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const detailSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -236,6 +240,8 @@ export default function SafetyStandardSearch() {
     setLoading(true);
     setError(null);
     setResult(null);
+    setDetail(null);
+    setDetailError(null);
 
     try {
       const sourceTypes = filterType === "all" ? undefined : [filterType];
@@ -251,6 +257,27 @@ export default function SafetyStandardSearch() {
       setError(err);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleArticleClick(articleId: number) {
+    setDetailLoading(true);
+    setDetailError(null);
+    setDetail(null);
+    window.requestAnimationFrame(() => {
+      detailSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+
+    try {
+      const response = await getLawArticle(articleId);
+      setDetail(response);
+    } catch (requestError) {
+      setDetailError(requestError);
+    } finally {
+      setDetailLoading(false);
     }
   }
 
@@ -486,8 +513,40 @@ export default function SafetyStandardSearch() {
               <SafetyResultCard
                 key={item.chunk_id ?? item.article_id ?? idx}
                 item={item}
+                onViewDetail={handleArticleClick}
               />
             ))}
+          </div>
+
+          <div
+            ref={detailSectionRef}
+            className="scroll-mt-6 space-y-3"
+            aria-live="polite"
+          >
+            {detailLoading && <Spinner text="문서 상세 조회 중..." />}
+            {!!detailError && <ErrorBox error={detailError} />}
+            {detail && (
+              <div className="rounded-2xl border border-[#FF9F0A]/20 bg-[#1E1E1E] p-5">
+                <h2 className="mb-3 font-semibold text-white">
+                  {detail.law_name}{" "}
+                  <span className="text-[#FF9F0A]">{detail.article_no}</span>
+                  {detail.article_title ? ` ${detail.article_title}` : ""}
+                </h2>
+                <p className="mb-3 text-xs text-[#FF9F0A]/80">
+                  {[
+                    detail.law_no ? `공포번호 ${detail.law_no}` : null,
+                    detail.promulgation_date ? `공포일 ${detail.promulgation_date}` : null,
+                    detail.document_effective_date
+                      ? `시행일 ${detail.document_effective_date}`
+                      : null,
+                    detail.amendment_type ?? null,
+                  ].filter(Boolean).join(" · ") || "공포·시행 정보 없음"}
+                </p>
+                <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-xl border border-[#2C2C2E] bg-[#121212] p-4 font-mono text-sm leading-relaxed text-[#98989D]">
+                  {detail.full_text}
+                </pre>
+              </div>
+            )}
           </div>
         </div>
       )}

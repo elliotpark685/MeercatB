@@ -55,6 +55,7 @@ export default function LawSearch() {
   const [showHistory, setShowHistory] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const detailSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -105,6 +106,13 @@ export default function LawSearch() {
   async function handleArticleClick(articleId: number) {
     setDetailLoading(true);
     setDetailError(null);
+    setDetail(null);
+    window.requestAnimationFrame(() => {
+      detailSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
     try {
       const d = await getLawArticle(articleId);
       setDetail(d);
@@ -358,11 +366,16 @@ export default function LawSearch() {
             </div>
           )}
 
-          {detailLoading && <Spinner text="문서 상세 조회 중..." />}
-          {!!detailError && <ErrorBox error={detailError} />}
+          <div
+            ref={detailSectionRef}
+            className="scroll-mt-6 space-y-3"
+            aria-live="polite"
+          >
+            {detailLoading && <Spinner text="문서 상세 조회 중..." />}
+            {!!detailError && <ErrorBox error={detailError} />}
 
-          {detail && (
-            <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
+            {detail && (
+              <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
               <h3 className="font-semibold text-white mb-3">
                 {detail.law_name}{" "}
                 <span className="text-[#00E5FF]">{detail.article_no}</span>
@@ -378,8 +391,9 @@ export default function LawSearch() {
               <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
                 {detail.full_text}
               </pre>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
