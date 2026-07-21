@@ -3,6 +3,7 @@ import { getLawBadgeColor } from '../types/law';
 
 interface LawResultCardProps {
   item: LawSearchResultItem;
+  onViewDetail?: (articleId: number) => void;
 }
 
 function formatScore(score?: number | null): string | null {
@@ -10,7 +11,7 @@ function formatScore(score?: number | null): string | null {
   return score.toFixed(3);
 }
 
-export default function LawResultCard({ item }: LawResultCardProps) {
+export default function LawResultCard({ item, onViewDetail }: LawResultCardProps) {
   const lawName = item.law_name?.trim() || '법령명 미상';
   const articleNo = item.article_no?.trim();
   const articleTitle = item.title?.trim();
@@ -44,6 +45,18 @@ export default function LawResultCard({ item }: LawResultCardProps) {
         )}
 
         {text && <p className="text-sm text-[#98989D] whitespace-pre-wrap leading-relaxed">{text}</p>}
+
+        {onViewDetail && (
+          <div className="flex justify-end pt-1">
+            <button
+              type="button"
+              onClick={() => onViewDetail(item.article_id)}
+              className="rounded-lg border border-[#00E5FF]/25 px-3 py-1.5 text-xs font-medium text-[#00E5FF] transition-colors hover:bg-[#00E5FF]/10"
+            >
+              전체 내용 보기
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

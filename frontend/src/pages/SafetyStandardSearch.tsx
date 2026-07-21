@@ -8,6 +8,7 @@ import {
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
+import ArticleDetailModal from "../components/ArticleDetailModal";
 
 const TOP_K_OPTIONS = [3, 5, 10];
 const HISTORY_KEY = "meerkat_safety_history";
@@ -68,6 +69,7 @@ function formatScore(score: number): string {
 
 function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
   const [expanded, setExpanded] = useState(false);
+  const [showDetail, setShowDetail] = useState(false);
   const typeLabel = SOURCE_TYPE_LABEL[item.source_type] ?? item.source_type;
   const typeColor =
     SOURCE_TYPE_COLOR[item.source_type] ??
@@ -135,8 +137,23 @@ function SafetyResultCard({ item }: { item: SafetyStandardResultItem }) {
               <span aria-hidden="true">{expanded ? "−" : "+"}</span>
             </button>
           )}
+          {item.article_id != null && (
+            <button
+              type="button"
+              onClick={() => setShowDetail(true)}
+              className="ml-3 inline-flex items-center gap-1 text-sm font-medium text-[#00E5FF] transition-colors hover:text-[#33EAFF]"
+            >
+              전체 내용 보기
+            </button>
+          )}
         </div>
       </div>
+      {showDetail && item.article_id != null && (
+        <ArticleDetailModal
+          articleId={item.article_id}
+          onClose={() => setShowDetail(false)}
+        />
+      )}
     </article>
   );
 }

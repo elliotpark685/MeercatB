@@ -19,6 +19,7 @@ import {
   type KoshaSearchResult,
 } from "../api/admin";
 import LawResultCard from "../components/LawResultCard";
+import ArticleDetailModal from "../components/ArticleDetailModal";
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
@@ -104,8 +105,10 @@ function ResultHeader({
 
 function SafetyResultCard({
   item,
+  onViewDetail,
 }: {
   item: NonNullable<SafetyStandardSearchResult["results"]>[number];
+  onViewDetail: (articleId: number) => void;
 }) {
   const text = item.content_preview?.trim() ?? "";
   const preview = text.length > 260 ? `${text.slice(0, 260)}...` : text;
@@ -139,7 +142,16 @@ function SafetyResultCard({
           {preview}
         </p>
       )}
-      <div className="mt-4 flex items-center justify-end">
+      <div className="mt-4 flex items-center justify-end gap-2">
+        {item.article_id != null && (
+          <button
+            type="button"
+            onClick={() => onViewDetail(item.article_id!)}
+            className="rounded-lg border border-[#FF9F0A]/25 px-3 py-1.5 text-xs font-medium text-[#FF9F0A] transition-colors hover:bg-[#FF9F0A]/10"
+          >
+            전체 내용 보기
+          </button>
+        )}
         <Link
           to="/safety-standards"
           className="rounded-lg border border-[#2C2C2E] px-3 py-1.5 text-xs text-[#FF9F0A] transition-colors hover:border-[#FF9F0A]/30 hover:bg-[#FF9F0A]/10"
@@ -152,9 +164,10 @@ function SafetyResultCard({
 }
 
 function KoshaResultCard({ item }: { item: KoshaResultItem }) {
+  const [expanded, setExpanded] = useState(false);
   const keywords = item.keywords.slice(0, 4);
   const text = item.content.trim();
-  const preview = text.length > 260 ? `${text.slice(0, 260)}...` : text;
+  const preview = expanded || text.length <= 260 ? text : `${text.slice(0, 260)}...`;
   const categoryLabel = formatKoshaCategory(item.category);
 
   return (
@@ -189,6 +202,15 @@ function KoshaResultCard({ item }: { item: KoshaResultItem }) {
         </p>
       )}
       <div className="mt-4 flex items-center justify-end gap-2">
+        {text.length > 260 && (
+          <button
+            type="button"
+            onClick={() => setExpanded((value) => !value)}
+            className="rounded-lg border border-[#BF5AF2]/25 px-3 py-1.5 text-xs font-medium text-[#BF5AF2] transition-colors hover:bg-[#BF5AF2]/10"
+          >
+            {expanded ? "접기" : "전체 내용 보기"}
+          </button>
+        )}
         {item.url && (
           <a
             href={item.url}
@@ -221,6 +243,7 @@ export default function HomeSearch() {
     errors: {},
   });
   const [history, setHistory] = useState<string[]>(loadHistory);
+  const [detailArticleId, setDetailArticleId] = useState<number | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -484,7 +507,11 @@ export default function HomeSearch() {
               />
               <div className="grid gap-3 md:grid-cols-2">
                 {lawResults.map((item, index) => (
-                  <LawResultCard key={item.article_id ?? index} item={item} />
+                  <LawResultCard
+                    key={item.article_id ?? index}
+                    item={item}
+                    onViewDetail={setDetailArticleId}
+                  />
                 ))}
               </div>
             </section>
@@ -514,6 +541,7 @@ export default function HomeSearch() {
                   <SafetyResultCard
                     key={item.article_id ?? index}
                     item={item}
+                    onViewDetail={setDetailArticleId}
                   />
                 ))}
               </div>
@@ -568,6 +596,13 @@ export default function HomeSearch() {
           상세 조회는 각 페이지에서 계속 진행합니다.
         </span>
       </div>
+
+      {detailArticleId != null && (
+        <ArticleDetailModal
+          articleId={detailArticleId}
+          onClose={() => setDetailArticleId(null)}
+        />
+      )}
     </div>
   );
 }
