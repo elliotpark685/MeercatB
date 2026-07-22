@@ -9,6 +9,7 @@ __all__ = [
     "LawSearchLog",
     "SafetyQuiz",
     "Site",
+    "Todo",
     "User",
 ]
 

@@ -15,6 +15,7 @@ const BASE_NAV_ITEMS: NavItem[] = [
   { to: '/safety-standards', label: '안전기준 검색', icon: '⛑' },
   { to: '/kosha-guide', label: 'KOSHA GUIDE', icon: '✦' },
   { to: '/documents', label: '문서 생성', icon: '✎' },
+  { to: '/todos', label: '할 일 & 캘린더', icon: '✓' },
 ];
 
 const ROLE_LABEL: Record<string, string> = {
