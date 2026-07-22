@@ -76,6 +76,7 @@ def init_db() -> None:
     from app.models.law_search_log import LawSearchLog  # noqa: F401
     from app.models.safety_quiz import SafetyQuiz  # noqa: F401
     from app.models.site import Site  # noqa: F401
+    from app.models.todo import Todo  # noqa: F401
     from app.models.user import User  # noqa: F401
 
     create_vector_extension()

@@ -18,6 +18,7 @@ import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
 import LandingPage from './pages/LandingPage';
 import Pricing from './pages/Pricing';
+import TodoList from './pages/TodoList';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -107,6 +108,7 @@ export default function App() {
               <Route path="safety-standards" element={<SafetyStandardSearch />} />
               <Route path="kosha-guide" element={<KoshaGuide />} />
               <Route path="documents" element={<DocumentGenerate />} />
+              <Route path="todos" element={<TodoList />} />
             </Route>
           </Routes>
         </BrowserRouter>
