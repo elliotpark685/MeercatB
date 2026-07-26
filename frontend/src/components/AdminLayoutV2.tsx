@@ -10,7 +10,8 @@ type NavItem = {
 };
 
 const BASE_NAV_ITEMS: NavItem[] = [
-  { to: '/dashboard', label: '통합검색', icon: '⌕' },
+  { to: '/dashboard', label: '법령·기준 현황', icon: '▦' },
+  { to: '/search', label: '통합검색', icon: '⌕' },
   { to: '/laws', label: '법령 검색', icon: '⚖' },
   { to: '/safety-standards', label: '안전기준 검색', icon: '⛑' },
   { to: '/kosha-guide', label: 'KOSHA GUIDE', icon: '✦' },

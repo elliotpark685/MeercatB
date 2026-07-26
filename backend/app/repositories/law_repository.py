@@ -1,4 +1,4 @@
-from sqlalchemy import and_, case, or_, select, update
+from sqlalchemy import and_, case, func, or_, select, update
 from sqlalchemy.orm import Load, Session, joinedload
 
 from app.core.config import settings
@@ -48,6 +48,24 @@ class LawRepository:
     def get_law_document_by_version_hash(self, version_hash: str) -> LawDocument | None:
         stmt = select(LawDocument).where(LawDocument.version_hash == version_hash)
         return self.db.scalars(stmt).first()
+
+    def list_active_document_catalog(self) -> list[tuple[LawDocument, int]]:
+        article_count = (
+            select(func.count(LawArticle.id))
+            .where(LawArticle.law_document_id == LawDocument.id)
+            .correlate(LawDocument)
+            .scalar_subquery()
+        )
+        stmt = (
+            select(LawDocument, article_count.label("article_count"))
+            .where(LawDocument.is_active.is_(True))
+            .order_by(
+                LawDocument.source_category.asc().nullsfirst(),
+                LawDocument.law_name.asc().nullsfirst(),
+                LawDocument.title.asc(),
+            )
+        )
+        return [(row[0], int(row[1] or 0)) for row in self.db.execute(stmt).all()]
 
     def deactivate_other_documents(self, law_name: str, keep_document_id: int) -> None:
         """Mark older versions of a law as inactive once a newer one is ingested."""

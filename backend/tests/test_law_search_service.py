@@ -36,6 +36,9 @@ class _StubRepo:
     def list_chunks_for_scope(self, **kwargs):
         return []
 
+    def list_active_document_catalog(self):
+        return []
+
 
 def _make_row(article_id: int, title: str, status: str):
     doc = LawDocument(id=1, title='Sample Law', law_name='Sample Law', law_type='Rule', jurisdiction='KR')
@@ -65,6 +68,35 @@ def test_law_search_service_returns_citations():
     assert result.citations
     assert result.citations[0].article_id == 42
     assert result.results[0].content_preview
+
+
+def test_document_catalog_exposes_document_metadata():
+    document = LawDocument(
+        id=7,
+        title='Fall Protection Guideline',
+        law_name='Fall Protection Guideline',
+        law_type='Guideline',
+        law_no='MOEL-2026-7',
+        effective_date=date(2026, 3, 2),
+        amendment_date=date(2026, 2, 10),
+        source_category='safety_standard',
+        source_type='Work Guideline',
+        provider='MOEL',
+        source_url='https://example.com/original',
+        jurisdiction='KR',
+        is_active=True,
+    )
+    service = LawSearchService(db=None)  # type: ignore[arg-type]
+    stub_repo = _StubRepo()
+    stub_repo.list_active_document_catalog = lambda: [(document, 12)]
+    service.repo = stub_repo
+
+    result = service.list_document_catalog()
+
+    assert result.items[0].category == 'safety_standard'
+    assert result.items[0].latest_amendment_date == '2026-02-10'
+    assert result.items[0].article_count == 12
+    assert result.items[0].source_url == 'https://example.com/original'
 
 
 def test_scheduled_articles_kept_but_penalized():

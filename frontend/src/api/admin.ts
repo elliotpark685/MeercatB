@@ -66,6 +66,26 @@ export interface LawSearchResult {
   results?: LawSearchResultItem[];
 }
 
+export interface LawDocumentCatalogItem {
+  id: number;
+  name: string;
+  category: 'law' | 'safety_standard';
+  document_type: string | null;
+  source_type: string | null;
+  provider: string | null;
+  law_no: string | null;
+  promulgation_date: string | null;
+  effective_date: string | null;
+  latest_amendment_date: string | null;
+  is_active: boolean;
+  source_url: string | null;
+  article_count: number;
+}
+
+export interface LawDocumentCatalogResponse {
+  items: LawDocumentCatalogItem[];
+}
+
 export interface ArticleDetail {
   article_id: number;
   law_document_id: number;
@@ -158,6 +178,11 @@ export interface SafetyStandardResultItem {
   chunk_id: number | null;
   source_url: string | null;
   has_inline_images: boolean;
+}
+
+export async function getLawDocumentCatalog(): Promise<LawDocumentCatalogResponse> {
+  const res = await apiClient.get('/api/v1/laws/catalog');
+  return res.data;
 }
 
 export interface SafetyStandardSearchResult {

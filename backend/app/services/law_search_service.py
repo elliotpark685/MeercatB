@@ -15,6 +15,8 @@ from app.repositories.law_repository import LawRepository
 from app.schemas.law import (
     CitationItem,
     LawArticleDetailResponse,
+    LawDocumentCatalogItem,
+    LawDocumentCatalogResponse,
     LawSearchResponse,
     LawSearchResultItem,
 )
@@ -116,6 +118,30 @@ class LawSearchService:
         self.query_analyzer = QueryAnalyzer()
         self.law_validation_service = law_validation_service or LawValidationService()
         self.reranker = reranker or DeterministicLawReranker()
+
+    def list_document_catalog(self) -> LawDocumentCatalogResponse:
+        items = []
+        for document, article_count in self.repo.list_active_document_catalog():
+            category = "safety_standard" if document.source_category == "safety_standard" else "law"
+            date_value = document.amendment_date.isoformat() if document.amendment_date else None
+            items.append(
+                LawDocumentCatalogItem(
+                    id=document.id,
+                    name=document.law_name or document.title,
+                    category=category,
+                    document_type=document.law_type,
+                    source_type=document.source_type,
+                    provider=document.provider,
+                    law_no=document.law_no,
+                    promulgation_date=date_value,
+                    effective_date=document.effective_date.isoformat() if document.effective_date else None,
+                    latest_amendment_date=date_value,
+                    is_active=document.is_active,
+                    source_url=document.source_url,
+                    article_count=article_count,
+                )
+            )
+        return LawDocumentCatalogResponse(items=items)
 
     def search(
         self,

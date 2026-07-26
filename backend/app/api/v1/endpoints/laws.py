@@ -1,10 +1,22 @@
 ﻿from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.api.deps import get_law_search_service
-from app.schemas.law import LawArticleDetailResponse, LawSearchRequest, LawSearchResponse
+from app.schemas.law import (
+    LawArticleDetailResponse,
+    LawDocumentCatalogResponse,
+    LawSearchRequest,
+    LawSearchResponse,
+)
 from app.services.law_search_service import LawSearchService
 
 router = APIRouter()
+
+
+@router.get("/catalog", response_model=LawDocumentCatalogResponse)
+def get_law_document_catalog(
+    service: LawSearchService = Depends(get_law_search_service),
+) -> LawDocumentCatalogResponse:
+    return service.list_document_catalog()
 
 
 @router.post("/search", response_model=LawSearchResponse)
