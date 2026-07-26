@@ -32,6 +32,10 @@ DEFAULT_LAW_SCOPE = [
     "중대재해 처벌 등에 관한 법률",
 ]
 
+# Vector-only candidates are allowed only when their raw cosine similarity is
+# strong enough to be useful without an exact keyword match.
+VECTOR_ONLY_MIN_SIMILARITY = 0.8
+
 
 @dataclass
 class ScoredArticle:
@@ -70,38 +74,28 @@ class DeterministicLawReranker:
     def rerank(self, query: str, candidates: list[SearchCandidate], law_scope: list[str]) -> list[SearchCandidate]:
         query_compact = query.replace(" ", "")
         query_terms = _tokenize(query)
-        scoped_names = [item.replace(" ", "") for item in law_scope]
         for candidate in candidates:
             reasons: list[str] = []
             law_name = _document_name(candidate.document)
-            law_names = " ".join(
-                [
-                    candidate.document.law_name or "",
-                    candidate.document.law_short_name or "",
-                    candidate.document.title or "",
-                ]
-            )
             article_title = _article_title(candidate.article) or ""
             chunk_text = _candidate_text(candidate)
+            searchable_text = f"{article_title} {chunk_text}"
 
-            keyword_hits = sum(1 for term in query_terms if term in chunk_text)
+            keyword_hits = sum(1 for term in query_terms if term in searchable_text)
             keyword_score = keyword_hits / max(len(query_terms), 1)
             title_score = 0.4 if article_title and any(term in article_title for term in query_terms) else 0.0
-            law_name_score = 0.5 if any(name and name in law_names.replace(" ", "") for name in scoped_names) else 0.0
             query_law_bonus = 0.5 if law_name.replace(" ", "") in query_compact else 0.0
 
             if keyword_hits:
                 reasons.append(f"keyword:{keyword_hits}")
             if title_score:
                 reasons.append("article_title")
-            if law_name_score:
-                reasons.append("law_scope")
             if query_law_bonus:
                 reasons.append("law_name_query")
             if candidate.vector_score:
                 reasons.append("vector")
 
-            candidate.keyword_score = round(keyword_score + title_score + law_name_score + query_law_bonus, 4)
+            candidate.keyword_score = round(keyword_score + title_score + query_law_bonus, 4)
             candidate.score = round((candidate.keyword_score * 0.7) + (candidate.vector_score * 0.3), 4)
             candidate.matched_reason = reasons
 
@@ -215,7 +209,8 @@ class LawSearchService:
                     candidate.vector_score = max(candidate.vector_score, _cosine_similarity(query_vector, embedding.embedding))
 
         candidates = self.reranker.rerank(query=query, candidates=list(row_map.values()), law_scope=law_scope)
-        top_candidates = candidates[:top_k]
+        filtered_candidates = _filter_relevant_candidates(candidates, query)
+        top_candidates = filtered_candidates[:top_k]
         citations = [self._candidate_to_citation(candidate) for candidate in top_candidates]
         return SearchBundle(query=query, answer=self._build_answer(citations), citations=citations, candidates=top_candidates)
 
@@ -510,6 +505,22 @@ def _article_text(article: LawArticle) -> str:
 
 def _candidate_text(candidate: SearchCandidate) -> str:
     return candidate.chunk.chunk_text if candidate.chunk is not None else _article_text(candidate.article)
+
+
+def _has_keyword_match(candidate: SearchCandidate, query: str) -> bool:
+    query_terms = _tokenize(query)
+    if not query_terms:
+        return False
+    searchable_text = " ".join([_article_title(candidate.article) or "", _candidate_text(candidate)])
+    return any(term in searchable_text for term in query_terms)
+
+
+def _filter_relevant_candidates(candidates: list[SearchCandidate], query: str) -> list[SearchCandidate]:
+    return [
+        candidate
+        for candidate in candidates
+        if _has_keyword_match(candidate, query) or candidate.vector_score >= VECTOR_ONLY_MIN_SIMILARITY
+    ]
 
 
 def _preview_text(text: str, limit: int = 280) -> str:
