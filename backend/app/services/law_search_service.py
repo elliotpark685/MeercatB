@@ -35,6 +35,7 @@ DEFAULT_LAW_SCOPE = [
 # Vector-only candidates are allowed only when their raw cosine similarity is
 # strong enough to be useful without an exact keyword match.
 VECTOR_ONLY_MIN_SIMILARITY = 0.8
+MIN_RESULT_SCORE = 0.8
 
 
 @dataclass
@@ -149,7 +150,15 @@ class LawSearchService:
     ) -> SearchBundle:
         normalized_scope = self._normalize_law_scope(law_names=law_names, law_scope=law_scope)
 
-        if hasattr(self.repo, "search_chunks_by_keyword") and hasattr(self.repo, "list_chunks_for_scope"):
+        has_chunk_search = (
+            hasattr(self.repo, "search_chunks_by_keyword")
+            and hasattr(self.repo, "list_chunks_for_scope")
+        )
+        has_vector_search = (
+            not settings.use_pgvector
+            or hasattr(self.repo, "search_chunks_by_vector")
+        )
+        if has_chunk_search and has_vector_search:
             bundle = self._search_chunks(query=query, top_k=top_k, law_scope=normalized_scope)
             if not bundle.candidates:
                 bundle = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
@@ -519,7 +528,8 @@ def _filter_relevant_candidates(candidates: list[SearchCandidate], query: str) -
     return [
         candidate
         for candidate in candidates
-        if _has_keyword_match(candidate, query) or candidate.vector_score >= VECTOR_ONLY_MIN_SIMILARITY
+        if candidate.score > MIN_RESULT_SCORE
+        and (_has_keyword_match(candidate, query) or candidate.vector_score >= VECTOR_ONLY_MIN_SIMILARITY)
     ]
 
 
