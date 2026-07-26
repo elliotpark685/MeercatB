@@ -13,6 +13,26 @@ class LawDocumentMetadata(BaseModel):
     is_active: bool = True
 
 
+class LawDocumentCatalogItem(BaseModel):
+    id: int
+    name: str
+    category: str
+    document_type: str | None = None
+    source_type: str | None = None
+    provider: str | None = None
+    law_no: str | None = None
+    promulgation_date: str | None = None
+    effective_date: str | None = None
+    latest_amendment_date: str | None = None
+    is_active: bool
+    source_url: str | None = None
+    article_count: int = 0
+
+
+class LawDocumentCatalogResponse(BaseModel):
+    items: list[LawDocumentCatalogItem]
+
+
 class LawArticleSchema(BaseModel):
     id: int | None = None
     law_document_id: int

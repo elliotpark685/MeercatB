@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
 import AdminLayout from './components/AdminLayoutV2';
 import HomeSearch from './pages/HomeSearch';
+import RegulationStatus from './pages/RegulationStatus';
 import Dashboard from './pages/Dashboard';
 import LawSearch from './pages/LawSearch';
 import DocumentGenerate from './pages/DocumentGenerate';
@@ -102,7 +103,8 @@ export default function App() {
                 </ProtectedRoute>
               }
             >
-              <Route path="dashboard" element={<HomeSearch />} />
+              <Route path="dashboard" element={<RegulationStatus />} />
+              <Route path="search" element={<HomeSearch />} />
               <Route path="admin" element={<AdminRoute><Dashboard /></AdminRoute>} />
               <Route path="laws" element={<LawSearch />} />
               <Route path="safety-standards" element={<SafetyStandardSearch />} />
