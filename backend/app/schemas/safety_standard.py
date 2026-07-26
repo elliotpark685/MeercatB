@@ -19,6 +19,8 @@ class SafetyStandardResultItem(BaseModel):
     provider: str = "law.go.kr"
     article_id: int | None = None
     chunk_id: int | None = None
+    source_url: str | None = None
+    has_inline_images: bool = False
 
 
 class SafetyStandardSearchResponse(BaseModel):
