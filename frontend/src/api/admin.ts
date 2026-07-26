@@ -156,6 +156,8 @@ export interface SafetyStandardResultItem {
   provider: string;
   article_id: number | null;
   chunk_id: number | null;
+  source_url: string | null;
+  has_inline_images: boolean;
 }
 
 export interface SafetyStandardSearchResult {

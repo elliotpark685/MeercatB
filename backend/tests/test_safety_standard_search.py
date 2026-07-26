@@ -200,6 +200,22 @@ def test_safety_search_fallback_to_article_search():
 # ── AdmrulApiClient mock 테스트 ───────────────────────────────────────────────
 
 
+def test_safety_search_exposes_source_link_for_inline_images():
+    doc = _make_doc()
+    doc.source_url = "https://www.law.go.kr/admRulLsInfoP.do?admRulId=123"
+    article = _make_article(text='Fall protection distance <img id="55829835"></img> diagram')
+    chunk = _make_chunk(text=article.article_text or "")
+
+    service = SafetyStandardSearchService(db=None)  # type: ignore[arg-type]
+    service.repo = _StubRepo(chunk_rows=[(chunk, article, doc)])
+
+    result = service.search("Fall protection").results[0]
+
+    assert result.has_inline_images is True
+    assert result.source_url == doc.source_url
+    assert "<img" not in result.content_preview
+
+
 def _make_urlopen_mock(payload: dict):
     """urlopen context manager mock 헬퍼."""
     raw = json.dumps(payload, ensure_ascii=False).encode("utf-8")

@@ -152,6 +152,16 @@ function SafetyResultCard({
             전체 내용 보기
           </button>
         )}
+        {item.has_inline_images && item.source_url && (
+          <a
+            href={item.source_url}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-lg border border-[#FF9F0A]/25 px-3 py-1.5 text-xs text-[#FF9F0A] transition-colors hover:bg-[#FF9F0A]/10"
+          >
+            원문에서 그림 보기
+          </a>
+        )}
         <Link
           to="/safety-standards"
           className="rounded-lg border border-[#2C2C2E] px-3 py-1.5 text-xs text-[#FF9F0A] transition-colors hover:border-[#FF9F0A]/30 hover:bg-[#FF9F0A]/10"

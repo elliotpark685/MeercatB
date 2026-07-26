@@ -23,6 +23,7 @@ from app.services.law_embedding_service import LawEmbeddingService
 # 검색 대상 source_type 목록
 RULE_SOURCE_TYPE = "rule"
 GUIDELINE_SOURCE_TYPE = "moel_standard_safety_guideline"
+INLINE_IMAGE_TAG_PATTERN = re.compile(r"<img\b[^>]*>\s*(?:</img>)?", re.IGNORECASE)
 
 # 산업안전보건기준에 관한 규칙 법령 이름 (DB 저장값 패턴)
 RULE_LAW_NAMES = ["산업안전보건기준에 관한 규칙", "산업안전보건기준"]
@@ -180,16 +181,20 @@ def _to_result(c: _Candidate) -> SafetyStandardResultItem:
         if c.chunk
         else (c.article.article_text or c.article.full_text or c.article.content or "")
     )
+    has_inline_images = bool(INLINE_IMAGE_TAG_PATTERN.search(content))
+    display_content = INLINE_IMAGE_TAG_PATTERN.sub("", content)
     return SafetyStandardResultItem(
         source_type=source_type,
         source_name=source_name,
         article_no=article_no,
         article_title=article_title,
-        content_preview=_preview_text(content),
+        content_preview=_preview_text(display_content),
         score=c.score,
         provider=provider,
         article_id=c.article.id,
         chunk_id=c.chunk.id if c.chunk else None,
+        source_url=doc.source_url,
+        has_inline_images=has_inline_images,
     )
 
 

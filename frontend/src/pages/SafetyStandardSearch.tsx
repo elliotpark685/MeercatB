@@ -152,6 +152,16 @@ function SafetyResultCard({
               전체 내용 보기
             </button>
           )}
+          {item.has_inline_images && item.source_url && (
+            <a
+              href={item.source_url}
+              target="_blank"
+              rel="noreferrer"
+              className="ml-3 inline-flex items-center gap-1 text-sm font-medium text-[#FF9F0A] transition-colors hover:text-[#FFB347]"
+            >
+              원문에서 그림 보기 ↗
+            </a>
+          )}
         </div>
       </div>
     </article>
