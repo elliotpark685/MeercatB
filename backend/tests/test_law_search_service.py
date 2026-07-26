@@ -3,7 +3,12 @@ from datetime import date
 from app.models.law_article import LawArticle
 from app.models.law_document import LawDocument
 from app.models.law_embedding import LawEmbedding
-from app.services.law_search_service import LawSearchService
+from app.services.law_search_service import (
+    DeterministicLawReranker,
+    LawSearchService,
+    SearchCandidate,
+    _filter_relevant_candidates,
+)
 
 
 class _StubRepo:
@@ -83,3 +88,38 @@ def test_validate_latest_returns_placeholder_message():
 
     result = service.search('fall protection', top_k=1, validate_latest=True)
     assert result.answer == 'latest validation is not implemented yet'
+
+
+def test_reranker_does_not_boost_candidates_only_for_being_in_scope():
+    article, document = _make_row(42, 'Equipment inspection', 'effective')
+    candidate = SearchCandidate(chunk=None, article=article, document=document, embedding=None)
+
+    DeterministicLawReranker().rerank(
+        query='falling object',
+        candidates=[candidate],
+        law_scope=['Sample Law'],
+    )
+
+    assert candidate.score == 0
+
+
+def test_vector_only_candidates_require_high_similarity():
+    article, document = _make_row(42, 'Equipment inspection', 'effective')
+    weak_vector = SearchCandidate(
+        chunk=None,
+        article=article,
+        document=document,
+        embedding=None,
+        vector_score=0.79,
+    )
+    strong_vector = SearchCandidate(
+        chunk=None,
+        article=article,
+        document=document,
+        embedding=None,
+        vector_score=0.8,
+    )
+
+    result = _filter_relevant_candidates([weak_vector, strong_vector], 'falling object')
+
+    assert result == [strong_vector]
