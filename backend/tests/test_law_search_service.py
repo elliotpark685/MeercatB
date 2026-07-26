@@ -119,7 +119,15 @@ def test_vector_only_candidates_require_high_similarity():
         embedding=None,
         vector_score=0.8,
     )
+    strong_vector.score = 0.81
+    weak_keyword = SearchCandidate(
+        chunk=None,
+        article=article,
+        document=document,
+        embedding=None,
+        score=0.7,
+    )
 
-    result = _filter_relevant_candidates([weak_vector, strong_vector], 'falling object')
+    result = _filter_relevant_candidates([weak_vector, strong_vector, weak_keyword], 'fall protection')
 
     assert result == [strong_vector]
