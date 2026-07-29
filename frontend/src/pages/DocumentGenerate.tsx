@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { generateDocument, KOSHA_CATEGORY_LABEL, type DocumentType, type GeneratedDocument, type KoshaCategory } from '../api/admin';
 import { LAW_SCOPE_OPTIONS } from '../types/law';
@@ -44,7 +45,7 @@ function toggleValue<T>(list: T[], value: T): T[] {
 }
 
 export default function DocumentGenerate() {
-  const { userId, siteId } = useAuth();
+  const { userId, siteId, plan, role } = useAuth();
   const { addToast } = useToast();
 
   const [docType, setDocType] = useState<DocumentType>('tbm');
@@ -59,6 +60,24 @@ export default function DocumentGenerate() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<GeneratedDocument | null>(null);
+  const hasPremiumAccess = plan === 'premium' || role === 'admin';
+
+  if (!hasPremiumAccess) {
+    return (
+      <section className="rounded-[28px] border border-[#BF5AF2]/30 bg-gradient-to-br from-[#261B30] via-[#1E1E1E] to-[#121212] p-6 sm:p-10">
+        <span className="inline-flex rounded-full border border-[#BF5AF2]/30 bg-[#BF5AF2]/10 px-3 py-1 text-xs font-medium text-[#D9A8FF]">
+          PREMIUM
+        </span>
+        <h1 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">AI 안전 문서 생성은 프리미엄 기능입니다.</h1>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-[#C7C7CC]">
+          TBM, 위험성평가, 작업 계획서 및 점검 체크리스트를 현장 조건과 관련 법령을 반영해 생성할 수 있습니다.
+        </p>
+        <Link to="/pricing" className="mt-6 inline-flex rounded-xl bg-[#BF5AF2] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#D9A8FF]">
+          프리미엄 요금제 보기
+        </Link>
+      </section>
+    );
+  }
 
   const effectiveSiteId: number | null = (() => {
     if (siteId != null) return siteId;

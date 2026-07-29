@@ -14,6 +14,7 @@ class User(Base, TimestampMixin):
     hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     role: Mapped[str] = mapped_column(String(20), nullable=False, default="worker", index=True)
+    plan: Mapped[str] = mapped_column(String(20), nullable=False, default="free", index=True)
 
     generated_documents = relationship("GeneratedDocument", back_populates="created_by_user")
     quizzes = relationship("SafetyQuiz", back_populates="user")

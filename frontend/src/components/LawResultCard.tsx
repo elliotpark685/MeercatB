@@ -26,7 +26,7 @@ export default function LawResultCard({ item, onViewDetail }: LawResultCardProps
   ].filter(Boolean);
 
   return (
-    <div className="bg-[#1E1E1E] rounded-2xl border border-[#2C2C2E] overflow-hidden">
+    <div className="overflow-hidden rounded-xl border border-[#E2E8F0] border-l-4 border-l-[#2563EB] bg-white shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
       <div className={`px-4 py-2 border-b flex items-center justify-between gap-2 ${badgeColor}`}>
         <span className="text-xs font-semibold truncate">{lawName}</span>
         {score !== null && <span className="text-[10px] text-[#98989D] shrink-0">{score}</span>}
@@ -34,7 +34,7 @@ export default function LawResultCard({ item, onViewDetail }: LawResultCardProps
 
       <div className="p-4 space-y-3">
         {(articleNo || articleTitle) && (
-          <h3 className="text-sm font-semibold text-white">
+          <h3 className="text-sm font-semibold text-[#0F172A]">
             {articleNo && <span className="text-[#00E5FF] mr-1.5">{articleNo}</span>}
             {articleTitle}
           </h3>
@@ -44,14 +44,14 @@ export default function LawResultCard({ item, onViewDetail }: LawResultCardProps
           <p className="text-xs leading-5 text-[#00E5FF]/80">{metadata.join(' · ')}</p>
         )}
 
-        {text && <p className="text-sm text-[#98989D] whitespace-pre-wrap leading-relaxed">{text}</p>}
+        {text && <p className="text-sm text-[#475569] whitespace-pre-wrap leading-relaxed">{text}</p>}
 
         {onViewDetail && (
           <div className="flex justify-end pt-1">
             <button
               type="button"
               onClick={() => onViewDetail(item.article_id)}
-              className="rounded-lg border border-[#00E5FF]/25 px-3 py-1.5 text-xs font-medium text-[#00E5FF] transition-colors hover:bg-[#00E5FF]/10"
+              className="rounded-lg border border-[#CBD5E1] bg-white px-3 py-1.5 text-xs font-medium text-[#2563EB] transition-colors hover:bg-[#EFF6FF]"
             >
               전체 내용 보기
             </button>

@@ -2,14 +2,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-wv-bg:      #121212;
-  --color-wv-surface: #1E1E1E;
-  --color-wv-border:  #2C2C2E;
-  --color-wv-accent:  #00E5FF;
-  --color-wv-alert:   #FF453A;
-  --color-wv-success: #32D74B;
-  --color-wv-muted:   #98989D;
-  --color-wv-hover:   #252525;
+  --color-wv-bg:      #F8FAFC;
+  --color-wv-surface: #FFFFFF;
+  --color-wv-border:  #E2E8F0;
+  --color-wv-accent:  #2563EB;
+  --color-wv-alert:   #DC2626;
+  --color-wv-success: #16A34A;
+  --color-wv-muted:   #64748B;
+  --color-wv-hover:   #F1F5F9;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -23,8 +23,8 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: #F8FAFC;
+  color: #0F172A;
 }
 
 #root {
@@ -33,11 +33,67 @@ body {
 
 /* 스크롤바 */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #1E1E1E; }
-::-webkit-scrollbar-thumb { background: #2C2C2E; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #3A3A3C; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
-select { color-scheme: dark; }
+select { color-scheme: light; }
+
+/*
+ * The screens use Tailwind arbitrary color utilities extensively.  Keep their
+ * existing layout and interaction classes intact while mapping the former dark
+ * palette to the shared light B2B SaaS theme.
+ */
+[class*='bg-[#121212]'] { background-color: #F8FAFC !important; }
+[class*='bg-[#1E1E1E]'],
+[class*='bg-[#1A1A1A]'],
+[class*='bg-[#171717]'] { background-color: #FFFFFF !important; }
+[class*='bg-[#252525]'] { background-color: #F1F5F9 !important; }
+[class*='bg-[#2A2200]'] { background-color: #FFFBEB !important; }
+[class*='bg-[#3A1C1C]'] { background-color: #FEF2F2 !important; }
+
+[class*='border-[#2C2C2E]'],
+[class*='border-[#3A3A3C]'] { border-color: #E2E8F0 !important; }
+[class*='border-[#3A2E00]'] { border-color: #FDE68A !important; }
+
+[class*='text-white'] { color: #0F172A !important; }
+[class*='text-[#121212]'] { color: #FFFFFF !important; }
+[class*='text-[#C7C7CC]'] { color: #475569 !important; }
+[class*='text-[#98989D]'] { color: #64748B !important; }
+[class*='text-[#3A3A3C]'] { color: #94A3B8 !important; }
+
+[class*='bg-[#00E5FF]'], [class*='bg-[#33EAFF]'] { background-color: #2563EB !important; }
+[class*='text-[#00E5FF]'], [class*='text-[#33EAFF]'] { color: #2563EB !important; }
+[class*='border-[#00E5FF]'], [class*='border-[#33EAFF]'] { border-color: #2563EB !important; }
+[class*='ring-[#00E5FF]'], [class*='ring-[#33EAFF]'] { --tw-ring-color: rgb(37 99 235 / 0.2) !important; }
+[class*='bg-[#00E5FF]/'], [class*='bg-[#33EAFF]/'] { background-color: rgb(37 99 235 / 0.1) !important; }
+[class*='border-[#00E5FF]/'], [class*='border-[#33EAFF]/'] { border-color: rgb(37 99 235 / 0.25) !important; }
+
+[class*='bg-[#BF5AF2]'], [class*='bg-[#D9A8FF]'] { background-color: #2563EB !important; }
+[class*='text-[#BF5AF2]'], [class*='text-[#D9A8FF]'] { color: #2563EB !important; }
+[class*='border-[#BF5AF2]'], [class*='border-[#D9A8FF]'] { border-color: #2563EB !important; }
+[class*='bg-[#BF5AF2]/'], [class*='bg-[#D9A8FF]/'] { background-color: rgb(37 99 235 / 0.1) !important; }
+[class*='border-[#BF5AF2]/'], [class*='border-[#D9A8FF]/'] { border-color: rgb(37 99 235 / 0.25) !important; }
+
+[class*='bg-[#32D74B]'] { background-color: #16A34A !important; }
+[class*='text-[#32D74B]'] { color: #16A34A !important; }
+[class*='border-[#32D74B]'] { border-color: #16A34A !important; }
+[class*='bg-[#32D74B]/'] { background-color: rgb(22 163 74 / 0.1) !important; }
+[class*='border-[#32D74B]/'] { border-color: rgb(22 163 74 / 0.25) !important; }
+[class*='bg-[#FF453A]'] { background-color: #DC2626 !important; }
+[class*='text-[#FF453A]'] { color: #DC2626 !important; }
+[class*='border-[#FF453A]'] { border-color: #DC2626 !important; }
+[class*='bg-[#FF453A]/'] { background-color: rgb(220 38 38 / 0.08) !important; }
+[class*='border-[#FF453A]/'] { border-color: rgb(220 38 38 / 0.25) !important; }
+[class*='text-[#F5A623]'], [class*='text-[#C8892A]'] { color: #B45309 !important; }
+
+[class*='bg-gradient'] { background-image: none !important; background-color: #FFFFFF !important; }
+[class*='shadow-[0_20px_80px'] { box-shadow: 0 1px 3px rgb(15 23 42 / 0.06) !important; }
+
+/* Preserve readable label colors on filled action buttons after the mapping. */
+[class*='bg-[#00E5FF]'][class*='text-[#121212]'],
+[class*='bg-[#32D74B]'][class*='text-[#121212]'],
+[class*='bg-[#BF5AF2]'][class*='text-white'] { color: #FFFFFF !important; }
 
 /* ── 페이지 전환 fade-in ── */
 @keyframes pageEnter {

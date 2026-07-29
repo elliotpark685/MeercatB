@@ -48,6 +48,7 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)) -> LoginResponse
         access_token=token,
         user_id=user.id,
         role=user.role,
+        plan=user.plan,
         site_id=site_id,
     )
 
@@ -68,6 +69,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)) -> Registe
         hashed_password=hash_password(payload.password),
         is_active=True,
         role="worker",
+        plan="free",
     )
     db.add(user)
     db.commit()
@@ -83,6 +85,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)) -> Registe
         access_token=token,
         user_id=user.id,
         role=user.role,
+        plan=user.plan,
         site_id=site_id,
     )
 
@@ -94,5 +97,6 @@ def me(current_user: User = Depends(get_current_user)) -> MeResponse:
         email=current_user.email,
         full_name=current_user.full_name,
         role=current_user.role,
+        plan=current_user.plan,
         is_active=current_user.is_active,
     )
