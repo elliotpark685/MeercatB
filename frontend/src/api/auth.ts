@@ -11,12 +11,14 @@ export interface LoginResponse {
   token_type: string;
   user_id: number;
   role: string;
+  plan: 'free' | 'premium';
   site_id: number | null;
 }
 
 export interface MeResponse {
   user_id: number;
   role: string;
+  plan: 'free' | 'premium';
   site_id?: number | null;  // 백엔드 MeResponse에 site_id 없음 — optional 처리
   email?: string;
   full_name?: string;

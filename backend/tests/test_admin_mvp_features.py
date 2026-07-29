@@ -133,6 +133,7 @@ def test_document_generate_has_required_sections_by_type():
     for doc_type, sections in REQUIRED_SECTIONS.items():
         response = client.post(
             "/api/v1/documents/generate",
+            headers=_auth_header(100, "admin"),
             json={
                 "site_id": 1,
                 "user_id": 100,
@@ -157,6 +158,7 @@ def test_admin_dashboard_returns_aggregates():
     )
     client.post(
         "/api/v1/documents/generate",
+        headers=_auth_header(100, "admin"),
         json={
             "site_id": 1,
             "user_id": 100,

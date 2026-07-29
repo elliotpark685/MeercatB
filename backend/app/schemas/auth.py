@@ -12,6 +12,7 @@ class RegisterResponse(BaseModel):
     token_type: str = "bearer"
     user_id: int
     role: str
+    plan: str
     site_id: int | None = None
 
 
@@ -36,6 +37,7 @@ class LoginResponse(BaseModel):
     token_type: str = "bearer"
     user_id: int
     role: str
+    plan: str
     site_id: int | None = None
 
 
@@ -44,4 +46,5 @@ class MeResponse(BaseModel):
     email: str
     full_name: str
     role: str
+    plan: str
     is_active: bool

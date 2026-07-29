@@ -48,17 +48,17 @@ export default function ErrorBox({ error, onRetry }: Props) {
   }
 
   return (
-    <div className="bg-[#3A1C1C] border-l-4 border-[#FF453A] rounded-r-xl p-4">
-      <p className="font-semibold text-[#FF453A]">{msg}</p>
+    <div className="rounded-xl border border-[#FECACA] border-l-4 border-l-[#DC2626] bg-[#FEF2F2] p-4">
+      <p className="font-semibold text-[#991B1B]">{msg}</p>
       {detail && (
-        <pre className="mt-2 text-xs text-[#FF453A]/80 overflow-auto max-h-52 bg-[#121212] rounded-lg p-2 whitespace-pre-wrap font-mono border border-[#FF453A]/20">
+        <pre className="mt-2 max-h-52 overflow-auto rounded-lg border border-[#FECACA] bg-white p-2 font-mono text-xs whitespace-pre-wrap text-[#991B1B]">
           {detail}
         </pre>
       )}
       {onRetry && (
         <button
           onClick={onRetry}
-          className="mt-3 text-sm text-[#FF453A] hover:text-white underline transition-colors"
+          className="mt-3 text-sm text-[#DC2626] underline transition-colors hover:text-[#991B1B]"
         >
           다시 시도
         </button>

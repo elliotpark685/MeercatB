@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { generateDocument, KOSHA_CATEGORY_LABEL, type DocumentType, type GeneratedDocument, type KoshaCategory } from '../api/admin';
 import { LAW_SCOPE_OPTIONS } from '../types/law';
@@ -44,7 +45,7 @@ function toggleValue<T>(list: T[], value: T): T[] {
 }
 
 export default function DocumentGenerate() {
-  const { userId, siteId } = useAuth();
+  const { userId, siteId, plan, role } = useAuth();
   const { addToast } = useToast();
 
   const [docType, setDocType] = useState<DocumentType>('tbm');
@@ -59,6 +60,61 @@ export default function DocumentGenerate() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<GeneratedDocument | null>(null);
+  const hasPremiumAccess = plan === 'premium' || role === 'admin';
+
+  if (!hasPremiumAccess) {
+    return (
+      <div className="space-y-6">
+        <section className="rounded-xl border border-[#BF5AF2]/30 bg-gradient-to-br from-[#261B30] via-[#1E1E1E] to-[#121212] p-6 sm:p-10">
+          <span className="inline-flex rounded-full border border-[#BF5AF2]/30 bg-[#BF5AF2]/10 px-3 py-1 text-xs font-medium text-[#D9A8FF]">
+            PREMIUM
+          </span>
+          <h1 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">현장 맞춤 안전 문서 생성 예시</h1>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#C7C7CC]">
+            작업 조건, 장비, 안전 키워드와 관련 법령을 반영해 생성되는 문서 형식을 미리 확인할 수 있습니다.
+          </p>
+          <Link to="/pricing" className="mt-6 inline-flex rounded-xl bg-[#BF5AF2] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#D9A8FF]">
+            프리미엄 사용하기
+          </Link>
+        </section>
+
+        <section className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.06)] sm:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E8F0] pb-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">Sample document</p>
+              <h2 className="mt-1 text-lg font-bold text-[#0F172A]">고소작업 TBM — 문서 생성 예시</h2>
+            </div>
+            <span className="rounded-full bg-[#DBEAFE] px-3 py-1 text-xs font-semibold text-[#1D4ED8]">미리보기</span>
+          </div>
+          <div className="mt-5 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B]">반영 정보</p>
+              <dl className="mt-4 space-y-3 text-sm">
+                <div><dt className="text-[#64748B]">작업장소</dt><dd className="mt-1 font-medium text-[#0F172A]">3층 외벽 비계 작업구간</dd></div>
+                <div><dt className="text-[#64748B]">작업명</dt><dd className="mt-1 font-medium text-[#0F172A]">고소작업대 점검 및 자재 운반</dd></div>
+                <div><dt className="text-[#64748B]">안전 키워드</dt><dd className="mt-1 font-medium text-[#0F172A]">추락, 낙하, 보호구</dd></div>
+              </dl>
+            </div>
+            <div className="rounded-lg border border-[#E2E8F0] bg-white p-4 text-sm leading-7 text-[#475569]">
+              <h3 className="font-bold text-[#0F172A]">작업 전 안전 미팅</h3>
+              <p className="mt-3"><span className="font-semibold text-[#0F172A]">주요 위험요인</span><br />작업발판 가장자리 추락, 상부 자재 낙하, 장비 이동 중 충돌 위험을 확인합니다.</p>
+              <p className="mt-3"><span className="font-semibold text-[#0F172A]">안전조치</span><br />작업 전 안전대와 부착설비를 점검하고, 자재 운반 구간의 출입을 통제합니다.</p>
+              <p className="mt-3"><span className="font-semibold text-[#0F172A]">참고 기준</span><br />선택한 법령과 KOSHA Guide를 문서 맥락에 함께 반영합니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {DOC_TYPES.map((type) => (
+            <div key={type.value} className="rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
+              <h3 className="font-semibold text-[#0F172A]">{type.label}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#64748B]">{type.description}</p>
+            </div>
+          ))}
+        </section>
+      </div>
+    );
+  }
 
   const effectiveSiteId: number | null = (() => {
     if (siteId != null) return siteId;

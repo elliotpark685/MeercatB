@@ -10,6 +10,7 @@ type NavItem = {
 };
 
 const BASE_NAV_ITEMS: NavItem[] = [
+  { to: '/', label: 'Home', icon: '⌂' },
   { to: '/dashboard', label: '법령·기준 현황', icon: '▦' },
   { to: '/search', label: '통합검색', icon: '⌕' },
   { to: '/laws', label: '법령 검색', icon: '⚖' },
@@ -25,7 +26,7 @@ const ROLE_LABEL: Record<string, string> = {
 };
 
 export default function AdminLayoutV2() {
-  const { userId, siteId, role, logout } = useAuth();
+  const { userId, siteId, role, plan, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const navItems: NavItem[] =
@@ -97,6 +98,10 @@ export default function AdminLayoutV2() {
                 <p>
                   <span className="text-[#3A3A3C]">SID</span>{' '}
                   <span className="font-mono">{siteId ?? '-'}</span>
+                </p>
+                <p>
+                  <span className="text-[#3A3A3C]">PLAN</span>{' '}
+                  <span className={plan === 'premium' ? 'font-mono text-[#D9A8FF]' : 'font-mono'}>{plan ?? '-'}</span>
                 </p>
               </div>
             </div>

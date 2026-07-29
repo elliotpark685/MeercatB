@@ -3,12 +3,13 @@ import json
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_embedding_service, get_law_search_service
+from app.api.deps import get_embedding_service, get_law_search_service, require_premium
 from app.core.database import get_db
 from app.schemas.document import DocumentGenerateRequest, DocumentGenerateResponse
 from app.services.document_generation_service import DocumentGenerationService
 from app.services.embedding_service import EmbeddingService
 from app.services.law_search_service import LawSearchService
+from app.models.user import User
 
 router = APIRouter()
 
@@ -25,11 +26,14 @@ def get_document_generation_service(
 def generate_document(
     payload: DocumentGenerateRequest,
     service: DocumentGenerationService = Depends(get_document_generation_service),
+    current_user: User = Depends(require_premium),
 ) -> DocumentGenerateResponse:
+    if payload.user_id is not None and payload.user_id != current_user.id and current_user.role != "admin":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Cannot generate documents for another user")
     try:
         document = service.generate(
             site_id=payload.site_id,
-            user_id=payload.user_id,
+            user_id=current_user.id,
             document_type=payload.document_type,
             workplace_name=payload.workplace_name,
             prompt=payload.prompt,

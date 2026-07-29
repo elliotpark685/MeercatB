@@ -26,6 +26,7 @@ interface StoredAuth {
   user_id: number;
   site_id: number | null;
   role: string;
+  plan: 'free' | 'premium';
 }
 
 export interface AuthContextValue {
@@ -35,6 +36,7 @@ export interface AuthContextValue {
   setUserId: Dispatch<SetStateAction<number | null>>;
   setSiteId: Dispatch<SetStateAction<number | null>>;
   role: string | null;
+  plan: 'free' | 'premium' | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (data: LoginResponse) => void;
@@ -65,6 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [userId, setUserId] = useState<number | null>(null);
   const [siteId, setSiteId] = useState<number | null>(null);
   const [role, setRole] = useState<string | null>(null);
+  const [plan, setPlan] = useState<'free' | 'premium' | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const logout = useCallback(() => {
@@ -74,6 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId(null);
     setSiteId(null);
     setRole(null);
+    setPlan(null);
   }, []);
 
   const login = useCallback((data: LoginResponse) => {
@@ -82,6 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user_id: data.user_id,
       site_id: data.site_id ?? null,
       role: data.role,
+      plan: data.plan,
     };
     // localStorage에 저장하면 request interceptor가 자동으로 토큰을 주입한다
     saveAuth(stored);
@@ -89,6 +94,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId(data.user_id);
     setSiteId(data.site_id ?? null);
     setRole(data.role);
+    setPlan(data.plan);
   }, []);
 
   // 앱 시작 시 저장된 토큰으로 /auth/me 호출해 세션 복원
@@ -106,6 +112,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         // 백엔드 /me 응답에 site_id 없음 → localStorage 저장값 fallback
         setSiteId(me.site_id ?? stored.site_id ?? null);
         setRole(me.role);
+        setPlan(me.plan);
       })
       .catch(() => {
         // 토큰 만료 또는 무효 → localStorage에서 삭제
@@ -128,6 +135,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUserId,
     setSiteId,
     role,
+    plan,
     isAuthenticated: !!accessToken,
     isLoading,
     login,
