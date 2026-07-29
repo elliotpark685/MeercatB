@@ -200,11 +200,11 @@ export default function TodoList() {
                         {todo.title}
                       </div>
                     ))}
-                    <div className="sm:hidden flex gap-0.5 px-1">
+                    <div className="flex gap-1 px-1 sm:hidden">
                       {dayTodos.slice(0, 3).map((todo) => (
                         <span
                           key={todo.id}
-                          className={`w-1 h-1 rounded-full ${todo.is_completed ? "bg-[#555]" : "bg-[#00E5FF]"}`}
+                          className={`h-1.5 w-1.5 rounded-full ${todo.is_completed ? "bg-[#555]" : "bg-[#00E5FF]"}`}
                         />
                       ))}
                     </div>
