@@ -1,26 +1,45 @@
-﻿import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { generateDocument, KOSHA_CATEGORY_LABEL, type DocumentType, type GeneratedDocument, type KoshaCategory } from '../api/admin';
-import { LAW_SCOPE_OPTIONS } from '../types/law';
-import Spinner from '../components/Spinner';
-import ErrorBox from '../components/ErrorBox';
-import { useToast } from '../contexts/ToastContext';
+﻿import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import {
+  generateDocument,
+  KOSHA_CATEGORY_LABEL,
+  type DocumentType,
+  type GeneratedDocument,
+  type KoshaCategory,
+} from "../api/admin";
+import { LAW_SCOPE_OPTIONS } from "../types/law";
+import Spinner from "../components/Spinner";
+import ErrorBox from "../components/ErrorBox";
+import { useToast } from "../contexts/ToastContext";
 
-const DOC_TYPES: { value: DocumentType; label: string; description: string }[] = [
-  { value: 'tbm', label: 'TBM', description: '작업 전 안전 미팅 자료' },
-  { value: 'risk_assessment', label: '위험성평가', description: '작업 위험 요인 분석 및 평가' },
-  { value: 'work_plan', label: '작업 계획서', description: '작업 절차와 안전 계획' },
-  { value: 'inspection_checklist', label: '점검 체크리스트', description: '안전 점검 항목 목록' },
-];
+const DOC_TYPES: { value: DocumentType; label: string; description: string }[] =
+  [
+    { value: "tbm", label: "TBM", description: "작업 전 안전 미팅 자료" },
+    {
+      value: "risk_assessment",
+      label: "위험성평가",
+      description: "작업 위험 요인 분석 및 평가",
+    },
+    {
+      value: "work_plan",
+      label: "작업 계획서",
+      description: "작업 절차와 안전 계획",
+    },
+    {
+      value: "inspection_checklist",
+      label: "점검 체크리스트",
+      description: "안전 점검 항목 목록",
+    },
+  ];
 
 const KOSHA_CATEGORY_OPTIONS: { value: KoshaCategory; label: string }[] = [
-  { value: '0', label: KOSHA_CATEGORY_LABEL['0'] },
-  { value: '4', label: KOSHA_CATEGORY_LABEL['4'] },
-  { value: '5', label: KOSHA_CATEGORY_LABEL['5'] },
-  { value: '6', label: KOSHA_CATEGORY_LABEL['6'] },
-  { value: '7', label: KOSHA_CATEGORY_LABEL['7'] },
+  { value: "0", label: KOSHA_CATEGORY_LABEL["0"] },
+  { value: "4", label: KOSHA_CATEGORY_LABEL["4"] },
+  { value: "5", label: KOSHA_CATEGORY_LABEL["5"] },
+  { value: "6", label: KOSHA_CATEGORY_LABEL["6"] },
+  { value: "7", label: KOSHA_CATEGORY_LABEL["7"] },
 ];
 
 const TITLE_MIN = 2;
@@ -41,26 +60,32 @@ function normalizeList(text: string): string[] {
 }
 
 function toggleValue<T>(list: T[], value: T): T[] {
-  return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+  return list.includes(value)
+    ? list.filter((item) => item !== value)
+    : [...list, value];
 }
 
 export default function DocumentGenerate() {
   const { userId, siteId, plan, role } = useAuth();
   const { addToast } = useToast();
 
-  const [docType, setDocType] = useState<DocumentType>('tbm');
-  const [workplaceName, setWorkplaceName] = useState('');
-  const [workTitle, setWorkTitle] = useState('');
-  const [safetyKeywordText, setSafetyKeywordText] = useState('');
-  const [equipmentToolsText, setEquipmentToolsText] = useState('');
+  const [docType, setDocType] = useState<DocumentType>("tbm");
+  const [workplaceName, setWorkplaceName] = useState("");
+  const [workTitle, setWorkTitle] = useState("");
+  const [safetyKeywordText, setSafetyKeywordText] = useState("");
+  const [equipmentToolsText, setEquipmentToolsText] = useState("");
   const [selectedLawNames, setSelectedLawNames] = useState<string[]>([]);
-  const [selectedKoshaCategories, setSelectedKoshaCategories] = useState<KoshaCategory[]>([]);
-  const [details, setDetails] = useState('');
-  const [manualSiteId, setManualSiteId] = useState<string>(siteId != null ? String(siteId) : '');
+  const [selectedKoshaCategories, setSelectedKoshaCategories] = useState<
+    KoshaCategory[]
+  >([]);
+  const [details, setDetails] = useState("");
+  const [manualSiteId, setManualSiteId] = useState<string>(
+    siteId != null ? String(siteId) : "",
+  );
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<GeneratedDocument | null>(null);
-  const hasPremiumAccess = plan === 'premium' || role === 'admin';
+  const hasPremiumAccess = plan === "premium" || role === "admin";
 
   if (!hasPremiumAccess) {
     return (
@@ -69,11 +94,17 @@ export default function DocumentGenerate() {
           <span className="inline-flex rounded-full border border-[#BF5AF2]/30 bg-[#BF5AF2]/10 px-3 py-1 text-xs font-medium text-[#D9A8FF]">
             PREMIUM
           </span>
-          <h1 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">현장 맞춤 안전 문서 생성 예시</h1>
+          <h1 className="mt-4 text-2xl font-semibold text-white sm:text-3xl">
+            현장 맞춤 안전 서류 생성 예시
+          </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[#C7C7CC]">
-            작업 조건, 장비, 안전 키워드와 관련 법령을 반영해 생성되는 문서 형식을 미리 확인할 수 있습니다.
+            작업 조건, 장비, 안전 키워드와 관련 법령을 반영해 생성되는 문서
+            형식을 미리 확인할 수 있습니다.
           </p>
-          <Link to="/pricing" className="mt-6 inline-flex rounded-xl bg-[#BF5AF2] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#D9A8FF]">
+          <Link
+            to="/pricing"
+            className="mt-6 inline-flex rounded-xl bg-[#BF5AF2] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#D9A8FF]"
+          >
             프리미엄 사용하기
           </Link>
         </section>
@@ -81,34 +112,78 @@ export default function DocumentGenerate() {
         <section className="rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-[0_1px_3px_rgba(15,23,42,0.06)] sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E8F0] pb-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">Sample document</p>
-              <h2 className="mt-1 text-lg font-bold text-[#0F172A]">고소작업 TBM — 문서 생성 예시</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
+                Sample document
+              </p>
+              <h2 className="mt-1 text-lg font-bold text-[#0F172A]">
+                고소작업 TBM — 서류 생성 예시
+              </h2>
             </div>
-            <span className="rounded-full bg-[#DBEAFE] px-3 py-1 text-xs font-semibold text-[#1D4ED8]">미리보기</span>
+            <span className="rounded-full bg-[#DBEAFE] px-3 py-1 text-xs font-semibold text-[#1D4ED8]">
+              미리보기
+            </span>
           </div>
           <div className="mt-5 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B]">반영 정보</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B]">
+                반영 정보
+              </p>
               <dl className="mt-4 space-y-3 text-sm">
-                <div><dt className="text-[#64748B]">작업장소</dt><dd className="mt-1 font-medium text-[#0F172A]">3층 외벽 비계 작업구간</dd></div>
-                <div><dt className="text-[#64748B]">작업명</dt><dd className="mt-1 font-medium text-[#0F172A]">고소작업대 점검 및 자재 운반</dd></div>
-                <div><dt className="text-[#64748B]">안전 키워드</dt><dd className="mt-1 font-medium text-[#0F172A]">추락, 낙하, 보호구</dd></div>
+                <div>
+                  <dt className="text-[#64748B]">작업장소</dt>
+                  <dd className="mt-1 font-medium text-[#0F172A]">
+                    3층 외벽 비계 작업구간
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[#64748B]">작업명</dt>
+                  <dd className="mt-1 font-medium text-[#0F172A]">
+                    고소작업대 점검 및 자재 운반
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-[#64748B]">안전 키워드</dt>
+                  <dd className="mt-1 font-medium text-[#0F172A]">
+                    추락, 낙하, 보호구
+                  </dd>
+                </div>
               </dl>
             </div>
             <div className="rounded-lg border border-[#E2E8F0] bg-white p-4 text-sm leading-7 text-[#475569]">
               <h3 className="font-bold text-[#0F172A]">작업 전 안전 미팅</h3>
-              <p className="mt-3"><span className="font-semibold text-[#0F172A]">주요 위험요인</span><br />작업발판 가장자리 추락, 상부 자재 낙하, 장비 이동 중 충돌 위험을 확인합니다.</p>
-              <p className="mt-3"><span className="font-semibold text-[#0F172A]">안전조치</span><br />작업 전 안전대와 부착설비를 점검하고, 자재 운반 구간의 출입을 통제합니다.</p>
-              <p className="mt-3"><span className="font-semibold text-[#0F172A]">참고 기준</span><br />선택한 법령과 KOSHA Guide를 문서 맥락에 함께 반영합니다.</p>
+              <p className="mt-3">
+                <span className="font-semibold text-[#0F172A]">
+                  주요 위험요인
+                </span>
+                <br />
+                작업발판 가장자리 추락, 상부 자재 낙하, 장비 이동 중 충돌 위험을
+                확인합니다.
+              </p>
+              <p className="mt-3">
+                <span className="font-semibold text-[#0F172A]">안전조치</span>
+                <br />
+                작업 전 안전대와 부착설비를 점검하고, 자재 운반 구간의 출입을
+                통제합니다.
+              </p>
+              <p className="mt-3">
+                <span className="font-semibold text-[#0F172A]">참고 기준</span>
+                <br />
+                선택한 법령과 KOSHA Guide를 문서 맥락에 함께 반영합니다.
+              </p>
             </div>
           </div>
         </section>
 
         <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {DOC_TYPES.map((type) => (
-            <div key={type.value} className="rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
+            <div
+              key={type.value}
+              className="rounded-xl border border-[#E2E8F0] bg-white p-4 shadow-[0_1px_3px_rgba(15,23,42,0.06)]"
+            >
               <h3 className="font-semibold text-[#0F172A]">{type.label}</h3>
-              <p className="mt-2 text-sm leading-6 text-[#64748B]">{type.description}</p>
+              <p className="mt-2 text-sm leading-6 text-[#64748B]">
+                {type.description}
+              </p>
             </div>
           ))}
         </section>
@@ -127,10 +202,14 @@ export default function DocumentGenerate() {
   const safetyKeywords = normalizeList(safetyKeywordText);
   const equipmentTools = normalizeList(equipmentToolsText);
   const detailsText = details.trim();
-  const titleValid = normalizedTitle.length >= TITLE_MIN && normalizedTitle.length <= TITLE_MAX;
-  const workplaceValid = normalizedWorkplace.length >= WORKPLACE_MIN && normalizedWorkplace.length <= WORKPLACE_MAX;
+  const titleValid =
+    normalizedTitle.length >= TITLE_MIN && normalizedTitle.length <= TITLE_MAX;
+  const workplaceValid =
+    normalizedWorkplace.length >= WORKPLACE_MIN &&
+    normalizedWorkplace.length <= WORKPLACE_MAX;
   const keywordsValid = safetyKeywords.length > 0;
-  const canSubmit = effectiveSiteId != null && workplaceValid && titleValid && keywordsValid;
+  const canSubmit =
+    effectiveSiteId != null && workplaceValid && titleValid && keywordsValid;
 
   async function handleGenerate(e: React.FormEvent) {
     e.preventDefault();
@@ -153,10 +232,10 @@ export default function DocumentGenerate() {
         prompt: detailsText,
       });
       setResult(doc);
-      addToast('문서가 성공적으로 생성되었습니다.', 'success');
+      addToast("서류가 성공적으로 생성되었습니다.", "success");
     } catch (e) {
       setError(e);
-      addToast('문서 생성에 실패했습니다.', 'error');
+      addToast("서류 생성에 실패했습니다.", "error");
     } finally {
       setLoading(false);
     }
@@ -166,22 +245,24 @@ export default function DocumentGenerate() {
     if (!result) return;
     try {
       await navigator.clipboard.writeText(result.content);
-      addToast('클립보드에 복사했습니다.', 'success');
+      addToast("클립보드에 복사했습니다.", "success");
     } catch {
-      addToast('복사에 실패했습니다.', 'error');
+      addToast("복사에 실패했습니다.", "error");
     }
   }
 
   function handleDownload() {
     if (!result) return;
-    const blob = new Blob([result.content], { type: 'text/markdown;charset=utf-8' });
+    const blob = new Blob([result.content], {
+      type: "text/markdown;charset=utf-8",
+    });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `${result.title.replace(/\s+/g, '_')}.md`;
+    a.download = `${result.title.replace(/\s+/g, "_")}.md`;
     a.click();
     URL.revokeObjectURL(url);
-    addToast('파일 다운로드를 시작했습니다.', 'info');
+    addToast("파일 다운로드를 시작했습니다.", "info");
   }
 
   return (
@@ -189,16 +270,22 @@ export default function DocumentGenerate() {
       <section className="rounded-[28px] border border-[#2C2C2E] bg-gradient-to-br from-[#1E1E1E] via-[#171717] to-[#121212] p-5 sm:p-6">
         <div className="space-y-2">
           <span className="inline-flex rounded-full border border-[#00E5FF]/25 bg-[#00E5FF]/10 px-3 py-1 text-xs font-medium text-[#00E5FF]">
-            문서 생성
+            안전서류 생성
           </span>
-          <h1 className="text-2xl font-semibold text-white sm:text-3xl">현장 조건을 반영한 안전 문서 생성</h1>
+          <h1 className="text-2xl font-semibold text-white sm:text-3xl">
+            현장 조건을 반영한 안전 서류 생성
+          </h1>
           <p className="max-w-3xl text-sm leading-6 text-[#98989D]">
-            작업장소, 작업명, 안전 키워드, 사용 장비·도구와 선택한 법령·KOSHA 범위를 LLM에 함께 전달합니다.
+            작업장소, 작업명, 안전 키워드, 사용 장비·도구와 선택한 법령·KOSHA
+            범위를 LLM에 함께 전달합니다.
           </p>
         </div>
       </section>
 
-      <form onSubmit={handleGenerate} className="space-y-5 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
+      <form
+        onSubmit={handleGenerate}
+        className="space-y-5 rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-5"
+      >
         {siteId == null && (
           <div className="rounded-2xl border border-[#3A2E00] bg-[#2A2200] p-4">
             <label className="mb-2 block text-xs font-medium uppercase tracking-widest text-[#F5A623]">
@@ -230,11 +317,13 @@ export default function DocumentGenerate() {
               placeholder="예: 인텔코리아 청사 신축공사 3층 A구역"
               className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
                 workplaceName && !workplaceValid
-                  ? 'border-[#FF453A]/50 focus:ring-[#FF453A]/30'
-                  : 'border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30'
+                  ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
+                  : "border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30"
               }`}
             />
-            <p className="text-xs text-[#98989D]">생성 문서의 현장명과 LLM 작업 맥락에 사용됩니다.</p>
+            <p className="text-xs text-[#98989D]">
+              생성 문서의 현장명과 LLM 작업 맥락에 사용됩니다.
+            </p>
           </div>
 
           <div className="space-y-2">
@@ -248,11 +337,13 @@ export default function DocumentGenerate() {
               placeholder="예: 3층 A구역 미장공사"
               className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
                 workTitle && !titleValid
-                  ? 'border-[#FF453A]/50 focus:ring-[#FF453A]/30'
-                  : 'border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30'
+                  ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
+                  : "border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30"
               }`}
             />
-            <p className="text-xs text-[#98989D]">문서 제목과 LLM의 중심 맥락으로 사용됩니다.</p>
+            <p className="text-xs text-[#98989D]">
+              서류 제목과 LLM의 중심 맥락으로 사용됩니다.
+            </p>
           </div>
 
           <div className="space-y-2">
@@ -260,7 +351,9 @@ export default function DocumentGenerate() {
               <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
                 사용 장비 · 도구
               </label>
-              <span className="text-xs text-[#98989D]">선택 입력 · 쉼표 또는 줄바꿈으로 구분</span>
+              <span className="text-xs text-[#98989D]">
+                선택 입력 · 쉼표 또는 줄바꿈으로 구분
+              </span>
             </div>
             <textarea
               rows={3}
@@ -270,7 +363,9 @@ export default function DocumentGenerate() {
               className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30"
             />
             <p className="text-xs text-[#98989D]">
-              {equipmentTools.length > 0 ? `${equipmentTools.length}개 항목이 LLM 및 관련 안전 기준 검색에 반영됩니다.` : '입력한 장비·도구는 관련 위험요인과 안전조치 작성에 참고됩니다.'}
+              {equipmentTools.length > 0
+                ? `${equipmentTools.length}개 항목이 LLM 및 관련 안전 기준 검색에 반영됩니다.`
+                : "입력한 장비·도구는 관련 위험요인과 안전조치 작성에 참고됩니다."}
             </p>
           </div>
 
@@ -279,7 +374,9 @@ export default function DocumentGenerate() {
               <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
                 안전 키워드
               </label>
-              <span className="text-xs text-[#98989D]">쉼표 또는 줄바꿈으로 구분</span>
+              <span className="text-xs text-[#98989D]">
+                쉼표 또는 줄바꿈으로 구분
+              </span>
             </div>
             <textarea
               rows={3}
@@ -287,13 +384,16 @@ export default function DocumentGenerate() {
               onChange={(e) => setSafetyKeywordText(e.target.value)}
               placeholder="예: 추락, 낙하, 비계, 보호구"
               className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
-                safetyKeywords.length === 0 && safetyKeywordText.trim().length > 0
-                  ? 'border-[#FF453A]/50 focus:ring-[#FF453A]/30'
-                  : 'border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30'
+                safetyKeywords.length === 0 &&
+                safetyKeywordText.trim().length > 0
+                  ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
+                  : "border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30"
               }`}
             />
             <p className="text-xs text-[#98989D]">
-              {safetyKeywords.length > 0 ? `${safetyKeywords.length}개 키워드가 입력되었습니다.` : '최소 1개 이상 입력하세요.'}
+              {safetyKeywords.length > 0
+                ? `${safetyKeywords.length}개 키워드가 입력되었습니다.`
+                : "최소 1개 이상 입력하세요."}
             </p>
           </div>
         </div>
@@ -304,7 +404,9 @@ export default function DocumentGenerate() {
               <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
                 관련 법령 / 기준 선택
               </label>
-              <p className="mt-1 text-xs text-[#98989D]">선택한 범위만 법령 검색과 문서 생성에 반영됩니다.</p>
+              <p className="mt-1 text-xs text-[#98989D]">
+                선택한 범위만 법령 검색과 문서 생성에 반영됩니다.
+              </p>
             </div>
             <button
               type="button"
@@ -321,11 +423,13 @@ export default function DocumentGenerate() {
                 <button
                   key={lawName}
                   type="button"
-                  onClick={() => setSelectedLawNames((prev) => toggleValue(prev, lawName))}
+                  onClick={() =>
+                    setSelectedLawNames((prev) => toggleValue(prev, lawName))
+                  }
                   className={`rounded-full border px-4 py-2 text-sm transition ${
                     active
-                      ? 'border-transparent bg-[#00E5FF] text-[#121212]'
-                      : 'border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white'
+                      ? "border-transparent bg-[#00E5FF] text-[#121212]"
+                      : "border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white"
                   }`}
                 >
                   {lawName}
@@ -340,7 +444,9 @@ export default function DocumentGenerate() {
             <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
               KOSHA Guide 선택
             </label>
-            <p className="mt-1 text-xs text-[#98989D]">문서에 참고할 KOSHA 분류를 선택하세요.</p>
+            <p className="mt-1 text-xs text-[#98989D]">
+              문서에 참고할 KOSHA 분류를 선택하세요.
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             {KOSHA_CATEGORY_OPTIONS.map((option) => {
@@ -349,11 +455,15 @@ export default function DocumentGenerate() {
                 <button
                   key={option.value}
                   type="button"
-                  onClick={() => setSelectedKoshaCategories((prev) => toggleValue(prev, option.value))}
+                  onClick={() =>
+                    setSelectedKoshaCategories((prev) =>
+                      toggleValue(prev, option.value),
+                    )
+                  }
                   className={`rounded-full border px-4 py-2 text-sm transition ${
                     active
-                      ? 'border-transparent bg-[#32D74B] text-[#121212]'
-                      : 'border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white'
+                      ? "border-transparent bg-[#32D74B] text-[#121212]"
+                      : "border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#3A3A3C] hover:text-white"
                   }`}
                 >
                   {option.label}
@@ -368,7 +478,9 @@ export default function DocumentGenerate() {
             <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D]">
               작업 세부 설명
             </label>
-            <span className="text-xs font-mono text-[#98989D]">{detailsText.length} / {DETAILS_MAX}</span>
+            <span className="text-xs font-mono text-[#98989D]">
+              {detailsText.length} / {DETAILS_MAX}
+            </span>
           </div>
           <textarea
             rows={5}
@@ -379,17 +491,17 @@ export default function DocumentGenerate() {
           />
         </div>
 
-        <div className="rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-xs text-[#98989D]">
+        {/* <div className="rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-xs text-[#98989D]">
           <div className="flex flex-wrap gap-x-4 gap-y-1 font-mono">
             <span>site_id: <span className="text-white">{effectiveSiteId ?? '(미입력)'}</span></span>
             <span>user_id: <span className="text-white">{userId ?? 'null'}</span></span>
             <span>document_type: <span className="text-[#00E5FF]">{docType}</span></span>
           </div>
-        </div>
+        </div> */}
 
         <div>
           <label className="block text-xs font-medium uppercase tracking-widest text-[#98989D] mb-3">
-            문서 종류
+            서류 종류
           </label>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {DOC_TYPES.map((t) => (
@@ -397,8 +509,8 @@ export default function DocumentGenerate() {
                 key={t.value}
                 className={`flex cursor-pointer items-start gap-3 rounded-2xl border p-4 transition ${
                   docType === t.value
-                    ? 'border-[#00E5FF]/40 bg-[#00E5FF]/5'
-                    : 'border-[#2C2C2E] bg-[#121212] hover:border-[#3A3A3C]'
+                    ? "border-[#00E5FF]/40 bg-[#00E5FF]/5"
+                    : "border-[#2C2C2E] bg-[#121212] hover:border-[#3A3A3C]"
                 }`}
               >
                 <input
@@ -410,7 +522,9 @@ export default function DocumentGenerate() {
                   className="mt-0.5 accent-[#00E5FF]"
                 />
                 <div>
-                  <p className={`text-sm font-medium ${docType === t.value ? 'text-[#00E5FF]' : 'text-white'}`}>
+                  <p
+                    className={`text-sm font-medium ${docType === t.value ? "text-[#00E5FF]" : "text-white"}`}
+                  >
                     {t.label}
                   </p>
                   <p className="mt-1 text-xs text-[#98989D]">{t.description}</p>
@@ -425,7 +539,7 @@ export default function DocumentGenerate() {
           disabled={loading || !canSubmit}
           className="w-full rounded-2xl bg-[#00E5FF] py-3 text-sm font-semibold text-[#121212] transition hover:bg-[#33EAFF] disabled:cursor-not-allowed disabled:opacity-40"
         >
-          {loading ? '생성 중...' : '문서 생성'}
+          {loading ? "생성 중..." : "문서 생성"}
         </button>
       </form>
 
@@ -435,7 +549,9 @@ export default function DocumentGenerate() {
       {result && (
         <div className="space-y-4 rounded-[28px] border border-[#32D74B]/30 bg-[#1E1E1E] p-5">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="truncate text-lg font-semibold text-white">{result.title}</h2>
+            <h2 className="truncate text-lg font-semibold text-white">
+              {result.title}
+            </h2>
             <div className="flex shrink-0 items-center gap-2">
               <span className="rounded-full border border-[#32D74B]/20 bg-[#32D74B]/10 px-2.5 py-1 text-xs text-[#32D74B]">
                 생성 완료
@@ -459,7 +575,9 @@ export default function DocumentGenerate() {
 
           {result.citations.length > 0 && (
             <div>
-              <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#98989D]">참고 법령</p>
+              <p className="mb-2 text-xs font-medium uppercase tracking-widest text-[#98989D]">
+                참고 법령
+              </p>
               <div className="flex flex-wrap gap-2">
                 {result.citations.map((citation) => (
                   <span
@@ -474,8 +592,11 @@ export default function DocumentGenerate() {
           )}
 
           <div className="border-t border-[#2C2C2E] pt-4">
-            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#98989D]">문서 내용</p>
-            <div className="max-h-[600px] overflow-auto rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4
+            <p className="mb-3 text-xs font-medium uppercase tracking-widest text-[#98989D]">
+              문서 내용
+            </p>
+            <div
+              className="max-h-[600px] overflow-auto rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4
               [&_h1]:mb-2 [&_h1]:mt-4 [&_h1]:text-lg [&_h1]:font-bold [&_h1]:text-white
               [&_h2]:mb-2 [&_h2]:mt-3 [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-[#00E5FF]
               [&_h3]:mb-1 [&_h3]:mt-2 [&_h3]:text-sm [&_h3]:font-semibold [&_h3]:text-white
@@ -484,7 +605,8 @@ export default function DocumentGenerate() {
               [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:text-sm [&_ol]:text-[#98989D]
               [&_li]:mb-0.5
               [&_strong]:font-semibold [&_strong]:text-white
-              [&_hr]:my-3 [&_hr]:border-[#2C2C2E]">
+              [&_hr]:my-3 [&_hr]:border-[#2C2C2E]"
+            >
               <ReactMarkdown>{result.content}</ReactMarkdown>
             </div>
           </div>

@@ -195,7 +195,7 @@ export default function TodoList() {
                     {dayTodos.slice(0, 2).map((todo) => (
                       <div
                         key={todo.id}
-                        className={`hidden sm:block truncate rounded px-1 py-0.5 text-[10px] ${todo.is_completed ? "bg-[#2C2C2E] text-[#777]" : "bg-[#00E5FF]/15 text-[#7cf3ff]"}`}
+                        className={`hidden sm:block truncate rounded px-1 py-0.5 text-[10px] ${todo.is_completed ? "bg-[#2C2C2E] text-[#777]" : "bg-[#00E5FF]/15 text-[#0F172A]"}`}
                       >
                         {todo.title}
                       </div>
