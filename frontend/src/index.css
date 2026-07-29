@@ -47,20 +47,26 @@ select { color-scheme: light; }
 [class*='bg-[#121212]'] { background-color: #F8FAFC !important; }
 [class*='bg-[#1E1E1E]'],
 [class*='bg-[#1A1A1A]'],
-[class*='bg-[#171717]'] { background-color: #FFFFFF !important; }
+[class*='bg-[#171717]'],
+[class*='bg-[#151515]'],
+[class*='bg-[#191919]'] { background-color: #FFFFFF !important; }
 [class*='bg-[#252525]'] { background-color: #F1F5F9 !important; }
+[class*='bg-[#303033]'] { background-color: #EFF6FF !important; }
 [class*='bg-[#2A2200]'] { background-color: #FFFBEB !important; }
 [class*='bg-[#3A1C1C]'] { background-color: #FEF2F2 !important; }
 
 [class*='border-[#2C2C2E]'],
-[class*='border-[#3A3A3C]'] { border-color: #E2E8F0 !important; }
+[class*='border-[#3A3A3C]'],
+[class*='border-[#303033]'] { border-color: #E2E8F0 !important; }
 [class*='border-[#3A2E00]'] { border-color: #FDE68A !important; }
 
 [class*='text-white'] { color: #0F172A !important; }
 [class*='text-[#121212]'] { color: #FFFFFF !important; }
+[class*='text-[#F5F5F7]'] { color: #0F172A !important; }
+[class*='text-[#D1D1D6]'], [class*='text-[#AEAEB2]'] { color: #475569 !important; }
 [class*='text-[#C7C7CC]'] { color: #475569 !important; }
-[class*='text-[#98989D]'] { color: #64748B !important; }
-[class*='text-[#3A3A3C]'] { color: #94A3B8 !important; }
+[class*='text-[#98989D]'], [class*='text-[#8E8E93]'] { color: #64748B !important; }
+[class*='text-[#3A3A3C]'], [class*='text-[#636366]'] { color: #94A3B8 !important; }
 
 [class*='bg-[#00E5FF]'], [class*='bg-[#33EAFF]'] { background-color: #2563EB !important; }
 [class*='text-[#00E5FF]'], [class*='text-[#33EAFF]'] { color: #2563EB !important; }
