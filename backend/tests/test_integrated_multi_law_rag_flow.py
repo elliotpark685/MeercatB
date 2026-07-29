@@ -8,6 +8,7 @@ from sqlalchemy.pool import StaticPool
 
 from app.api.v1.api import api_router
 from app.core.database import Base, get_db
+from app.core.security import create_access_token
 from app.models.generated_document import GeneratedDocument
 from app.models.law_article import LawArticle
 from app.models.law_chunk import LawChunk
@@ -133,6 +134,11 @@ def _seed_site_and_user(db: Session) -> None:
     db.commit()
 
 
+def _auth_header(user_id: int, role: str) -> dict[str, str]:
+    token = create_access_token(subject=str(user_id), role=role)
+    return {"Authorization": f"Bearer {token}"}
+
+
 def test_full_multi_law_rag_flow_with_sqlite_and_mocked_external_calls():
     client, session_factory = _build_client_with_db()
     with session_factory() as db:
@@ -185,6 +191,7 @@ def test_full_multi_law_rag_flow_with_sqlite_and_mocked_external_calls():
 
     document_response = client.post(
         "/api/v1/documents/generate",
+        headers=_auth_header(100, "admin"),
         json={
             "site_id": 1,
             "user_id": 100,
