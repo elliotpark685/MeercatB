@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from "react";
+﻿﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
@@ -253,7 +253,7 @@ export default function LawSearch() {
           </button>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           <label className="flex items-center gap-2 text-sm text-[#98989D]">
             검색 결과 수
             <select
@@ -376,21 +376,27 @@ export default function LawSearch() {
 
             {detail && (
               <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
-              <h3 className="font-semibold text-white mb-3">
-                {detail.law_name}{" "}
-                <span className="text-[#00E5FF]">{detail.article_no}</span>
-              </h3>
-              <p className="mb-3 text-xs text-[#00E5FF]/80">
-                {[
-                  detail.law_no ? `공포번호 ${detail.law_no}` : null,
-                  detail.promulgation_date ? `공포일 ${detail.promulgation_date}` : null,
-                  detail.document_effective_date ? `시행일 ${detail.document_effective_date}` : null,
-                  detail.amendment_type ?? null,
-                ].filter(Boolean).join(' · ') || '공포·시행 정보 없음'}
-              </p>
-              <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
-                {detail.full_text}
-              </pre>
+                <h3 className="font-semibold text-white mb-3">
+                  {detail.law_name}{" "}
+                  <span className="text-[#00E5FF]">{detail.article_no}</span>
+                </h3>
+                <p className="mb-3 text-xs text-[#00E5FF]/80">
+                  {[
+                    detail.law_no ? `공포번호 ${detail.law_no}` : null,
+                    detail.promulgation_date
+                      ? `공포일 ${detail.promulgation_date}`
+                      : null,
+                    detail.document_effective_date
+                      ? `시행일 ${detail.document_effective_date}`
+                      : null,
+                    detail.amendment_type ?? null,
+                  ]
+                    .filter(Boolean)
+                    .join(" · ") || "공포·시행 정보 없음"}
+                </p>
+                <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
+                  {detail.full_text}
+                </pre>
               </div>
             )}
           </div>

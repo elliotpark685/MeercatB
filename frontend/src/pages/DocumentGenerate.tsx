@@ -315,7 +315,7 @@ export default function DocumentGenerate() {
               value={workplaceName}
               onChange={(e) => setWorkplaceName(e.target.value)}
               placeholder="예: 인텔코리아 청사 신축공사 3층 A구역"
-              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
+              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-base text-white outline-none transition focus:ring-2 sm:text-sm ${
                 workplaceName && !workplaceValid
                   ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
                   : "border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30"
@@ -335,7 +335,7 @@ export default function DocumentGenerate() {
               value={workTitle}
               onChange={(e) => setWorkTitle(e.target.value)}
               placeholder="예: 3층 A구역 미장공사"
-              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
+              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-base text-white outline-none transition focus:ring-2 sm:text-sm ${
                 workTitle && !titleValid
                   ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
                   : "border-[#2C2C2E] focus:border-[#00E5FF]/50 focus:ring-[#00E5FF]/30"
@@ -360,7 +360,7 @@ export default function DocumentGenerate() {
               value={equipmentToolsText}
               onChange={(e) => setEquipmentToolsText(e.target.value)}
               placeholder="예: 고소작업대, 이동식 비계, 전동드릴, 절단기, 안전대"
-              className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30"
+              className="w-full rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-base text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30 sm:text-sm"
             />
             <p className="text-xs text-[#98989D]">
               {equipmentTools.length > 0
@@ -383,7 +383,7 @@ export default function DocumentGenerate() {
               value={safetyKeywordText}
               onChange={(e) => setSafetyKeywordText(e.target.value)}
               placeholder="예: 추락, 낙하, 비계, 보호구"
-              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:ring-2 ${
+              className={`w-full rounded-2xl border bg-[#121212] px-4 py-3 text-base text-white outline-none transition focus:ring-2 sm:text-sm ${
                 safetyKeywords.length === 0 &&
                 safetyKeywordText.trim().length > 0
                   ? "border-[#FF453A]/50 focus:ring-[#FF453A]/30"
@@ -487,7 +487,7 @@ export default function DocumentGenerate() {
             value={details}
             onChange={(e) => setDetails(e.target.value)}
             placeholder="예: 3층 A구역 미장공사, 자재 반입 동선, 작업 인원 4명, 고소 작업 포함"
-            className="w-full resize-y rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-sm text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30"
+            className="w-full resize-y rounded-2xl border border-[#2C2C2E] bg-[#121212] px-4 py-3 text-base text-white outline-none transition focus:border-[#00E5FF]/50 focus:ring-2 focus:ring-[#00E5FF]/30 sm:text-sm"
           />
         </div>
 
