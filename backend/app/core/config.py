@@ -44,9 +44,11 @@ class Settings(BaseSettings):
 
     cors_origins: Annotated[list[str], NoDecode] = Field(
         default=[
-            "http://localhost:5173",
-            "http://localhost:3000",
+            "https://meerkat-safety.com",
+            "https://www.meerkat-safety.com",
+            # Existing Vercel deployment URL (the project name is "meercat").
             "https://meercat-b.vercel.app",
+            "http://localhost:5173",
         ],
         alias="CORS_ORIGINS",
     )
