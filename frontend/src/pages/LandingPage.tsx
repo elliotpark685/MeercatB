@@ -121,8 +121,9 @@ export default function LandingPage() {
                 {[
                   "회원가입 또는 로그인",
                   "법령·안전기준·KOSHA GUIDE 검색",
-                  "필요한 경우 AI 문서 생성",
-                  "현장 적용 전 공식 자료와 함께 최종 확인",
+                  "현장 상황에 맞춘 AI 안전서류 생성",
+                  "법령과 기준에 의거한 AI서류 최종 확인",
+                  "현장 안전 업무 기록 및 관리",
                 ].map((item, index) => (
                   <li key={item} className="flex gap-3">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#00E5FF]/30 bg-[#00E5FF]/10 text-xs text-[#00E5FF]">

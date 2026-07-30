@@ -10,6 +10,7 @@ import {
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
+import SearchResultsSection from "../components/SearchResultsSection";
 
 const TOP_K_OPTIONS = [3, 5, 10];
 const HISTORY_KEY = "meerkat_safety_history";
@@ -495,9 +496,6 @@ export default function SafetyStandardSearch() {
 
       {!loading && !result && (
         <div className="rounded-[28px] border border-[#2C2C2E] bg-[#1E1E1E] p-6 text-center shadow-[0_8px_40px_rgba(0,0,0,0.14)]">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FF9F0A]/20 bg-[#FF9F0A]/10 text-2xl text-[#FF9F0A]">
-            🧭
-          </div>
           <p className="mt-4 text-sm font-medium text-[#C7C7CC]">
             안전기준 데이터가 준비되면 검색 결과가 여기에 표시됩니다.
           </p>
@@ -513,11 +511,10 @@ export default function SafetyStandardSearch() {
       )}
 
       {!loading && displayResults.length > 0 && (
-        <div className="space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#98989D]">
-            <span>총 {displayResults.length}건</span>
-            <span>필터: {activeFilterLabel}</span>
-          </div>
+        <SearchResultsSection
+          count={displayResults.length}
+          detail={`필터: ${activeFilterLabel}`}
+        >
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {displayResults.map((item, idx) => (
               <SafetyResultCard
@@ -527,39 +524,33 @@ export default function SafetyStandardSearch() {
               />
             ))}
           </div>
-
-          <div
-            ref={detailSectionRef}
-            className="scroll-mt-6 space-y-3"
-            aria-live="polite"
-          >
-            {detailLoading && <Spinner text="문서 상세 조회 중..." />}
-            {!!detailError && <ErrorBox error={detailError} />}
-            {detail && (
-              <div className="rounded-2xl border border-[#FF9F0A]/20 bg-[#1E1E1E] p-5">
-                <h2 className="mb-3 font-semibold text-white">
-                  {detail.law_name}{" "}
-                  <span className="text-[#FF9F0A]">{detail.article_no}</span>
-                  {detail.article_title ? ` ${detail.article_title}` : ""}
-                </h2>
-                <p className="mb-3 text-xs text-[#FF9F0A]/80">
-                  {[
-                    detail.law_no ? `공포번호 ${detail.law_no}` : null,
-                    detail.promulgation_date ? `공포일 ${detail.promulgation_date}` : null,
-                    detail.document_effective_date
-                      ? `시행일 ${detail.document_effective_date}`
-                      : null,
-                    detail.amendment_type ?? null,
-                  ].filter(Boolean).join(" · ") || "공포·시행 정보 없음"}
-                </p>
-                <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-xl border border-[#2C2C2E] bg-[#121212] p-4 font-mono text-sm leading-relaxed text-[#98989D]">
-                  {detail.full_text}
-                </pre>
-              </div>
-            )}
-          </div>
-        </div>
+        </SearchResultsSection>
       )}
+
+      <div ref={detailSectionRef} className="scroll-mt-6 space-y-3" aria-live="polite">
+        {detailLoading && <Spinner text="문서 상세 조회 중..." />}
+        {!!detailError && <ErrorBox error={detailError} />}
+        {detail && (
+          <div className="rounded-2xl border border-[#FF9F0A]/20 bg-[#1E1E1E] p-5">
+            <h2 className="mb-3 font-semibold text-white">
+              {detail.law_name}{" "}
+              <span className="text-[#FF9F0A]">{detail.article_no}</span>
+              {detail.article_title ? ` ${detail.article_title}` : ""}
+            </h2>
+            <p className="mb-3 text-xs text-[#FF9F0A]/80">
+              {[
+                detail.law_no ? `공포번호 ${detail.law_no}` : null,
+                detail.promulgation_date ? `공포일 ${detail.promulgation_date}` : null,
+                detail.document_effective_date ? `시행일 ${detail.document_effective_date}` : null,
+                detail.amendment_type ?? null,
+              ].filter(Boolean).join(" · ") || "공포·시행 정보 없음"}
+            </p>
+            <pre className="max-h-96 overflow-auto whitespace-pre-wrap rounded-xl border border-[#2C2C2E] bg-[#121212] p-4 font-mono text-sm leading-relaxed text-[#98989D]">
+              {detail.full_text}
+            </pre>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -26,38 +26,41 @@ export default function LawResultCard({ item, onViewDetail }: LawResultCardProps
   ].filter(Boolean);
 
   return (
-    <div className="overflow-hidden rounded-xl border border-[#E2E8F0] border-l-4 border-l-[#2563EB] bg-white shadow-[0_1px_3px_rgba(15,23,42,0.06)]">
-      <div className={`px-4 py-2 border-b flex items-center justify-between gap-2 ${badgeColor}`}>
-        <span className="text-xs font-semibold truncate">{lawName}</span>
-        {score !== null && <span className="text-[10px] text-[#98989D] shrink-0">{score}</span>}
+    <article className="group relative overflow-hidden rounded-2xl border border-[#2C2C2E] bg-[#1A1A1A] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#3A3A3C]">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="flex items-center justify-between gap-2 border-b border-[#2C2C2E] px-4 py-3">
+        <span className={`max-w-[80%] truncate rounded-full border px-2.5 py-1 text-[11px] font-medium ${badgeColor}`}>
+          {lawName}
+        </span>
+        {score !== null && <span className="shrink-0 font-mono text-xs text-[#98989D]">{score}</span>}
       </div>
 
-      <div className="p-4 space-y-3">
+      <div className="space-y-3 p-4 sm:p-5">
         {(articleNo || articleTitle) && (
-          <h3 className="text-sm font-semibold text-[#0F172A]">
-            {articleNo && <span className="text-[#00E5FF] mr-1.5">{articleNo}</span>}
+          <h3 className="text-sm font-semibold text-white">
+            {articleNo && <span className="mr-1.5 text-[#00E5FF]">{articleNo}</span>}
             {articleTitle}
           </h3>
         )}
 
         {metadata.length > 0 && (
-          <p className="text-xs leading-5 text-[#00E5FF]/80">{metadata.join(' · ')}</p>
+          <p className="text-xs leading-5 text-[#00E5FF]/80">{metadata.join(" · ")}</p>
         )}
 
-        {text && <p className="text-sm text-[#475569] whitespace-pre-wrap leading-relaxed">{text}</p>}
+        {text && <p className="whitespace-pre-wrap text-sm leading-6 text-[#C7C7CC]">{text}</p>}
 
         {onViewDetail && (
-          <div className="flex justify-end pt-1">
+          <div className="pt-1">
             <button
               type="button"
               onClick={() => onViewDetail(item.article_id)}
-              className="rounded-lg border border-[#CBD5E1] bg-white px-3 py-1.5 text-xs font-medium text-[#2563EB] transition-colors hover:bg-[#EFF6FF]"
+              className="text-sm font-medium text-[#00E5FF] transition-colors hover:text-[#33EAFF]"
             >
-              전체 내용 보기
+              전체 내용 보기 →
             </button>
           </div>
         )}
       </div>
-    </div>
+    </article>
   );
 }
