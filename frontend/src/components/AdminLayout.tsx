@@ -40,6 +40,17 @@ export default function AdminLayout() {
             />
             <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#32D74B] rounded-full border-2 border-[#1E1E1E]" />
           </div>
+          <button
+            type="button"
+            onClick={() => setCollapsed((v) => !v)}
+            aria-label={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
+            title={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
+            className="self-end -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-md text-[#98989D] transition-colors hover:bg-[#2C2C2E] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+              {collapsed ? <path d="m9 18 6-6-6-6" /> : <path d="m15 18-6-6 6-6" />}
+            </svg>
+          </button>
           {!collapsed && (
             <div className="text-center">
               <div className="text-base font-semibold text-white tracking-wide">
@@ -118,14 +129,6 @@ export default function AdminLayout() {
             {collapsed ? "⏏" : "로그아웃"}
           </button>
 
-          {/* 접기/펼치기 버튼 */}
-          <button
-            onClick={() => setCollapsed((v) => !v)}
-            className="w-full text-xs text-[#3A3A3C] hover:text-[#98989D] rounded-lg px-2 py-1.5 transition-colors flex items-center justify-center"
-            title={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
-          >
-            {collapsed ? "⟩" : "접기"}
-          </button>
         </div>
       </aside>
 
