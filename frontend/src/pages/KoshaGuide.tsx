@@ -11,6 +11,7 @@ import {
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
+import SearchResultsSection from "../components/SearchResultsSection";
 
 const HISTORY_KEY = "meerkat_kosha_history";
 const BOOKMARK_KEY = "meerkat_kosha_bookmarks";
@@ -600,12 +601,10 @@ export default function KoshaGuide() {
       )}
 
       {!loading && result && hasResults && (
-        <div className="space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#98989D]">
-            <span>
-              총 {result.total}건 · {result.page}페이지
-            </span>
-          </div>
+        <SearchResultsSection
+          count={result.total}
+          detail={`${result.page} / ${totalPages} 페이지`}
+        >
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {result.results.map((item, idx) => (
               <ResultCard
@@ -639,7 +638,7 @@ export default function KoshaGuide() {
               </button>
             </div>
           )}
-        </div>
+        </SearchResultsSection>
       )}
 
       <section className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">

@@ -11,6 +11,7 @@ import ErrorBox from "../components/ErrorBox";
 import EmptyState from "../components/EmptyState";
 import LawScopeFilter from "../components/LawScopeFilter";
 import LawResultCard from "../components/LawResultCard";
+import SearchResultsSection from "../components/SearchResultsSection";
 import { LAW_SCOPE_OPTIONS, getLawBadgeColor } from "../types/law";
 
 const TOP_K_OPTIONS = [3, 5, 10];
@@ -296,14 +297,12 @@ export default function LawSearch() {
 
       {result && (
         <div className="space-y-5">
-          {!hasNoResults && (
-            <div className="text-xs text-[#98989D]">
-              총 {searchResults.length}건 / 검색 조건: {scopeLabel}
-            </div>
-          )}
-
           {groupedResults.length > 0 && (
-            <div className="space-y-5">
+            <SearchResultsSection
+              count={searchResults.length}
+              detail={`검색 조건: ${scopeLabel}`}
+            >
+              <div className="space-y-5">
               {groupedResults.map(([lawName, items]) => (
                 <div key={lawName} className="space-y-3">
                   <h2 className="text-sm font-semibold text-white flex items-center gap-2">
@@ -327,7 +326,8 @@ export default function LawSearch() {
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            </SearchResultsSection>
           )}
 
           {result.answer && (
