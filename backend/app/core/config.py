@@ -1,8 +1,10 @@
 from functools import lru_cache
+import json
 from pathlib import Path
+from typing import Annotated
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
@@ -40,7 +42,7 @@ class Settings(BaseSettings):
     auth_access_token_expire_minutes: int = Field(default=60 * 12, alias="AUTH_ACCESS_TOKEN_EXPIRE_MINUTES")
     auth_allow_legacy_user_header: bool = Field(default=False, alias="AUTH_ALLOW_LEGACY_USER_HEADER")
 
-    cors_origins: list[str] = Field(
+    cors_origins: Annotated[list[str], NoDecode] = Field(
         default=[
             "http://localhost:5173",
             "http://localhost:3000",
@@ -53,6 +55,12 @@ class Settings(BaseSettings):
     @classmethod
     def _split_cors_origins(cls, value):
         if isinstance(value, str):
+            try:
+                parsed = json.loads(value)
+                if isinstance(parsed, list):
+                    return [str(origin).strip() for origin in parsed if str(origin).strip()]
+            except json.JSONDecodeError:
+                pass
             return [origin.strip() for origin in value.split(",") if origin.strip()]
         return value
 
