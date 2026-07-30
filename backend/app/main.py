@@ -10,6 +10,13 @@ from app.core.database import init_db
 
 logger = logging.getLogger(__name__)
 
+REQUIRED_CORS_ORIGINS = (
+    "https://meerkat-safety.com",
+    "https://www.meerkat-safety.com",
+    "https://meercat-b.vercel.app",
+    "http://localhost:5173",
+)
+
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -18,9 +25,13 @@ def create_app() -> FastAPI:
         version="0.1.0",
     )
 
+    # Keep the production frontend origins available even when CORS_ORIGINS is
+    # set in the deployment environment with an incomplete value.
+    allowed_origins = list(dict.fromkeys((*settings.cors_origins, *REQUIRED_CORS_ORIGINS)))
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
+        allow_origins=allowed_origins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
