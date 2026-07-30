@@ -407,44 +407,6 @@ export default function KoshaGuide() {
           </p>
         </div>
       </section>
-      <section className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 className="text-sm font-semibold text-white">
-              KOSHA GUIDE 분류 참고
-            </h2>
-            <p className="mt-1 text-xs leading-5 text-[#98989D]">
-              알파벳 분류를 기준으로 업종·공정에 맞는 가이드를 빠르게 좁힐 수
-              있습니다.
-            </p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {GUIDE_REFERENCE.map((item) => (
-            <div
-              key={item.code}
-              className="rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4"
-            >
-              <div className="flex items-center gap-2">
-                <span
-                  className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#3A3A3C] text-sm font-semibold text-white"
-                  style={{ backgroundColor: `${ACCENT}1A` }}
-                >
-                  {item.code}
-                </span>
-                <div>
-                  <div className="text-sm font-medium text-white">
-                    {item.field}
-                  </div>
-                </div>
-              </div>
-              <p className="mt-3 text-sm leading-6 text-[#C7C7CC]">
-                {item.info}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {showBookmarks && (
         <div className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
@@ -679,6 +641,45 @@ export default function KoshaGuide() {
           )}
         </div>
       )}
+
+      <section className="space-y-3 rounded-[24px] border border-[#2C2C2E] bg-[#1E1E1E] p-5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-sm font-semibold text-white">
+              KOSHA GUIDE 분류 참고
+            </h2>
+            <p className="mt-1 text-xs leading-5 text-[#98989D]">
+              알파벳 분류를 기준으로 업종·공정에 맞는 가이드를 빠르게 좁힐 수
+              있습니다.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {GUIDE_REFERENCE.map((item) => (
+            <div
+              key={item.code}
+              className="rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4"
+            >
+              <div className="flex items-center gap-2">
+                <span
+                  className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-[#3A3A3C] text-sm font-semibold text-white"
+                  style={{ backgroundColor: `${ACCENT}1A` }}
+                >
+                  {item.code}
+                </span>
+                <div>
+                  <div className="text-sm font-medium text-white">
+                    {item.field}
+                  </div>
+                </div>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[#C7C7CC]">
+                {item.info}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

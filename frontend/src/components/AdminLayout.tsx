@@ -36,7 +36,7 @@ export default function AdminLayout() {
             <img
               src="/meerkat.png"
               alt="Meerkat logo"
-              className={`rounded-full border-2 border-[#2C2C2E] object-cover bg-[#121212] ${collapsed ? "w-9 h-9" : "w-16 h-16"}`}
+              className={`rounded-full border-2 border-[#2C2C2E] object-cover bg-[#121212] ${collapsed ? "w-10 h-10" : "w-14 h-14"}`}
             />
             <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#32D74B] rounded-full border-2 border-[#1E1E1E]" />
           </div>
@@ -47,8 +47,21 @@ export default function AdminLayout() {
             title={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
             className="self-end -mt-1 inline-flex h-7 w-7 items-center justify-center rounded-md text-[#98989D] transition-colors hover:bg-[#2C2C2E] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50"
           >
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-              {collapsed ? <path d="m9 18 6-6-6-6" /> : <path d="m15 18-6-6 6-6" />}
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4"
+            >
+              {collapsed ? (
+                <path d="m9 18 6-6-6-6" />
+              ) : (
+                <path d="m15 18-6-6 6-6" />
+              )}
             </svg>
           </button>
           {!collapsed && (
@@ -128,7 +141,6 @@ export default function AdminLayout() {
           >
             {collapsed ? "⏏" : "로그아웃"}
           </button>
-
         </div>
       </aside>
 
