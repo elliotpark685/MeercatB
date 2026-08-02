@@ -15,6 +15,7 @@ from app.services.law_ingestion_service import LawIngestionService, LawSourceDoc
 
 LAW_API_BASE_URL = "https://www.law.go.kr/DRF/lawService.do"
 LAW_API_SEARCH_URL = "https://www.law.go.kr/DRF/lawSearch.do"
+LAW_HTML_BASE_URL = "https://www.law.go.kr/lsInfoP.do"
 
 
 @dataclass(frozen=True)
@@ -90,10 +91,11 @@ class LawOpenApiClient:
             raise ValueError(f"Law not found via Open API search: {target.law_name}")
 
         params = {"OC": self.oc, "target": "law", "MST": mst, "type": "JSON"}
-        source_url = f"{self.base_url}?{urlencode(params)}"
-        with urlopen(source_url, timeout=30) as response:
+        api_url = f"{self.base_url}?{urlencode(params)}"
+        with urlopen(api_url, timeout=30) as response:
             payload = json.loads(response.read().decode("utf-8"))
-        return law_api_payload_to_source_document(payload=payload, target=target, source_url=source_url)
+        display_url = f"{LAW_HTML_BASE_URL}?lsiSeq={mst}"
+        return law_api_payload_to_source_document(payload=payload, target=target, source_url=display_url)
 
 
 def law_api_payload_to_source_document(payload: dict[str, Any], target: TargetLaw, source_url: str) -> LawSourceDocument:
