@@ -48,3 +48,12 @@ def test_search_by_keyword_finds_article_title():
     assert results[0][0].title == "추락의 방지"
     assert "law_articles.title" in str(session.last_stmt)
 
+
+def test_deactivate_other_documents_normalizes_law_name_before_updating():
+    session = _FakeSession(rows=[])
+    repo = LawRepository(session)
+
+    repo.deactivate_other_documents(law_name=" Sample Law ", keep_document_id=7)
+
+    assert "trim(meerkat_pjt.law_documents.law_name)" in str(session.last_stmt)
+    assert "Sample Law" in session.last_stmt.compile().params.values()

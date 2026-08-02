@@ -86,6 +86,9 @@ class LawIngestionService:
         source: LawSourceDocument,
         canonical_article_index=None,
     ) -> dict:
+        source.law_name = source.law_name.strip()
+        if source.law_short_name:
+            source.law_short_name = source.law_short_name.strip()
         if not source.raw_text and not source.articles:
             raise ValueError(f"No raw text or articles supplied for {source.law_name}")
 
@@ -181,6 +184,9 @@ class LawIngestionService:
             if canonical_article_numbers and article_no not in canonical_article_numbers
         ]
 
+        # Run this again immediately before commit so an interrupted/retried ingestion
+        # cannot leave multiple active versions of the same law.
+        self.repo.deactivate_other_documents(law_name=source.law_name, keep_document_id=law_document.id)
         self.db.commit()
         return {
             "law_name": source.law_name,

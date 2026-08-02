@@ -69,10 +69,11 @@ class LawRepository:
 
     def deactivate_other_documents(self, law_name: str, keep_document_id: int) -> None:
         """Mark older versions of a law as inactive once a newer one is ingested."""
+        normalized_law_name = law_name.strip()
         stmt = (
             update(LawDocument)
             .where(
-                LawDocument.law_name == law_name,
+                func.trim(LawDocument.law_name) == normalized_law_name,
                 LawDocument.id != keep_document_id,
                 LawDocument.is_active.is_(True),
             )

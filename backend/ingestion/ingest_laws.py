@@ -27,16 +27,29 @@ class TargetLaw:
 
 TARGET_LAWS = [
     TargetLaw("산업안전보건법", "산안법"),
+    TargetLaw("산업안전보건법 시행령", "산안법 시행령", "대통령령"),
+    TargetLaw("산업안전보건법 시행규칙", "산안법 시행규칙", "고용노동부령"),
     TargetLaw("시설물의 안전 및 유지관리에 관한 특별법", "시설물안전법"),
+    TargetLaw("시설물의 안전 및 유지관리에 관한 특별법 시행령", "시설물안전법 시행령", "대통령령"),
+    TargetLaw("시설물의 안전 및 유지관리에 관한 특별법 시행규칙", "시설물안전법 시행규칙", "국토교통부령"),
     TargetLaw("건설산업기본법", "건산법"),
+    TargetLaw("건설산업기본법 시행령", "건산법 시행령", "대통령령"),
+    TargetLaw("건설산업기본법 시행규칙", "건산법 시행규칙", "국토교통부령"),
     TargetLaw("건설기술 진흥법", "건설기술진흥법"),
+    TargetLaw("건설기술 진흥법 시행령", "건설기술진흥법 시행령", "대통령령"),
+    TargetLaw("건설기술 진흥법 시행규칙", "건설기술진흥법 시행규칙", "국토교통부령"),
     TargetLaw("중대재해 처벌 등에 관한 법률", "중대재해처벌법"),
+    TargetLaw("중대재해 처벌 등에 관한 법률 시행령", "중대재해처벌법 시행령", "대통령령"),
 ]
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Ingest Korean law text into DB.")
-    parser.add_argument("--all-target-laws", action="store_true", help="Ingest the five built-in target laws.")
+    parser.add_argument(
+        "--all-target-laws",
+        action="store_true",
+        help="Ingest the five target laws and their 시행령/시행규칙.",
+    )
     parser.add_argument("--prefer-local", action="store_true", help="Use local fallback files before Open API.")
     parser.add_argument("--fallback-dir", default="data/raw/laws", help="Directory containing local PDF/TXT fallback files.")
     parser.add_argument("--law-api-oc", default=settings.law_api_oc, help="Law API OC key. Defaults to LAW_API_OC.")
