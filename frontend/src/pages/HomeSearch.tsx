@@ -10,10 +10,12 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
+  searchAdministrativeRules,
   searchSafetyStandards,
   searchKosha,
   KOSHA_CATEGORY_LABEL,
   type LawSearchResult,
+  type AdministrativeRuleSearchResult,
   type SafetyStandardSearchResult,
   type KoshaResultItem,
   type KoshaSearchResult,
@@ -30,10 +32,12 @@ const TOP_K = 5;
 
 type SearchSnapshot = {
   laws: LawSearchResult | null;
+  administrativeRules: AdministrativeRuleSearchResult | null;
   safety: SafetyStandardSearchResult | null;
   kosha: KoshaSearchResult | null;
   errors: {
     laws?: string;
+    administrativeRules?: string;
     safety?: string;
     kosha?: string;
   };
@@ -173,6 +177,55 @@ function SafetyResultCard({
   );
 }
 
+function AdministrativeRuleResultCard({
+  item,
+  onViewDetail,
+}: {
+  item: NonNullable<AdministrativeRuleSearchResult["results"]>[number];
+  onViewDetail: (articleId: number) => void;
+}) {
+  const text = item.content_preview?.trim() ?? "";
+  const preview = text.length > 260 ? `${text.slice(0, 260)}...` : text;
+  const classification = [item.rule_form ?? "행정규칙", item.ministry].filter(Boolean).join(" · ");
+
+  return (
+    <article className="rounded-2xl border border-[#BF5AF2]/25 bg-[#1E1E1E] p-4 transition-colors hover:border-[#BF5AF2]/50">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="rounded-full border border-[#BF5AF2]/25 bg-[#BF5AF2]/10 px-2.5 py-1 text-[11px] font-medium text-[#BF5AF2]">
+          {classification}
+        </span>
+        <span className="text-xs text-[#98989D]">{item.rule_domain ?? item.provider}</span>
+        <span className="ml-auto text-[11px] font-mono text-[#BF5AF2]">
+          {Math.round((item.score ?? 0) * 100)}%
+        </span>
+      </div>
+      <div className="mt-3 space-y-1">
+        <p className="text-sm font-medium text-white">{item.source_name}</p>
+        <div className="flex flex-wrap items-center gap-2">
+          {item.article_no && (
+            <span className="rounded-md border border-[#BF5AF2]/25 bg-[#BF5AF2]/10 px-2 py-0.5 text-xs text-[#BF5AF2]">
+              {item.article_no}
+            </span>
+          )}
+          {item.article_title && <span className="text-sm text-[#C7C7CC]">{item.article_title}</span>}
+        </div>
+      </div>
+      {preview && <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-[#98989D]">{preview}</p>}
+      {item.article_id != null && (
+        <div className="mt-4 flex justify-end">
+          <button
+            type="button"
+            onClick={() => onViewDetail(item.article_id!)}
+            className="rounded-lg border border-[#BF5AF2]/25 px-3 py-1.5 text-xs font-medium text-[#BF5AF2] transition-colors hover:bg-[#BF5AF2]/10"
+          >
+            전체 내용 보기
+          </button>
+        </div>
+      )}
+    </article>
+  );
+}
+
 function KoshaResultCard({ item }: { item: KoshaResultItem }) {
   const [expanded, setExpanded] = useState(false);
   const keywords = item.keywords.slice(0, 4);
@@ -248,6 +301,7 @@ export default function HomeSearch() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<SearchSnapshot>({
     laws: null,
+    administrativeRules: null,
     safety: null,
     kosha: null,
     errors: {},
@@ -283,10 +337,16 @@ export default function HomeSearch() {
     saveHistory(q);
     setHistory(loadHistory());
     setLoading(true);
-    setResult({ laws: null, safety: null, kosha: null, errors: {} });
+    setResult({ laws: null, administrativeRules: null, safety: null, kosha: null, errors: {} });
 
-    const [laws, safety, kosha] = await Promise.allSettled([
+    const [laws, administrativeRules, safety, kosha] = await Promise.allSettled([
       searchLaws({
+        query: q,
+        top_k: TOP_K,
+        userId: userId ?? undefined,
+        siteId: siteId ?? undefined,
+      }),
+      searchAdministrativeRules({
         query: q,
         top_k: TOP_K,
         userId: userId ?? undefined,
@@ -308,10 +368,12 @@ export default function HomeSearch() {
 
     setResult({
       laws: laws.status === "fulfilled" ? laws.value : null,
+      administrativeRules: administrativeRules.status === "fulfilled" ? administrativeRules.value : null,
       safety: safety.status === "fulfilled" ? safety.value : null,
       kosha: kosha.status === "fulfilled" ? kosha.value : null,
       errors: {
         laws: laws.status === "rejected" ? "법령 검색 실패" : undefined,
+        administrativeRules: administrativeRules.status === "rejected" ? "행정규칙 검색 실패" : undefined,
         safety: safety.status === "rejected" ? "안전기준 검색 실패" : undefined,
         kosha: kosha.status === "rejected" ? "KOSHA 검색 실패" : undefined,
       },
@@ -351,6 +413,18 @@ export default function HomeSearch() {
     [result.safety],
   );
 
+  const administrativeRuleResults = useMemo(
+    () =>
+      dedupeByKey(result.administrativeRules?.results ?? [], (item) =>
+        item.chunk_id != null
+          ? `administrative-rule:chunk:${item.chunk_id}`
+          : item.article_id != null
+            ? `administrative-rule:article:${item.article_id}`
+            : `administrative-rule:${item.source_name?.trim() ?? ""}:${item.article_no?.trim() ?? ""}:${item.content_preview.trim()}`,
+      ),
+    [result.administrativeRules],
+  );
+
   const koshaResults = useMemo(
     () =>
       dedupeByKey(result.kosha?.results ?? [], (item) =>
@@ -360,11 +434,12 @@ export default function HomeSearch() {
   );
 
   const summary = useMemo(() => {
-    return lawResults.length + safetyResults.length + koshaResults.length;
-  }, [lawResults.length, safetyResults.length, koshaResults.length]);
+    return lawResults.length + administrativeRuleResults.length + safetyResults.length + koshaResults.length;
+  }, [lawResults.length, administrativeRuleResults.length, safetyResults.length, koshaResults.length]);
 
   const hasAnyResult =
     lawResults.length > 0 ||
+    administrativeRuleResults.length > 0 ||
     safetyResults.length > 0 ||
     koshaResults.length > 0;
   const hasError = Object.values(result.errors).some(Boolean);
@@ -382,7 +457,7 @@ export default function HomeSearch() {
               통합검색
             </span>
             <span className="rounded-full border border-[#2C2C2E] bg-[#121212] px-3 py-1 text-xs text-[#98989D]">
-              법령 · 안전기준 · KOSHA 결과만 한 화면에서 확인
+              법령 · 행정규칙 · 안전기준 · KOSHA를 한 화면에서 확인
             </span>
             {summary > 0 && (
               <span className="rounded-full border border-[#2C2C2E] bg-[#121212] px-3 py-1 text-xs text-[#98989D]">
@@ -450,6 +525,9 @@ export default function HomeSearch() {
                 검색
               </button>
             </div>
+            <p className="mt-3 px-1 text-xs text-[#98989D]">
+              법령·행정규칙·안전기준을 함께 검색합니다.
+            </p>
           </form>
         </div>
       </section>
@@ -529,6 +607,29 @@ export default function HomeSearch() {
 
           {result.errors.safety && (
             <div className="text-xs text-[#FF453A]">{result.errors.safety}</div>
+          )}
+          {result.errors.administrativeRules && (
+            <div className="text-xs text-[#FF453A]">{result.errors.administrativeRules}</div>
+          )}
+          {administrativeRuleResults.length > 0 && (
+            <section className="space-y-3">
+              <ResultHeader
+                title="행정규칙"
+                count={administrativeRuleResults.length}
+                subtitle="훈령·예규·고시 등 행정규칙 검색 결과"
+                accent="bg-[#BF5AF2]"
+                action={<span className="text-xs text-[#BF5AF2]">분류별 Top {TOP_K}</span>}
+              />
+              <div className="grid gap-3 md:grid-cols-2">
+                {administrativeRuleResults.map((item, index) => (
+                  <AdministrativeRuleResultCard
+                    key={item.article_id ?? item.chunk_id ?? index}
+                    item={item}
+                    onViewDetail={setDetailArticleId}
+                  />
+                ))}
+              </div>
+            </section>
           )}
           {safetyResults.length > 0 && (
             <section className="space-y-3">

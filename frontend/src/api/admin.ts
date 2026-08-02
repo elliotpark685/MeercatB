@@ -178,6 +178,10 @@ export interface SafetyStandardResultItem {
   chunk_id: number | null;
   source_url: string | null;
   has_inline_images: boolean;
+  rule_form: string | null;
+  rule_domain: string | null;
+  rule_purpose: string | null;
+  ministry: string | null;
 }
 
 export async function getLawDocumentCatalog(): Promise<LawDocumentCatalogResponse> {
@@ -203,6 +207,27 @@ export async function searchSafetyStandards(
 ): Promise<SafetyStandardSearchResult> {
   const { userId, siteId, ...body } = params;
   const res = await apiClient.post('/api/v1/safety-standards/search', {
+    ...body,
+    user_id: Number.isFinite(userId) ? userId : null,
+    site_id: Number.isFinite(siteId) ? siteId : null,
+  });
+  return res.data;
+}
+
+export type AdministrativeRuleResultItem = SafetyStandardResultItem;
+
+export interface AdministrativeRuleSearchResult {
+  query: string;
+  results: AdministrativeRuleResultItem[];
+}
+
+export type AdministrativeRuleSearchParams = SafetyStandardSearchParams;
+
+export async function searchAdministrativeRules(
+  params: AdministrativeRuleSearchParams
+): Promise<AdministrativeRuleSearchResult> {
+  const { userId, siteId, ...body } = params;
+  const res = await apiClient.post('/api/v1/administrative-rules/search', {
     ...body,
     user_id: Number.isFinite(userId) ? userId : null,
     site_id: Number.isFinite(siteId) ? siteId : null,

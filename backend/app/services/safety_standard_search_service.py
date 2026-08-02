@@ -42,9 +42,10 @@ class _Candidate:
 
 
 class SafetyStandardSearchService:
-    def __init__(self, db: Session) -> None:
+    def __init__(self, db: Session, source_category: str = SAFETY_STANDARD_CATEGORY) -> None:
         self.db = db
         self.repo = LawRepository(db)
+        self.source_category = source_category
 
     def search(
         self,
@@ -64,7 +65,7 @@ class SafetyStandardSearchService:
 
         keyword_rows = self.repo.search_chunks_by_keyword_for_category(
             keywords=keywords,
-            source_category=SAFETY_STANDARD_CATEGORY,
+            source_category=self.source_category,
             source_types=effective_types,
             limit=max(top_k * 20, 100),
         )
@@ -77,7 +78,7 @@ class SafetyStandardSearchService:
             vector_rows = self.repo.search_chunks_by_vector_for_category(
                 query_vector=_query_embedding(query),
                 embedding_model=settings.embedding_model,
-                source_category=SAFETY_STANDARD_CATEGORY,
+                source_category=self.source_category,
                 source_types=effective_types,
                 limit=max(top_k * 15, 50),
             )
@@ -89,7 +90,7 @@ class SafetyStandardSearchService:
                 candidate.vector_score = max(candidate.vector_score, vector_score)
         else:
             vector_rows = self.repo.list_chunks_for_category(
-                source_category=SAFETY_STANDARD_CATEGORY,
+                source_category=self.source_category,
                 source_types=effective_types,
                 limit=500,
             )
@@ -130,7 +131,7 @@ class SafetyStandardSearchService:
         for kw in keywords:
             rows = self.repo.search_by_keyword_for_category(
                 keyword=kw,
-                source_category=SAFETY_STANDARD_CATEGORY,
+                source_category=self.source_category,
                 source_types=source_types,
                 top_k=max(top_k * 5, 20),
             )
@@ -195,6 +196,10 @@ def _to_result(c: _Candidate) -> SafetyStandardResultItem:
         chunk_id=c.chunk.id if c.chunk else None,
         source_url=doc.source_url,
         has_inline_images=has_inline_images,
+        rule_form=doc.rule_form,
+        rule_domain=doc.rule_domain,
+        rule_purpose=doc.rule_purpose,
+        ministry=doc.ministry,
     )
 
 

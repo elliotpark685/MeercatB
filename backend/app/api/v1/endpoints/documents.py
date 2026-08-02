@@ -7,6 +7,7 @@ from app.api.deps import get_embedding_service, get_law_search_service, require_
 from app.core.database import get_db
 from app.schemas.document import DocumentGenerateRequest, DocumentGenerateResponse
 from app.services.document_generation_service import DocumentGenerationService
+from app.services.administrative_rule_search_service import AdministrativeRuleSearchService
 from app.services.embedding_service import EmbeddingService
 from app.services.law_search_service import LawSearchService
 from app.models.user import User
@@ -19,7 +20,11 @@ def get_document_generation_service(
     law_search_service: LawSearchService = Depends(get_law_search_service),
     _: EmbeddingService = Depends(get_embedding_service),
 ) -> DocumentGenerationService:
-    return DocumentGenerationService(db=db, law_search_service=law_search_service)
+    return DocumentGenerationService(
+        db=db,
+        law_search_service=law_search_service,
+        administrative_rule_search_service=AdministrativeRuleSearchService(db),
+    )
 
 
 @router.post("/generate", response_model=DocumentGenerateResponse)

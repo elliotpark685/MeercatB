@@ -407,6 +407,10 @@ class LawRepository:
                 LawDocument.source_file_path,
                 LawDocument.provider,
                 LawDocument.source_type,
+                LawDocument.rule_form,
+                LawDocument.rule_domain,
+                LawDocument.rule_purpose,
+                LawDocument.ministry,
                 LawDocument.is_active,
             ),
         )
@@ -443,6 +447,10 @@ class LawRepository:
                 LawDocument.source_file_path,
                 LawDocument.provider,
                 LawDocument.source_type,
+                LawDocument.rule_form,
+                LawDocument.rule_domain,
+                LawDocument.rule_purpose,
+                LawDocument.ministry,
                 LawDocument.is_active,
             ),
         )
