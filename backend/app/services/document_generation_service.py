@@ -10,12 +10,13 @@ from app.models.site import Site
 from app.models.safety_quiz import SafetyQuiz  # noqa: F401 - mapper registration
 from app.models.user import User  # noqa: F401 - ensures SQLAlchemy mapper registration
 from app.schemas.kosha import KoshaCategory
+from app.services.administrative_rule_search_service import AdministrativeRuleSearchService
 from app.services.kosha_search_service import KoshaSearchService
 from app.services.law_search_service import LawSearchService
 
 
 class DocumentGenerationService:
-    """Generates document drafts grounded in integrated law and KOSHA context."""
+    """Generates document drafts grounded in law, administrative-rule, and KOSHA context."""
 
     MODEL_NAME = "gpt-4o-mini"
 
@@ -24,10 +25,14 @@ class DocumentGenerationService:
         db: Session,
         law_search_service: LawSearchService,
         kosha_search_service: KoshaSearchService | None = None,
+        administrative_rule_search_service: AdministrativeRuleSearchService | None = None,
     ) -> None:
         self.db = db
         self.law_search_service = law_search_service
         self.kosha_search_service = kosha_search_service or KoshaSearchService()
+        self.administrative_rule_search_service = (
+            administrative_rule_search_service or AdministrativeRuleSearchService(db)
+        )
         self._client = OpenAI(api_key=settings.openai_api_key) if settings.openai_api_key else None
 
     def generate(
@@ -64,7 +69,21 @@ class DocumentGenerationService:
             site_id=site_id,
             law_names=normalized_law_names or None,
         )
-        references = self._build_references(self._extract_reference_items(search_bundle))
+        references = self._build_references(self._extract_reference_items(search_bundle), reference_type="법령")
+        administrative_rule_query = " ".join(normalized_keywords)
+        if administrative_rule_query:
+            administrative_rule_bundle = self.administrative_rule_search_service.search(
+                query=administrative_rule_query,
+                top_k=3,
+                user_id=user_id,
+                site_id=site_id,
+            )
+            references.extend(
+                self._build_references(
+                    self._extract_reference_items(administrative_rule_bundle),
+                    reference_type="행정규칙",
+                )
+            )
         law_context = self._build_law_context(references)
         kosha_context = self._build_kosha_context(
             query=search_query,
@@ -114,7 +133,7 @@ class DocumentGenerationService:
         return document
 
     @staticmethod
-    def _build_references(search_results) -> list[dict]:
+    def _build_references(search_results, reference_type: str = "법령") -> list[dict]:
         references: list[dict] = []
         for item in search_results:
             article_obj = getattr(item, "article", None)
@@ -129,6 +148,7 @@ class DocumentGenerationService:
             references.append(
                 {
                     "law_name": getattr(item, "law_name", None)
+                    or getattr(item, "source_name", None)
                     or getattr(document_obj, "law_name", None)
                     or getattr(document_obj, "title", None)
                     or getattr(article_obj, "law_name", None),
@@ -148,6 +168,7 @@ class DocumentGenerationService:
                     "score": getattr(item, "score", 0.0),
                     "article_id": getattr(item, "article_id", None) or getattr(article_obj, "id", None),
                     "chunk_id": getattr(getattr(item, "chunk", None), "id", None),
+                    "reference_type": reference_type,
                 }
             )
         return references
@@ -216,7 +237,7 @@ class DocumentGenerationService:
             lines.append(
                 "\n".join(
                     [
-                        f"[{index}] {reference['law_name']} {reference['article_no']} {title}",
+                        f"[{index}] [{reference.get('reference_type', '법령')}] {reference['law_name']} {reference['article_no']} {title}",
                         f"시행일: {effective_date}",
                         f"내용: {reference['chunk_text']}",
                     ]
@@ -293,6 +314,7 @@ class DocumentGenerationService:
             f"Selected KOSHA categories: {', '.join(selected_kosha_categories) if selected_kosha_categories else 'none'}\n\n"
             "Mandatory constraints:\n"
             "- Use the supplied law context when applicable.\n"
+            "- Treat administrative-rule context as an enforcement or inspection procedure; distinguish it from statutes.\n"
             "- Do not invent ungrounded legal claims.\n"
             "- Use the KOSHA context as supporting guidance only.\n"
             "- Keep the output specific to the workplace, work title, safety keywords, and equipment/tools.\n\n"
@@ -442,5 +464,6 @@ class DocumentGenerationService:
         for reference in references:
             title = f"({reference['article_title']})" if reference.get("article_title") else ""
             effective_date = reference.get("effective_date") or "unknown"
-            lines.append(f"- {reference['law_name']} {reference['article_no']}{title}, 시행일 {effective_date}")
+            reference_type = reference.get("reference_type", "법령")
+            lines.append(f"- [{reference_type}] {reference['law_name']} {reference['article_no']}{title}, 시행일 {effective_date}")
         return "\n".join(lines)

@@ -29,5 +29,9 @@ class LawDocument(Base, TimestampMixin):
     source_category: Mapped[str | None] = mapped_column(String(50), index=True)
     source_type: Mapped[str | None] = mapped_column(String(100), index=True)
     provider: Mapped[str | None] = mapped_column(String(100))
+    rule_form: Mapped[str | None] = mapped_column(String(30), index=True)
+    rule_domain: Mapped[str | None] = mapped_column(String(80), index=True)
+    rule_purpose: Mapped[str | None] = mapped_column(String(80), index=True)
+    ministry: Mapped[str | None] = mapped_column(String(100), index=True)
 
     articles = relationship("LawArticle", back_populates="law_document", cascade="all, delete-orphan")

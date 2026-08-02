@@ -21,6 +21,10 @@ class SafetyStandardResultItem(BaseModel):
     chunk_id: int | None = None
     source_url: str | None = None
     has_inline_images: bool = False
+    rule_form: str | None = None
+    rule_domain: str | None = None
+    rule_purpose: str | None = None
+    ministry: str | None = None
 
 
 class SafetyStandardSearchResponse(BaseModel):

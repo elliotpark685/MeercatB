@@ -54,6 +54,29 @@ class AdmrulIngestionService:
         self.db = db
         self.repo = LawRepository(db)
         self.client = api_client
+        self.source_category = SOURCE_CATEGORY
+        self.source_type = SOURCE_TYPE
+        self.rule_form: str | None = None
+        self.rule_domain: str | None = None
+        self.rule_purpose: str | None = None
+        self.ministry: str | None = None
+
+    def configure_document_classification(
+        self,
+        *,
+        source_category: str,
+        source_type: str,
+        rule_form: str | None = None,
+        rule_domain: str | None = None,
+        rule_purpose: str | None = None,
+        ministry: str | None = None,
+    ) -> None:
+        self.source_category = source_category
+        self.source_type = source_type
+        self.rule_form = rule_form
+        self.rule_domain = rule_domain
+        self.rule_purpose = rule_purpose
+        self.ministry = ministry
 
     # ── 퍼블릭 API ───────────────────────────────────────────────────────────
 
@@ -111,6 +134,7 @@ class AdmrulIngestionService:
 
         law_doc = self._create_law_document(admrul_doc, name, vhash)
         self._create_articles_and_chunks(law_doc, admrul_doc)
+        self.repo.deactivate_other_documents(law_name=name, keep_document_id=law_doc.id)
         self.db.commit()
         logger.info("ingested: id=%s name=%s articles=%d", doc_id, name, len(admrul_doc.articles))
         return True
@@ -123,7 +147,7 @@ class AdmrulIngestionService:
             title=name,
             law_name=name,
             law_short_name=None,
-            law_type="행정규칙",
+            law_type=self.rule_form or "행정규칙",
             law_no=admrul_doc.id,
             effective_date=effective_date,
             jurisdiction="KR",
@@ -131,9 +155,13 @@ class AdmrulIngestionService:
             source_url=f"https://www.law.go.kr/admRulLsInfoP.do?admRulId={admrul_doc.id}",
             raw_text=admrul_doc.raw_text,
             is_active=True,
-            source_category=SOURCE_CATEGORY,
-            source_type=SOURCE_TYPE,
+            source_category=self.source_category,
+            source_type=self.source_type,
             provider=PROVIDER,
+            rule_form=self.rule_form,
+            rule_domain=self.rule_domain,
+            rule_purpose=self.rule_purpose,
+            ministry=self.ministry,
         )
 
     def _create_articles_and_chunks(self, law_doc: LawDocument, admrul_doc: AdmrulDocument) -> None:
