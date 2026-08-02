@@ -7,14 +7,14 @@
 
 ## 1. 프로젝트 개요
 
-| 항목 | 내용 |
-|---|---|
-| 서비스명 | Meerkat Safety — 건설 현장 산업안전 관리 AI 시스템 |
-| Backend | FastAPI + SQLAlchemy + Supabase(PostgreSQL) |
-| Frontend | React 18 + TypeScript + Vite + TailwindCSS |
-| DB | Supabase PostgreSQL (`schema: meerkat_pjt`) |
-| 배포 | Backend → Render / Frontend → Vercel |
-| 현재 브랜치 기준 | `feature/safety-standards` (main 병합 대기) |
+| 항목             | 내용                                               |
+| ---------------- | -------------------------------------------------- |
+| 서비스명         | Meerkat Safety — 건설 현장 산업안전 관리 AI 시스템 |
+| Backend          | FastAPI + SQLAlchemy + Supabase(PostgreSQL)        |
+| Frontend         | React 18 + TypeScript + Vite + TailwindCSS         |
+| DB               | Supabase PostgreSQL (`schema: meerkat_pjt`)        |
+| 배포             | Backend → Render / Frontend → Vercel               |
+| 현재 브랜치 기준 | `feature/safety-standards` (main 병합 대기)        |
 
 ---
 
@@ -31,12 +31,14 @@ MeercatB/
 │   │   │       ├── api.py           # 라우터 집합 (여기에 include_router)
 │   │   │       └── endpoints/
 │   │   │           ├── auth.py      # POST /auth/login, /register, GET /auth/me
+│   │   │           ├── todos.py     # ★신규: GET/POST/PATCH/DELETE /todos
 │   │   │           ├── laws.py      # POST /laws/search, GET /laws/articles/{id}
 │   │   │           ├── safety_standards.py  # POST /safety-standards/search ★신규
 │   │   │           ├── kosha.py     # GET /kosha/search, POST /kosha/summarize ★신규
 │   │   │           ├── documents.py # POST /documents/generate
 │   │   │           ├── quizzes.py   # GET /quizzes/daily
 │   │   │           ├── admin.py     # GET /admin/dashboard
+│   │   │           ├── catalog.py   # ★신규: GET /catalog/regulations (법령/안전기준 현황)
 │   │   │           └── health.py    # GET /health
 │   │   ├── core/
 │   │   │   ├── config.py            # Settings (pydantic-settings, .env)
@@ -109,12 +111,19 @@ MeercatB/
         │   └── admin.ts             # API 함수 모음 (searchLaws, searchSafetyStandards, searchKosha, summarizeKosha 등)
         ├── pages/
         │   ├── Login.tsx
+        │   ├── LandingPage.tsx      # ★신규: 서비스 소개 랜딩 페이지
         │   ├── Register.tsx
-        │   ├── Dashboard.tsx        # KPI 카드 + 최근 활동 (admin 전용)
+        │   ├── HomeSearch.tsx       # ★신규: 통합 검색 (로그인 후 첫 화면)
+        │   ├── Dashboard.tsx        # KPI 카드 + 최근 활동 (admin 전용, /dashboard)
         │   ├── LawSearch.tsx        # 기존 5개 법령 검색
         │   ├── SafetyStandardSearch.tsx  # ★신규: 안전기준 검색
         │   ├── KoshaGuide.tsx       # ★신규: KOSHA GUIDE 검색 + AI 요약 + 즐겨찾기(localStorage)
         │   └── DocumentGenerate.tsx
+        │   ├── TodoList.tsx         # ★신규: 개인 할 일 관리
+        │   ├── RegulationStatus.tsx # ★신규: 법령/안전기준 수집 현황
+        │   ├── Terms.tsx            # ★신규: 이용약관
+        │   ├── Privacy.tsx          # ★신규: 개인정보처리방침
+        │   └── ... (About, Contact, Pricing 등 public 페이지)
         ├── components/
         │   ├── AdminLayout.tsx      # 사이드바 + Outlet (nav: 대시보드/법령/안전기준/KOSHA GUIDE/문서)
         │   ├── LawResultCard.tsx
@@ -136,17 +145,17 @@ MeercatB/
 
 ## 3. 환경 변수 (backend/.env)
 
-| 변수 | 필수 | 설명 |
-|---|---|---|
-| `DATABASE_URL` | ✅ | Supabase 연결 문자열 (이게 있으면 POSTGRES_* 무시) |
-| `DB_SCHEMA` | - | 기본값 `meerkat_pjt` |
-| `OPENAI_API_KEY` | - | 없으면 mock 임베딩 사용 |
-| `LAW_API_OC` | 법령/행정규칙 수집 시 필수 | 법제처 Open API 키 (법령 검색 + 행정규칙 ingestion 공용) |
-| `DATA_KEY` | KOSHA GUIDE 검색 시 필수 | data.go.kr 계열 API 키. ★신규: KOSHA 안전보건법령 스마트검색 OpenAPI에서 사용. 없으면 `/kosha/search`는 빈 결과로 graceful fallback |
-| `AUTH_SECRET_KEY` | ✅ | JWT 서명 키 |
-| `USE_PGVECTOR` | - | `true`면 pgvector, 기본 `false`(JSON 저장) |
-| `EMBEDDING_MODEL` | - | 기본 `text-embedding-3-large` (dim=1536) |
-| `CORS_ORIGINS` | - | 쉼표 구분 허용 Origin 목록 |
+| 변수              | 필수                       | 설명                                                                                                                                |
+| ----------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `DATABASE_URL`    | ✅                         | Supabase 연결 문자열 (이게 있으면 POSTGRES\_\* 무시)                                                                                |
+| `DB_SCHEMA`       | -                          | 기본값 `meerkat_pjt`                                                                                                                |
+| `OPENAI_API_KEY`  | -                          | 없으면 mock 임베딩 사용                                                                                                             |
+| `LAW_API_OC`      | 법령/행정규칙 수집 시 필수 | 법제처 Open API 키 (법령 검색 + 행정규칙 ingestion 공용)                                                                            |
+| `DATA_KEY`        | KOSHA GUIDE 검색 시 필수   | data.go.kr 계열 API 키. ★신규: KOSHA 안전보건법령 스마트검색 OpenAPI에서 사용. 없으면 `/kosha/search`는 빈 결과로 graceful fallback |
+| `AUTH_SECRET_KEY` | ✅                         | JWT 서명 키                                                                                                                         |
+| `USE_PGVECTOR`    | -                          | `true`면 pgvector, 기본 `false`(JSON 저장)                                                                                          |
+| `EMBEDDING_MODEL` | -                          | 기본 `text-embedding-3-large` (dim=1536)                                                                                            |
+| `CORS_ORIGINS`    | -                          | 쉼표 구분 허용 Origin 목록                                                                                                          |
 
 프론트엔드: `VITE_API_BASE_URL` (기본 로컬 http://localhost:8000)
 
@@ -200,6 +209,8 @@ POST /api/v1/auth/login
 POST /api/v1/auth/register
 GET  /api/v1/auth/me
 
+GET /api/v1/todos                    # ★신규: 할 일 목록 조회
+
 POST /api/v1/laws/search             # 기존 5개 법령 검색 (변경 금지)
 GET  /api/v1/laws/articles/{id}
 
@@ -213,19 +224,21 @@ POST /api/v1/documents/generate       # RAG 문서 생성
 GET  /api/v1/quizzes/daily
 
 GET  /api/v1/admin/dashboard          # admin 역할 필요
+
+GET /api/v1/catalog/regulations      # ★신규: 법령/안전기준 수집 현황
 ```
 
 ---
 
 ## 6. 법령 검색 vs 안전기준 검색 차이
 
-| 항목 | 법령 검색 `/laws/search` | 안전기준 검색 `/safety-standards/search` |
-|---|---|---|
-| 검색 대상 | 5개 건설안전 법령 | source_category = `safety_standard` |
-| 기본 필터 | `law_name IN (DEFAULT_LAW_SCOPE)` | `source_category = 'safety_standard'` |
-| source_type | N/A | `rule` (산안보건기준규칙), `moel_standard_safety_guideline` |
-| 응답 구조 | `{query, answer, citations, raw_hits, results}` | `{query, results: [{source_type, source_name, article_no, ...}]}` |
-| 서비스 클래스 | `LawSearchService` | `SafetyStandardSearchService` |
+| 항목          | 법령 검색 `/laws/search`                        | 안전기준 검색 `/safety-standards/search`                          |
+| ------------- | ----------------------------------------------- | ----------------------------------------------------------------- |
+| 검색 대상     | 5개 건설안전 법령                               | source_category = `safety_standard`                               |
+| 기본 필터     | `law_name IN (DEFAULT_LAW_SCOPE)`               | `source_category = 'safety_standard'`                             |
+| source_type   | N/A                                             | `rule` (산안보건기준규칙), `moel_standard_safety_guideline`       |
+| 응답 구조     | `{query, answer, citations, raw_hits, results}` | `{query, results: [{source_type, source_name, article_no, ...}]}` |
+| 서비스 클래스 | `LawSearchService`                              | `SafetyStandardSearchService`                                     |
 
 ---
 
@@ -259,13 +272,13 @@ GET  /api/v1/admin/dashboard          # admin 역할 필요
 
 당초 설계 시 가정했던 구조와 실제 API 응답이 달라서 파서를 한 차례 수정했다. 이후 재작업 시 참고:
 
-| | 목록 조회 (lawSearch.do) | 본문 조회 (lawService.do) |
-|---|---|---|
-| 최상위 키 | `AdmRulSearch` (❌ `LawSearch` 아님) | `AdmRulService` (❌ `법령` 아님) |
-| 항목/메타 위치 | `AdmRulSearch.admrul[]` (❌ `.law[]` 아님) | `AdmRulService.행정규칙기본정보` (❌ `.기본정보` 아님) |
-| 문서 ID 필드 | `행정규칙일련번호` (lawService.do의 `ID` 파라미터로 사용. `행정규칙ID`는 내부 DB ID로 다른 값) | — |
-| 이름 필드 | `행정규칙명` | `행정규칙기본정보.행정규칙명` |
-| 조문 구조 | — | `조문내용`: **딱셔너리 배열이 아니라 문자열 배열**. `["제1장 총칙", "제1조(목적) ...", "제2조(정의) ...", ...]` 형태로, 정규식(`_ARTICLE_PATTERN`)으로 "제N조(제목) 내용"을 직접 파싱해야 함 |
+|                | 목록 조회 (lawSearch.do)                                                                       | 본문 조회 (lawService.do)                                                                                                                                                                    |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 최상위 키      | `AdmRulSearch` (❌ `LawSearch` 아님)                                                           | `AdmRulService` (❌ `법령` 아님)                                                                                                                                                             |
+| 항목/메타 위치 | `AdmRulSearch.admrul[]` (❌ `.law[]` 아님)                                                     | `AdmRulService.행정규칙기본정보` (❌ `.기본정보` 아님)                                                                                                                                       |
+| 문서 ID 필드   | `행정규칙일련번호` (lawService.do의 `ID` 파라미터로 사용. `행정규칙ID`는 내부 DB ID로 다른 값) | —                                                                                                                                                                                            |
+| 이름 필드      | `행정규칙명`                                                                                   | `행정규칙기본정보.행정규칙명`                                                                                                                                                                |
+| 조문 구조      | —                                                                                              | `조문내용`: **딱셔너리 배열이 아니라 문자열 배열**. `["제1장 총칙", "제1조(목적) ...", "제2조(정의) ...", ...]` 형태로, 정규식(`_ARTICLE_PATTERN`)으로 "제N조(제목) 내용"을 직접 파싱해야 함 |
 
 `app/utils/admrul_api_client.py`의 `_parse_admrul_text_list()`가 이 문자열 리스트 → `AdmrulArticle` 변환을 담당.
 
@@ -276,6 +289,7 @@ GET  /api/v1/admin/dashboard          # admin 역할 필요
 `ingest_admrul_safety_guidelines.py --embed` 실행 시 `_ensure_rule_chunks()`가 `source_type='rule'`인 문서 중 청크 없는 아티클을 자동으로 청크화한다. 이 로직이 빠지면 "추락" 같은 흔한 키워드도 규칙 쪼개서는 안 나옴 — 디버깅 시 가장 먼저 확인할 지점.
 
 실행 명령:
+
 ```bash
 cd backend
 python ingestion/ingest_admrul_safety_guidelines.py          # 목록 수집 + DB 저장
@@ -284,10 +298,10 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed   # 위 + 규칙 청
 
 ### 2026-06-16 기준 실제 수집 현황 (운영 DB, Supabase)
 
-| source_type | 문서 수 | 비고 |
-|---|---|---|
-| `rule` (산업안전보건기준에 관한 규칙) | 1 | 청크 722개, 임베딩 722개 (수동 보정 완료) |
-| `moel_standard_safety_guideline` | 11 | 가설공사/굴착공사/발파/벌목/산림사업/운반하역/철골공사/추락재해방지/콘크리트공사/터널공사(NATM)/해체공사. 청크·임베딩 총 429개 |
+| source_type                           | 문서 수 | 비고                                                                                                                           |
+| ------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `rule` (산업안전보건기준에 관한 규칙) | 1       | 청크 722개, 임베딩 722개 (수동 보정 완료)                                                                                      |
+| `moel_standard_safety_guideline`      | 11      | 가설공사/굴착공사/발파/벌목/산림사업/운반하역/철골공사/추락재해방지/콘크리트공사/터널공사(NATM)/해체공사. 청크·임베딩 총 429개 |
 
 신규 키워드 계열(예: 크레인작업) 추가 수집이 필요하면 `ADMRUL_QUERIES`(`admrul_ingestion_service.py`)에 쿼리 추가 후 재실행.
 
@@ -312,16 +326,16 @@ python ingestion/ingest_admrul_safety_guidelines.py --embed   # 위 + 규칙 청
 
 ## 10. 프론트엔드 API 함수 (api/admin.ts)
 
-| 함수 | 엔드포인트 | 설명 |
-|---|---|---|
-| `searchLaws(params)` | POST /laws/search | 법령 검색 |
-| `getLawArticle(id)` | GET /laws/articles/{id} | 조문 상세 |
-| `searchSafetyStandards(params)` | POST /safety-standards/search | 안전기준 검색 ★신규 |
-| `searchKosha(params)` | GET /kosha/search | KOSHA GUIDE 검색 (query/category/page/size) ★신규 |
-| `summarizeKosha(query, items)` | POST /kosha/summarize | 검색결과 상위 3건 AI 요약 (온디맨드 버튼) ★신규 |
-| `generateDocument(params)` | POST /documents/generate | 문서 생성 |
-| `getAdminDashboard(siteId)` | GET /admin/dashboard | 대시보드 |
-| `getDailyQuizzes(siteId, userId)` | GET /quizzes/daily | 퀴즈 |
+| 함수                              | 엔드포인트                    | 설명                                              |
+| --------------------------------- | ----------------------------- | ------------------------------------------------- |
+| `searchLaws(params)`              | POST /laws/search             | 법령 검색                                         |
+| `getLawArticle(id)`               | GET /laws/articles/{id}       | 조문 상세                                         |
+| `searchSafetyStandards(params)`   | POST /safety-standards/search | 안전기준 검색 ★신규                               |
+| `searchKosha(params)`             | GET /kosha/search             | KOSHA GUIDE 검색 (query/category/page/size) ★신규 |
+| `summarizeKosha(query, items)`    | POST /kosha/summarize         | 검색결과 상위 3건 AI 요약 (온디맨드 버튼) ★신규   |
+| `generateDocument(params)`        | POST /documents/generate      | 문서 생성                                         |
+| `getAdminDashboard(siteId)`       | GET /admin/dashboard          | 대시보드                                          |
+| `getDailyQuizzes(siteId, userId)` | GET /quizzes/daily            | 퀴즈                                              |
 
 ---
 
@@ -355,18 +369,19 @@ python -m pytest -q   # 61 passed (2026-06 기준)
 공식 제공하는 활용가이드, "b) 요청 메시지 명세"/"c) 응답 메시지 명세"/"d) 요청·응답 메시지 예제" 절)로
 교차검증했다. 두 출처가 일치했고, 실제 호출 결과도 동일했다.
 
-| | 가정(최초 작성) | 실제 (확인됨) |
-|---|---|---|
-| 검색어 파라미터명 | `query` | `searchValue` |
-| 필수 파라미터 | query/category/page/size | `serviceKey`, `pageNo`, `numOfRows`, `searchValue`, `category` (전부 문자열, 전부 필수) |
-| 응답 최상위 | `response.header`/`response.body` | 동일 (이 부분은 가정이 맞았음) |
-| 결과 목록 | `response.body.items.item` | 동일 |
-| item 공통 필드 | title/content/category/keywords/score/url | `category`, `content`, `doc_id`, `highlight_content`, `score`(0~1 아닌 원본 점수, 예: 69.8285), `title` |
-| item 카테고리별 추가 필드 | 고려 안 함 | **category=6(미디어)만** `keyword`(쉼표구분 문자열), `filepath`(실제 원문 URL, 예: `https://kosha.or.kr/aicuration/index.do?mode=detail&medSeq=43740`), `image_path`, `med_thumb_yn`, `media_style` 추가 제공. category=4/5/7은 이 필드들이 **존재 자체를 안 함**(빈 값이 아니라 키가 없음) |
-| 연관검색어 | 추정 없음 (item별 keywords로 대체) | `response.body.associated_word` (body 레벨 1개, 검색어 전체 기준 연관어 목록) |
-| 성공 여부 | 가정 없음 | `response.header.resultCode == "00"` (`"NORMAL_SERVICE"`). 키가 유효해도 잘못된 파라미터명을 쓰면 `resultCode: "42"`(제공기관 에러코드 "기타에러", 활용가이드 2-2절)로 응답함 — 401이 아니라서 "키가 틀렸나" 헷갈리기 쉽다 |
+|                           | 가정(최초 작성)                           | 실제 (확인됨)                                                                                                                                                                                                                                                                               |
+| ------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 검색어 파라미터명         | `query`                                   | `searchValue`                                                                                                                                                                                                                                                                               |
+| 필수 파라미터             | query/category/page/size                  | `serviceKey`, `pageNo`, `numOfRows`, `searchValue`, `category` (전부 문자열, 전부 필수)                                                                                                                                                                                                     |
+| 응답 최상위               | `response.header`/`response.body`         | 동일 (이 부분은 가정이 맞았음)                                                                                                                                                                                                                                                              |
+| 결과 목록                 | `response.body.items.item`                | 동일                                                                                                                                                                                                                                                                                        |
+| item 공통 필드            | title/content/category/keywords/score/url | `category`, `content`, `doc_id`, `highlight_content`, `score`(0~1 아닌 원본 점수, 예: 69.8285), `title`                                                                                                                                                                                     |
+| item 카테고리별 추가 필드 | 고려 안 함                                | **category=6(미디어)만** `keyword`(쉼표구분 문자열), `filepath`(실제 원문 URL, 예: `https://kosha.or.kr/aicuration/index.do?mode=detail&medSeq=43740`), `image_path`, `med_thumb_yn`, `media_style` 추가 제공. category=4/5/7은 이 필드들이 **존재 자체를 안 함**(빈 값이 아니라 키가 없음) |
+| 연관검색어                | 추정 없음 (item별 keywords로 대체)        | `response.body.associated_word` (body 레벨 1개, 검색어 전체 기준 연관어 목록)                                                                                                                                                                                                               |
+| 성공 여부                 | 가정 없음                                 | `response.header.resultCode == "00"` (`"NORMAL_SERVICE"`). 키가 유효해도 잘못된 파라미터명을 쓰면 `resultCode: "42"`(제공기관 에러코드 "기타에러", 활용가이드 2-2절)로 응답함 — 401이 아니라서 "키가 틀렸나" 헷갈리기 쉽다                                                                  |
 
 대응 (`kosha_api_client.py`):
+
 - `KoshaApiClient.search()`가 `searchValue`로 요청
 - `_parse_item()`이 `keyword`/`filepath` 필드가 있으면(category=6) 그대로 쓰고,
   없으면(category=4/5/7) `highlight_content`의 `<em class='smart'>...</em>` 강조 구간을
@@ -377,8 +392,7 @@ python -m pytest -q   # 61 passed (2026-06 기준)
 - `related_keywords`는 item이 아니라 `body.associated_word`에서 가져옴
 
 **남은 한계**: category=7(KOSHA GUIDE 등 비-미디어)에서는 원문 URL을 이 API만으로 채울 수 없다.
-`doc_id`만 표시 중. "한국산업안전보건공단_안전보건자료 링크 서비스"(별도 data.go.kr 데이터셋, ID
-15139398)가 `doc_id` → URL 매핑을 제공할 가능성이 있어 보이나 아직 확인/연동하지 않았다.
+`doc_id`만 표시 중. "한국산업안전보건공단\_안전보건자료 링크 서비스"(별도 data.go.kr 데이터셋, ID 15139398)가 `doc_id` → URL 매핑을 제공할 가능성이 있어 보이나 아직 확인/연동하지 않았다.
 
 ---
 
