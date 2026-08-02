@@ -1,7 +1,7 @@
 from pathlib import Path
 import uuid
 
-from ingestion.ingest_laws import TargetLaw, ingest_target_law, law_api_payload_to_source_document
+from ingestion.ingest_laws import TARGET_LAWS, TargetLaw, ingest_target_law, law_api_payload_to_source_document
 from app.services.embedding_service import EmbeddingService
 from app.services.law_ingestion_service import LawIngestionService, LawSourceArticle, LawSourceDocument
 
@@ -47,6 +47,26 @@ class _FakeRepo:
 
     def deactivate_other_documents(self, law_name: str, keep_document_id: int):
         pass
+
+
+def test_target_laws_include_subordinate_regulations_for_each_supported_family():
+    targets_by_name = {target.law_name: target for target in TARGET_LAWS}
+
+    expected = {
+        "산업안전보건법 시행령": "대통령령",
+        "산업안전보건법 시행규칙": "고용노동부령",
+        "시설물의 안전 및 유지관리에 관한 특별법 시행령": "대통령령",
+        "시설물의 안전 및 유지관리에 관한 특별법 시행규칙": "국토교통부령",
+        "건설산업기본법 시행령": "대통령령",
+        "건설산업기본법 시행규칙": "국토교통부령",
+        "건설기술 진흥법 시행령": "대통령령",
+        "건설기술 진흥법 시행규칙": "국토교통부령",
+        "중대재해 처벌 등에 관한 법률 시행령": "대통령령",
+    }
+
+    assert len(TARGET_LAWS) == 14
+    assert {name: targets_by_name[name].law_type for name in expected} == expected
+    assert "중대재해 처벌 등에 관한 법률 시행규칙" not in targets_by_name
 
 
 def test_ingestion_uses_document_effective_date_as_default():

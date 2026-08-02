@@ -1,0 +1,44 @@
+# 5. Database Architecture
+
+> 데이터의 구조, 관계, 제약조건을 정의합니다. 백엔드 개발의 핵심 설계 문서입니다.
+
+---
+
+## 5.1. 현재 핵심 테이블
+
+- `users`: 사용자 정보
+- `sites`: 현장 정보
+- `law_documents`: 법령/안전기준 원문 정보
+- `law_articles`: 조문 정보
+- `law_chunks`: 검색을 위한 조문 분할 단위
+- `law_embeddings`: 벡터 임베딩
+- `generated_documents`: AI가 생성한 문서
+- `law_search_logs`: 법령 검색 기록
+- `todos`: 개인 할 일
+
+## 5.2. 향후 추가될 테이블
+
+- `subscriptions`: 사용자 구독 플랜 정보
+- `payments`: 결제 기록
+- `knowledge_posts`: 'Knowledge' 페이지 콘텐츠 (블로그, 가이드)
+- `update_logs`: 'Updates' 페이지 콘텐츠 (법령 변경, 서비스 공지)
+
+## 5.3. ERD (Entity-Relationship Diagram)
+
+_(ERD 이미지를 여기에 첨부하거나 링크)_
+
+## 5.4. 주요 관계
+
+- `users` (1) : (N) `sites`
+- `law_documents` (1) : (N) `law_articles`
+- `law_articles` (1) : (N) `law_chunks`
+- `law_chunks` (1) : (1) `law_embeddings`
+- `users` (1) : (N) `generated_documents`
+- `users` (1) : (N) `todos`
+
+## 5.5. 주요 인덱싱 전략
+
+- `law_chunks.chunk_text`: Full-Text Search (pg_trgm)
+- `law_embeddings.embedding`: IVFFlat (pgvector)
+- `law_documents.source_category`, `source_type`: 복합 인덱스
+- `todos.user_id`, `due_date`: 복합 인덱스
