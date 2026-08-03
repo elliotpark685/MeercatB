@@ -45,6 +45,7 @@ export default function LawSearch() {
   const [lawScope, setLawScope] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(false);
+  const [showServerWakeMessage, setShowServerWakeMessage] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<LawSearchResult | null>(null);
 
@@ -83,9 +84,14 @@ export default function LawSearch() {
     setHistory(loadHistory());
 
     setLoading(true);
+    setShowServerWakeMessage(false);
     setError(null);
     setResult(null);
     setDetail(null);
+    const wakeTimer = window.setTimeout(
+      () => setShowServerWakeMessage(true),
+      3000,
+    );
 
     try {
       const res = await searchLaws({
@@ -100,6 +106,8 @@ export default function LawSearch() {
     } catch (err) {
       setError(err);
     } finally {
+      window.clearTimeout(wakeTimer);
+      setShowServerWakeMessage(false);
       setLoading(false);
     }
   }
@@ -190,7 +198,7 @@ export default function LawSearch() {
             </p>
             <p className="max-w-2xl text-xs leading-5 text-[#98989D]">
               결과 카드에서 출처 유형, 문서명, 조항 번호, 본문 미리보기를 한
-              번에 확인할 수 있습니다.
+              번에 확인할 수 있습니다. ※행정규칙은 통합검색에 있습니다.
             </p>
           </div>
         </div>
@@ -284,7 +292,11 @@ export default function LawSearch() {
         <LawScopeFilter selected={lawScope} onChange={setLawScope} />
       </form>
 
-      {loading && <Spinner text="법령 검색 중..." />}
+      {loading && (
+        <Spinner
+          text={showServerWakeMessage ? "서버를 준비하고 있습니다. 무료 서버의 최초 연결에는 시간이 걸릴 수 있습니다." : "법령 검색 중..."}
+        />
+      )}
       {!!error && <ErrorBox error={error} />}
 
       {!loading && hasNoResults && (
@@ -303,29 +315,29 @@ export default function LawSearch() {
               detail={`검색 조건: ${scopeLabel}`}
             >
               <div className="space-y-5">
-              {groupedResults.map(([lawName, items]) => (
-                <div key={lawName} className="space-y-3">
-                  <h2 className="text-sm font-semibold text-white flex items-center gap-2">
-                    <span
-                      className={`px-2 py-0.5 rounded-md border text-xs ${getLawBadgeColor(lawName)}`}
-                    >
-                      {lawName}
-                    </span>
-                    <span className="text-xs text-[#98989D] font-normal">
-                      {items.length}건
-                    </span>
-                  </h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {items.map((item, idx) => (
-                      <LawResultCard
-                        key={item.article_id ?? `${lawName}-${idx}`}
-                        item={item}
-                        onViewDetail={handleArticleClick}
-                      />
-                    ))}
+                {groupedResults.map(([lawName, items]) => (
+                  <div key={lawName} className="space-y-3">
+                    <h2 className="text-sm font-semibold text-white flex items-center gap-2">
+                      <span
+                        className={`px-2 py-0.5 rounded-md border text-xs ${getLawBadgeColor(lawName)}`}
+                      >
+                        {lawName}
+                      </span>
+                      <span className="text-xs text-[#98989D] font-normal">
+                        {items.length}건
+                      </span>
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {items.map((item, idx) => (
+                        <LawResultCard
+                          key={item.article_id ?? `${lawName}-${idx}`}
+                          item={item}
+                          onViewDetail={handleArticleClick}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
             </SearchResultsSection>
           )}

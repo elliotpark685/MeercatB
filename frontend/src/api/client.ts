@@ -31,6 +31,8 @@ function getStoredToken(): string | null {
 
 // 요청 인터셉터: 매 요청마다 토큰을 localStorage에서 읽어 헤더에 주입
 apiClient.interceptors.request.use((config) => {
+  if (config.url === '/api/v1/health') return config;
+
   const token = getStoredToken();
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
@@ -40,6 +42,11 @@ apiClient.interceptors.request.use((config) => {
 apiClient.interceptors.response.use(
   (res) => res,
   (err) => {
+    const isWarmupRequest = err.config?.url === '/api/v1/health';
+    if (isWarmupRequest) {
+      return Promise.reject(err);
+    }
+
     if (err.response) {
       console.error('[API Error]', err.response.status, err.response.data);
       if (err.response.status === 401) {
