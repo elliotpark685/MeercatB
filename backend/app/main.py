@@ -5,7 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.api import api_router
 from app.core.config import settings
-from app.core.database import init_db
 
 
 logger = logging.getLogger(__name__)
@@ -48,10 +47,6 @@ def create_app() -> FastAPI:
             content_length or "unknown",
         )
         return response
-
-    @app.on_event("startup")
-    def _startup() -> None:
-        init_db()
 
     app.include_router(api_router, prefix=settings.api_v1_prefix)
     return app

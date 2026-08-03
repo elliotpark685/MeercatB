@@ -83,6 +83,7 @@ export default function DocumentGenerate() {
     siteId != null ? String(siteId) : "",
   );
   const [loading, setLoading] = useState(false);
+  const [showServerWakeMessage, setShowServerWakeMessage] = useState(false);
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<GeneratedDocument | null>(null);
   const hasPremiumAccess = plan === "premium" || role === "admin";
@@ -216,8 +217,13 @@ export default function DocumentGenerate() {
     if (!canSubmit || effectiveSiteId == null) return;
 
     setLoading(true);
+    setShowServerWakeMessage(false);
     setError(null);
     setResult(null);
+    const wakeTimer = window.setTimeout(
+      () => setShowServerWakeMessage(true),
+      3000,
+    );
     try {
       const doc = await generateDocument({
         site_id: effectiveSiteId,
@@ -237,6 +243,8 @@ export default function DocumentGenerate() {
       setError(e);
       addToast("서류 생성에 실패했습니다.", "error");
     } finally {
+      window.clearTimeout(wakeTimer);
+      setShowServerWakeMessage(false);
       setLoading(false);
     }
   }
@@ -543,7 +551,11 @@ export default function DocumentGenerate() {
         </button>
       </form>
 
-      {loading && <Spinner text="AI가 문서를 생성하고 있습니다..." />}
+      {loading && (
+        <Spinner
+          text={showServerWakeMessage ? "서버를 준비하고 있습니다. 무료 서버의 최초 연결에는 시간이 걸릴 수 있습니다." : "AI가 문서를 생성하고 있습니다..."}
+        />
+      )}
       {!!error && <ErrorBox error={error} />}
 
       {result && (

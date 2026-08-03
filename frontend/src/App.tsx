@@ -20,6 +20,7 @@ import Contact from './pages/Contact';
 import LandingPage from './pages/LandingPage';
 import Pricing from './pages/Pricing';
 import TodoList from './pages/TodoList';
+import { useBackendWarmup } from './hooks/useBackendWarmup';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -55,6 +56,8 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useBackendWarmup();
+
   return (
     <ToastProvider>
       <AuthProvider>
