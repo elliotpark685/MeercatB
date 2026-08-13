@@ -62,6 +62,9 @@ export default function LandingPage() {
             <Link to="/ko/contact" className="hover:text-white">
               문의
             </Link>
+            <Link to="/publiccontent" className="hover:text-white">
+              블로그
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <Link
