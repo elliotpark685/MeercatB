@@ -31,6 +31,62 @@ body {
   min-height: 100vh;
 }
 
+/* Public knowledge / update pages: give the editorial content a clear reading rhythm. */
+/* The public content index is the only public page that pairs this 7xl wrapper
+   with an immediate editorial heading section. */
+main .max-w-7xl > section:first-child {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.25rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFF 100%);
+  box-shadow: 0 12px 32px rgb(15 23 42 / 0.05);
+}
+
+main section[aria-label] {
+  position: relative;
+}
+
+main section[aria-label]::before {
+  content: 'LATEST ARTICLES';
+  display: block;
+  margin-bottom: 1rem;
+  color: #64748B;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+main section[aria-label] article {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.02);
+}
+
+main section[aria-label] article::before {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  left: 1.5rem;
+  height: 2px;
+  background: #2563EB;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+main section[aria-label] article:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgb(37 99 235 / .35) !important;
+  box-shadow: 0 12px 24px rgb(15 23 42 / .08);
+}
+
+main section[aria-label] article:hover::before { transform: scaleX(1); }
+
 .public-article h2 { margin-top: 2.25rem; color: #0F172A; font-size: 1.5rem; font-weight: 700; line-height: 1.35; }
 .public-article p { margin-top: 1rem; }
 .public-article ul, .public-article ol { margin: 1rem 0 0 1.25rem; }
@@ -38,6 +94,18 @@ body {
 .public-article ol { list-style: decimal; }
 .public-article li { margin-top: .5rem; padding-left: .25rem; }
 .public-article blockquote { margin-top: 1.5rem; border-left: 3px solid #2563EB; padding-left: 1rem; color: #475569; }
+.public-article table { width: 100%; margin-top: 1.25rem; border: 1px solid #3A3A3C; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: .75rem; color: #E5E5EA; }
+.public-article th, .public-article td { padding: .75rem 1rem; text-align: left; vertical-align: top; line-height: 1.6; }
+.public-article th { background: #2C2C2E; color: #FFFFFF; font-weight: 600; }
+.public-article td { border-top: 1px solid #3A3A3C; }
+.public-article th + th, .public-article td + td { border-left: 1px solid #3A3A3C; }
+.public-article tbody tr:nth-child(even) { background: rgba(255, 255, 255, .035); }
+
+@media (max-width: 640px) {
+  main .max-w-7xl > section:first-child { display: block; padding: 1.5rem; }
+  .public-article table { display: block; overflow-x: auto; white-space: nowrap; }
+  .public-article th, .public-article td { padding: .625rem .75rem; }
+}
 
 /* 스크롤바 */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
