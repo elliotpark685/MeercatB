@@ -31,6 +31,14 @@ body {
   min-height: 100vh;
 }
 
+.public-article h2 { margin-top: 2.25rem; color: #0F172A; font-size: 1.5rem; font-weight: 700; line-height: 1.35; }
+.public-article p { margin-top: 1rem; }
+.public-article ul, .public-article ol { margin: 1rem 0 0 1.25rem; }
+.public-article ul { list-style: disc; }
+.public-article ol { list-style: decimal; }
+.public-article li { margin-top: .5rem; padding-left: .25rem; }
+.public-article blockquote { margin-top: 1.5rem; border-left: 3px solid #2563EB; padding-left: 1rem; color: #475569; }
+
 /* 스크롤바 */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #F1F5F9; }

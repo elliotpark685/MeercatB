@@ -5,6 +5,8 @@ type SiteFooterProps = {
 };
 
 const FOOTER_LINKS = [
+  { to: '/knowledge', label: 'Knowledge', koreanLabel: '안전 지식' },
+  { to: '/updates', label: 'Updates', koreanLabel: '업데이트' },
   { to: '/about', label: 'About', koreanLabel: '서비스 소개' },
   { to: '/pricing', label: 'Pricing', koreanLabel: '요금제' },
   { to: '/contact', label: 'Contact', koreanLabel: '문의' },
