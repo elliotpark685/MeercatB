@@ -19,6 +19,7 @@ import Disclaimer from './pages/Disclaimer';
 import Contact from './pages/Contact';
 import LandingPage from './pages/LandingPage';
 import Pricing from './pages/Pricing';
+import { PublicContentDetail, PublicContentIndex } from './pages/PublicContent';
 import TodoList from './pages/TodoList';
 import { useBackendWarmup } from './hooks/useBackendWarmup';
 
@@ -65,6 +66,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/knowledge" element={<PublicContentIndex kind="knowledge" />} />
+            <Route path="/knowledge/:slug" element={<PublicContentDetail kind="knowledge" />} />
+            <Route path="/updates" element={<PublicContentIndex kind="updates" />} />
+            <Route path="/updates/:slug" element={<PublicContentDetail kind="updates" />} />
             <Route path="/about" element={<About />} />
             <Route path="/ko/about" element={<About locale="ko" />} />
             <Route path="/privacy" element={<Privacy locale="en" />} />
