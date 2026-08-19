@@ -1,0 +1,599 @@
+﻿[
+    {
+        "id":  1,
+        "query":  "작업장 바닥의 전도 위험은 어떻게 막아야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제3조",
+        "expected_keywords":  [
+                                  "전도",
+                                  "바닥"
+                              ],
+        "category":  "전도",
+        "expected_article_id":  61
+    },
+    {
+        "id":  2,
+        "query":  "현장 통로 조명 설치 기준을 알려줘",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제21조",
+        "expected_keywords":  [
+                                  "통로",
+                                  "조명"
+                              ],
+        "category":  "통로",
+        "expected_article_id":  80
+    },
+    {
+        "id":  3,
+        "query":  "가설통로는 어떤 구조여야 합니까?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제23조",
+        "expected_keywords":  [
+                                  "가설통로",
+                                  "구조"
+                              ],
+        "category":  "통로",
+        "expected_article_id":  82
+    },
+    {
+        "id":  4,
+        "query":  "사다리식 통로의 안전 구조를 확인하고 싶어요",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제24조",
+        "expected_keywords":  [
+                                  "사다리식 통로",
+                                  "구조"
+                              ],
+        "category":  "통로",
+        "expected_article_id":  83
+    },
+    {
+        "id":  5,
+        "query":  "계단 난간은 반드시 설치해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제30조",
+        "expected_keywords":  [
+                                  "계단",
+                                  "난간"
+                              ],
+        "category":  "통로",
+        "expected_article_id":  4143
+    },
+    {
+        "id":  6,
+        "query":  "보호구 지급에 관한 사업주 의무는 무엇인가요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제32조",
+        "expected_keywords":  [
+                                  "보호구",
+                                  "지급"
+                              ],
+        "category":  "보호구",
+        "expected_article_id":  90
+    },
+    {
+        "id":  7,
+        "query":  "지급한 안전모와 보호구 관리는 어떻게 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제33조",
+        "expected_keywords":  [
+                                  "보호구",
+                                  "관리"
+                              ],
+        "category":  "보호구",
+        "expected_article_id":  91
+    },
+    {
+        "id":  8,
+        "query":  "강풍이 불 때 고소 작업을 계속해도 되나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제37조",
+        "expected_keywords":  [
+                                  "강풍",
+                                  "작업 중지"
+                              ],
+        "category":  "고소작업",
+        "expected_article_id":  95
+    },
+    {
+        "id":  9,
+        "query":  "작업 전 사전조사와 작업계획서는 언제 작성하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제38조",
+        "expected_keywords":  [
+                                  "사전조사",
+                                  "작업계획서"
+                              ],
+        "category":  "위험성평가",
+        "expected_article_id":  96
+    },
+    {
+        "id":  10,
+        "query":  "현장 작업지휘자는 언제 지정해야 합니까?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제39조",
+        "expected_keywords":  [
+                                  "작업지휘자",
+                                  "지정"
+                              ],
+        "category":  "관리감독",
+        "expected_article_id":  97
+    },
+    {
+        "id":  11,
+        "query":  "높은 곳 추락 사고를 막기 위한 기본 조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제42조",
+        "expected_keywords":  [
+                                  "추락",
+                                  "방지"
+                              ],
+        "category":  "추락",
+        "expected_article_id":  100
+    },
+    {
+        "id":  12,
+        "query":  "바닥 개구부에는 어떤 방호 조치를 해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제43조",
+        "expected_keywords":  [
+                                  "개구부",
+                                  "방호"
+                              ],
+        "category":  "추락",
+        "expected_article_id":  101
+    },
+    {
+        "id":  13,
+        "query":  "안전대 부착설비 설치 기준이 궁금합니다",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제44조",
+        "expected_keywords":  [
+                                  "안전대",
+                                  "부착설비"
+                              ],
+        "category":  "추락",
+        "expected_article_id":  102
+    },
+    {
+        "id":  14,
+        "query":  "지붕 위 작업에서 추락 위험을 줄이는 방법은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제45조",
+        "expected_keywords":  [
+                                  "지붕",
+                                  "추락"
+                              ],
+        "category":  "추락",
+        "expected_article_id":  103
+    },
+    {
+        "id":  15,
+        "query":  "토사 붕괴 위험이 있는 장소의 안전 조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제50조",
+        "expected_keywords":  [
+                                  "토사",
+                                  "붕괴"
+                              ],
+        "category":  "붕괴",
+        "expected_article_id":  108
+    },
+    {
+        "id":  16,
+        "query":  "구축물 안전성 평가는 언제 해야 합니까?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제52조",
+        "expected_keywords":  [
+                                  "구축물",
+                                  "안전성 평가"
+                              ],
+        "category":  "붕괴",
+        "expected_article_id":  110
+    },
+    {
+        "id":  17,
+        "query":  "작업발판 최대 적재하중 기준은 어디에 있나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제55조",
+        "expected_keywords":  [
+                                  "작업발판",
+                                  "최대적재하중"
+                              ],
+        "category":  "작업발판",
+        "expected_article_id":  113
+    },
+    {
+        "id":  18,
+        "query":  "작업발판 구조 요건을 알려주세요",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제56조",
+        "expected_keywords":  [
+                                  "작업발판",
+                                  "구조"
+                              ],
+        "category":  "작업발판",
+        "expected_article_id":  114
+    },
+    {
+        "id":  19,
+        "query":  "비계 조립 해체 변경 작업의 준수사항은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제57조",
+        "expected_keywords":  [
+                                  "비계",
+                                  "조립 해체"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  115
+    },
+    {
+        "id":  20,
+        "query":  "비계 점검과 보수는 어떻게 해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제58조",
+        "expected_keywords":  [
+                                  "비계",
+                                  "점검"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  116
+    },
+    {
+        "id":  21,
+        "query":  "강관비계를 조립할 때 지켜야 할 안전수칙은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제59조",
+        "expected_keywords":  [
+                                  "강관비계",
+                                  "조립"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  117
+    },
+    {
+        "id":  22,
+        "query":  "달비계는 어떤 구조를 갖춰야 합니까?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제63조",
+        "expected_keywords":  [
+                                  "달비계",
+                                  "구조"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  121
+    },
+    {
+        "id":  23,
+        "query":  "달비계 사용 전 점검 사항은 무엇인가요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제64조",
+        "expected_keywords":  [
+                                  "달비계",
+                                  "점검"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  122
+    },
+    {
+        "id":  24,
+        "query":  "이동식비계 안전 기준을 알려줘",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제68조",
+        "expected_keywords":  [
+                                  "이동식비계"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  126
+    },
+    {
+        "id":  25,
+        "query":  "시스템비계 구조 기준은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제69조",
+        "expected_keywords":  [
+                                  "시스템비계",
+                                  "구조"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  127
+    },
+    {
+        "id":  26,
+        "query":  "시스템비계 조립 작업 시 준수사항을 알려줘",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제70조",
+        "expected_keywords":  [
+                                  "시스템비계",
+                                  "조립"
+                              ],
+        "category":  "비계",
+        "expected_article_id":  128
+    },
+    {
+        "id":  27,
+        "query":  "국소배기장치 후드 설치 기준이 궁금합니다",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제72조",
+        "expected_keywords":  [
+                                  "후드",
+                                  "국소배기"
+                              ],
+        "category":  "환기",
+        "expected_article_id":  129
+    },
+    {
+        "id":  28,
+        "query":  "환기 덕트에 관한 안전 기준은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제73조",
+        "expected_keywords":  [
+                                  "덕트",
+                                  "환기"
+                              ],
+        "category":  "환기",
+        "expected_article_id":  130
+    },
+    {
+        "id":  29,
+        "query":  "배풍기 설치와 사용 기준을 알려주세요",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제74조",
+        "expected_keywords":  [
+                                  "배풍기"
+                              ],
+        "category":  "환기",
+        "expected_article_id":  131
+    },
+    {
+        "id":  30,
+        "query":  "환기장치는 작업 중 어떻게 가동해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제78조",
+        "expected_keywords":  [
+                                  "환기장치",
+                                  "가동"
+                              ],
+        "category":  "환기",
+        "expected_article_id":  135
+    },
+    {
+        "id":  31,
+        "query":  "기계 운전 시작 전에는 어떤 조치를 해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제89조",
+        "expected_keywords":  [
+                                  "운전 시작 전",
+                                  "조치"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  147
+    },
+    {
+        "id":  32,
+        "query":  "정비 작업 중 기계 운전을 정지해야 하는 기준은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제92조",
+        "expected_keywords":  [
+                                  "정비",
+                                  "운전정지"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  150
+    },
+    {
+        "id":  33,
+        "query":  "기계 방호장치를 임의로 해체해도 되나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제93조",
+        "expected_keywords":  [
+                                  "방호장치",
+                                  "해체"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  151
+    },
+    {
+        "id":  34,
+        "query":  "회전기계 작업 때 장갑 착용이 금지되는 경우는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제95조",
+        "expected_keywords":  [
+                                  "장갑",
+                                  "사용 금지"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  153
+    },
+    {
+        "id":  35,
+        "query":  "원형톱 톱날 접촉 사고 예방 장치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제101조",
+        "expected_keywords":  [
+                                  "원형톱",
+                                  "톱날"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  159
+    },
+    {
+        "id":  36,
+        "query":  "프레스 작업의 위험 방지 조치는 무엇인가요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제103조",
+        "expected_keywords":  [
+                                  "프레스",
+                                  "위험 방지"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  161
+    },
+    {
+        "id":  37,
+        "query":  "양중기 정격하중 표시는 어떻게 해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제133조",
+        "expected_keywords":  [
+                                  "양중기",
+                                  "정격하중"
+                              ],
+        "category":  "양중",
+        "expected_article_id":  190
+    },
+    {
+        "id":  38,
+        "query":  "크레인 작업을 할 때 필요한 조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제146조",
+        "expected_keywords":  [
+                                  "크레인",
+                                  "작업"
+                              ],
+        "category":  "양중",
+        "expected_article_id":  203
+    },
+    {
+        "id":  39,
+        "query":  "와이어로프 안전계수 기준은 어디에 있나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제163조",
+        "expected_keywords":  [
+                                  "와이어로프",
+                                  "안전계수"
+                              ],
+        "category":  "양중",
+        "expected_article_id":  219
+    },
+    {
+        "id":  40,
+        "query":  "훅과 샤클의 안전계수는 어떻게 관리하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제164조",
+        "expected_keywords":  [
+                                  "훅",
+                                  "샤클"
+                              ],
+        "category":  "양중",
+        "expected_article_id":  220
+    },
+    {
+        "id":  41,
+        "query":  "손상된 섬유로프는 사용해도 되나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제169조",
+        "expected_keywords":  [
+                                  "섬유로프",
+                                  "사용금지"
+                              ],
+        "category":  "양중",
+        "expected_article_id":  225
+    },
+    {
+        "id":  42,
+        "query":  "차량계 하역운반기계 전도 방지 조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제171조",
+        "expected_keywords":  [
+                                  "차량계",
+                                  "전도"
+                              ],
+        "category":  "차량계",
+        "expected_article_id":  227
+    },
+    {
+        "id":  43,
+        "query":  "지게차 화물 적재 작업 시 주의사항은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제173조",
+        "expected_keywords":  [
+                                  "화물적재",
+                                  "지게차"
+                              ],
+        "category":  "차량계",
+        "expected_article_id":  229
+    },
+    {
+        "id":  44,
+        "query":  "차량계 하역운반기계를 수리할 때 조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제176조",
+        "expected_keywords":  [
+                                  "수리",
+                                  "차량계"
+                              ],
+        "category":  "차량계",
+        "expected_article_id":  232
+    },
+    {
+        "id":  45,
+        "query":  "지게차 헤드가드 설치 기준은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제180조",
+        "expected_keywords":  [
+                                  "헤드가드",
+                                  "지게차"
+                              ],
+        "category":  "차량계",
+        "expected_article_id":  236
+    },
+    {
+        "id":  46,
+        "query":  "지게차 좌석 안전띠는 반드시 착용해야 하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제183조",
+        "expected_keywords":  [
+                                  "좌석 안전띠"
+                              ],
+        "category":  "차량계",
+        "expected_article_id":  239
+    },
+    {
+        "id":  47,
+        "query":  "고소작업대 설치 시 지켜야 할 안전조치는?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제186조",
+        "expected_keywords":  [
+                                  "고소작업대",
+                                  "설치"
+                              ],
+        "category":  "고소작업",
+        "expected_article_id":  242
+    },
+    {
+        "id":  48,
+        "query":  "컨베이어 이탈 방지 장치는 어떻게 설치하나요?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제191조",
+        "expected_keywords":  [
+                                  "컨베이어",
+                                  "이탈"
+                              ],
+        "category":  "기계",
+        "expected_article_id":  247
+    },
+    {
+        "id":  49,
+        "query":  "차량계 건설기계의 낙하물 보호구조 기준은?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제198조",
+        "expected_keywords":  [
+                                  "건설기계",
+                                  "낙하물"
+                              ],
+        "category":  "건설기계",
+        "expected_article_id":  254
+    },
+    {
+        "id":  50,
+        "query":  "굴착기 붐이 내려오는 위험을 방지하려면?",
+        "expected_law":  "산업안전보건기준에 관한 규칙",
+        "expected_article":  "제205조",
+        "expected_keywords":  [
+                                  "붐",
+                                  "강하"
+                              ],
+        "category":  "건설기계",
+        "expected_article_id":  261
+    }
+]

@@ -173,6 +173,7 @@ def _run_embedding() -> None:
                     chunk_id=chunk.id,
                     embedding_model=embedding_model,
                     embedding=vec,
+                    embedding_vector=vec,
                 )
                 db.add(emb)
                 if (i + 1) % 50 == 0:

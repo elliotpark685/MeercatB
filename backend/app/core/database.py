@@ -13,6 +13,20 @@ Base = declarative_base(metadata=MetaData(schema=settings.db_schema))
 logger = logging.getLogger(__name__)
 
 
+def import_all_models() -> None:
+    """Register every ORM model before SQLAlchemy configures relationships."""
+    from app.models.generated_document import GeneratedDocument  # noqa: F401
+    from app.models.law_article import LawArticle  # noqa: F401
+    from app.models.law_chunk import LawChunk  # noqa: F401
+    from app.models.law_document import LawDocument  # noqa: F401
+    from app.models.law_embedding import LawEmbedding  # noqa: F401
+    from app.models.law_search_log import LawSearchLog  # noqa: F401
+    from app.models.safety_quiz import SafetyQuiz  # noqa: F401
+    from app.models.site import Site  # noqa: F401
+    from app.models.todo import Todo  # noqa: F401
+    from app.models.user import User  # noqa: F401
+
+
 def get_engine():
     global _engine
     if _engine is None:
@@ -68,16 +82,7 @@ def create_schema_if_not_exists() -> bool:
 
 def init_db() -> None:
     # Import all model modules before create_all so metadata is complete.
-    from app.models.generated_document import GeneratedDocument  # noqa: F401
-    from app.models.law_article import LawArticle  # noqa: F401
-    from app.models.law_chunk import LawChunk  # noqa: F401
-    from app.models.law_document import LawDocument  # noqa: F401
-    from app.models.law_embedding import LawEmbedding  # noqa: F401
-    from app.models.law_search_log import LawSearchLog  # noqa: F401
-    from app.models.safety_quiz import SafetyQuiz  # noqa: F401
-    from app.models.site import Site  # noqa: F401
-    from app.models.todo import Todo  # noqa: F401
-    from app.models.user import User  # noqa: F401
+    import_all_models()
 
     create_vector_extension()
     create_schema_if_not_exists()

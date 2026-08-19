@@ -1,0 +1,4602 @@
+{
+  "evaluation_type": "scoped",
+  "scope": "산업안전보건기준에 관한 규칙",
+  "latency_scope": "retrieval_only",
+  "config": {
+    "top_k": 5,
+    "law_scope": [
+      "산업안전보건기준에 관한 규칙"
+    ]
+  },
+  "metrics": {
+    "total_queries": 50,
+    "hit_at_1": 0.42,
+    "hit_at_3": 0.48,
+    "hit_at_5": 0.5,
+    "mrr": 0.45399999999999996,
+    "average_latency_ms": 4086.5815999999995,
+    "no_result_rate": 0.0
+  },
+  "pre_threshold_metrics": {
+    "total_queries": 50,
+    "hit_at_1": 0.58,
+    "hit_at_3": 0.74,
+    "hit_at_5": 0.8,
+    "mrr": 0.675,
+    "average_latency_ms": 3518.6138
+  },
+  "threshold_simulation": {
+    "0.5": {
+      "total_queries": 50,
+      "hit_at_1": 0.56,
+      "hit_at_3": 0.72,
+      "hit_at_5": 0.78,
+      "mrr": 0.655,
+      "average_latency_ms": 3518.6138,
+      "no_result_rate": 0.0
+    },
+    "0.6": {
+      "total_queries": 50,
+      "hit_at_1": 0.56,
+      "hit_at_3": 0.64,
+      "hit_at_5": 0.64,
+      "mrr": 0.6,
+      "average_latency_ms": 3518.6138,
+      "no_result_rate": 0.0
+    },
+    "0.7": {
+      "total_queries": 50,
+      "hit_at_1": 0.54,
+      "hit_at_3": 0.62,
+      "hit_at_5": 0.62,
+      "mrr": 0.58,
+      "average_latency_ms": 3518.6138,
+      "no_result_rate": 0.0
+    },
+    "0.8": {
+      "total_queries": 50,
+      "hit_at_1": 0.42,
+      "hit_at_3": 0.48,
+      "hit_at_5": 0.5,
+      "mrr": 0.45399999999999996,
+      "average_latency_ms": 3518.6138,
+      "no_result_rate": 0.0
+    }
+  },
+  "drop_analysis": {
+    "retrieved_then_filtered": 16,
+    "not_retrieved_pre_threshold": 10,
+    "production_no_result": 0
+  },
+  "diagnostic_results": [
+    {
+      "id": 1,
+      "query": "작업장 바닥의 전도 위험은 어떻게 막아야 하나요?",
+      "expected_article_id": 61,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 61,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제3조",
+          "article_title": "전도의 방지",
+          "score": 0.6574,
+          "vector_score": 0.591246713093348
+        },
+        {
+          "article_id": 259,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제203조",
+          "article_title": "안전도 등의 준수",
+          "score": 0.6286,
+          "vector_score": 0.49550366963535397
+        },
+        {
+          "article_id": 447,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제390조",
+          "article_title": "하역작업장의 조치기준",
+          "score": 0.5492,
+          "vector_score": 0.563895957263387
+        },
+        {
+          "article_id": 255,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제199조",
+          "article_title": "전도 등의 방지",
+          "score": 0.5389,
+          "vector_score": 0.529714096019258
+        },
+        {
+          "article_id": 69,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제10조",
+          "article_title": "작업장의 창문",
+          "score": 0.5378,
+          "vector_score": 0.525947088669915
+        }
+      ],
+      "expected_score": 0.6574,
+      "latency_ms": 4305.98
+    },
+    {
+      "id": 2,
+      "query": "현장 통로 조명 설치 기준을 알려줘",
+      "expected_article_id": 80,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 81,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제22조",
+          "article_title": "통로의 설치",
+          "score": 0.676,
+          "vector_score": 0.542286668226439
+        },
+        {
+          "article_id": 235,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제179조",
+          "article_title": "전조등 등의 설치",
+          "score": 0.6646,
+          "vector_score": 0.50424554944789
+        },
+        {
+          "article_id": 84,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제25조",
+          "article_title": "갱내통로 등의 위험 방지",
+          "score": 0.6594,
+          "vector_score": 0.48685753576821
+        },
+        {
+          "article_id": 253,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제197조",
+          "article_title": "전조등의 설치",
+          "score": 0.6562,
+          "vector_score": 0.47629797736106705
+        },
+        {
+          "article_id": 83,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제24조",
+          "article_title": "사다리식 통로 등의 구조",
+          "score": 0.6505,
+          "vector_score": 0.457220532468233
+        }
+      ],
+      "expected_score": 0.646,
+      "latency_ms": 3686.14
+    },
+    {
+      "id": 3,
+      "query": "가설통로는 어떤 구조여야 합니까?",
+      "expected_article_id": 82,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.1588,
+      "latency_ms": 3672.58
+    },
+    {
+      "id": 4,
+      "query": "사다리식 통로의 안전 구조를 확인하고 싶어요",
+      "expected_article_id": 83,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 83,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제24조",
+          "article_title": "사다리식 통로 등의 구조",
+          "score": 0.7889,
+          "vector_score": 0.529652180496229
+        },
+        {
+          "article_id": 81,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제22조",
+          "article_title": "통로의 설치",
+          "score": 0.6599,
+          "vector_score": 0.48864733927008097
+        },
+        {
+          "article_id": 82,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제23조",
+          "article_title": "가설통로의 구조",
+          "score": 0.6578,
+          "vector_score": 0.48150823082389005
+        },
+        {
+          "article_id": 439,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제382조",
+          "article_title": "가설통로의 설치",
+          "score": 0.6414,
+          "vector_score": 0.42708521227083396
+        },
+        {
+          "article_id": 692,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제641조",
+          "article_title": "안전한 작업방법 등의 주지",
+          "score": 0.6212,
+          "vector_score": 0.35952652954542597
+        }
+      ],
+      "expected_score": 0.7889,
+      "latency_ms": 2472.76
+    },
+    {
+      "id": 5,
+      "query": "계단 난간은 반드시 설치해야 하나요?",
+      "expected_article_id": 4143,
+      "pre_rank": 4,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 87,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제28조",
+          "article_title": "계단참의 설치",
+          "score": 0.689,
+          "vector_score": 0.43008493845649
+        },
+        {
+          "article_id": 85,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제26조",
+          "article_title": "계단의 강도",
+          "score": 0.5552,
+          "vector_score": 0.450805722389247
+        },
+        {
+          "article_id": 86,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제27조",
+          "article_title": "계단의 폭",
+          "score": 0.5523,
+          "vector_score": 0.441093173579587
+        },
+        {
+          "article_id": 4143,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제30조",
+          "article_title": "계단의 난간",
+          "score": 0.5288,
+          "vector_score": 0.36269427089887696
+        },
+        {
+          "article_id": 72,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제13조",
+          "article_title": "안전난간의 구조 및 설치요건",
+          "score": 0.4194,
+          "vector_score": 0.464662406898702
+        }
+      ],
+      "expected_score": 0.5288,
+      "latency_ms": 3874.49
+    },
+    {
+      "id": 6,
+      "query": "보호구 지급에 관한 사업주 의무는 무엇인가요?",
+      "expected_article_id": 90,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 704,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제654조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.7827,
+          "vector_score": 0.5089663183065041
+        },
+        {
+          "article_id": 90,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제32조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.7789,
+          "vector_score": 0.496264861043174
+        },
+        {
+          "article_id": 539,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제491조",
+          "article_title": "개인보호구의 지급ㆍ착용",
+          "score": 0.7679,
+          "vector_score": 0.459799047765585
+        },
+        {
+          "article_id": 685,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제634조",
+          "article_title": "가스배관공사 등에 관한 조치",
+          "score": 0.7596,
+          "vector_score": 0.432152152561155
+        },
+        {
+          "article_id": 650,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제600조",
+          "article_title": "개인보호구의 지급 등",
+          "score": 0.694,
+          "vector_score": 0.602311913954687
+        }
+      ],
+      "expected_score": 0.7789,
+      "latency_ms": 2548.51
+    },
+    {
+      "id": 7,
+      "query": "지급한 안전모와 보호구 관리는 어떻게 하나요?",
+      "expected_article_id": 91,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 90,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제32조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.5436,
+          "vector_score": 0.489786757287916
+        },
+        {
+          "article_id": 91,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제33조",
+          "article_title": "보호구의 관리",
+          "score": 0.5358,
+          "vector_score": 0.46376419781299705
+        },
+        {
+          "article_id": 55,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제644조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.5308,
+          "vector_score": 0.447159085844527
+        },
+        {
+          "article_id": 622,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제572조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.5278,
+          "vector_score": 0.437025003283146
+        },
+        {
+          "article_id": 704,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제654조",
+          "article_title": "보호구의 지급 등",
+          "score": 0.5253,
+          "vector_score": 0.42854616913798604
+        }
+      ],
+      "expected_score": 0.5358,
+      "latency_ms": 4103.74
+    },
+    {
+      "id": 8,
+      "query": "강풍이 불 때 고소 작업을 계속해도 되나요?",
+      "expected_article_id": 95,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 18,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.42,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 396,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제338조",
+          "article_title": "굴착작업 사전조사 등",
+          "score": 0.2521,
+          "vector_score": 0.373604679587752
+        },
+        {
+          "article_id": 594,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제544조",
+          "article_title": "송기량",
+          "score": 0.252,
+          "vector_score": 0.373457370764095
+        },
+        {
+          "article_id": 614,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제564조",
+          "article_title": "다습장해 예방 조치",
+          "score": 0.2494,
+          "vector_score": 0.36480364706164803
+        },
+        {
+          "article_id": 308,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제251조",
+          "article_title": "고열의 금속찌꺼기 물처리 등",
+          "score": 0.2482,
+          "vector_score": 0.360671454027612
+        }
+      ],
+      "expected_score": 0.2403,
+      "latency_ms": 3140.45
+    },
+    {
+      "id": 9,
+      "query": "작업 전 사전조사와 작업계획서는 언제 작성하나요?",
+      "expected_article_id": 96,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 537,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제489조",
+          "article_title": "석면해체ㆍ제거작업 계획 수립",
+          "score": 0.5852,
+          "vector_score": 0.550746416938148
+        },
+        {
+          "article_id": 96,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제38조",
+          "article_title": "사전조사 및 작업계획서의 작성 등",
+          "score": 0.577,
+          "vector_score": 0.523463685877092
+        },
+        {
+          "article_id": 232,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제176조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.574,
+          "vector_score": 0.513336525651169
+        },
+        {
+          "article_id": 396,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제338조",
+          "article_title": "굴착작업 사전조사 등",
+          "score": 0.5594,
+          "vector_score": 0.46452295909487296
+        },
+        {
+          "article_id": 42,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제369조",
+          "article_title": "작업 시 준수사항",
+          "score": 0.5582,
+          "vector_score": 0.46082395165132095
+        }
+      ],
+      "expected_score": 0.577,
+      "latency_ms": 2267.38
+    },
+    {
+      "id": 10,
+      "query": "현장 작업지휘자는 언제 지정해야 합니까?",
+      "expected_article_id": 97,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 97,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제39조",
+          "article_title": "작업지휘자의 지정",
+          "score": 0.1716,
+          "vector_score": 0.57211605487434
+        },
+        {
+          "article_id": 232,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제176조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.1519,
+          "vector_score": 0.506221787505484
+        },
+        {
+          "article_id": 218,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제162조",
+          "article_title": "조립 등의 작업",
+          "score": 0.1501,
+          "vector_score": 0.500423953996983
+        },
+        {
+          "article_id": 262,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제206조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.1428,
+          "vector_score": 0.47587043933325
+        },
+        {
+          "article_id": 427,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제370조",
+          "article_title": "지반 붕괴 등의 위험방지",
+          "score": 0.1423,
+          "vector_score": 0.47445415542897096
+        }
+      ],
+      "expected_score": 0.1716,
+      "latency_ms": 4020.94
+    },
+    {
+      "id": 11,
+      "query": "높은 곳 추락 사고를 막기 위한 기본 조치는?",
+      "expected_article_id": 100,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 472,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제415조",
+          "article_title": "추락ㆍ충돌ㆍ협착 등의 방지",
+          "score": 0.5821,
+          "vector_score": 0.340485294057546
+        },
+        {
+          "article_id": 100,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제42조",
+          "article_title": "추락의 방지",
+          "score": 0.5081,
+          "vector_score": 0.426829698938878
+        },
+        {
+          "article_id": 475,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제418조",
+          "article_title": "교량에서의 추락 방지",
+          "score": 0.4832,
+          "vector_score": 0.343900639889247
+        },
+        {
+          "article_id": 123,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제66조",
+          "article_title": "높은 디딤판 등의 사용금지",
+          "score": 0.38,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 103,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제45조",
+          "article_title": "지붕 위에서의 위험 방지",
+          "score": 0.2303,
+          "vector_score": 0.43430784436292
+        }
+      ],
+      "expected_score": 0.5081,
+      "latency_ms": 4204.16
+    },
+    {
+      "id": 12,
+      "query": "바닥 개구부에는 어떤 방호 조치를 해야 하나요?",
+      "expected_article_id": 101,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 101,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제43조",
+          "article_title": "개구부 등의 방호 조치",
+          "score": 0.7241,
+          "vector_score": 0.480260629802555
+        },
+        {
+          "article_id": 178,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제121조",
+          "article_title": "사출성형기 등의 방호장치",
+          "score": 0.6152,
+          "vector_score": 0.450553958766429
+        },
+        {
+          "article_id": 191,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제134조",
+          "article_title": "방호장치의 조정",
+          "score": 0.6078,
+          "vector_score": 0.425882043008762
+        },
+        {
+          "article_id": 100,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제42조",
+          "article_title": "추락의 방지",
+          "score": 0.5115,
+          "vector_score": 0.37173290044171103
+        },
+        {
+          "article_id": 151,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제93조",
+          "article_title": "방호장치의 해체 금지",
+          "score": 0.4974,
+          "vector_score": 0.39122965979589897
+        }
+      ],
+      "expected_score": 0.7241,
+      "latency_ms": 4205.09
+    },
+    {
+      "id": 13,
+      "query": "안전대 부착설비 설치 기준이 궁금합니다",
+      "expected_article_id": 102,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 102,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제44조",
+          "article_title": "안전대의 부착설비 등",
+          "score": 0.8779,
+          "vector_score": 0.5928514974914321
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.8555,
+          "vector_score": 0.518197570072482
+        },
+        {
+          "article_id": 439,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제382조",
+          "article_title": "가설통로의 설치",
+          "score": 0.8299,
+          "vector_score": 0.43303288124497397
+        },
+        {
+          "article_id": 467,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제410조",
+          "article_title": "안전난간 및 울타리의 설치 등",
+          "score": 0.7081,
+          "vector_score": 0.49363794844337605
+        },
+        {
+          "article_id": 674,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제624조",
+          "article_title": "안전대 등",
+          "score": 0.7038,
+          "vector_score": 0.479452433725965
+        }
+      ],
+      "expected_score": 0.8779,
+      "latency_ms": 3233.4
+    },
+    {
+      "id": 14,
+      "query": "지붕 위 작업에서 추락 위험을 줄이는 방법은?",
+      "expected_article_id": 103,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 103,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제45조",
+          "article_title": "지붕 위에서의 위험 방지",
+          "score": 0.8235,
+          "vector_score": 0.645052658514088
+        },
+        {
+          "article_id": 475,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제418조",
+          "article_title": "교량에서의 추락 방지",
+          "score": 0.675,
+          "vector_score": 0.538882238581704
+        },
+        {
+          "article_id": 100,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제42조",
+          "article_title": "추락의 방지",
+          "score": 0.6544,
+          "vector_score": 0.47023977048863197
+        },
+        {
+          "article_id": 472,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제415조",
+          "article_title": "추락ㆍ충돌ㆍ협착 등의 방지",
+          "score": 0.6524,
+          "vector_score": 0.46359260452294704
+        },
+        {
+          "article_id": 79,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제20조",
+          "article_title": "출입의 금지 등",
+          "score": 0.367,
+          "vector_score": 0.445643889525316
+        }
+      ],
+      "expected_score": 0.8235,
+      "latency_ms": 4207.92
+    },
+    {
+      "id": 15,
+      "query": "토사 붕괴 위험이 있는 장소의 안전 조치는?",
+      "expected_article_id": 108,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 108,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제50조",
+          "article_title": "토사등에 의한 위험 방지",
+          "score": 0.9527,
+          "vector_score": 0.5756218119483549
+        },
+        {
+          "article_id": 467,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제410조",
+          "article_title": "안전난간 및 울타리의 설치 등",
+          "score": 0.7924,
+          "vector_score": 0.374817798789147
+        },
+        {
+          "article_id": 427,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제370조",
+          "article_title": "지반 붕괴 등의 위험방지",
+          "score": 0.7386,
+          "vector_score": 0.528670645954077
+        },
+        {
+          "article_id": 110,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제52조",
+          "article_title": "구축물등의 안전성 평가",
+          "score": 0.7206,
+          "vector_score": 0.46869624884760297
+        },
+        {
+          "article_id": 409,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제352조",
+          "article_title": "출입구 부근 등의 지반 붕괴 등에 의한 위험의 방지",
+          "score": 0.7185,
+          "vector_score": 0.46175823050334897
+        }
+      ],
+      "expected_score": 0.9527,
+      "latency_ms": 3231.07
+    },
+    {
+      "id": 16,
+      "query": "구축물 안전성 평가는 언제 해야 합니까?",
+      "expected_article_id": 110,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 110,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제52조",
+          "article_title": "구축물등의 안전성 평가",
+          "score": 0.8315,
+          "vector_score": 0.6716536853880579
+        },
+        {
+          "article_id": 109,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제51조",
+          "article_title": "구축물등의 안전 유지",
+          "score": 0.6898,
+          "vector_score": 0.5882503108592769
+        },
+        {
+          "article_id": 441,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제384조",
+          "article_title": "해체작업 시 준수사항",
+          "score": 0.5194,
+          "vector_score": 0.564618358759872
+        },
+        {
+          "article_id": 111,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제53조",
+          "article_title": "계측장치의 설치 등",
+          "score": 0.4886,
+          "vector_score": 0.46197395252889895
+        },
+        {
+          "article_id": 108,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제50조",
+          "article_title": "토사등에 의한 위험 방지",
+          "score": 0.3604,
+          "vector_score": 0.42378258653269296
+        }
+      ],
+      "expected_score": 0.8315,
+      "latency_ms": 4170.84
+    },
+    {
+      "id": 17,
+      "query": "작업발판 최대 적재하중 기준은 어디에 있나요?",
+      "expected_article_id": 113,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 113,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제55조",
+          "article_title": "작업발판의 최대적재하중",
+          "score": 0.8223,
+          "vector_score": 0.641029873545987
+        },
+        {
+          "article_id": 114,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제56조",
+          "article_title": "작업발판의 구조",
+          "score": 0.5642,
+          "vector_score": 0.558217309504317
+        },
+        {
+          "article_id": 68,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제9조",
+          "article_title": "작업발판 등",
+          "score": 0.5406,
+          "vector_score": 0.47974547154578395
+        },
+        {
+          "article_id": 31,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치",
+          "score": 0.5271,
+          "vector_score": 0.43459782067235697
+        },
+        {
+          "article_id": 390,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치",
+          "score": 0.5198,
+          "vector_score": 0.41045900417097303
+        }
+      ],
+      "expected_score": 0.8223,
+      "latency_ms": 4239.33
+    },
+    {
+      "id": 18,
+      "query": "작업발판 구조 요건을 알려주세요",
+      "expected_article_id": 114,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 114,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제56조",
+          "article_title": "작업발판의 구조",
+          "score": 0.7751,
+          "vector_score": 0.483553778708561
+        },
+        {
+          "article_id": 390,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치",
+          "score": 0.7706,
+          "vector_score": 0.468806497435558
+        },
+        {
+          "article_id": 113,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제55조",
+          "article_title": "작업발판의 최대적재하중",
+          "score": 0.7655,
+          "vector_score": 0.451667179813785
+        },
+        {
+          "article_id": 124,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제66조의2",
+          "article_title": "걸침비계의 구조",
+          "score": 0.749,
+          "vector_score": 0.39651277954964503
+        },
+        {
+          "article_id": 121,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제63조",
+          "article_title": "달비계의 구조",
+          "score": 0.7396,
+          "vector_score": 0.36545175708557
+        }
+      ],
+      "expected_score": 0.7751,
+      "latency_ms": 3353.98
+    },
+    {
+      "id": 19,
+      "query": "비계 조립 해체 변경 작업의 준수사항은?",
+      "expected_article_id": 115,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 115,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제57조",
+          "article_title": "비계 등의 조립ㆍ해체 및 변경",
+          "score": 0.9039,
+          "vector_score": 0.5240605903704509
+        },
+        {
+          "article_id": 116,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제58조",
+          "article_title": "비계의 점검 및 보수",
+          "score": 0.8903,
+          "vector_score": 0.478574339279759
+        },
+        {
+          "article_id": 117,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제59조",
+          "article_title": "강관비계 조립 시의 준수사항",
+          "score": 0.7801,
+          "vector_score": 0.500174025427617
+        },
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.695,
+          "vector_score": 0.605488109659463
+        },
+        {
+          "article_id": 393,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제333조",
+          "article_title": "조립ㆍ해체 등 작업 시의 준수사항",
+          "score": 0.6813,
+          "vector_score": 0.559910634182444
+        }
+      ],
+      "expected_score": 0.9039,
+      "latency_ms": 4077.44
+    },
+    {
+      "id": 20,
+      "query": "비계 점검과 보수는 어떻게 해야 하나요?",
+      "expected_article_id": 116,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 118,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제60조",
+          "article_title": "강관비계의 구조",
+          "score": 0.614,
+          "vector_score": 0.335519968169133
+        },
+        {
+          "article_id": 116,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제58조",
+          "article_title": "비계의 점검 및 보수",
+          "score": 0.5557,
+          "vector_score": 0.530089849385292
+        },
+        {
+          "article_id": 122,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제64조",
+          "article_title": "달비계의 점검 및 보수",
+          "score": 0.5295,
+          "vector_score": 0.44283019951730895
+        },
+        {
+          "article_id": 112,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제54조",
+          "article_title": "비계의 재료",
+          "score": 0.5133,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 120,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제62조",
+          "article_title": "강관틀비계",
+          "score": 0.5091,
+          "vector_score": 0.374636895225568
+        }
+      ],
+      "expected_score": 0.5557,
+      "latency_ms": 3884.66
+    },
+    {
+      "id": 21,
+      "query": "강관비계를 조립할 때 지켜야 할 안전수칙은?",
+      "expected_article_id": 117,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 117,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제59조",
+          "article_title": "강관비계 조립 시의 준수사항",
+          "score": 0.3635,
+          "vector_score": 0.6282547821120861
+        },
+        {
+          "article_id": 392,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조의2",
+          "article_title": "동바리 유형에 따른 동바리 조립 시의 안전조치",
+          "score": 0.3152,
+          "vector_score": 0.46722293321972297
+        },
+        {
+          "article_id": 720,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제670조",
+          "article_title": "농약원재료 방제작업 시의 조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 528,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제471조",
+          "article_title": "설비기준",
+          "score": 0.175,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 392,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조의2",
+          "article_title": "동바리 유형에 따른 동바리 조립 시의 안전조치",
+          "score": 0.175,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.3635,
+      "latency_ms": 3600.07
+    },
+    {
+      "id": 22,
+      "query": "달비계는 어떤 구조를 갖춰야 합니까?",
+      "expected_article_id": 121,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 254,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제198조",
+          "article_title": "낙하물 보호구조",
+          "score": 0.3675,
+          "vector_score": 0.29172350322476304
+        },
+        {
+          "article_id": 254,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제198조",
+          "article_title": "낙하물 보호구조",
+          "score": 0.28,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 388,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조",
+          "article_title": "조립도",
+          "score": 0.219,
+          "vector_score": 0.263458641337475
+        },
+        {
+          "article_id": 224,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제168조",
+          "article_title": "변형되어 있는 훅ㆍ샤클 등의 사용금지 등",
+          "score": 0.2185,
+          "vector_score": 0.26154818731180696
+        },
+        {
+          "article_id": 223,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제167조",
+          "article_title": "늘어난 달기체인 등의 사용 금지",
+          "score": 0.1402,
+          "vector_score": 0.467361682692532
+        }
+      ],
+      "expected_score": 0.1292,
+      "latency_ms": 4386.27
+    },
+    {
+      "id": 23,
+      "query": "달비계 사용 전 점검 사항은 무엇인가요?",
+      "expected_article_id": 122,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 122,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제64조",
+          "article_title": "달비계의 점검 및 보수",
+          "score": 0.7238,
+          "vector_score": 0.546001545282162
+        },
+        {
+          "article_id": 223,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제167조",
+          "article_title": "늘어난 달기체인 등의 사용 금지",
+          "score": 0.7128,
+          "vector_score": 0.5094927153521309
+        },
+        {
+          "article_id": 603,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제553조",
+          "article_title": "사용 전 점검 등",
+          "score": 0.6986,
+          "vector_score": 0.462014891366339
+        },
+        {
+          "article_id": 123,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제66조",
+          "article_title": "높은 디딤판 등의 사용금지",
+          "score": 0.6937,
+          "vector_score": 0.445512934777906
+        },
+        {
+          "article_id": 498,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제441조",
+          "article_title": "사용 전 점검 등",
+          "score": 0.6905,
+          "vector_score": 0.43486500944962003
+        }
+      ],
+      "expected_score": 0.7238,
+      "latency_ms": 2855.73
+    },
+    {
+      "id": 24,
+      "query": "이동식비계 안전 기준을 알려줘",
+      "expected_article_id": 126,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 126,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제68조",
+          "article_title": "이동식비계",
+          "score": 0.8031,
+          "vector_score": 0.577062250277105
+        },
+        {
+          "article_id": 320,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제263조",
+          "article_title": "파열판 및 안전밸브의 직렬설치",
+          "score": 0.5993,
+          "vector_score": 0.481157760170714
+        },
+        {
+          "article_id": 259,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제203조",
+          "article_title": "안전도 등의 준수",
+          "score": 0.5981,
+          "vector_score": 0.476862044231704
+        },
+        {
+          "article_id": 219,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제163조",
+          "article_title": "와이어로프 등 달기구의 안전계수",
+          "score": 0.5969,
+          "vector_score": 0.472968340560064
+        },
+        {
+          "article_id": 459,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제402조",
+          "article_title": "양하작업 시의 안전조치",
+          "score": 0.5954,
+          "vector_score": 0.468125898891111
+        }
+      ],
+      "expected_score": 0.8031,
+      "latency_ms": 2634.47
+    },
+    {
+      "id": 25,
+      "query": "시스템비계 구조 기준은?",
+      "expected_article_id": 127,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.6812,
+          "vector_score": 0.55977153120063
+        },
+        {
+          "article_id": 127,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제69조",
+          "article_title": "시스템 비계의 구조",
+          "score": 0.6779,
+          "vector_score": 0.548632564945398
+        },
+        {
+          "article_id": 3,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.6567,
+          "vector_score": 0.47793244105910904
+        },
+        {
+          "article_id": 124,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제66조의2",
+          "article_title": "걸침비계의 구조",
+          "score": 0.6488,
+          "vector_score": 0.451486305889496
+        },
+        {
+          "article_id": 118,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제60조",
+          "article_title": "강관비계의 구조",
+          "score": 0.6458,
+          "vector_score": 0.44164819114126197
+        }
+      ],
+      "expected_score": 0.6779,
+      "latency_ms": 2659.21
+    },
+    {
+      "id": 26,
+      "query": "시스템비계 조립 작업 시 준수사항을 알려줘",
+      "expected_article_id": 128,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.9077,
+          "vector_score": 0.692397998424629
+        },
+        {
+          "article_id": 3,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.8725,
+          "vector_score": 0.575026681033322
+        },
+        {
+          "article_id": 117,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제59조",
+          "article_title": "강관비계 조립 시의 준수사항",
+          "score": 0.7005,
+          "vector_score": 0.46835202645821306
+        },
+        {
+          "article_id": 115,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제57조",
+          "article_title": "비계 등의 조립ㆍ해체 및 변경",
+          "score": 0.6984,
+          "vector_score": 0.461345733378166
+        },
+        {
+          "article_id": 393,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제333조",
+          "article_title": "조립ㆍ해체 등 작업 시의 준수사항",
+          "score": 0.6977,
+          "vector_score": 0.45883555355501904
+        }
+      ],
+      "expected_score": 0.9077,
+      "latency_ms": 2632.51
+    },
+    {
+      "id": 27,
+      "query": "국소배기장치 후드 설치 기준이 궁금합니다",
+      "expected_article_id": 129,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 550,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제500조",
+          "article_title": "국소배기장치의 성능 등",
+          "score": 0.8737,
+          "vector_score": 0.579092820672845
+        },
+        {
+          "article_id": 129,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제72조",
+          "article_title": "후드",
+          "score": 0.84,
+          "vector_score": 0.46679117144334004
+        },
+        {
+          "article_id": 659,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제609조",
+          "article_title": "국소배기장치의 성능",
+          "score": 0.7232,
+          "vector_score": 0.544015545057386
+        },
+        {
+          "article_id": 511,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제454조",
+          "article_title": "국소배기장치의 설치ㆍ성능",
+          "score": 0.7216,
+          "vector_score": 0.538745529976244
+        },
+        {
+          "article_id": 657,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제607조",
+          "article_title": "국소배기장치의 설치",
+          "score": 0.7205,
+          "vector_score": 0.534913392753535
+        }
+      ],
+      "expected_score": 0.84,
+      "latency_ms": 2973.59
+    },
+    {
+      "id": 28,
+      "query": "환기 덕트에 관한 안전 기준은?",
+      "expected_article_id": 130,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 31,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치",
+          "score": 0.7,
+          "vector_score": 0.46669866693364404
+        },
+        {
+          "article_id": 459,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제402조",
+          "article_title": "양하작업 시의 안전조치",
+          "score": 0.6981,
+          "vector_score": 0.46021409503243704
+        },
+        {
+          "article_id": 320,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제263조",
+          "article_title": "파열판 및 안전밸브의 직렬설치",
+          "score": 0.6954,
+          "vector_score": 0.45149560860777704
+        },
+        {
+          "article_id": 109,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제51조",
+          "article_title": "구축물등의 안전 유지",
+          "score": 0.6883,
+          "vector_score": 0.42771992586292495
+        },
+        {
+          "article_id": 72,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제13조",
+          "article_title": "안전난간의 구조 및 설치요건",
+          "score": 0.6865,
+          "vector_score": 0.421739714357832
+        }
+      ],
+      "expected_score": 0.1224,
+      "latency_ms": 2825.25
+    },
+    {
+      "id": 29,
+      "query": "배풍기 설치와 사용 기준을 알려주세요",
+      "expected_article_id": 131,
+      "pre_rank": 4,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 661,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제612조",
+          "article_title": "사용 전 점검 등",
+          "score": 0.665,
+          "vector_score": 0.350033244674017
+        },
+        {
+          "article_id": 513,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제456조",
+          "article_title": "사용 전 점검 등",
+          "score": 0.6613,
+          "vector_score": 0.337830989957303
+        },
+        {
+          "article_id": 498,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제441조",
+          "article_title": "사용 전 점검 등",
+          "score": 0.6612,
+          "vector_score": 0.337363962094392
+        },
+        {
+          "article_id": 131,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제74조",
+          "article_title": "배풍기",
+          "score": 0.5464,
+          "vector_score": 0.42125151584349896
+        },
+        {
+          "article_id": 373,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제316조",
+          "article_title": "꽂음접속기의 설치ㆍ사용 시 준수사항",
+          "score": 0.5383,
+          "vector_score": 0.39422513903993694
+        }
+      ],
+      "expected_score": 0.5464,
+      "latency_ms": 3203.93
+    },
+    {
+      "id": 30,
+      "query": "환기장치는 작업 중 어떻게 가동해야 하나요?",
+      "expected_article_id": 135,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 150,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제92조",
+          "article_title": "정비 등의 작업 시의 운전정지 등",
+          "score": 0.5654,
+          "vector_score": 0.48458074171046595
+        },
+        {
+          "article_id": 376,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제319조",
+          "article_title": "정전전로에서의 전기작업",
+          "score": 0.5607,
+          "vector_score": 0.46910429305300505
+        },
+        {
+          "article_id": 262,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제206조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.5596,
+          "vector_score": 0.46522111504821495
+        },
+        {
+          "article_id": 687,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제636조",
+          "article_title": "지하실 등의 작업",
+          "score": 0.5568,
+          "vector_score": 0.45591228802222195
+        },
+        {
+          "article_id": 483,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제426조",
+          "article_title": "다른 실내 작업장과 격리되어 있는 작업장에 대한 설비 특례",
+          "score": 0.5556,
+          "vector_score": 0.45214163680296604
+        }
+      ],
+      "expected_score": 0.3216,
+      "latency_ms": 3467.35
+    },
+    {
+      "id": 31,
+      "query": "기계 운전 시작 전에는 어떤 조치를 해야 하나요?",
+      "expected_article_id": 147,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 147,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제89조",
+          "article_title": "운전 시작 전 조치",
+          "score": 0.818,
+          "vector_score": 0.6265113491513881
+        },
+        {
+          "article_id": 150,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제92조",
+          "article_title": "정비 등의 작업 시의 운전정지 등",
+          "score": 0.6842,
+          "vector_score": 0.47246373559269506
+        },
+        {
+          "article_id": 187,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제130조",
+          "article_title": "식품가공용 기계에 의한 위험 방지",
+          "score": 0.6819,
+          "vector_score": 0.464664424304132
+        },
+        {
+          "article_id": 157,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제99조",
+          "article_title": "운전위치 이탈 시의 조치",
+          "score": 0.6816,
+          "vector_score": 0.46354113682422105
+        },
+        {
+          "article_id": 400,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제342조",
+          "article_title": "굴착기계등에 의한 위험방지",
+          "score": 0.681,
+          "vector_score": 0.46152457855847595
+        }
+      ],
+      "expected_score": 0.818,
+      "latency_ms": 3654.17
+    },
+    {
+      "id": 32,
+      "query": "정비 작업 중 기계 운전을 정지해야 하는 기준은?",
+      "expected_article_id": 150,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 150,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제92조",
+          "article_title": "정비 등의 작업 시의 운전정지 등",
+          "score": 0.9535,
+          "vector_score": 0.578240021047021
+        },
+        {
+          "article_id": 375,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제318조",
+          "article_title": "전기작업자의 제한",
+          "score": 0.8163,
+          "vector_score": 0.454464111137451
+        },
+        {
+          "article_id": 232,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제176조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.7478,
+          "vector_score": 0.559325030388523
+        },
+        {
+          "article_id": 262,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제206조",
+          "article_title": "수리 등의 작업 시 조치",
+          "score": 0.7358,
+          "vector_score": 0.519176871211256
+        },
+        {
+          "article_id": 97,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제39조",
+          "article_title": "작업지휘자의 지정",
+          "score": 0.7268,
+          "vector_score": 0.48914135812534
+        }
+      ],
+      "expected_score": 0.9535,
+      "latency_ms": 2710.7
+    },
+    {
+      "id": 33,
+      "query": "기계 방호장치를 임의로 해체해도 되나요?",
+      "expected_article_id": 151,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 187,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제130조",
+          "article_title": "식품가공용 기계에 의한 위험 방지",
+          "score": 0.7001,
+          "vector_score": 0.466961826741249
+        },
+        {
+          "article_id": 149,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제91조",
+          "article_title": "고장난 기계의 정비 등",
+          "score": 0.5655,
+          "vector_score": 0.484958759197488
+        },
+        {
+          "article_id": 358,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제301조",
+          "article_title": "전기 기계ㆍ기구 등의 충전부 방호",
+          "score": 0.5585,
+          "vector_score": 0.46172983149375
+        },
+        {
+          "article_id": 188,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제131조",
+          "article_title": "농업용기계에 의한 위험 방지",
+          "score": 0.5533,
+          "vector_score": 0.44430544193298405
+        },
+        {
+          "article_id": 359,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제302조",
+          "article_title": "전기 기계ㆍ기구의 접지",
+          "score": 0.5518,
+          "vector_score": 0.439358921288045
+        }
+      ],
+      "expected_score": 0.4373,
+      "latency_ms": 3639.44
+    },
+    {
+      "id": 34,
+      "query": "회전기계 작업 때 장갑 착용이 금지되는 경우는?",
+      "expected_article_id": 153,
+      "pre_rank": 4,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 378,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제321조",
+          "article_title": "충전전로에서의 전기작업",
+          "score": 0.6422,
+          "vector_score": 0.42951066464131105
+        },
+        {
+          "article_id": 376,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제319조",
+          "article_title": "정전전로에서의 전기작업",
+          "score": 0.5408,
+          "vector_score": 0.480214596235628
+        },
+        {
+          "article_id": 374,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제317조",
+          "article_title": "이동 및 휴대장비 등의 사용 전기 작업",
+          "score": 0.5366,
+          "vector_score": 0.466389108169066
+        },
+        {
+          "article_id": 153,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제95조",
+          "article_title": "장갑의 사용 금지",
+          "score": 0.5314,
+          "vector_score": 0.44897489698138604
+        },
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항",
+          "score": 0.5285,
+          "vector_score": 0.43948866598993297
+        }
+      ],
+      "expected_score": 0.5314,
+      "latency_ms": 3295.53
+    },
+    {
+      "id": 35,
+      "query": "원형톱 톱날 접촉 사고 예방 장치는?",
+      "expected_article_id": 159,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 159,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제101조",
+          "article_title": "원형톱기계의 톱날접촉예방장치",
+          "score": 0.8918,
+          "vector_score": 0.48366495855469605
+        },
+        {
+          "article_id": 164,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제106조",
+          "article_title": "둥근톱기계의 톱날접촉예방장치",
+          "score": 0.7669,
+          "vector_score": 0.456227047525832
+        },
+        {
+          "article_id": 166,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제108조",
+          "article_title": "띠톱기계의 날접촉예방장치 등",
+          "score": 0.6299,
+          "vector_score": 0.38853609858269
+        },
+        {
+          "article_id": 168,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제110조",
+          "article_title": "모떼기기계의 날접촉예방장치",
+          "score": 0.6225,
+          "vector_score": 0.36393162331846995
+        },
+        {
+          "article_id": 647,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제597조",
+          "article_title": "혈액노출 예방 조치",
+          "score": 0.5133,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.8918,
+      "latency_ms": 3780.72
+    },
+    {
+      "id": 36,
+      "query": "프레스 작업의 위험 방지 조치는 무엇인가요?",
+      "expected_article_id": 161,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 161,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제103조",
+          "article_title": "프레스 등의 위험 방지",
+          "score": 0.9396,
+          "vector_score": 0.643056708224096
+        },
+        {
+          "article_id": 162,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제104조",
+          "article_title": "금형조정작업의 위험 방지",
+          "score": 0.9194,
+          "vector_score": 0.57578033345775
+        },
+        {
+          "article_id": 36,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제347조",
+          "article_title": "붕괴 등의 위험 방지",
+          "score": 0.8046,
+          "vector_score": 0.582082509558322
+        },
+        {
+          "article_id": 404,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제347조",
+          "article_title": "붕괴 등의 위험 방지",
+          "score": 0.7806,
+          "vector_score": 0.5020683637390839
+        },
+        {
+          "article_id": 148,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제90조",
+          "article_title": "날아오는 가공물 등에 의한 위험의 방지",
+          "score": 0.7684,
+          "vector_score": 0.46122222093085397
+        }
+      ],
+      "expected_score": 0.9396,
+      "latency_ms": 3398.15
+    },
+    {
+      "id": 37,
+      "query": "양중기 정격하중 표시는 어떻게 해야 하나요?",
+      "expected_article_id": 190,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 190,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제133조",
+          "article_title": "정격하중 등의 표시",
+          "score": 0.618,
+          "vector_score": 0.34887767041264905
+        },
+        {
+          "article_id": 189,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제132조",
+          "article_title": "양중기",
+          "score": 0.3967,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 277,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의5",
+          "article_title": "인양작업 시 조치",
+          "score": 0.35,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 359,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제302조",
+          "article_title": "전기 기계ㆍ기구의 접지",
+          "score": 0.2333,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 218,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제162조",
+          "article_title": "조립 등의 작업",
+          "score": 0.2333,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.618,
+      "latency_ms": 4221.45
+    },
+    {
+      "id": 38,
+      "query": "크레인 작업을 할 때 필요한 조치는?",
+      "expected_article_id": 203,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 203,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제146조",
+          "article_title": "크레인 작업 시의 조치",
+          "score": 0.8083,
+          "vector_score": 0.594385638477055
+        },
+        {
+          "article_id": 196,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제139조",
+          "article_title": "크레인의 수리 등의 작업",
+          "score": 0.7953,
+          "vector_score": 0.550901686673871
+        },
+        {
+          "article_id": 201,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제144조",
+          "article_title": "건설물 등과의 사이 통로",
+          "score": 0.6689,
+          "vector_score": 0.479667879404191
+        },
+        {
+          "article_id": 144,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제86조",
+          "article_title": "탑승의 제한",
+          "score": 0.6501,
+          "vector_score": 0.41697220007138003
+        },
+        {
+          "article_id": 8,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제146조",
+          "article_title": "크레인 작업 시의 조치",
+          "score": 0.6216,
+          "vector_score": 0.5552642675878829
+        }
+      ],
+      "expected_score": 0.8083,
+      "latency_ms": 3049.47
+    },
+    {
+      "id": 39,
+      "query": "와이어로프 안전계수 기준은 어디에 있나요?",
+      "expected_article_id": 219,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 219,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제163조",
+          "article_title": "와이어로프 등 달기구의 안전계수",
+          "score": 0.7009,
+          "vector_score": 0.46967121471969697
+        },
+        {
+          "article_id": 220,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제164조",
+          "article_title": "고리걸이 훅 등의 안전계수",
+          "score": 0.6781,
+          "vector_score": 0.39358909964574795
+        },
+        {
+          "article_id": 266,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제211조",
+          "article_title": "권상용 와이어로프의 안전계수",
+          "score": 0.6777,
+          "vector_score": 0.39249510294371903
+        },
+        {
+          "article_id": 267,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제212조",
+          "article_title": "권상용 와이어로프의 길이 등",
+          "score": 0.5187,
+          "vector_score": 0.32912649534984395
+        },
+        {
+          "article_id": 221,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제165조",
+          "article_title": "와이어로프의 절단방법 등",
+          "score": 0.5098,
+          "vector_score": 0.299330017858094
+        }
+      ],
+      "expected_score": 0.7009,
+      "latency_ms": 3850.08
+    },
+    {
+      "id": 40,
+      "query": "훅과 샤클의 안전계수는 어떻게 관리하나요?",
+      "expected_article_id": 220,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 220,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제164조",
+          "article_title": "고리걸이 훅 등의 안전계수",
+          "score": 0.3058,
+          "vector_score": 0.552780106635257
+        },
+        {
+          "article_id": 220,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제164조",
+          "article_title": "고리걸이 훅 등의 안전계수",
+          "score": 0.14,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 220,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제164조",
+          "article_title": "고리걸이 훅 등의 안전계수",
+          "score": 0.14,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 38,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제350조",
+          "article_title": "인화성 가스의 농도측정 등",
+          "score": 0.1244,
+          "vector_score": 0.414740344232137
+        },
+        {
+          "article_id": 689,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제638조",
+          "article_title": "사후조치",
+          "score": 0.1233,
+          "vector_score": 0.41100451652817505
+        }
+      ],
+      "expected_score": 0.3058,
+      "latency_ms": 3963.1
+    },
+    {
+      "id": 41,
+      "query": "손상된 섬유로프는 사용해도 되나요?",
+      "expected_article_id": 225,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 121,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제63조",
+          "article_title": "달비계의 구조",
+          "score": 0.35,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 121,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제63조",
+          "article_title": "달비계의 구조",
+          "score": 0.35,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 418,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제361조",
+          "article_title": "터널 지보공의 재료",
+          "score": 0.2584,
+          "vector_score": 0.278042122481175
+        },
+        {
+          "article_id": 424,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제367조",
+          "article_title": "터널 거푸집 및 동바리의 재료",
+          "score": 0.2574,
+          "vector_score": 0.27472988116791697
+        },
+        {
+          "article_id": 402,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제345조",
+          "article_title": "흙막이지보공의 재료",
+          "score": 0.2558,
+          "vector_score": 0.269476124295297
+        }
+      ],
+      "expected_score": 0.1211,
+      "latency_ms": 3386.37
+    },
+    {
+      "id": 42,
+      "query": "차량계 하역운반기계 전도 방지 조치는?",
+      "expected_article_id": 227,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 227,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제171조",
+          "article_title": "전도 등의 방지",
+          "score": 1.0217,
+          "vector_score": 0.6056470857581371
+        },
+        {
+          "article_id": 230,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제174조",
+          "article_title": "차량계 하역운반기계등의 이송",
+          "score": 1.0146,
+          "vector_score": 0.5820842681584459
+        },
+        {
+          "article_id": 228,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제172조",
+          "article_title": "접촉의 방지",
+          "score": 0.8686,
+          "vector_score": 0.562048928507322
+        },
+        {
+          "article_id": 255,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제199조",
+          "article_title": "전도 등의 방지",
+          "score": 0.8664,
+          "vector_score": 0.5546251778603519
+        },
+        {
+          "article_id": 257,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제201조",
+          "article_title": "차량계 건설기계의 이송",
+          "score": 0.857,
+          "vector_score": 0.523229413842382
+        }
+      ],
+      "expected_score": 1.0217,
+      "latency_ms": 3611.66
+    },
+    {
+      "id": 43,
+      "query": "지게차 화물 적재 작업 시 주의사항은?",
+      "expected_article_id": 229,
+      "pre_rank": 2,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 233,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제177조",
+          "article_title": "싣거나 내리는 작업",
+          "score": 0.871,
+          "vector_score": 0.569913897310556
+        },
+        {
+          "article_id": 229,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제173조",
+          "article_title": "화물적재 시의 조치",
+          "score": 0.7297,
+          "vector_score": 0.565526870908556
+        },
+        {
+          "article_id": 450,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제393조",
+          "article_title": "화물의 적재",
+          "score": 0.722,
+          "vector_score": 0.5400295421636
+        },
+        {
+          "article_id": 18,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.7144,
+          "vector_score": 0.514505269772987
+        },
+        {
+          "article_id": 459,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제402조",
+          "article_title": "양하작업 시의 안전조치",
+          "score": 0.7107,
+          "vector_score": 0.5024128017716469
+        }
+      ],
+      "expected_score": 0.7297,
+      "latency_ms": 3244.19
+    },
+    {
+      "id": 44,
+      "query": "차량계 하역운반기계를 수리할 때 조치는?",
+      "expected_article_id": 232,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 230,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제174조",
+          "article_title": "차량계 하역운반기계등의 이송",
+          "score": 0.6464,
+          "vector_score": 0.637971787888157
+        },
+        {
+          "article_id": 257,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제201조",
+          "article_title": "차량계 건설기계의 이송",
+          "score": 0.6188,
+          "vector_score": 0.545872350015713
+        },
+        {
+          "article_id": 252,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제196조",
+          "article_title": "차량계 건설기계의 정의",
+          "score": 0.6128,
+          "vector_score": 0.5261246193333
+        },
+        {
+          "article_id": 230,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제174조",
+          "article_title": "차량계 하역운반기계등의 이송",
+          "score": 0.455,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 230,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제174조",
+          "article_title": "차량계 하역운반기계등의 이송",
+          "score": 0.455,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.3369,
+      "latency_ms": 3631.28
+    },
+    {
+      "id": 45,
+      "query": "지게차 헤드가드 설치 기준은?",
+      "expected_article_id": 236,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 236,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제180조",
+          "article_title": "헤드가드",
+          "score": 0.776,
+          "vector_score": 0.48672281267848605
+        },
+        {
+          "article_id": 235,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제179조",
+          "article_title": "전조등 등의 설치",
+          "score": 0.7369,
+          "vector_score": 0.35645327973088203
+        },
+        {
+          "article_id": 467,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제410조",
+          "article_title": "안전난간 및 울타리의 설치 등",
+          "score": 0.5548,
+          "vector_score": 0.332614481829247
+        },
+        {
+          "article_id": 46,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제435조",
+          "article_title": "긴급 차단장치의 설치 등",
+          "score": 0.5545,
+          "vector_score": 0.33179504988362896
+        },
+        {
+          "article_id": 360,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제303조",
+          "article_title": "전기 기계ㆍ기구의 적정설치 등",
+          "score": 0.5527,
+          "vector_score": 0.32557345494311496
+        }
+      ],
+      "expected_score": 0.776,
+      "latency_ms": 3155.81
+    },
+    {
+      "id": 46,
+      "query": "지게차 좌석 안전띠는 반드시 착용해야 하나요?",
+      "expected_article_id": 239,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 239,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제183조",
+          "article_title": "좌석 안전띠의 착용 등",
+          "score": 0.689,
+          "vector_score": 0.585649546321119
+        },
+        {
+          "article_id": 275,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의3",
+          "article_title": "좌석안전띠의 착용",
+          "score": 0.6814,
+          "vector_score": 0.560318935780696
+        },
+        {
+          "article_id": 16,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제183조",
+          "article_title": "좌석 안전띠의 착용 등",
+          "score": 0.5574,
+          "vector_score": 0.5358067680008289
+        },
+        {
+          "article_id": 275,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의3",
+          "article_title": "좌석안전띠의 착용",
+          "score": 0.5133,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 275,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의3",
+          "article_title": "좌석안전띠의 착용",
+          "score": 0.5133,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.689,
+      "latency_ms": 4300.99
+    },
+    {
+      "id": 47,
+      "query": "고소작업대 설치 시 지켜야 할 안전조치는?",
+      "expected_article_id": 242,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.8249,
+          "vector_score": 0.649780646531705
+        },
+        {
+          "article_id": 18,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치",
+          "score": 0.7855,
+          "vector_score": 0.51822005682909
+        },
+        {
+          "article_id": 331,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제274조",
+          "article_title": "자동경보장치의 설치 등",
+          "score": 0.6215,
+          "vector_score": 0.554904994000769
+        },
+        {
+          "article_id": 467,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제410조",
+          "article_title": "안전난간 및 울타리의 설치 등",
+          "score": 0.6204,
+          "vector_score": 0.551179456252241
+        },
+        {
+          "article_id": 111,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제53조",
+          "article_title": "계측장치의 설치 등",
+          "score": 0.6172,
+          "vector_score": 0.540824932133666
+        }
+      ],
+      "expected_score": 0.8249,
+      "latency_ms": 2940.66
+    },
+    {
+      "id": 48,
+      "query": "컨베이어 이탈 방지 장치는 어떻게 설치하나요?",
+      "expected_article_id": 247,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 247,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제191조",
+          "article_title": "이탈 등의 방지",
+          "score": 0.7639,
+          "vector_score": 0.446246355786063
+        },
+        {
+          "article_id": 249,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제193조",
+          "article_title": "낙하물에 의한 위험 방지",
+          "score": 0.665,
+          "vector_score": 0.505589335819952
+        },
+        {
+          "article_id": 197,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제140조",
+          "article_title": "폭풍에 의한 이탈 방지",
+          "score": 0.6581,
+          "vector_score": 0.48259506912371297
+        },
+        {
+          "article_id": 208,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제151조",
+          "article_title": "권과 방지 등",
+          "score": 0.6401,
+          "vector_score": 0.422482501245651
+        },
+        {
+          "article_id": 181,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제124조",
+          "article_title": "직기의 북이탈방지장치",
+          "score": 0.6287,
+          "vector_score": 0.38457573555871005
+        }
+      ],
+      "expected_score": 0.7639,
+      "latency_ms": 3833.25
+    },
+    {
+      "id": 49,
+      "query": "차량계 건설기계의 낙하물 보호구조 기준은?",
+      "expected_article_id": 254,
+      "pre_rank": 1,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 254,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제198조",
+          "article_title": "낙하물 보호구조",
+          "score": 0.8798,
+          "vector_score": 0.5994168981460279
+        },
+        {
+          "article_id": 252,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제196조",
+          "article_title": "차량계 건설기계의 정의",
+          "score": 0.7064,
+          "vector_score": 0.48792325696225003
+        },
+        {
+          "article_id": 257,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제201조",
+          "article_title": "차량계 건설기계의 이송",
+          "score": 0.7014,
+          "vector_score": 0.47140367809432404
+        },
+        {
+          "article_id": 73,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제14조",
+          "article_title": "낙하물에 의한 위험의 방지",
+          "score": 0.5624,
+          "vector_score": 0.474708075823857
+        },
+        {
+          "article_id": 252,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제196조",
+          "article_title": "차량계 건설기계의 정의",
+          "score": 0.56,
+          "vector_score": 0.0
+        }
+      ],
+      "expected_score": 0.8798,
+      "latency_ms": 3966.21
+    },
+    {
+      "id": 50,
+      "query": "굴착기 붐이 내려오는 위험을 방지하려면?",
+      "expected_article_id": 261,
+      "pre_rank": null,
+      "pre_retrieved_articles": [
+        {
+          "article_id": 400,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제342조",
+          "article_title": "굴착기계등에 의한 위험방지",
+          "score": 0.5507,
+          "vector_score": 0.43567531957260397
+        },
+        {
+          "article_id": 34,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제342조",
+          "article_title": "굴착기계등에 의한 위험방지",
+          "score": 0.5378,
+          "vector_score": 0.392800119071847
+        },
+        {
+          "article_id": 401,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제344조",
+          "article_title": "굴착기계등의 유도",
+          "score": 0.42,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 432,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제375조",
+          "article_title": "굴착기계등의 유도",
+          "score": 0.42,
+          "vector_score": 0.0
+        },
+        {
+          "article_id": 79,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제20조",
+          "article_title": "출입의 금지 등",
+          "score": 0.3892,
+          "vector_score": 0.364066711063075
+        }
+      ],
+      "expected_score": 0.2851,
+      "latency_ms": 4158.22
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "query": "작업장 바닥의 전도 위험은 어떻게 막아야 하나요?",
+      "category": "전도",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제3조",
+      "expected_article_id": 61,
+      "expected_keywords": [
+        "전도",
+        "바닥"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 5626.35,
+      "retrieved_articles": [
+        {
+          "article_id": 426,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제369조",
+          "article_title": "작업 시 준수사항"
+        },
+        {
+          "article_id": 391,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조",
+          "article_title": "동바리 조립 시의 안전조치"
+        },
+        {
+          "article_id": 390,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치"
+        },
+        {
+          "article_id": 298,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제241조의2",
+          "article_title": "화재감시자"
+        },
+        {
+          "article_id": 290,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제234조",
+          "article_title": "가스등의 용기"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "query": "현장 통로 조명 설치 기준을 알려줘",
+      "category": "통로",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제21조",
+      "expected_article_id": 80,
+      "expected_keywords": [
+        "통로",
+        "조명"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4563.62,
+      "retrieved_articles": [
+        {
+          "article_id": 392,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조의2",
+          "article_title": "동바리 유형에 따른 동바리 조립 시의 안전조치"
+        },
+        {
+          "article_id": 189,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제132조",
+          "article_title": "양중기"
+        },
+        {
+          "article_id": 4143,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제30조",
+          "article_title": "계단의 난간"
+        },
+        {
+          "article_id": 472,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제415조",
+          "article_title": "추락ㆍ충돌ㆍ협착 등의 방지"
+        },
+        {
+          "article_id": 447,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제390조",
+          "article_title": "하역작업장의 조치기준"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "query": "가설통로는 어떤 구조여야 합니까?",
+      "category": "통로",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제23조",
+      "expected_article_id": 82,
+      "expected_keywords": [
+        "가설통로",
+        "구조"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4391.05,
+      "retrieved_articles": [
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "query": "사다리식 통로의 안전 구조를 확인하고 싶어요",
+      "category": "통로",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제24조",
+      "expected_article_id": 83,
+      "expected_keywords": [
+        "사다리식 통로",
+        "구조"
+      ],
+      "rank": 2,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3575.82,
+      "retrieved_articles": [
+        {
+          "article_id": 84,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제25조",
+          "article_title": "갱내통로 등의 위험 방지"
+        },
+        {
+          "article_id": 83,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제24조",
+          "article_title": "사다리식 통로 등의 구조"
+        },
+        {
+          "article_id": 447,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제390조",
+          "article_title": "하역작업장의 조치기준"
+        },
+        {
+          "article_id": 439,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제382조",
+          "article_title": "가설통로의 설치"
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "query": "계단 난간은 반드시 설치해야 하나요?",
+      "category": "통로",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제30조",
+      "expected_article_id": 4143,
+      "expected_keywords": [
+        "계단",
+        "난간"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 4919.87,
+      "retrieved_articles": [
+        {
+          "article_id": 4143,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제30조",
+          "article_title": "계단의 난간"
+        },
+        {
+          "article_id": 312,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제255조",
+          "article_title": "화학설비를 설치하는 건축물의 구조"
+        },
+        {
+          "article_id": 88,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제29조",
+          "article_title": "천장의 높이"
+        },
+        {
+          "article_id": 87,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제28조",
+          "article_title": "계단참의 설치"
+        },
+        {
+          "article_id": 86,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제27조",
+          "article_title": "계단의 폭"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "query": "보호구 지급에 관한 사업주 의무는 무엇인가요?",
+      "category": "보호구",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제32조",
+      "expected_article_id": 90,
+      "expected_keywords": [
+        "보호구",
+        "지급"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3599.08,
+      "retrieved_articles": [
+        {
+          "article_id": 718,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제668조",
+          "article_title": "비전리전자기파에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 705,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제655조",
+          "article_title": "유해성 등의 주지"
+        },
+        {
+          "article_id": 704,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제654조",
+          "article_title": "보호구의 지급 등"
+        },
+        {
+          "article_id": 695,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제644조",
+          "article_title": "보호구의 지급 등"
+        },
+        {
+          "article_id": 694,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제643조",
+          "article_title": "구출 시 공기호흡기 또는 송기마스크의 사용"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "query": "지급한 안전모와 보호구 관리는 어떻게 하나요?",
+      "category": "보호구",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제33조",
+      "expected_article_id": 91,
+      "expected_keywords": [
+        "보호구",
+        "관리"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4913.97,
+      "retrieved_articles": [
+        {
+          "article_id": 718,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제668조",
+          "article_title": "비전리전자기파에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 705,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제655조",
+          "article_title": "유해성 등의 주지"
+        },
+        {
+          "article_id": 704,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제654조",
+          "article_title": "보호구의 지급 등"
+        },
+        {
+          "article_id": 695,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제644조",
+          "article_title": "보호구의 지급 등"
+        },
+        {
+          "article_id": 694,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제643조",
+          "article_title": "구출 시 공기호흡기 또는 송기마스크의 사용"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "query": "강풍이 불 때 고소 작업을 계속해도 되나요?",
+      "category": "고소작업",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제37조",
+      "expected_article_id": 95,
+      "expected_keywords": [
+        "강풍",
+        "작업 중지"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4151.26,
+      "retrieved_articles": [
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        },
+        {
+          "article_id": 241,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제185조",
+          "article_title": "연결장치"
+        },
+        {
+          "article_id": 144,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제86조",
+          "article_title": "탑승의 제한"
+        },
+        {
+          "article_id": 79,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제20조",
+          "article_title": "출입의 금지 등"
+        },
+        {
+          "article_id": 18,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "query": "작업 전 사전조사와 작업계획서는 언제 작성하나요?",
+      "category": "위험성평가",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제38조",
+      "expected_article_id": 96,
+      "expected_keywords": [
+        "사전조사",
+        "작업계획서"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3037.08,
+      "retrieved_articles": [
+        {
+          "article_id": 723,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제674조",
+          "article_title": "규제의 재검토"
+        },
+        {
+          "article_id": 720,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제670조",
+          "article_title": "농약원재료 방제작업 시의 조치"
+        },
+        {
+          "article_id": 719,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제669조",
+          "article_title": "직무스트레스에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 718,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제668조",
+          "article_title": "비전리전자기파에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 717,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제667조",
+          "article_title": "컴퓨터 단말기 조작업무에 대한 조치"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "query": "현장 작업지휘자는 언제 지정해야 합니까?",
+      "category": "관리감독",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제39조",
+      "expected_article_id": 97,
+      "expected_keywords": [
+        "작업지휘자",
+        "지정"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4841.76,
+      "retrieved_articles": [
+        {
+          "article_id": 392,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조의2",
+          "article_title": "동바리 유형에 따른 동바리 조립 시의 안전조치"
+        },
+        {
+          "article_id": 189,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제132조",
+          "article_title": "양중기"
+        },
+        {
+          "article_id": 140,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제82조",
+          "article_title": "구급용구"
+        },
+        {
+          "article_id": 91,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제33조",
+          "article_title": "보호구의 관리"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "query": "높은 곳 추락 사고를 막기 위한 기본 조치는?",
+      "category": "추락",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제42조",
+      "expected_article_id": 100,
+      "expected_keywords": [
+        "추락",
+        "방지"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 5806.88,
+      "retrieved_articles": [
+        {
+          "article_id": 363,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제306조",
+          "article_title": "교류아크용접기 등"
+        },
+        {
+          "article_id": 674,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제624조",
+          "article_title": "안전대 등"
+        },
+        {
+          "article_id": 475,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제418조",
+          "article_title": "교량에서의 추락 방지"
+        },
+        {
+          "article_id": 472,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제415조",
+          "article_title": "추락ㆍ충돌ㆍ협착 등의 방지"
+        },
+        {
+          "article_id": 471,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제414조",
+          "article_title": "유도자의 지정 등"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "query": "바닥 개구부에는 어떤 방호 조치를 해야 하나요?",
+      "category": "추락",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제43조",
+      "expected_article_id": 101,
+      "expected_keywords": [
+        "개구부",
+        "방호"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4584.44,
+      "retrieved_articles": [
+        {
+          "article_id": 662,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제613조",
+          "article_title": "청소의 실시"
+        },
+        {
+          "article_id": 584,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제535조",
+          "article_title": "감압 시의 조치"
+        },
+        {
+          "article_id": 573,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제524조",
+          "article_title": "기압조절실 공기의 부피와 환기 등"
+        },
+        {
+          "article_id": 551,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제501조",
+          "article_title": "바닥"
+        },
+        {
+          "article_id": 543,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제495조",
+          "article_title": "석면해체ㆍ제거작업 시의 조치"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "query": "안전대 부착설비 설치 기준이 궁금합니다",
+      "category": "추락",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제44조",
+      "expected_article_id": 102,
+      "expected_keywords": [
+        "안전대",
+        "부착설비"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3117.38,
+      "retrieved_articles": [
+        {
+          "article_id": 102,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제44조",
+          "article_title": "안전대의 부착설비 등"
+        },
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        },
+        {
+          "article_id": 439,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제382조",
+          "article_title": "가설통로의 설치"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "query": "지붕 위 작업에서 추락 위험을 줄이는 방법은?",
+      "category": "추락",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제45조",
+      "expected_article_id": 103,
+      "expected_keywords": [
+        "지붕",
+        "추락"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 4068.87,
+      "retrieved_articles": [
+        {
+          "article_id": 103,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제45조",
+          "article_title": "지붕 위에서의 위험 방지"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "query": "토사 붕괴 위험이 있는 장소의 안전 조치는?",
+      "category": "붕괴",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제50조",
+      "expected_article_id": 108,
+      "expected_keywords": [
+        "토사",
+        "붕괴"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3218.35,
+      "retrieved_articles": [
+        {
+          "article_id": 108,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제50조",
+          "article_title": "토사등에 의한 위험 방지"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "query": "구축물 안전성 평가는 언제 해야 합니까?",
+      "category": "붕괴",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제52조",
+      "expected_article_id": 110,
+      "expected_keywords": [
+        "구축물",
+        "안전성 평가"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3865.45,
+      "retrieved_articles": [
+        {
+          "article_id": 110,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제52조",
+          "article_title": "구축물등의 안전성 평가"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "query": "작업발판 최대 적재하중 기준은 어디에 있나요?",
+      "category": "작업발판",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제55조",
+      "expected_article_id": 113,
+      "expected_keywords": [
+        "작업발판",
+        "최대적재하중"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3994.13,
+      "retrieved_articles": [
+        {
+          "article_id": 113,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제55조",
+          "article_title": "작업발판의 최대적재하중"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "query": "작업발판 구조 요건을 알려주세요",
+      "category": "작업발판",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제56조",
+      "expected_article_id": 114,
+      "expected_keywords": [
+        "작업발판",
+        "구조"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3976.4,
+      "retrieved_articles": [
+        {
+          "article_id": 466,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제409조",
+          "article_title": "열차의 점검ㆍ수리 등"
+        },
+        {
+          "article_id": 438,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제381조",
+          "article_title": "승강로의 설치"
+        },
+        {
+          "article_id": 393,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제333조",
+          "article_title": "조립ㆍ해체 등 작업 시의 준수사항"
+        },
+        {
+          "article_id": 390,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조의3",
+          "article_title": "작업발판 일체형 거푸집의 안전조치"
+        },
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "query": "비계 조립 해체 변경 작업의 준수사항은?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제57조",
+      "expected_article_id": 115,
+      "expected_keywords": [
+        "비계",
+        "조립 해체"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3869.14,
+      "retrieved_articles": [
+        {
+          "article_id": 115,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제57조",
+          "article_title": "비계 등의 조립ㆍ해체 및 변경"
+        },
+        {
+          "article_id": 116,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제58조",
+          "article_title": "비계의 점검 및 보수"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "query": "비계 점검과 보수는 어떻게 해야 하나요?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제58조",
+      "expected_article_id": 116,
+      "expected_keywords": [
+        "비계",
+        "점검"
+      ],
+      "rank": 2,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 4972.63,
+      "retrieved_articles": [
+        {
+          "article_id": 122,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제64조",
+          "article_title": "달비계의 점검 및 보수"
+        },
+        {
+          "article_id": 116,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제58조",
+          "article_title": "비계의 점검 및 보수"
+        },
+        {
+          "article_id": 115,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제57조",
+          "article_title": "비계 등의 조립ㆍ해체 및 변경"
+        },
+        {
+          "article_id": 225,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제169조",
+          "article_title": "꼬임이 끊어진 섬유로프 등의 사용금지"
+        },
+        {
+          "article_id": 223,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제167조",
+          "article_title": "늘어난 달기체인 등의 사용 금지"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "query": "강관비계를 조립할 때 지켜야 할 안전수칙은?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제59조",
+      "expected_article_id": 117,
+      "expected_keywords": [
+        "강관비계",
+        "조립"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 4554.88,
+      "retrieved_articles": [
+        {
+          "article_id": 117,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제59조",
+          "article_title": "강관비계 조립 시의 준수사항"
+        },
+        {
+          "article_id": 392,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제332조의2",
+          "article_title": "동바리 유형에 따른 동바리 조립 시의 안전조치"
+        },
+        {
+          "article_id": 720,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제670조",
+          "article_title": "농약원재료 방제작업 시의 조치"
+        },
+        {
+          "article_id": 528,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제471조",
+          "article_title": "설비기준"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "query": "달비계는 어떤 구조를 갖춰야 합니까?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제63조",
+      "expected_article_id": 121,
+      "expected_keywords": [
+        "달비계",
+        "구조"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4944.11,
+      "retrieved_articles": [
+        {
+          "article_id": 100,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제42조",
+          "article_title": "추락의 방지"
+        },
+        {
+          "article_id": 420,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제363조",
+          "article_title": "조립도"
+        },
+        {
+          "article_id": 403,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제346조",
+          "article_title": "조립도"
+        },
+        {
+          "article_id": 388,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제331조",
+          "article_title": "조립도"
+        },
+        {
+          "article_id": 254,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제198조",
+          "article_title": "낙하물 보호구조"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "query": "달비계 사용 전 점검 사항은 무엇인가요?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제64조",
+      "expected_article_id": 122,
+      "expected_keywords": [
+        "달비계",
+        "점검"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3856.26,
+      "retrieved_articles": [
+        {
+          "article_id": 122,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제64조",
+          "article_title": "달비계의 점검 및 보수"
+        },
+        {
+          "article_id": 115,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제57조",
+          "article_title": "비계 등의 조립ㆍ해체 및 변경"
+        },
+        {
+          "article_id": 225,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제169조",
+          "article_title": "꼬임이 끊어진 섬유로프 등의 사용금지"
+        },
+        {
+          "article_id": 223,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제167조",
+          "article_title": "늘어난 달기체인 등의 사용 금지"
+        },
+        {
+          "article_id": 222,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제166조",
+          "article_title": "이음매가 있는 와이어로프 등의 사용 금지"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "query": "이동식비계 안전 기준을 알려줘",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제68조",
+      "expected_article_id": 126,
+      "expected_keywords": [
+        "이동식비계"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 2147.94,
+      "retrieved_articles": [
+        {
+          "article_id": 126,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제68조",
+          "article_title": "이동식비계"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "query": "시스템비계 구조 기준은?",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제69조",
+      "expected_article_id": 127,
+      "expected_keywords": [
+        "시스템비계",
+        "구조"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3587.59,
+      "retrieved_articles": [
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항"
+        },
+        {
+          "article_id": 3,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항"
+        },
+        {
+          "article_id": 722,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제673조",
+          "article_title": "배달종사자에 대한 안전조치 등"
+        },
+        {
+          "article_id": 717,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제667조",
+          "article_title": "컴퓨터 단말기 조작업무에 대한 조치"
+        },
+        {
+          "article_id": 706,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제656조",
+          "article_title": "정의"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "query": "시스템비계 조립 작업 시 준수사항을 알려줘",
+      "category": "비계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제70조",
+      "expected_article_id": 128,
+      "expected_keywords": [
+        "시스템비계",
+        "조립"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3281.3,
+      "retrieved_articles": [
+        {
+          "article_id": 128,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항"
+        },
+        {
+          "article_id": 3,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제70조",
+          "article_title": "시스템비계의 조립 작업 시 준수사항"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "query": "국소배기장치 후드 설치 기준이 궁금합니다",
+      "category": "환기",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제72조",
+      "expected_article_id": 129,
+      "expected_keywords": [
+        "후드",
+        "국소배기"
+      ],
+      "rank": 2,
+      "hit_at_1": false,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3170.87,
+      "retrieved_articles": [
+        {
+          "article_id": 550,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제500조",
+          "article_title": "국소배기장치의 성능 등"
+        },
+        {
+          "article_id": 129,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제72조",
+          "article_title": "후드"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "query": "환기 덕트에 관한 안전 기준은?",
+      "category": "환기",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제73조",
+      "expected_article_id": 130,
+      "expected_keywords": [
+        "덕트",
+        "환기"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3548.54,
+      "retrieved_articles": [
+        {
+          "article_id": 692,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제641조",
+          "article_title": "안전한 작업방법 등의 주지"
+        },
+        {
+          "article_id": 689,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제638조",
+          "article_title": "사후조치"
+        },
+        {
+          "article_id": 685,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제634조",
+          "article_title": "가스배관공사 등에 관한 조치"
+        },
+        {
+          "article_id": 680,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제629조",
+          "article_title": "용접 등에 관한 조치"
+        },
+        {
+          "article_id": 679,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제628조의2",
+          "article_title": "이산화탄소를 사용하는 소화설비 및 소화용기에 대한 조치"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "query": "배풍기 설치와 사용 기준을 알려주세요",
+      "category": "환기",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제74조",
+      "expected_article_id": 131,
+      "expected_keywords": [
+        "배풍기"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4310.46,
+      "retrieved_articles": [
+        {
+          "article_id": 661,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제612조",
+          "article_title": "사용 전 점검 등"
+        },
+        {
+          "article_id": 550,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제500조",
+          "article_title": "국소배기장치의 성능 등"
+        },
+        {
+          "article_id": 513,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제456조",
+          "article_title": "사용 전 점검 등"
+        },
+        {
+          "article_id": 498,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제441조",
+          "article_title": "사용 전 점검 등"
+        },
+        {
+          "article_id": 487,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제430조",
+          "article_title": "전체환기장치의 성능 등"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "query": "환기장치는 작업 중 어떻게 가동해야 하나요?",
+      "category": "환기",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제78조",
+      "expected_article_id": 135,
+      "expected_keywords": [
+        "환기장치",
+        "가동"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3641.15,
+      "retrieved_articles": [
+        {
+          "article_id": 723,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제674조",
+          "article_title": "규제의 재검토"
+        },
+        {
+          "article_id": 720,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제670조",
+          "article_title": "농약원재료 방제작업 시의 조치"
+        },
+        {
+          "article_id": 719,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제669조",
+          "article_title": "직무스트레스에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 718,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제668조",
+          "article_title": "비전리전자기파에 의한 건강장해 예방 조치"
+        },
+        {
+          "article_id": 717,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제667조",
+          "article_title": "컴퓨터 단말기 조작업무에 대한 조치"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "query": "기계 운전 시작 전에는 어떤 조치를 해야 하나요?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제89조",
+      "expected_article_id": 147,
+      "expected_keywords": [
+        "운전 시작 전",
+        "조치"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3774.07,
+      "retrieved_articles": [
+        {
+          "article_id": 147,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제89조",
+          "article_title": "운전 시작 전 조치"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "query": "정비 작업 중 기계 운전을 정지해야 하는 기준은?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제92조",
+      "expected_article_id": 150,
+      "expected_keywords": [
+        "정비",
+        "운전정지"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 2700.43,
+      "retrieved_articles": [
+        {
+          "article_id": 150,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제92조",
+          "article_title": "정비 등의 작업 시의 운전정지 등"
+        },
+        {
+          "article_id": 375,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제318조",
+          "article_title": "전기작업자의 제한"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "query": "기계 방호장치를 임의로 해체해도 되나요?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제93조",
+      "expected_article_id": 151,
+      "expected_keywords": [
+        "방호장치",
+        "해체"
+      ],
+      "rank": 5,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": true,
+      "latency_ms": 4266.79,
+      "retrieved_articles": [
+        {
+          "article_id": 543,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제495조",
+          "article_title": "석면해체ㆍ제거작업 시의 조치"
+        },
+        {
+          "article_id": 453,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제396조",
+          "article_title": "무포장 화물의 취급방법"
+        },
+        {
+          "article_id": 375,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제318조",
+          "article_title": "전기작업자의 제한"
+        },
+        {
+          "article_id": 318,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제261조",
+          "article_title": "안전밸브 등의 설치"
+        },
+        {
+          "article_id": 151,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제93조",
+          "article_title": "방호장치의 해체 금지"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "query": "회전기계 작업 때 장갑 착용이 금지되는 경우는?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제95조",
+      "expected_article_id": 153,
+      "expected_keywords": [
+        "장갑",
+        "사용 금지"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3841.9,
+      "retrieved_articles": [
+        {
+          "article_id": 378,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제321조",
+          "article_title": "충전전로에서의 전기작업"
+        },
+        {
+          "article_id": 90,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제32조",
+          "article_title": "보호구의 지급 등"
+        },
+        {
+          "article_id": 358,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제301조",
+          "article_title": "전기 기계ㆍ기구 등의 충전부 방호"
+        },
+        {
+          "article_id": 723,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제674조",
+          "article_title": "규제의 재검토"
+        },
+        {
+          "article_id": 720,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제670조",
+          "article_title": "농약원재료 방제작업 시의 조치"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "query": "원형톱 톱날 접촉 사고 예방 장치는?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제101조",
+      "expected_article_id": 159,
+      "expected_keywords": [
+        "원형톱",
+        "톱날"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3963.36,
+      "retrieved_articles": [
+        {
+          "article_id": 159,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제101조",
+          "article_title": "원형톱기계의 톱날접촉예방장치"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "query": "프레스 작업의 위험 방지 조치는 무엇인가요?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제103조",
+      "expected_article_id": 161,
+      "expected_keywords": [
+        "프레스",
+        "위험 방지"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3628.41,
+      "retrieved_articles": [
+        {
+          "article_id": 161,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제103조",
+          "article_title": "프레스 등의 위험 방지"
+        },
+        {
+          "article_id": 162,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제104조",
+          "article_title": "금형조정작업의 위험 방지"
+        },
+        {
+          "article_id": 36,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제347조",
+          "article_title": "붕괴 등의 위험 방지"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "query": "양중기 정격하중 표시는 어떻게 해야 하나요?",
+      "category": "양중",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제133조",
+      "expected_article_id": 190,
+      "expected_keywords": [
+        "양중기",
+        "정격하중"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 5206.3,
+      "retrieved_articles": [
+        {
+          "article_id": 393,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제333조",
+          "article_title": "조립ㆍ해체 등 작업 시의 준수사항"
+        },
+        {
+          "article_id": 359,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제302조",
+          "article_title": "전기 기계ㆍ기구의 접지"
+        },
+        {
+          "article_id": 277,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의5",
+          "article_title": "인양작업 시 조치"
+        },
+        {
+          "article_id": 226,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제170조",
+          "article_title": "링 등의 구비"
+        },
+        {
+          "article_id": 225,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제169조",
+          "article_title": "꼬임이 끊어진 섬유로프 등의 사용금지"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "query": "크레인 작업을 할 때 필요한 조치는?",
+      "category": "양중",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제146조",
+      "expected_article_id": 203,
+      "expected_keywords": [
+        "크레인",
+        "작업"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 2876.54,
+      "retrieved_articles": [
+        {
+          "article_id": 203,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제146조",
+          "article_title": "크레인 작업 시의 조치"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "query": "와이어로프 안전계수 기준은 어디에 있나요?",
+      "category": "양중",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제163조",
+      "expected_article_id": 219,
+      "expected_keywords": [
+        "와이어로프",
+        "안전계수"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4950.05,
+      "retrieved_articles": [
+        {
+          "article_id": 277,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제221조의5",
+          "article_title": "인양작업 시 조치"
+        },
+        {
+          "article_id": 270,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제217조",
+          "article_title": "사용 시의 조치 등"
+        },
+        {
+          "article_id": 269,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제216조",
+          "article_title": "도르래의 부착 등"
+        },
+        {
+          "article_id": 268,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제213조",
+          "article_title": "널말뚝 등과의 연결"
+        },
+        {
+          "article_id": 267,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제212조",
+          "article_title": "권상용 와이어로프의 길이 등"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "query": "훅과 샤클의 안전계수는 어떻게 관리하나요?",
+      "category": "양중",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제164조",
+      "expected_article_id": 220,
+      "expected_keywords": [
+        "훅",
+        "샤클"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 4520.84,
+      "retrieved_articles": [
+        {
+          "article_id": 220,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제164조",
+          "article_title": "고리걸이 훅 등의 안전계수"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "query": "손상된 섬유로프는 사용해도 되나요?",
+      "category": "양중",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제169조",
+      "expected_article_id": 225,
+      "expected_keywords": [
+        "섬유로프",
+        "사용금지"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4480.63,
+      "retrieved_articles": [
+        {
+          "article_id": 642,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제592조",
+          "article_title": "정의"
+        },
+        {
+          "article_id": 424,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제367조",
+          "article_title": "터널 거푸집 및 동바리의 재료"
+        },
+        {
+          "article_id": 418,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제361조",
+          "article_title": "터널 지보공의 재료"
+        },
+        {
+          "article_id": 402,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제345조",
+          "article_title": "흙막이지보공의 재료"
+        },
+        {
+          "article_id": 385,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제328조",
+          "article_title": "재료"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "query": "차량계 하역운반기계 전도 방지 조치는?",
+      "category": "차량계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제171조",
+      "expected_article_id": 227,
+      "expected_keywords": [
+        "차량계",
+        "전도"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3601.98,
+      "retrieved_articles": [
+        {
+          "article_id": 227,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제171조",
+          "article_title": "전도 등의 방지"
+        },
+        {
+          "article_id": 230,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제174조",
+          "article_title": "차량계 하역운반기계등의 이송"
+        },
+        {
+          "article_id": 228,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제172조",
+          "article_title": "접촉의 방지"
+        },
+        {
+          "article_id": 255,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제199조",
+          "article_title": "전도 등의 방지"
+        },
+        {
+          "article_id": 257,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제201조",
+          "article_title": "차량계 건설기계의 이송"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "query": "지게차 화물 적재 작업 시 주의사항은?",
+      "category": "차량계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제173조",
+      "expected_article_id": 229,
+      "expected_keywords": [
+        "화물적재",
+        "지게차"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 3465.17,
+      "retrieved_articles": [
+        {
+          "article_id": 233,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제177조",
+          "article_title": "싣거나 내리는 작업"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "query": "차량계 하역운반기계를 수리할 때 조치는?",
+      "category": "차량계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제176조",
+      "expected_article_id": 232,
+      "expected_keywords": [
+        "수리",
+        "차량계"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4387.38,
+      "retrieved_articles": [
+        {
+          "article_id": 262,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제206조",
+          "article_title": "수리 등의 작업 시 조치"
+        },
+        {
+          "article_id": 261,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제205조",
+          "article_title": "붐 등의 강하에 의한 위험 방지"
+        },
+        {
+          "article_id": 260,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제204조",
+          "article_title": "주용도 외의 사용 제한"
+        },
+        {
+          "article_id": 259,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제203조",
+          "article_title": "안전도 등의 준수"
+        },
+        {
+          "article_id": 258,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제202조",
+          "article_title": "승차석 외의 탑승금지"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "query": "지게차 헤드가드 설치 기준은?",
+      "category": "차량계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제180조",
+      "expected_article_id": 236,
+      "expected_keywords": [
+        "헤드가드",
+        "지게차"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4306.16,
+      "retrieved_articles": [
+        {
+          "article_id": 235,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제179조",
+          "article_title": "전조등 등의 설치"
+        },
+        {
+          "article_id": 79,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제20조",
+          "article_title": "출입의 금지 등"
+        },
+        {
+          "article_id": 239,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제183조",
+          "article_title": "좌석 안전띠의 착용 등"
+        },
+        {
+          "article_id": 238,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제182조",
+          "article_title": "팔레트 등"
+        },
+        {
+          "article_id": 237,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제181조",
+          "article_title": "백레스트"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "query": "지게차 좌석 안전띠는 반드시 착용해야 하나요?",
+      "category": "차량계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제183조",
+      "expected_article_id": 239,
+      "expected_keywords": [
+        "좌석 안전띠"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 5413.28,
+      "retrieved_articles": [
+        {
+          "article_id": 239,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제183조",
+          "article_title": "좌석 안전띠의 착용 등"
+        },
+        {
+          "article_id": 238,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제182조",
+          "article_title": "팔레트 등"
+        },
+        {
+          "article_id": 237,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제181조",
+          "article_title": "백레스트"
+        },
+        {
+          "article_id": 236,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제180조",
+          "article_title": "헤드가드"
+        },
+        {
+          "article_id": 235,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제179조",
+          "article_title": "전조등 등의 설치"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "query": "고소작업대 설치 시 지켜야 할 안전조치는?",
+      "category": "고소작업",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제186조",
+      "expected_article_id": 242,
+      "expected_keywords": [
+        "고소작업대",
+        "설치"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3064.54,
+      "retrieved_articles": [
+        {
+          "article_id": 242,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제186조",
+          "article_title": "고소작업대 설치 등의 조치"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "query": "컨베이어 이탈 방지 장치는 어떻게 설치하나요?",
+      "category": "기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제191조",
+      "expected_article_id": 247,
+      "expected_keywords": [
+        "컨베이어",
+        "이탈"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 4724.42,
+      "retrieved_articles": [
+        {
+          "article_id": 279,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제223조",
+          "article_title": "운전 중 위험 방지"
+        },
+        {
+          "article_id": 251,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제195조",
+          "article_title": "통행의 제한 등"
+        },
+        {
+          "article_id": 249,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제193조",
+          "article_title": "낙하물에 의한 위험 방지"
+        },
+        {
+          "article_id": 248,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제192조",
+          "article_title": "비상정지장치"
+        },
+        {
+          "article_id": 144,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제86조",
+          "article_title": "탑승의 제한"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "query": "차량계 건설기계의 낙하물 보호구조 기준은?",
+      "category": "건설기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제198조",
+      "expected_article_id": 254,
+      "expected_keywords": [
+        "건설기계",
+        "낙하물"
+      ],
+      "rank": 1,
+      "hit_at_1": true,
+      "hit_at_3": true,
+      "hit_at_5": true,
+      "latency_ms": 3885.3,
+      "retrieved_articles": [
+        {
+          "article_id": 254,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제198조",
+          "article_title": "낙하물 보호구조"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "query": "굴착기 붐이 내려오는 위험을 방지하려면?",
+      "category": "건설기계",
+      "expected_law": "산업안전보건기준에 관한 규칙",
+      "expected_article": "제205조",
+      "expected_article_id": 261,
+      "expected_keywords": [
+        "붐",
+        "강하"
+      ],
+      "rank": null,
+      "hit_at_1": false,
+      "hit_at_3": false,
+      "hit_at_5": false,
+      "latency_ms": 5134.9,
+      "retrieved_articles": [
+        {
+          "article_id": 432,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제375조",
+          "article_title": "굴착기계등의 유도"
+        },
+        {
+          "article_id": 431,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제374조",
+          "article_title": "운행경로 등의 주지"
+        },
+        {
+          "article_id": 411,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제354조",
+          "article_title": "굴착기계등의 사용 금지 등"
+        },
+        {
+          "article_id": 401,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제344조",
+          "article_title": "굴착기계등의 유도"
+        },
+        {
+          "article_id": 400,
+          "law_name": "산업안전보건기준에 관한 규칙",
+          "article_no": "제342조",
+          "article_title": "굴착기계등에 의한 위험방지"
+        }
+      ]
+    }
+  ]
+}

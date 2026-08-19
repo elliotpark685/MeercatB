@@ -50,15 +50,30 @@ class LawEmbeddingService:
         )
         return {"chunk_id": chunk.id, "embedding_id": embedding.id, "status": "embedded"}
 
-    def generate_embedding(self, text: str) -> list[float]:
+    def generate_embedding(self, text: str, *, strict: bool = False) -> list[float]:
         if not text or not text.strip():
             raise ValueError("Embedding text is empty")
         if self._client is None:
+            if strict:
+                raise RuntimeError(
+                    "Evaluation requires real OpenAI embeddings. Mock embedding fallback is disabled."
+                )
             return self._mock_embedding(text)
         try:
             response = self._client.embeddings.create(model=self.model_name, input=text)
-            return response.data[0].embedding
-        except Exception:
+            vector = response.data[0].embedding
+            if strict and len(vector) != settings.vector_dimension:
+                raise RuntimeError(
+                    f"Evaluation embedding dimension mismatch: expected {settings.vector_dimension}, got {len(vector)}."
+                )
+            return vector
+        except RuntimeError:
+            raise
+        except Exception as exc:
+            if strict:
+                raise RuntimeError(
+                    "Evaluation requires real OpenAI embeddings. Mock embedding fallback is disabled."
+                ) from exc
             return self._mock_embedding(text)
 
     def _mock_embedding(self, text: str) -> list[float]:
