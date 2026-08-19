@@ -122,6 +122,19 @@ def test_validate_latest_returns_placeholder_message():
     assert result.answer == 'latest validation is not implemented yet'
 
 
+def test_evaluation_search_does_not_write_a_search_log():
+    service = LawSearchService(db=None)  # type: ignore[arg-type]
+    stub = _StubRepo(rows=[_make_row(42, 'Fall protection', 'effective')])
+    calls = []
+    stub.create_law_search_log = lambda **kwargs: calls.append(kwargs)
+    service.repo = stub
+
+    result = service.search_for_evaluation('fall protection', top_k=1)
+
+    assert result.citations
+    assert calls == []
+
+
 def test_reranker_does_not_boost_candidates_only_for_being_in_scope():
     article, document = _make_row(42, 'Equipment inspection', 'effective')
     candidate = SearchCandidate(chunk=None, article=article, document=document, embedding=None)

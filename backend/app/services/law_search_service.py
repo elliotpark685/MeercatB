@@ -206,7 +206,59 @@ class LawSearchService:
         )
         return bundle
 
-    def _search_chunks(self, query: str, top_k: int, law_scope: list[str]) -> SearchBundle:
+    def search_for_evaluation(
+        self,
+        query: str,
+        top_k: int = 5,
+        law_names: list[str] | None = None,
+        law_scope: list[str] | str | None = None,
+    ) -> SearchBundle:
+        """Run the production retriever without LLM work or search-log writes.
+
+        This is intentionally a thin, read-only entry point for offline evaluation;
+        it uses the same chunk/article selection code as ``search_for_generation``.
+        """
+        normalized_scope = self._normalize_law_scope(law_names=law_names, law_scope=law_scope)
+        has_chunk_search = (
+            hasattr(self.repo, "search_chunks_by_keyword")
+            and hasattr(self.repo, "list_chunks_for_scope")
+        )
+        has_vector_search = not settings.use_pgvector or hasattr(self.repo, "search_chunks_by_vector")
+        if has_chunk_search and has_vector_search:
+            bundle = self._search_chunks(query=query, top_k=top_k, law_scope=normalized_scope, strict_embeddings=True)
+            if not bundle.candidates:
+                bundle = self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
+            return bundle
+        return self._search_articles(query=query, top_k=top_k, law_scope=normalized_scope)
+
+    def search_for_evaluation_diagnostics(
+        self,
+        query: str,
+        top_k: int = 5,
+        law_scope: list[str] | str | None = None,
+    ) -> SearchBundle:
+        """Return the reranked candidate pool for offline threshold diagnosis only.
+
+        Citations still reflect the production filter.  This method neither logs
+        nor changes the runtime search path used by API requests.
+        """
+        normalized_scope = self._normalize_law_scope(law_names=None, law_scope=law_scope)
+        return self._search_chunks(
+            query=query,
+            top_k=top_k,
+            law_scope=normalized_scope,
+            strict_embeddings=True,
+            include_unfiltered_candidates=True,
+        )
+
+    def _search_chunks(
+        self,
+        query: str,
+        top_k: int,
+        law_scope: list[str],
+        strict_embeddings: bool = False,
+        include_unfiltered_candidates: bool = False,
+    ) -> SearchBundle:
         keywords = self._expand_query_keywords(query)
         row_map: dict[int, SearchCandidate] = {}
 
@@ -219,7 +271,7 @@ class LawSearchService:
             row_map[chunk.id] = SearchCandidate(chunk=chunk, article=article, document=document, embedding=embedding)
 
         if settings.use_pgvector:
-            query_vector = self._query_embedding(query)
+            query_vector = self._query_embedding(query, strict=strict_embeddings)
             vector_rows = self.repo.search_chunks_by_vector(
                 query_vector=query_vector,
                 embedding_model=settings.embedding_model,
@@ -234,7 +286,7 @@ class LawSearchService:
                 candidate.vector_score = max(candidate.vector_score, vector_score)
         else:
             vector_rows = self.repo.list_chunks_for_scope(law_scope=law_scope, limit=max(top_k * 15, 120))
-            query_vector = self._query_embedding(query) if any(row[3] is not None for row in vector_rows) else []
+            query_vector = self._query_embedding(query, strict=strict_embeddings) if any(row[3] is not None for row in vector_rows) else []
             for chunk, article, document, embedding in vector_rows:
                 candidate = row_map.setdefault(
                     chunk.id,
@@ -247,7 +299,8 @@ class LawSearchService:
         filtered_candidates = _filter_relevant_candidates(candidates, query)
         top_candidates = filtered_candidates[:top_k]
         citations = [self._candidate_to_citation(candidate) for candidate in top_candidates]
-        return SearchBundle(query=query, answer=self._build_answer(citations), citations=citations, candidates=top_candidates)
+        returned_candidates = candidates if include_unfiltered_candidates else top_candidates
+        return SearchBundle(query=query, answer=self._build_answer(citations), citations=citations, candidates=returned_candidates)
 
     def _search_articles(self, query: str, top_k: int, law_scope: list[str]) -> SearchBundle:
         analysis = self.query_analyzer.analyze(query)
@@ -399,8 +452,8 @@ class LawSearchService:
         return normalized or DEFAULT_LAW_SCOPE
 
     @staticmethod
-    def _query_embedding(query: str) -> list[float]:
-        return LawEmbeddingService(db=None).generate_embedding(query)  # type: ignore[arg-type]
+    def _query_embedding(query: str, *, strict: bool = False) -> list[float]:
+        return LawEmbeddingService(db=None).generate_embedding(query, strict=strict)  # type: ignore[arg-type]
 
     @staticmethod
     def _candidate_to_result(candidate: SearchCandidate) -> LawSearchResultItem:

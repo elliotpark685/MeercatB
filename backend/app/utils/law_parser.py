@@ -9,8 +9,12 @@ PART_RE = re.compile(r"^\s*제\d+편.*$")
 CHAPTER_RE = re.compile(r"^\s*제\d+장.*$")
 SECTION_RE = re.compile(r"^\s*제\d+절.*$")
 EFFECTIVE_DATE_RE = re.compile(r"\[?(?:시행일?|矫青老)\s*:?\s*(\d{4})\.\s*(\d{1,2})\.\s*(\d{1,2})\.?\s*\]")
-STRICT_ARTICLE_HEADER_RE = re.compile(r"^\s*((?:제\d+조(?:의\d+)?)|(?:力\d+炼))(?:\(([^)]*)\))?.*$")
+STRICT_ARTICLE_HEADER_RE = re.compile(
+    r"^\s*((?:제\d+조(?:의\d+)?)|(?:力\d+炼))(?:\(([^)]*)\))?\s*(.*)$"
+)
 REFERENCE_ONLY_RE = re.compile(r"(?:제\d+조(?:의\d+)?(?:제\d+항)?(?:제\d+호)?)|(?:力\d+炼)")
+PDF_DECORATION_RE = re.compile(r"^(?:법제처\s+\d+\s+국가법령정보센터|국가법령정보센터)$")
+STRUCTURE_HEADER_RE = re.compile(r"^제\d+(?:편|장|절|관|속)\b.*$")
 
 
 @dataclass
@@ -84,8 +88,21 @@ def parse_korean_law_articles(
         if not current_article:
             return
 
+        # A PDF extractor commonly emits a whole short article on its header line
+        # (for example ``제30조(계단의 난간) 사업주는 ...``).  The previous
+        # parser only regarded following lines as a body and silently discarded
+        # such articles.  Conversely, a TOC/running-header fragment must not
+        # become an article merely because page decorations follow it.
         body_lines = [line for line in current_article["lines"][1:] if line.strip()]
-        if not body_lines:
+        meaningful_body_lines = [
+            line
+            for line in body_lines
+            if not PDF_DECORATION_RE.match(line)
+            and line != law_name
+            and not STRUCTURE_HEADER_RE.match(line)
+            and not STRICT_ARTICLE_HEADER_RE.match(line)
+        ]
+        if not current_article["inline_body"] and not meaningful_body_lines:
             current_article = None
             return
 
@@ -146,6 +163,7 @@ def parse_korean_law_articles(
         if article_match:
             article_no = article_match.group(1)
             article_title = article_match.group(2).strip() if article_match.group(2) else None
+            inline_body = article_match.group(3).strip()
 
             if canonical_map:
                 title_key = article_title or ""
@@ -171,6 +189,7 @@ def parse_korean_law_articles(
                 "chapter": chapter,
                 "section": section,
                 "lines": [line],
+                "inline_body": inline_body,
                 "source_page_start": current_page,
                 "source_page_end": current_page,
             }
