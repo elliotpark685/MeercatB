@@ -553,7 +553,11 @@ export default function DocumentGenerate() {
 
       {loading && (
         <Spinner
-          text={showServerWakeMessage ? "서버를 준비하고 있습니다. 무료 서버의 최초 연결에는 시간이 걸릴 수 있습니다." : "AI가 문서를 생성하고 있습니다..."}
+          text={
+            showServerWakeMessage
+              ? "서버를 준비하고 있습니다. 무료 서버의 최초 연결에는 시간이 걸릴 수 있습니다."
+              : "AI가 문서를 생성하고 있습니다..."
+          }
         />
       )}
       {!!error && <ErrorBox error={error} />}
@@ -616,7 +620,7 @@ export default function DocumentGenerate() {
               [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:text-sm [&_ul]:text-[#98989D]
               [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:text-sm [&_ol]:text-[#98989D]
               [&_li]:mb-0.5
-              [&_strong]:font-semibold [&_strong]:text-white
+              [&_strong]:font-semibold [&_strong]:text-black
               [&_hr]:my-3 [&_hr]:border-[#2C2C2E]"
             >
               <ReactMarkdown>{result.content}</ReactMarkdown>
