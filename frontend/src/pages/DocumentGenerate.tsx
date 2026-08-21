@@ -609,9 +609,9 @@ export default function DocumentGenerate() {
             </p>
             <div
               className="max-h-[600px] overflow-auto rounded-2xl border border-[#2C2C2E] bg-[#121212] p-4
-              [&_h1]:mb-2 [&_h1]:mt-4 [&_h1]:text-lg [&_h1]:font-bold [&_h1]:text-white
+              [&_h1]:mb-2 [&_h1]:mt-4 [&_h1]:text-lg [&_h1]:font-bold [&_h1]:text-black
               [&_h2]:mb-2 [&_h2]:mt-3 [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-[#00E5FF]
-              [&_h3]:mb-1 [&_h3]:mt-2 [&_h3]:text-sm [&_h3]:font-semibold [&_h3]:text-white
+              [&_h3]:mb-1 [&_h3]:mt-2 [&_h3]:text-sm [&_h3]:font-semibold [&_h3]:text-black
               [&_p]:mb-2 [&_p]:text-sm [&_p]:leading-relaxed [&_p]:text-[#98989D]
               [&_ul]:mb-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:text-sm [&_ul]:text-[#98989D]
               [&_ol]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:text-sm [&_ol]:text-[#98989D]
