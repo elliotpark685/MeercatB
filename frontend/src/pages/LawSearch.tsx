@@ -2,9 +2,7 @@
 import { useAuth } from "../contexts/AuthContext";
 import {
   searchLaws,
-  getLawArticle,
   type LawSearchResult,
-  type ArticleDetail,
 } from "../api/admin";
 import Spinner from "../components/Spinner";
 import ErrorBox from "../components/ErrorBox";
@@ -12,6 +10,7 @@ import EmptyState from "../components/EmptyState";
 import LawScopeFilter from "../components/LawScopeFilter";
 import LawResultCard from "../components/LawResultCard";
 import SearchResultsSection from "../components/SearchResultsSection";
+import ArticleDetailModal from "../components/ArticleDetailModal";
 import { LAW_SCOPE_OPTIONS, getLawBadgeColor } from "../types/law";
 
 const TOP_K_OPTIONS = [3, 5, 10];
@@ -49,15 +48,13 @@ export default function LawSearch() {
   const [error, setError] = useState<unknown>(null);
   const [result, setResult] = useState<LawSearchResult | null>(null);
 
-  const [detailLoading, setDetailLoading] = useState(false);
-  const [detailError, setDetailError] = useState<unknown>(null);
-  const [detail, setDetail] = useState<ArticleDetail | null>(null);
+  const [cardDetailArticleId, setCardDetailArticleId] = useState<number | null>(null);
+  const [citationDetailArticleId, setCitationDetailArticleId] = useState<number | null>(null);
 
   const [history, setHistory] = useState<string[]>(loadHistory);
   const [showHistory, setShowHistory] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const detailSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -87,7 +84,8 @@ export default function LawSearch() {
     setShowServerWakeMessage(false);
     setError(null);
     setResult(null);
-    setDetail(null);
+    setCardDetailArticleId(null);
+    setCitationDetailArticleId(null);
     const wakeTimer = window.setTimeout(
       () => setShowServerWakeMessage(true),
       3000,
@@ -112,24 +110,11 @@ export default function LawSearch() {
     }
   }
 
-  async function handleArticleClick(articleId: number) {
-    setDetailLoading(true);
-    setDetailError(null);
-    setDetail(null);
-    window.requestAnimationFrame(() => {
-      detailSectionRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-    try {
-      const d = await getLawArticle(articleId);
-      setDetail(d);
-    } catch (err) {
-      setDetailError(err);
-    } finally {
-      setDetailLoading(false);
-    }
+  function handleCardDetailClick(articleId: number) {
+    setCitationDetailArticleId(null);
+    setCardDetailArticleId((current) =>
+      current === articleId ? null : articleId,
+    );
   }
 
   function handleHistorySelect(q: string) {
@@ -332,7 +317,9 @@ export default function LawSearch() {
                         <LawResultCard
                           key={item.article_id ?? `${lawName}-${idx}`}
                           item={item}
-                          onViewDetail={handleArticleClick}
+                          onViewDetail={handleCardDetailClick}
+                          isDetailOpen={cardDetailArticleId === item.article_id}
+                          onCloseDetail={() => setCardDetailArticleId(null)}
                         />
                       ))}
                     </div>
@@ -367,7 +354,10 @@ export default function LawSearch() {
                 {result.citations.map((c) => (
                   <button
                     key={c.article_id}
-                    onClick={() => handleArticleClick(c.article_id)}
+                    onClick={() => {
+                      setCardDetailArticleId(null);
+                      setCitationDetailArticleId(c.article_id);
+                    }}
                     className="w-full text-left text-sm px-3 py-2.5 rounded-lg border border-[#2C2C2E] bg-[#121212] text-[#98989D] hover:border-[#00E5FF]/30 hover:text-[#00E5FF] hover:bg-[#00E5FF]/5 transition-all duration-150"
                   >
                     {c.law_name} {c.article_no}{" "}
@@ -378,41 +368,13 @@ export default function LawSearch() {
             </div>
           )}
 
-          <div
-            ref={detailSectionRef}
-            className="scroll-mt-6 space-y-3"
-            aria-live="polite"
-          >
-            {detailLoading && <Spinner text="문서 상세 조회 중..." />}
-            {!!detailError && <ErrorBox error={detailError} />}
-
-            {detail && (
-              <div className="bg-[#1E1E1E] rounded-2xl border border-[#00E5FF]/20 p-5">
-                <h3 className="font-semibold text-white mb-3">
-                  {detail.law_name}{" "}
-                  <span className="text-[#00E5FF]">{detail.article_no}</span>
-                </h3>
-                <p className="mb-3 text-xs text-[#00E5FF]/80">
-                  {[
-                    detail.law_no ? `공포번호 ${detail.law_no}` : null,
-                    detail.promulgation_date
-                      ? `공포일 ${detail.promulgation_date}`
-                      : null,
-                    detail.document_effective_date
-                      ? `시행일 ${detail.document_effective_date}`
-                      : null,
-                    detail.amendment_type ?? null,
-                  ]
-                    .filter(Boolean)
-                    .join(" · ") || "공포·시행 정보 없음"}
-                </p>
-                <pre className="text-sm text-[#98989D] whitespace-pre-wrap bg-[#121212] rounded-xl p-4 max-h-96 overflow-auto leading-relaxed font-mono border border-[#2C2C2E]">
-                  {detail.full_text}
-                </pre>
-              </div>
-            )}
-          </div>
         </div>
+      )}
+      {citationDetailArticleId != null && (
+        <ArticleDetailModal
+          articleId={citationDetailArticleId}
+          onClose={() => setCitationDetailArticleId(null)}
+        />
       )}
     </div>
   );
