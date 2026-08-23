@@ -26,7 +26,11 @@ from app.models.law_chunk import LawChunk
 from app.models.law_document import LawDocument
 from app.repositories.law_repository import SAFETY_STANDARD_CATEGORY
 from app.schemas.safety_standard import SafetyStandardSearchResponse
-from app.services.safety_standard_search_service import SafetyStandardSearchService
+from app.services.safety_standard_search_service import (
+    SafetyStandardSearchService,
+    _Candidate,
+    _filter_relevant_candidates,
+)
 
 
 # ── 테스트 픽스처 ─────────────────────────────────────────────────────────────
@@ -139,6 +143,36 @@ def test_safety_search_empty_when_no_data():
 
     resp = service.search("가설공사 비계", top_k=5)
     assert resp.results == []
+
+
+def test_safety_search_filters_low_similarity_vector_only_candidates():
+    doc = _make_doc()
+    article = _make_article(text="현장 안전 점검 절차")
+    low_similarity = _Candidate(
+        chunk=None,
+        article=article,
+        document=doc,
+        embedding=None,
+        score=0.1,
+        vector_score=0.1,
+    )
+
+    assert _filter_relevant_candidates([low_similarity], "안전관리비") == []
+
+
+def test_safety_search_keeps_exact_keyword_match_even_without_strong_vector_score():
+    doc = _make_doc()
+    article = _make_article(text="안전관리비 사용 기준")
+    keyword_match = _Candidate(
+        chunk=None,
+        article=article,
+        document=doc,
+        embedding=None,
+        score=0.7,
+        vector_score=0.1,
+    )
+
+    assert _filter_relevant_candidates([keyword_match], "안전관리비") == [keyword_match]
 
 
 def test_safety_search_source_type_in_result():

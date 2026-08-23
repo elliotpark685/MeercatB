@@ -25,6 +25,9 @@ RULE_SOURCE_TYPE = "rule"
 GUIDELINE_SOURCE_TYPE = "moel_standard_safety_guideline"
 INLINE_IMAGE_TAG_PATTERN = re.compile(r"<img\b[^>]*>\s*(?:</img>)?", re.IGNORECASE)
 
+MIN_RESULT_SCORE = 0.4
+VECTOR_ONLY_MIN_SIMILARITY = 0.8
+
 # 산업안전보건기준에 관한 규칙 법령 이름 (DB 저장값 패턴)
 RULE_LAW_NAMES = ["산업안전보건기준에 관한 규칙", "산업안전보건기준"]
 
@@ -109,7 +112,8 @@ class SafetyStandardSearchService:
         # 점수 계산 + 정렬
         candidates = list(row_map.values())
         _rerank(query=query, candidates=candidates)
-        top_candidates = candidates[:top_k]
+        filtered_candidates = _filter_relevant_candidates(candidates, query)
+        top_candidates = filtered_candidates[:top_k]
 
         # 결과 없으면 article 레벨 fallback
         if not top_candidates:
@@ -143,7 +147,7 @@ class SafetyStandardSearchService:
             for a, d in row_map.values()
         ]
         _rerank(query=query, candidates=candidates)
-        return candidates[:top_k]
+        return _filter_relevant_candidates(candidates, query)[:top_k]
 
 
 # ── 헬퍼 ─────────────────────────────────────────────────────────────────────
@@ -168,6 +172,29 @@ def _rerank(query: str, candidates: list[_Candidate]) -> None:
         c.score = round((c.keyword_score * 0.7) + (c.vector_score * 0.3), 4)
         c.matched_reason = reasons
     candidates.sort(key=lambda x: x.score, reverse=True)
+
+
+def _filter_relevant_candidates(candidates: list[_Candidate], query: str) -> list[_Candidate]:
+    query_terms = _tokenize(query)
+    if not query_terms:
+        return []
+
+    filtered: list[_Candidate] = []
+    for candidate in candidates:
+        text = candidate.chunk.chunk_text if candidate.chunk else (
+            candidate.article.article_text
+            or candidate.article.full_text
+            or candidate.article.content
+            or ""
+        )
+        title = candidate.article.article_title or candidate.article.title or ""
+        keyword_match = any(term in f"{title} {text}" for term in query_terms)
+        vector_match = candidate.vector_score >= VECTOR_ONLY_MIN_SIMILARITY
+
+        if candidate.score >= MIN_RESULT_SCORE and (keyword_match or vector_match):
+            filtered.append(candidate)
+
+    return filtered
 
 
 def _to_result(c: _Candidate) -> SafetyStandardResultItem:
