@@ -88,7 +88,16 @@ with input_left:
     required_height = st.number_input("Required height (m)", min_value=0.1, value=20.0, step=0.1)
     payload = st.number_input("Payload (t)", min_value=0.0, value=10.0, step=0.1)
 with input_right:
-    rigging = st.number_input("Rigging / sling (t)", min_value=0.0, value=0.0, step=0.1)
+    rigging_mode = st.radio("Rigging / sling input", options=["Total weight", "Per sling leg"], horizontal=True)
+    rigging = None
+    sling_leg_count = None
+    sling_weight_per_leg = None
+    if rigging_mode == "Total weight":
+        rigging = st.number_input("Total rigging / sling weight (t)", min_value=0.0, value=0.0, step=0.01)
+    else:
+        sling_leg_count = st.selectbox("Number of sling legs", options=[1, 2, 3, 4], index=1)
+        sling_weight_per_leg = st.number_input("Weight per sling leg (t)", min_value=0.0, value=0.0, step=0.01)
+        st.caption(f"Calculated total rigging weight: {sling_leg_count * sling_weight_per_leg:.2f} t")
     hook_block = st.number_input("Hook block (t)", min_value=0.0, value=0.0, step=0.1)
     spreader = st.number_input("Spreader (t)", min_value=0.0, value=0.0, step=0.1)
 
@@ -111,6 +120,8 @@ if st.button("Run Main Boom capacity test", type="primary"):
         required_height_m=required_height,
         payload_t=payload,
         rigging_t=rigging,
+        sling_leg_count=sling_leg_count,
+        sling_weight_per_leg_t=sling_weight_per_leg,
         hook_block_t=hook_block,
         spreader_t=spreader,
         confirmed_configuration=confirmation,

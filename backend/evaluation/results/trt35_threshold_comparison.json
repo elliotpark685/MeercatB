@@ -1,0 +1,378 @@
+{
+  "reference_status": "AI_VISUAL_TRANSCRIPTION_PENDING_HUMAN_REVIEW",
+  "profile": "ONBOARDING_REQUIRED",
+  "association_validation": "NOT_INDEPENDENTLY_VERIFIED",
+  "runs": {
+    "baseline": {
+      "seconds": 11.251393899903633,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 61,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 16
+        },
+        "0.75": {
+          "correct_available": 60,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 17
+        },
+        "0.8": {
+          "correct_available": 59,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 18
+        },
+        "0.85": {
+          "correct_available": 56,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 21
+        },
+        "0.9": {
+          "correct_available": 52,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 25
+        },
+        "0.95": {
+          "correct_available": 46,
+          "wrong_numeric": 2,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 31
+        }
+      }
+    },
+    "recognition": {
+      "seconds": 3.4912608999293298,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 72,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 7
+        },
+        "0.75": {
+          "correct_available": 71,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 8
+        },
+        "0.8": {
+          "correct_available": 70,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 9
+        },
+        "0.85": {
+          "correct_available": 68,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 11
+        },
+        "0.9": {
+          "correct_available": 65,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 14
+        },
+        "0.95": {
+          "correct_available": 60,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 19
+        }
+      }
+    },
+    "recognition_2x": {
+      "seconds": 5.105003300006501,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 73,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 6
+        },
+        "0.75": {
+          "correct_available": 71,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 8
+        },
+        "0.8": {
+          "correct_available": 71,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 8
+        },
+        "0.85": {
+          "correct_available": 67,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 12
+        },
+        "0.9": {
+          "correct_available": 65,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 14
+        },
+        "0.95": {
+          "correct_available": 62,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 17
+        }
+      }
+    },
+    "recognition_3x": {
+      "seconds": 4.045110800070688,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 69,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 10
+        },
+        "0.75": {
+          "correct_available": 66,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 13
+        },
+        "0.8": {
+          "correct_available": 65,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 14
+        },
+        "0.85": {
+          "correct_available": 64,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 15
+        },
+        "0.9": {
+          "correct_available": 59,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 20
+        },
+        "0.95": {
+          "correct_available": 57,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 56,
+          "false_not_available": 0,
+          "unresolved": 22
+        }
+      }
+    },
+    "padding_2": {
+      "seconds": 5.138219299959019,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 67,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 14
+        },
+        "0.75": {
+          "correct_available": 63,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 18
+        },
+        "0.8": {
+          "correct_available": 59,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 22
+        },
+        "0.85": {
+          "correct_available": 55,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 26
+        },
+        "0.9": {
+          "correct_available": 53,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 28
+        },
+        "0.95": {
+          "correct_available": 45,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 36
+        }
+      }
+    },
+    "padding_4": {
+      "seconds": 5.25966260000132,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 75,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 6
+        },
+        "0.75": {
+          "correct_available": 70,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 11
+        },
+        "0.8": {
+          "correct_available": 67,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 14
+        },
+        "0.85": {
+          "correct_available": 65,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 16
+        },
+        "0.9": {
+          "correct_available": 62,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 19
+        },
+        "0.95": {
+          "correct_available": 57,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 24
+        }
+      }
+    },
+    "padding_12": {
+      "seconds": 4.367308199987747,
+      "thresholds": {
+        "0.7": {
+          "correct_available": 78,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 3
+        },
+        "0.75": {
+          "correct_available": 76,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 5
+        },
+        "0.8": {
+          "correct_available": 73,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 8
+        },
+        "0.85": {
+          "correct_available": 73,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 8
+        },
+        "0.9": {
+          "correct_available": 70,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 11
+        },
+        "0.95": {
+          "correct_available": 68,
+          "wrong_numeric": 0,
+          "false_available": 0,
+          "correct_not_available": 54,
+          "false_not_available": 0,
+          "unresolved": 13
+        }
+      }
+    }
+  }
+}

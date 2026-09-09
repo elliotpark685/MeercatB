@@ -1,0 +1,5182 @@
+{
+  "baseline": {
+    "seconds": 11.251393899903633,
+    "golden_subset_only": {
+      "total_golden_cells": 27,
+      "correct_available": 14,
+      "wrong_available": 0,
+      "false_available": 0,
+      "wrong_cell_association": 0,
+      "correct_not_available": 8,
+      "unresolved": 5,
+      "missing_evidence": 0
+    },
+    "result": {
+      "parser_profile": "TEREX_TRT35_OCR_V1",
+      "parser_version": "0.1.0-slice",
+      "file_hash_sha256": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+      "source_page": 11,
+      "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+      "grid_status": "PASS",
+      "cells": [
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 0,
+          "radius_m": 3.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            672.0,
+            554.7837753295898,
+            714.1066131591797
+          ],
+          "source_text": "35.00",
+          "confidence": 0.9999956284136424,
+          "rated_capacity_t": 35.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 1,
+          "radius_m": 3.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            672.0,
+            790.5376510620117,
+            714.1066131591797
+          ],
+          "source_text": "21.70",
+          "confidence": 0.9992053917762495,
+          "rated_capacity_t": 21.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 2,
+          "radius_m": 3.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            672.0,
+            1030.0081787109375,
+            714.1066131591797
+          ],
+          "source_text": "16.10",
+          "confidence": 0.9999990403836757,
+          "rated_capacity_t": 16.1,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 3,
+          "radius_m": 3.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            672.0,
+            1269.4786834716797,
+            714.1066131591797
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 4,
+          "radius_m": 3.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            672.0,
+            1545.0,
+            714.1066131591797
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 0,
+          "radius_m": 3.5,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            714.1066131591797,
+            554.7837753295898,
+            741.7740325927734
+          ],
+          "source_text": "31.00",
+          "confidence": 0.999997707583045,
+          "rated_capacity_t": 31.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 1,
+          "radius_m": 3.5,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            714.1066131591797,
+            790.5376510620117,
+            741.7740325927734
+          ],
+          "source_text": "20.75",
+          "confidence": 0.8443853169675668,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 2,
+          "radius_m": 3.5,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            714.1066131591797,
+            1030.0081787109375,
+            741.7740325927734
+          ],
+          "source_text": "15.00",
+          "confidence": 0.9999952552293366,
+          "rated_capacity_t": 15.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 3,
+          "radius_m": 3.5,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            714.1066131591797,
+            1269.4786834716797,
+            741.7740325927734
+          ],
+          "source_text": "12.90",
+          "confidence": 0.6936567820451667,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 4,
+          "radius_m": 3.5,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            714.1066131591797,
+            1545.0,
+            741.7740325927734
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 0,
+          "radius_m": 4.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            741.7740325927734,
+            554.7837753295898,
+            769.4414520263672
+          ],
+          "source_text": "28.40",
+          "confidence": 0.9999992536317571,
+          "rated_capacity_t": 28.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 1,
+          "radius_m": 4.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            741.7740325927734,
+            790.5376510620117,
+            769.4414520263672
+          ],
+          "source_text": "19.90",
+          "confidence": 0.976031860243089,
+          "rated_capacity_t": 19.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 2,
+          "radius_m": 4.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            741.7740325927734,
+            1030.0081787109375,
+            769.4414520263672
+          ],
+          "source_text": "14.05",
+          "confidence": 0.8474529841763891,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 3,
+          "radius_m": 4.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            741.7740325927734,
+            1269.4786834716797,
+            769.4414520263672
+          ],
+          "source_text": "12.05",
+          "confidence": 0.9994721265240256,
+          "rated_capacity_t": 12.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 4,
+          "radius_m": 4.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            741.7740325927734,
+            1545.0,
+            769.4414520263672
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 0,
+          "radius_m": 4.5,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            769.4414520263672,
+            554.7837753295898,
+            797.1088714599609
+          ],
+          "source_text": "25.50",
+          "confidence": 0.9999939224281105,
+          "rated_capacity_t": 25.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 1,
+          "radius_m": 4.5,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            769.4414520263672,
+            790.5376510620117,
+            797.1088714599609
+          ],
+          "source_text": "19.15",
+          "confidence": 0.6251588750831829,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 2,
+          "radius_m": 4.5,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            769.4414520263672,
+            1030.0081787109375,
+            797.1088714599609
+          ],
+          "source_text": "13.20",
+          "confidence": 0.9924843238790324,
+          "rated_capacity_t": 13.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 3,
+          "radius_m": 4.5,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            769.4414520263672,
+            1269.4786834716797,
+            797.1088714599609
+          ],
+          "source_text": "11.30",
+          "confidence": 0.9820850232042011,
+          "rated_capacity_t": 11.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 4,
+          "radius_m": 4.5,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            769.4414520263672,
+            1545.0,
+            797.1088714599609
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9998531937599182,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 0,
+          "radius_m": 5.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            797.1088714599609,
+            554.7837753295898,
+            824.7762908935547
+          ],
+          "source_text": "23.00",
+          "confidence": 0.9454287484980081,
+          "rated_capacity_t": 23.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 1,
+          "radius_m": 5.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            797.1088714599609,
+            790.5376510620117,
+            824.7762908935547
+          ],
+          "source_text": "18.45",
+          "confidence": 0.878765023197049,
+          "rated_capacity_t": 18.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 2,
+          "radius_m": 5.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            797.1088714599609,
+            1030.0081787109375,
+            824.7762908935547
+          ],
+          "source_text": "12.45",
+          "confidence": 0.5378194261157104,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 3,
+          "radius_m": 5.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            797.1088714599609,
+            1269.4786834716797,
+            824.7762908935547
+          ],
+          "source_text": "10.60",
+          "confidence": 0.9998503951616661,
+          "rated_capacity_t": 10.6,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 4,
+          "radius_m": 5.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            797.1088714599609,
+            1545.0,
+            824.7762908935547
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9999837875366211,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 0,
+          "radius_m": 6.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            824.7762908935547,
+            554.7837753295898,
+            852.4437103271484
+          ],
+          "source_text": "6.25",
+          "confidence": 0.9999974370002747,
+          "rated_capacity_t": 6.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 1,
+          "radius_m": 6.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            824.7762908935547,
+            790.5376510620117,
+            852.4437103271484
+          ],
+          "source_text": "7.25",
+          "confidence": 0.9767787102867724,
+          "rated_capacity_t": 7.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 2,
+          "radius_m": 6.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            824.7762908935547,
+            1030.0081787109375,
+            852.4437103271484
+          ],
+          "source_text": "11.00",
+          "confidence": 0.9999600692066655,
+          "rated_capacity_t": 11.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 3,
+          "radius_m": 6.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            824.7762908935547,
+            1269.4786834716797,
+            852.4437103271484
+          ],
+          "source_text": "9.40",
+          "confidence": 0.9878926002735284,
+          "rated_capacity_t": 9.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 4,
+          "radius_m": 6.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            824.7762908935547,
+            1545.0,
+            852.4437103271484
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9999361634254456,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 0,
+          "radius_m": 7.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            852.4437103271484,
+            554.7837753295898,
+            880.1111297607422
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 1,
+          "radius_m": 7.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            852.4437103271484,
+            790.5376510620117,
+            880.1111297607422
+          ],
+          "source_text": "12.10",
+          "confidence": 0.9998975336875173,
+          "rated_capacity_t": 12.1,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 2,
+          "radius_m": 7.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            852.4437103271484,
+            1030.0081787109375,
+            880.1111297607422
+          ],
+          "source_text": "9.80",
+          "confidence": 0.958573236247882,
+          "rated_capacity_t": 9.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 3,
+          "radius_m": 7.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            852.4437103271484,
+            1269.4786834716797,
+            880.1111297607422
+          ],
+          "source_text": "8.35",
+          "confidence": 0.5906957196479993,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 4,
+          "radius_m": 7.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            852.4437103271484,
+            1545.0,
+            880.1111297607422
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9998531937599182,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 0,
+          "radius_m": 8.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            880.1111297607422,
+            554.7837753295898,
+            907.7785491943359
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 1,
+          "radius_m": 8.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            880.1111297607422,
+            790.5376510620117,
+            907.7785491943359
+          ],
+          "source_text": "9.45",
+          "confidence": 0.9225148674857049,
+          "rated_capacity_t": 9.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 2,
+          "radius_m": 8.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            880.1111297607422,
+            1030.0081787109375,
+            907.7785491943359
+          ],
+          "source_text": "8.85",
+          "confidence": 0.999997615814209,
+          "rated_capacity_t": 8.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 3,
+          "radius_m": 8.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            880.1111297607422,
+            1269.4786834716797,
+            907.7785491943359
+          ],
+          "source_text": "7.50",
+          "confidence": 0.9300965703279441,
+          "rated_capacity_t": 7.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 4,
+          "radius_m": 8.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            880.1111297607422,
+            1545.0,
+            907.7785491943359
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9999837875366211,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 0,
+          "radius_m": 9.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            907.7785491943359,
+            554.7837753295898,
+            935.4459686279297
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 1,
+          "radius_m": 9.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            907.7785491943359,
+            790.5376510620117,
+            935.4459686279297
+          ],
+          "source_text": "7.60",
+          "confidence": 0.8842820424376693,
+          "rated_capacity_t": 7.6,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 2,
+          "radius_m": 9.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            907.7785491943359,
+            1030.0081787109375,
+            935.4459686279297
+          ],
+          "source_text": "8.05",
+          "confidence": 0.9999969005584717,
+          "rated_capacity_t": 8.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 3,
+          "radius_m": 9.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            907.7785491943359,
+            1269.4786834716797,
+            935.4459686279297
+          ],
+          "source_text": "6.80",
+          "confidence": 0.9999988079071045,
+          "rated_capacity_t": 6.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 4,
+          "radius_m": 9.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            907.7785491943359,
+            1545.0,
+            935.4459686279297
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9999361634254456,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 0,
+          "radius_m": 10.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            935.4459686279297,
+            554.7837753295898,
+            963.1133880615234
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 1,
+          "radius_m": 10.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            935.4459686279297,
+            790.5376510620117,
+            963.1133880615234
+          ],
+          "source_text": "6.25",
+          "confidence": 0.9738088491668092,
+          "rated_capacity_t": 6.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 2,
+          "radius_m": 10.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            935.4459686279297,
+            1030.0081787109375,
+            963.1133880615234
+          ],
+          "source_text": "6.30",
+          "confidence": 0.7469418914028677,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 3,
+          "radius_m": 10.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            935.4459686279297,
+            1269.4786834716797,
+            963.1133880615234
+          ],
+          "source_text": "6.20",
+          "confidence": 0.9783618983745127,
+          "rated_capacity_t": 6.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 4,
+          "radius_m": 10.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            935.4459686279297,
+            1545.0,
+            963.1133880615234
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9998531937599182,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 0,
+          "radius_m": 11.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            963.1133880615234,
+            554.7837753295898,
+            990.7808532714844
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 1,
+          "radius_m": 11.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            963.1133880615234,
+            790.5376510620117,
+            990.7808532714844
+          ],
+          "source_text": "5.25",
+          "confidence": 0.999988537909022,
+          "rated_capacity_t": 5.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 2,
+          "radius_m": 11.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            963.1133880615234,
+            1030.0081787109375,
+            990.7808532714844
+          ],
+          "source_text": "5.30",
+          "confidence": 0.8651781509585083,
+          "rated_capacity_t": 5.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 3,
+          "radius_m": 11.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            963.1133880615234,
+            1269.4786834716797,
+            990.7808532714844
+          ],
+          "source_text": "5.70",
+          "confidence": 0.9991804697561648,
+          "rated_capacity_t": 5.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 4,
+          "radius_m": 11.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            963.1133880615234,
+            1545.0,
+            990.7808532714844
+          ],
+          "source_text": "4.80",
+          "confidence": 0.6831218313903411,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 0,
+          "radius_m": 12.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            990.7808532714844,
+            554.7837753295898,
+            1018.4483642578125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 1,
+          "radius_m": 12.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            990.7808532714844,
+            790.5376510620117,
+            1018.4483642578125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 2,
+          "radius_m": 12.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            990.7808532714844,
+            1030.0081787109375,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.995414403850594,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 3,
+          "radius_m": 12.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            990.7808532714844,
+            1269.4786834716797,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.9003131242572021,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 4,
+          "radius_m": 12.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            990.7808532714844,
+            1545.0,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.850782596405734,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 0,
+          "radius_m": 13.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1018.4483642578125,
+            554.7837753295898,
+            1046.1158752441406
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 1,
+          "radius_m": 13.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1018.4483642578125,
+            790.5376510620117,
+            1046.1158752441406
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 2,
+          "radius_m": 13.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1018.4483642578125,
+            1030.0081787109375,
+            1046.1158752441406
+          ],
+          "source_text": "3.85",
+          "confidence": 0.6151909968697912,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 3,
+          "radius_m": 13.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1018.4483642578125,
+            1269.4786834716797,
+            1046.1158752441406
+          ],
+          "source_text": "3.80",
+          "confidence": 0.9999991059303284,
+          "rated_capacity_t": 3.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 4,
+          "radius_m": 13.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1018.4483642578125,
+            1545.0,
+            1046.1158752441406
+          ],
+          "source_text": "3.70",
+          "confidence": 0.9883987456226854,
+          "rated_capacity_t": 3.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 0,
+          "radius_m": 14.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1046.1158752441406,
+            554.7837753295898,
+            1073.7833862304688
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 1,
+          "radius_m": 14.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1046.1158752441406,
+            790.5376510620117,
+            1073.7833862304688
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 2,
+          "radius_m": 14.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1046.1158752441406,
+            1030.0081787109375,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.6372927524298666,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 3,
+          "radius_m": 14.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1046.1158752441406,
+            1269.4786834716797,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.557200613838382,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 4,
+          "radius_m": 14.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1046.1158752441406,
+            1545.0,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.9849602266069973,
+          "rated_capacity_t": 3.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 0,
+          "radius_m": 15.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1073.7833862304688,
+            554.7837753295898,
+            1101.4508972167969
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 1,
+          "radius_m": 15.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1073.7833862304688,
+            790.5376510620117,
+            1101.4508972167969
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 2,
+          "radius_m": 15.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1073.7833862304688,
+            1030.0081787109375,
+            1101.4508972167969
+          ],
+          "source_text": "2.90",
+          "confidence": 0.9594315787407462,
+          "rated_capacity_t": 2.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 3,
+          "radius_m": 15.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1073.7833862304688,
+            1269.4786834716797,
+            1101.4508972167969
+          ],
+          "source_text": "2.85",
+          "confidence": 0.999996542930603,
+          "rated_capacity_t": 2.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 4,
+          "radius_m": 15.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1073.7833862304688,
+            1545.0,
+            1101.4508972167969
+          ],
+          "source_text": "2.85",
+          "confidence": 0.9943654422577262,
+          "rated_capacity_t": 2.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 0,
+          "radius_m": 16.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1101.4508972167969,
+            554.7837753295898,
+            1129.118408203125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 1,
+          "radius_m": 16.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1101.4508972167969,
+            790.5376510620117,
+            1129.118408203125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 2,
+          "radius_m": 16.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1101.4508972167969,
+            1030.0081787109375,
+            1129.118408203125
+          ],
+          "source_text": "2.45",
+          "confidence": 0.6907534766040542,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 3,
+          "radius_m": 16.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1101.4508972167969,
+            1269.4786834716797,
+            1129.118408203125
+          ],
+          "source_text": "2.50",
+          "confidence": 0.9997044205665588,
+          "rated_capacity_t": 2.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 4,
+          "radius_m": 16.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1101.4508972167969,
+            1545.0,
+            1129.118408203125
+          ],
+          "source_text": "2.50",
+          "confidence": 0.9426552756217543,
+          "rated_capacity_t": 2.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 0,
+          "radius_m": 17.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1129.118408203125,
+            554.7837753295898,
+            1156.7859191894531
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 1,
+          "radius_m": 17.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1129.118408203125,
+            790.5376510620117,
+            1156.7859191894531
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 2,
+          "radius_m": 17.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1129.118408203125,
+            1030.0081787109375,
+            1156.7859191894531
+          ],
+          "source_text": "2.15",
+          "confidence": 0.9999738931655884,
+          "rated_capacity_t": 2.15,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 3,
+          "radius_m": 17.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1129.118408203125,
+            1269.4786834716797,
+            1156.7859191894531
+          ],
+          "source_text": "2.15",
+          "confidence": 0.9935776216492862,
+          "rated_capacity_t": 2.15,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 4,
+          "radius_m": 17.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1129.118408203125,
+            1545.0,
+            1156.7859191894531
+          ],
+          "source_text": "2.20",
+          "confidence": 0.7870582888136838,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 0,
+          "radius_m": 18.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1156.7859191894531,
+            554.7837753295898,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 1,
+          "radius_m": 18.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1156.7859191894531,
+            790.5376510620117,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 2,
+          "radius_m": 18.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1156.7859191894531,
+            1030.0081787109375,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 3,
+          "radius_m": 18.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1156.7859191894531,
+            1269.4786834716797,
+            1184.4534301757812
+          ],
+          "source_text": "90",
+          "confidence": 0.9999993256504904,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR token is not a numeric capacity or a dash cell"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 4,
+          "radius_m": 18.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1156.7859191894531,
+            1545.0,
+            1184.4534301757812
+          ],
+          "source_text": "90",
+          "confidence": 0.9999997471189183,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR token is not a numeric capacity or a dash cell"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 0,
+          "radius_m": 19.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1184.4534301757812,
+            554.7837753295898,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 1,
+          "radius_m": 19.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1184.4534301757812,
+            790.5376510620117,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 2,
+          "radius_m": 19.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1184.4534301757812,
+            1030.0081787109375,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 3,
+          "radius_m": 19.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1184.4534301757812,
+            1269.4786834716797,
+            1212.1209411621094
+          ],
+          "source_text": "1.65",
+          "confidence": 0.9999963045120239,
+          "rated_capacity_t": 1.65,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 4,
+          "radius_m": 19.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1184.4534301757812,
+            1545.0,
+            1212.1209411621094
+          ],
+          "source_text": "1.65",
+          "confidence": 0.9999960064888,
+          "rated_capacity_t": 1.65,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 0,
+          "radius_m": 20.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1212.1209411621094,
+            554.7837753295898,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 1,
+          "radius_m": 20.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1212.1209411621094,
+            790.5376510620117,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 2,
+          "radius_m": 20.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1212.1209411621094,
+            1030.0081787109375,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 3,
+          "radius_m": 20.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1212.1209411621094,
+            1269.4786834716797,
+            1239.7884521484375
+          ],
+          "source_text": "40",
+          "confidence": 0.999999915706304,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR token is not a numeric capacity or a dash cell"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 4,
+          "radius_m": 20.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1212.1209411621094,
+            1545.0,
+            1239.7884521484375
+          ],
+          "source_text": "45",
+          "confidence": 0.999996375372952,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR token is not a numeric capacity or a dash cell"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 0,
+          "radius_m": 21.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1239.7884521484375,
+            554.7837753295898,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 1,
+          "radius_m": 21.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1239.7884521484375,
+            790.5376510620117,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 2,
+          "radius_m": 21.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1239.7884521484375,
+            1030.0081787109375,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 3,
+          "radius_m": 21.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1239.7884521484375,
+            1269.4786834716797,
+            1267.4559631347656
+          ],
+          "source_text": "20",
+          "confidence": 0.5352090323664936,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 4,
+          "radius_m": 21.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1239.7884521484375,
+            1545.0,
+            1267.4559631347656
+          ],
+          "source_text": "25",
+          "confidence": 0.9999978083645809,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR token is not a numeric capacity or a dash cell"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 0,
+          "radius_m": 22.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1267.4559631347656,
+            554.7837753295898,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 1,
+          "radius_m": 22.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1267.4559631347656,
+            790.5376510620117,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 2,
+          "radius_m": 22.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1267.4559631347656,
+            1030.0081787109375,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 3,
+          "radius_m": 22.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1267.4559631347656,
+            1269.4786834716797,
+            1295.1234741210938
+          ],
+          "source_text": "1.05",
+          "confidence": 0.9529702135940431,
+          "rated_capacity_t": 1.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 4,
+          "radius_m": 22.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1267.4559631347656,
+            1545.0,
+            1295.1234741210938
+          ],
+          "source_text": "1.05",
+          "confidence": 0.9999929666519165,
+          "rated_capacity_t": 1.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 0,
+          "radius_m": 23.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1295.1234741210938,
+            554.7837753295898,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 1,
+          "radius_m": 23.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1295.1234741210938,
+            790.5376510620117,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 2,
+          "radius_m": 23.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1295.1234741210938,
+            1030.0081787109375,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 3,
+          "radius_m": 23.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1295.1234741210938,
+            1269.4786834716797,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 4,
+          "radius_m": 23.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1295.1234741210938,
+            1545.0,
+            1322.7909851074219
+          ],
+          "source_text": "0.90",
+          "confidence": 0.9055841507816782,
+          "rated_capacity_t": 0.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 0,
+          "radius_m": 24.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1322.7909851074219,
+            554.7837753295898,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 1,
+          "radius_m": 24.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1322.7909851074219,
+            790.5376510620117,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 2,
+          "radius_m": 24.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1322.7909851074219,
+            1030.0081787109375,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 3,
+          "radius_m": 24.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1322.7909851074219,
+            1269.4786834716797,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 4,
+          "radius_m": 24.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1322.7909851074219,
+            1545.0,
+            1350.45849609375
+          ],
+          "source_text": "0.75",
+          "confidence": 0.6028864345068113,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 0,
+          "radius_m": 25.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1350.45849609375,
+            554.7837753295898,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 1,
+          "radius_m": 25.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1350.45849609375,
+            790.5376510620117,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 2,
+          "radius_m": 25.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1350.45849609375,
+            1030.0081787109375,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 3,
+          "radius_m": 25.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1350.45849609375,
+            1269.4786834716797,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 4,
+          "radius_m": 25.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1350.45849609375,
+            1545.0,
+            1378.1260070800781
+          ],
+          "source_text": "0.65",
+          "confidence": 0.8211351349636643,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 0,
+          "radius_m": 26.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1378.1260070800781,
+            554.7837753295898,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 1,
+          "radius_m": 26.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1378.1260070800781,
+            790.5376510620117,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 2,
+          "radius_m": 26.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1378.1260070800781,
+            1030.0081787109375,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 3,
+          "radius_m": 26.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1378.1260070800781,
+            1269.4786834716797,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 4,
+          "radius_m": 26.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1378.1260070800781,
+            1545.0,
+            1405.7935180664062
+          ],
+          "source_text": "0.50",
+          "confidence": 0.9999936819076538,
+          "rated_capacity_t": 0.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 0,
+          "radius_m": 27.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1405.7935180664062,
+            554.7837753295898,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 1,
+          "radius_m": 27.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1405.7935180664062,
+            790.5376510620117,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 2,
+          "radius_m": 27.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1405.7935180664062,
+            1030.0081787109375,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 3,
+          "radius_m": 27.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1405.7935180664062,
+            1269.4786834716797,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 4,
+          "radius_m": 27.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1405.7935180664062,
+            1545.0,
+            1434.0
+          ],
+          "source_text": "0.40",
+          "confidence": 0.9994887223465314,
+          "rated_capacity_t": 0.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        }
+      ],
+      "critical_errors": [],
+      "canonical_content_hash": "00f4f076ada3349ff588a4b9a920a8c3d79f8deeab255e05f15197bbf47c1701"
+    }
+  },
+  "recognition": {
+    "seconds": 3.4912608999293298,
+    "golden_subset_only": {
+      "total_golden_cells": 27,
+      "correct_available": 18,
+      "wrong_available": 0,
+      "false_available": 0,
+      "wrong_cell_association": 0,
+      "correct_not_available": 8,
+      "unresolved": 1,
+      "missing_evidence": 0
+    },
+    "result": {
+      "parser_profile": "TEREX_TRT35_OCR_V1",
+      "parser_version": "0.1.0-slice",
+      "file_hash_sha256": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+      "source_page": 11,
+      "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+      "grid_status": "PASS",
+      "cells": [
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 0,
+          "radius_m": 3.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            672.0,
+            554.7837753295898,
+            714.1066131591797
+          ],
+          "source_text": "35.00",
+          "confidence": 0.9923900696029134,
+          "rated_capacity_t": 35.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 1,
+          "radius_m": 3.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            672.0,
+            790.5376510620117,
+            714.1066131591797
+          ],
+          "source_text": "21.70",
+          "confidence": 0.9974205340863347,
+          "rated_capacity_t": 21.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 2,
+          "radius_m": 3.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            672.0,
+            1030.0081787109375,
+            714.1066131591797
+          ],
+          "source_text": "16.10",
+          "confidence": 0.9945774428864593,
+          "rated_capacity_t": 16.1,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 3,
+          "radius_m": 3.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            672.0,
+            1269.4786834716797,
+            714.1066131591797
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 0,
+          "column_index": 4,
+          "radius_m": 3.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            672.0,
+            1545.0,
+            714.1066131591797
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 0,
+          "radius_m": 3.5,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            714.1066131591797,
+            554.7837753295898,
+            741.7740325927734
+          ],
+          "source_text": "31.00",
+          "confidence": 0.9999918965698451,
+          "rated_capacity_t": 31.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 1,
+          "radius_m": 3.5,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            714.1066131591797,
+            790.5376510620117,
+            741.7740325927734
+          ],
+          "source_text": "20.75",
+          "confidence": 0.9379067887565009,
+          "rated_capacity_t": 20.75,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 2,
+          "radius_m": 3.5,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            714.1066131591797,
+            1030.0081787109375,
+            741.7740325927734
+          ],
+          "source_text": "15.00",
+          "confidence": 0.9984028520006877,
+          "rated_capacity_t": 15.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 3,
+          "radius_m": 3.5,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            714.1066131591797,
+            1269.4786834716797,
+            741.7740325927734
+          ],
+          "source_text": "12.90",
+          "confidence": 0.9999937091798948,
+          "rated_capacity_t": 12.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 1,
+          "column_index": 4,
+          "radius_m": 3.5,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            714.1066131591797,
+            1545.0,
+            741.7740325927734
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 0,
+          "radius_m": 4.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            741.7740325927734,
+            554.7837753295898,
+            769.4414520263672
+          ],
+          "source_text": "28.40",
+          "confidence": 0.9999997334399208,
+          "rated_capacity_t": 28.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 1,
+          "radius_m": 4.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            741.7740325927734,
+            790.5376510620117,
+            769.4414520263672
+          ],
+          "source_text": "19.90",
+          "confidence": 0.9999891243419601,
+          "rated_capacity_t": 19.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 2,
+          "radius_m": 4.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            741.7740325927734,
+            1030.0081787109375,
+            769.4414520263672
+          ],
+          "source_text": "14.05",
+          "confidence": 0.9999893375902911,
+          "rated_capacity_t": 14.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 3,
+          "radius_m": 4.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            741.7740325927734,
+            1269.4786834716797,
+            769.4414520263672
+          ],
+          "source_text": "12.05",
+          "confidence": 0.9999841663167499,
+          "rated_capacity_t": 12.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 2,
+          "column_index": 4,
+          "radius_m": 4.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            741.7740325927734,
+            1545.0,
+            769.4414520263672
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 0,
+          "radius_m": 4.5,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            769.4414520263672,
+            554.7837753295898,
+            797.1088714599609
+          ],
+          "source_text": "25.50",
+          "confidence": 0.9999944555486261,
+          "rated_capacity_t": 25.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 1,
+          "radius_m": 4.5,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            769.4414520263672,
+            790.5376510620117,
+            797.1088714599609
+          ],
+          "source_text": "19.15",
+          "confidence": 0.9274527517096837,
+          "rated_capacity_t": 19.15,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 2,
+          "radius_m": 4.5,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            769.4414520263672,
+            1030.0081787109375,
+            797.1088714599609
+          ],
+          "source_text": "13.20",
+          "confidence": 0.9986421297508203,
+          "rated_capacity_t": 13.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 3,
+          "radius_m": 4.5,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            769.4414520263672,
+            1269.4786834716797,
+            797.1088714599609
+          ],
+          "source_text": "11.30",
+          "confidence": 0.6134090350180771,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 3,
+          "column_index": 4,
+          "radius_m": 4.5,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            769.4414520263672,
+            1545.0,
+            797.1088714599609
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 0,
+          "radius_m": 5.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            797.1088714599609,
+            554.7837753295898,
+            824.7762908935547
+          ],
+          "source_text": "23.00",
+          "confidence": 0.9999982407033224,
+          "rated_capacity_t": 23.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 1,
+          "radius_m": 5.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            797.1088714599609,
+            790.5376510620117,
+            824.7762908935547
+          ],
+          "source_text": "18.45",
+          "confidence": 0.9999953618534256,
+          "rated_capacity_t": 18.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 2,
+          "radius_m": 5.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            797.1088714599609,
+            1030.0081787109375,
+            824.7762908935547
+          ],
+          "source_text": "12.45",
+          "confidence": 0.999991256825029,
+          "rated_capacity_t": 12.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 3,
+          "radius_m": 5.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            797.1088714599609,
+            1269.4786834716797,
+            824.7762908935547
+          ],
+          "source_text": "10.60",
+          "confidence": 0.8358217345604863,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 4,
+          "column_index": 4,
+          "radius_m": 5.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            797.1088714599609,
+            1545.0,
+            824.7762908935547
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 0,
+          "radius_m": 6.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            824.7762908935547,
+            554.7837753295898,
+            852.4437103271484
+          ],
+          "source_text": "16.25",
+          "confidence": 0.9463889636119318,
+          "rated_capacity_t": 16.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 1,
+          "radius_m": 6.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            824.7762908935547,
+            790.5376510620117,
+            852.4437103271484
+          ],
+          "source_text": "17.25",
+          "confidence": 0.9999527121107253,
+          "rated_capacity_t": 17.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 2,
+          "radius_m": 6.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            824.7762908935547,
+            1030.0081787109375,
+            852.4437103271484
+          ],
+          "source_text": "11.00",
+          "confidence": 0.7064540400082849,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 3,
+          "radius_m": 6.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            824.7762908935547,
+            1269.4786834716797,
+            852.4437103271484
+          ],
+          "source_text": "9.40",
+          "confidence": 0.9999186987870246,
+          "rated_capacity_t": 9.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 5,
+          "column_index": 4,
+          "radius_m": 6.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            824.7762908935547,
+            1545.0,
+            852.4437103271484
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 0,
+          "radius_m": 7.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            852.4437103271484,
+            554.7837753295898,
+            880.1111297607422
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 1,
+          "radius_m": 7.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            852.4437103271484,
+            790.5376510620117,
+            880.1111297607422
+          ],
+          "source_text": "12.10",
+          "confidence": 0.8218767064467757,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 2,
+          "radius_m": 7.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            852.4437103271484,
+            1030.0081787109375,
+            880.1111297607422
+          ],
+          "source_text": "9.80",
+          "confidence": 0.9999995827674866,
+          "rated_capacity_t": 9.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 3,
+          "radius_m": 7.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            852.4437103271484,
+            1269.4786834716797,
+            880.1111297607422
+          ],
+          "source_text": "8.35",
+          "confidence": 0.9953196698007636,
+          "rated_capacity_t": 8.35,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 6,
+          "column_index": 4,
+          "radius_m": 7.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            852.4437103271484,
+            1545.0,
+            880.1111297607422
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 0,
+          "radius_m": 8.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            880.1111297607422,
+            554.7837753295898,
+            907.7785491943359
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 1,
+          "radius_m": 8.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            880.1111297607422,
+            790.5376510620117,
+            907.7785491943359
+          ],
+          "source_text": "9.45",
+          "confidence": 0.999988853931427,
+          "rated_capacity_t": 9.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 2,
+          "radius_m": 8.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            880.1111297607422,
+            1030.0081787109375,
+            907.7785491943359
+          ],
+          "source_text": "8.85",
+          "confidence": 0.9999967217445374,
+          "rated_capacity_t": 8.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 3,
+          "radius_m": 8.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            880.1111297607422,
+            1269.4786834716797,
+            907.7785491943359
+          ],
+          "source_text": "7.50",
+          "confidence": 0.9999951720237732,
+          "rated_capacity_t": 7.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 7,
+          "column_index": 4,
+          "radius_m": 8.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            880.1111297607422,
+            1545.0,
+            907.7785491943359
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 0,
+          "radius_m": 9.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            907.7785491943359,
+            554.7837753295898,
+            935.4459686279297
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 1,
+          "radius_m": 9.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            907.7785491943359,
+            790.5376510620117,
+            935.4459686279297
+          ],
+          "source_text": "7.60",
+          "confidence": 0.5788451376895879,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 2,
+          "radius_m": 9.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            907.7785491943359,
+            1030.0081787109375,
+            935.4459686279297
+          ],
+          "source_text": "8.05",
+          "confidence": 0.9999950528144836,
+          "rated_capacity_t": 8.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 3,
+          "radius_m": 9.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            907.7785491943359,
+            1269.4786834716797,
+            935.4459686279297
+          ],
+          "source_text": "6.80",
+          "confidence": 0.9999415874481201,
+          "rated_capacity_t": 6.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 8,
+          "column_index": 4,
+          "radius_m": 9.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            907.7785491943359,
+            1545.0,
+            935.4459686279297
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 0,
+          "radius_m": 10.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            935.4459686279297,
+            554.7837753295898,
+            963.1133880615234
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 1,
+          "radius_m": 10.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            935.4459686279297,
+            790.5376510620117,
+            963.1133880615234
+          ],
+          "source_text": "6.25",
+          "confidence": 0.9999552369117737,
+          "rated_capacity_t": 6.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 2,
+          "radius_m": 10.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            935.4459686279297,
+            1030.0081787109375,
+            963.1133880615234
+          ],
+          "source_text": "6.30",
+          "confidence": 0.999920666217804,
+          "rated_capacity_t": 6.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 3,
+          "radius_m": 10.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            935.4459686279297,
+            1269.4786834716797,
+            963.1133880615234
+          ],
+          "source_text": "6.20",
+          "confidence": 0.9999240040779114,
+          "rated_capacity_t": 6.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 9,
+          "column_index": 4,
+          "radius_m": 10.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            935.4459686279297,
+            1545.0,
+            963.1133880615234
+          ],
+          "source_text": "5.00",
+          "confidence": 0.9996374845504761,
+          "rated_capacity_t": 5.0,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 0,
+          "radius_m": 11.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            963.1133880615234,
+            554.7837753295898,
+            990.7808532714844
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 1,
+          "radius_m": 11.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            963.1133880615234,
+            790.5376510620117,
+            990.7808532714844
+          ],
+          "source_text": "5.25",
+          "confidence": 0.9992651343345642,
+          "rated_capacity_t": 5.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 2,
+          "radius_m": 11.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            963.1133880615234,
+            1030.0081787109375,
+            990.7808532714844
+          ],
+          "source_text": "5.30",
+          "confidence": 0.9993057424890941,
+          "rated_capacity_t": 5.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 3,
+          "radius_m": 11.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            963.1133880615234,
+            1269.4786834716797,
+            990.7808532714844
+          ],
+          "source_text": "5.70",
+          "confidence": 0.8783623570739465,
+          "rated_capacity_t": 5.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 10,
+          "column_index": 4,
+          "radius_m": 11.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            963.1133880615234,
+            1545.0,
+            990.7808532714844
+          ],
+          "source_text": "4.80",
+          "confidence": 0.9999993443489075,
+          "rated_capacity_t": 4.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 0,
+          "radius_m": 12.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            990.7808532714844,
+            554.7837753295898,
+            1018.4483642578125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 1,
+          "radius_m": 12.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            990.7808532714844,
+            790.5376510620117,
+            1018.4483642578125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 2,
+          "radius_m": 12.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            990.7808532714844,
+            1030.0081787109375,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.9999953508377075,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 3,
+          "radius_m": 12.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            990.7808532714844,
+            1269.4786834716797,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.9999951124191284,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 11,
+          "column_index": 4,
+          "radius_m": 12.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            990.7808532714844,
+            1545.0,
+            1018.4483642578125
+          ],
+          "source_text": "4.50",
+          "confidence": 0.9999951124191284,
+          "rated_capacity_t": 4.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 0,
+          "radius_m": 13.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1018.4483642578125,
+            554.7837753295898,
+            1046.1158752441406
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 1,
+          "radius_m": 13.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1018.4483642578125,
+            790.5376510620117,
+            1046.1158752441406
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 2,
+          "radius_m": 13.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1018.4483642578125,
+            1030.0081787109375,
+            1046.1158752441406
+          ],
+          "source_text": "3.85",
+          "confidence": 0.9999906420707703,
+          "rated_capacity_t": 3.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 3,
+          "radius_m": 13.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1018.4483642578125,
+            1269.4786834716797,
+            1046.1158752441406
+          ],
+          "source_text": "3.80",
+          "confidence": 0.9999986290931702,
+          "rated_capacity_t": 3.8,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 12,
+          "column_index": 4,
+          "radius_m": 13.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1018.4483642578125,
+            1545.0,
+            1046.1158752441406
+          ],
+          "source_text": "3.70",
+          "confidence": 0.9999948740005493,
+          "rated_capacity_t": 3.7,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 0,
+          "radius_m": 14.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1046.1158752441406,
+            554.7837753295898,
+            1073.7833862304688
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 1,
+          "radius_m": 14.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1046.1158752441406,
+            790.5376510620117,
+            1073.7833862304688
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 2,
+          "radius_m": 14.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1046.1158752441406,
+            1030.0081787109375,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.9999960660934448,
+          "rated_capacity_t": 3.3,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 3,
+          "radius_m": 14.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1046.1158752441406,
+            1269.4786834716797,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.6433988242650659,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 13,
+          "column_index": 4,
+          "radius_m": 14.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1046.1158752441406,
+            1545.0,
+            1073.7833862304688
+          ],
+          "source_text": "3.30",
+          "confidence": 0.6433988242650659,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 0,
+          "radius_m": 15.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1073.7833862304688,
+            554.7837753295898,
+            1101.4508972167969
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 1,
+          "radius_m": 15.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1073.7833862304688,
+            790.5376510620117,
+            1101.4508972167969
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 2,
+          "radius_m": 15.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1073.7833862304688,
+            1030.0081787109375,
+            1101.4508972167969
+          ],
+          "source_text": "2.90",
+          "confidence": 0.9999016523361206,
+          "rated_capacity_t": 2.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 3,
+          "radius_m": 15.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1073.7833862304688,
+            1269.4786834716797,
+            1101.4508972167969
+          ],
+          "source_text": "2.85",
+          "confidence": 0.9998475909233093,
+          "rated_capacity_t": 2.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 14,
+          "column_index": 4,
+          "radius_m": 15.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1073.7833862304688,
+            1545.0,
+            1101.4508972167969
+          ],
+          "source_text": "2.85",
+          "confidence": 0.9998475909233093,
+          "rated_capacity_t": 2.85,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 0,
+          "radius_m": 16.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1101.4508972167969,
+            554.7837753295898,
+            1129.118408203125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 1,
+          "radius_m": 16.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1101.4508972167969,
+            790.5376510620117,
+            1129.118408203125
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 2,
+          "radius_m": 16.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1101.4508972167969,
+            1030.0081787109375,
+            1129.118408203125
+          ],
+          "source_text": "2.45",
+          "confidence": 0.9999620914459229,
+          "rated_capacity_t": 2.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 3,
+          "radius_m": 16.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1101.4508972167969,
+            1269.4786834716797,
+            1129.118408203125
+          ],
+          "source_text": "2.50",
+          "confidence": 0.9982121586799622,
+          "rated_capacity_t": 2.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 15,
+          "column_index": 4,
+          "radius_m": 16.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1101.4508972167969,
+            1545.0,
+            1129.118408203125
+          ],
+          "source_text": "2.50",
+          "confidence": 0.9982121586799622,
+          "rated_capacity_t": 2.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 0,
+          "radius_m": 17.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1129.118408203125,
+            554.7837753295898,
+            1156.7859191894531
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 1,
+          "radius_m": 17.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1129.118408203125,
+            790.5376510620117,
+            1156.7859191894531
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 2,
+          "radius_m": 17.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1129.118408203125,
+            1030.0081787109375,
+            1156.7859191894531
+          ],
+          "source_text": "2.15",
+          "confidence": 0.9981760382652283,
+          "rated_capacity_t": 2.15,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 3,
+          "radius_m": 17.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1129.118408203125,
+            1269.4786834716797,
+            1156.7859191894531
+          ],
+          "source_text": "2.15",
+          "confidence": 0.9130117899665523,
+          "rated_capacity_t": 2.15,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 16,
+          "column_index": 4,
+          "radius_m": 17.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1129.118408203125,
+            1545.0,
+            1156.7859191894531
+          ],
+          "source_text": "2.20",
+          "confidence": 0.9719564318656921,
+          "rated_capacity_t": 2.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 0,
+          "radius_m": 18.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1156.7859191894531,
+            554.7837753295898,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 1,
+          "radius_m": 18.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1156.7859191894531,
+            790.5376510620117,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 2,
+          "radius_m": 18.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1156.7859191894531,
+            1030.0081787109375,
+            1184.4534301757812
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 3,
+          "radius_m": 18.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1156.7859191894531,
+            1269.4786834716797,
+            1184.4534301757812
+          ],
+          "source_text": "1.90",
+          "confidence": 0.8916746622580467,
+          "rated_capacity_t": 1.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 17,
+          "column_index": 4,
+          "radius_m": 18.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1156.7859191894531,
+            1545.0,
+            1184.4534301757812
+          ],
+          "source_text": "1.90",
+          "confidence": 0.8916746622580467,
+          "rated_capacity_t": 1.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 0,
+          "radius_m": 19.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1184.4534301757812,
+            554.7837753295898,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 1,
+          "radius_m": 19.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1184.4534301757812,
+            790.5376510620117,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 2,
+          "radius_m": 19.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1184.4534301757812,
+            1030.0081787109375,
+            1212.1209411621094
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 3,
+          "radius_m": 19.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1184.4534301757812,
+            1269.4786834716797,
+            1212.1209411621094
+          ],
+          "source_text": "1.65",
+          "confidence": 0.5589558545714068,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 18,
+          "column_index": 4,
+          "radius_m": 19.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1184.4534301757812,
+            1545.0,
+            1212.1209411621094
+          ],
+          "source_text": "1.65",
+          "confidence": 0.5589558545714068,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 0,
+          "radius_m": 20.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1212.1209411621094,
+            554.7837753295898,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 1,
+          "radius_m": 20.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1212.1209411621094,
+            790.5376510620117,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 2,
+          "radius_m": 20.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1212.1209411621094,
+            1030.0081787109375,
+            1239.7884521484375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 3,
+          "radius_m": 20.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1212.1209411621094,
+            1269.4786834716797,
+            1239.7884521484375
+          ],
+          "source_text": "1.40",
+          "confidence": 0.7932321376868017,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 19,
+          "column_index": 4,
+          "radius_m": 20.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1212.1209411621094,
+            1545.0,
+            1239.7884521484375
+          ],
+          "source_text": "1.45",
+          "confidence": 0.9986643195152283,
+          "rated_capacity_t": 1.45,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 0,
+          "radius_m": 21.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1239.7884521484375,
+            554.7837753295898,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 1,
+          "radius_m": 21.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1239.7884521484375,
+            790.5376510620117,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 2,
+          "radius_m": 21.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1239.7884521484375,
+            1030.0081787109375,
+            1267.4559631347656
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 3,
+          "radius_m": 21.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1239.7884521484375,
+            1269.4786834716797,
+            1267.4559631347656
+          ],
+          "source_text": "1.20",
+          "confidence": 0.9913169293568057,
+          "rated_capacity_t": 1.2,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 20,
+          "column_index": 4,
+          "radius_m": 21.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1239.7884521484375,
+            1545.0,
+            1267.4559631347656
+          ],
+          "source_text": "1.25",
+          "confidence": 0.9926166335617617,
+          "rated_capacity_t": 1.25,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 0,
+          "radius_m": 22.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1267.4559631347656,
+            554.7837753295898,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 1,
+          "radius_m": 22.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1267.4559631347656,
+            790.5376510620117,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 2,
+          "radius_m": 22.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1267.4559631347656,
+            1030.0081787109375,
+            1295.1234741210938
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 3,
+          "radius_m": 22.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1267.4559631347656,
+            1269.4786834716797,
+            1295.1234741210938
+          ],
+          "source_text": "1.05",
+          "confidence": 0.9954120568487022,
+          "rated_capacity_t": 1.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 21,
+          "column_index": 4,
+          "radius_m": 22.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1267.4559631347656,
+            1545.0,
+            1295.1234741210938
+          ],
+          "source_text": "1.05",
+          "confidence": 0.9954120568487022,
+          "rated_capacity_t": 1.05,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 0,
+          "radius_m": 23.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1295.1234741210938,
+            554.7837753295898,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 1,
+          "radius_m": 23.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1295.1234741210938,
+            790.5376510620117,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 2,
+          "radius_m": 23.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1295.1234741210938,
+            1030.0081787109375,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 3,
+          "radius_m": 23.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1295.1234741210938,
+            1269.4786834716797,
+            1322.7909851074219
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 22,
+          "column_index": 4,
+          "radius_m": 23.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1295.1234741210938,
+            1545.0,
+            1322.7909851074219
+          ],
+          "source_text": "0.90",
+          "confidence": 0.9710153746454834,
+          "rated_capacity_t": 0.9,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 0,
+          "radius_m": 24.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1322.7909851074219,
+            554.7837753295898,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 1,
+          "radius_m": 24.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1322.7909851074219,
+            790.5376510620117,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 2,
+          "radius_m": 24.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1322.7909851074219,
+            1030.0081787109375,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 3,
+          "radius_m": 24.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1322.7909851074219,
+            1269.4786834716797,
+            1350.45849609375
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 23,
+          "column_index": 4,
+          "radius_m": 24.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1322.7909851074219,
+            1545.0,
+            1350.45849609375
+          ],
+          "source_text": "0.75",
+          "confidence": 0.9479676285235111,
+          "rated_capacity_t": 0.75,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 0,
+          "radius_m": 25.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1350.45849609375,
+            554.7837753295898,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 1,
+          "radius_m": 25.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1350.45849609375,
+            790.5376510620117,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 2,
+          "radius_m": 25.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1350.45849609375,
+            1030.0081787109375,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 3,
+          "radius_m": 25.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1350.45849609375,
+            1269.4786834716797,
+            1378.1260070800781
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 24,
+          "column_index": 4,
+          "radius_m": 25.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1350.45849609375,
+            1545.0,
+            1378.1260070800781
+          ],
+          "source_text": "0.65",
+          "confidence": 0.5976006701114523,
+          "rated_capacity_t": null,
+          "cell_status": "UNRESOLVED",
+          "reason": "OCR confidence is below the configured threshold"
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 0,
+          "radius_m": 26.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1378.1260070800781,
+            554.7837753295898,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 1,
+          "radius_m": 26.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1378.1260070800781,
+            790.5376510620117,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 2,
+          "radius_m": 26.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1378.1260070800781,
+            1030.0081787109375,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 3,
+          "radius_m": 26.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1378.1260070800781,
+            1269.4786834716797,
+            1405.7935180664062
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 25,
+          "column_index": 4,
+          "radius_m": 26.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1378.1260070800781,
+            1545.0,
+            1405.7935180664062
+          ],
+          "source_text": "0.50",
+          "confidence": 0.9999980926513672,
+          "rated_capacity_t": 0.5,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 0,
+          "radius_m": 27.0,
+          "boom_length_m": 9.1,
+          "cell_bbox": [
+            240.0,
+            1405.7935180664062,
+            554.7837753295898,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 1,
+          "radius_m": 27.0,
+          "boom_length_m": 14.4,
+          "cell_bbox": [
+            554.7837753295898,
+            1405.7935180664062,
+            790.5376510620117,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 2,
+          "radius_m": 27.0,
+          "boom_length_m": 19.6,
+          "cell_bbox": [
+            790.5376510620117,
+            1405.7935180664062,
+            1030.0081787109375,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 3,
+          "radius_m": 27.0,
+          "boom_length_m": 24.9,
+          "cell_bbox": [
+            1030.0081787109375,
+            1405.7935180664062,
+            1269.4786834716797,
+            1434.0
+          ],
+          "source_text": "-",
+          "confidence": 1.0,
+          "rated_capacity_t": null,
+          "cell_status": "NOT_AVAILABLE",
+          "reason": null
+        },
+        {
+          "source_page": 11,
+          "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+          "row_index": 26,
+          "column_index": 4,
+          "radius_m": 27.0,
+          "boom_length_m": 30.1,
+          "cell_bbox": [
+            1269.4786834716797,
+            1405.7935180664062,
+            1545.0,
+            1434.0
+          ],
+          "source_text": "0.40",
+          "confidence": 0.9997745938018612,
+          "rated_capacity_t": 0.4,
+          "cell_status": "AVAILABLE",
+          "reason": null
+        }
+      ],
+      "critical_errors": [],
+      "canonical_content_hash": "27ab33cbb3dd75aee27df783305fb8ffba49ed1c32bb8aad9d1c100693f45ce3"
+    }
+  }
+}

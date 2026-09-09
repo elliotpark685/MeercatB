@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from starlette.concurrency import run_in_threadpool
 
 from app.api.deps import get_db
+from app.crane.document_intake import EquipmentDocumentIntakeService
 from app.crane.supabase_mapping import TRT60SupabaseMapper
 from app.crane.trt60_parser import TerexTRT60Parser
 from app.crane.trt60_reference import REFERENCE_FILE_HASH_SHA256, load_golden_dataset
@@ -36,6 +37,20 @@ async def _read_pdf_upload(file: UploadFile) -> bytes:
     if not payload.startswith(b"%PDF-"):
         raise HTTPException(status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, detail="Upload content is not a PDF")
     return payload
+
+
+@router.post(
+    "/inspect",
+    description="Classify an equipment PDF against registered parser profiles. This endpoint never persists or parses load-chart cells.",
+)
+async def inspect_equipment_pdf(file: UploadFile = File(...)):
+    """Common PDF entry point for current and future crane/equipment profiles."""
+    try:
+        payload = await _read_pdf_upload(file)
+        intake = await run_in_threadpool(EquipmentDocumentIntakeService().inspect_pdf_bytes, payload, source_name=file.filename)
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    return {"document": intake.model_dump(mode="json"), "persisted": False}
 
 
 def _parse_reference_trt60(payload: bytes, source_name: str):
