@@ -14,6 +14,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      # This workflow has no PostgreSQL/pgvector service. Run the supported
+      # SQLite-compatible suite instead of inheriting any deployment setting.
+      USE_PGVECTOR: "false"
 
     defaults:
       run:

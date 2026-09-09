@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import administrative_rules, admin, auth, documents, health, kosha, laws, quizzes, safety_standards, todos
+from app.api.v1.endpoints import administrative_rules, admin, auth, cranes, documents, health, kosha, laws, quizzes, safety_standards, todos
 
 api_router = APIRouter()
 api_router.include_router(health.router, tags=["health"])
@@ -13,3 +13,4 @@ api_router.include_router(safety_standards.router, prefix="/safety-standards", t
 api_router.include_router(administrative_rules.router, prefix="/administrative-rules", tags=["administrative-rules"])
 api_router.include_router(kosha.router, prefix="/kosha", tags=["kosha"])
 api_router.include_router(todos.router, prefix="/todos", tags=["todos"])
+api_router.include_router(cranes.router, prefix="/cranes", tags=["cranes"])
