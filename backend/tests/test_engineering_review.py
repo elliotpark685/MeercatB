@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from app.crane.engineering_review import CapacityStatus, ConfigurationStatus, ConfirmedConfiguration, EngineeringReviewInput, MainBoomEngineeringReviewService
 from app.crane.trt60_parser import TerexTRT60Parser
 
@@ -88,3 +90,40 @@ def test_review_counts_hook_block_and_sling_once_against_rated_capacity():
     )
     assert result.gross_load_t == 60.1
     assert result.capacity_status == CapacityStatus.FAIL
+
+
+def test_review_calculates_total_rigging_from_sling_legs():
+    data = _validated_reference_data()
+    if data is None:
+        return
+    result = MainBoomEngineeringReviewService().review(
+        data,
+        EngineeringReviewInput(
+            chart_source_page=11,
+            radius_m=2.3,
+            boom_length_m=10.5,
+            required_height_m=20,
+            payload_t=10,
+            sling_leg_count=2,
+            sling_weight_per_leg_t=0.22,
+            confirmed_configuration=_confirmed(data.load_charts[0]),
+        ),
+    )
+    assert result.rigging_total_t == 0.44
+    assert result.gross_load_t == 10.44
+    assert result.sling_leg_count == 2
+    assert result.sling_weight_per_leg_t == 0.22
+
+
+def test_review_rejects_ambiguous_total_and_per_leg_rigging():
+    with pytest.raises(ValueError, match="either rigging_t or per-leg sling inputs"):
+        EngineeringReviewInput(
+            chart_source_page=11,
+            radius_m=2.3,
+            boom_length_m=10.5,
+            required_height_m=20,
+            payload_t=10,
+            rigging_t=0.44,
+            sling_leg_count=2,
+            sling_weight_per_leg_t=0.22,
+        )

@@ -11,5 +11,8 @@ streamlit run backend/scripts/crane_test.py
 
 Use the Golden-validated TRT60 reference PDF. The page shows parser metadata,
 Golden/Critical result, parsed Configuration, an exact chart-cell selector, and
-the Main Boom preliminary capacity result. Geometry intentionally remains
-`NOT_IMPLEMENTED`.
+the Main Boom preliminary capacity result. Rigging can be entered either as a
+total weight or as 1-4 sling legs with a per-leg weight; the latter is totalled
+before the capacity calculation. Geometry intentionally remains
+`NOT_IMPLEMENTED`: the TRT60 range graph is visual source evidence, not yet a
+Golden-validated numerical geometry dataset.
