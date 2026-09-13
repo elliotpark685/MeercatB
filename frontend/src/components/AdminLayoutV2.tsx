@@ -18,6 +18,7 @@ const BASE_NAV_ITEMS: NavItem[] = [
   { to: "/kosha-guide", label: "KOSHA GUIDE", icon: "✦" },
   { to: "/documents", label: "문서 생성", icon: "✎" },
   { to: "/todos", label: "할 일 & 캘린더", icon: "✓" },
+  { to: "/crane-capacity", label: "크레인 용량표", icon: "🏗️" },
 ];
 
 const ROLE_LABEL: Record<string, string> = {
