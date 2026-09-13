@@ -34,10 +34,16 @@ class HumanGoldenCell(BaseModel):
         return self
 
 
-def validate_full_human_golden(cells: list[HumanGoldenCell], *, expected_document_hash: str) -> list[str]:
+def validate_full_human_golden(
+    cells: list[HumanGoldenCell],
+    *,
+    expected_document_hash: str,
+    expected_cell_count: int = 135,
+    expected_configuration: str | None = None,
+) -> list[str]:
     errors: list[str] = []
-    if len(cells) != 135:
-        errors.append(f"expected 135 human Golden cells, found {len(cells)}")
+    if len(cells) != expected_cell_count:
+        errors.append(f"expected {expected_cell_count} human Golden cells, found {len(cells)}")
     keys = {(cell.row_index, cell.column_index) for cell in cells}
     if len(keys) != len(cells):
         errors.append("duplicate row/column cell in human Golden")
@@ -45,4 +51,6 @@ def validate_full_human_golden(cells: list[HumanGoldenCell], *, expected_documen
         errors.append("every human Golden cell must be verified")
     if any(cell.source_document_hash != expected_document_hash for cell in cells):
         errors.append("human Golden source document hash mismatch")
+    if expected_configuration is not None and any(cell.configuration != expected_configuration for cell in cells):
+        errors.append("human Golden configuration mismatch")
     return errors

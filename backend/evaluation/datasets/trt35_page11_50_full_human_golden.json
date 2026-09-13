@@ -1,0 +1,2002 @@
+[
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 0,
+    "radius_m": 3.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 30.15,
+    "source_bbox": [
+      240.0,
+      1752.0,
+      554.7837753,
+      1811.11615
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 1,
+    "radius_m": 3.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 21.7,
+    "source_bbox": [
+      554.7837753,
+      1752.0,
+      790.5376511,
+      1811.11615
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 2,
+    "radius_m": 3.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 16.1,
+    "source_bbox": [
+      790.5376511,
+      1752.0,
+      1030.008179,
+      1811.11615
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 3,
+    "radius_m": 3.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1752.0,
+      1269.478683,
+      1811.11615
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 4,
+    "radius_m": 3.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      1752.0,
+      1545.0,
+      1811.11615
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 0,
+    "radius_m": 3.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 21.95,
+    "source_bbox": [
+      240.0,
+      1811.11615,
+      554.7837753,
+      1838.783661
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 1,
+    "radius_m": 3.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 20.75,
+    "source_bbox": [
+      554.7837753,
+      1811.11615,
+      790.5376511,
+      1838.783661
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 2,
+    "radius_m": 3.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 15.0,
+    "source_bbox": [
+      790.5376511,
+      1811.11615,
+      1030.008179,
+      1838.783661
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 3,
+    "radius_m": 3.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.9,
+    "source_bbox": [
+      1030.008179,
+      1811.11615,
+      1269.478683,
+      1838.783661
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 4,
+    "radius_m": 3.5,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      1811.11615,
+      1545.0,
+      1838.783661
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 0,
+    "radius_m": 4.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 16.9,
+    "source_bbox": [
+      240.0,
+      1838.783661,
+      554.7837753,
+      1866.451172
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 1,
+    "radius_m": 4.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 16.4,
+    "source_bbox": [
+      554.7837753,
+      1838.783661,
+      790.5376511,
+      1866.451172
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 2,
+    "radius_m": 4.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 14.05,
+    "source_bbox": [
+      790.5376511,
+      1838.783661,
+      1030.008179,
+      1866.451172
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 3,
+    "radius_m": 4.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.05,
+    "source_bbox": [
+      1030.008179,
+      1838.783661,
+      1269.478683,
+      1866.451172
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 4,
+    "radius_m": 4.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      1838.783661,
+      1545.0,
+      1866.451172
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 0,
+    "radius_m": 4.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 13.45,
+    "source_bbox": [
+      240.0,
+      1866.451172,
+      554.7837753,
+      1894.118683
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 1,
+    "radius_m": 4.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 13.35,
+    "source_bbox": [
+      554.7837753,
+      1866.451172,
+      790.5376511,
+      1894.118683
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 2,
+    "radius_m": 4.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.95,
+    "source_bbox": [
+      790.5376511,
+      1866.451172,
+      1030.008179,
+      1894.118683
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 3,
+    "radius_m": 4.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.3,
+    "source_bbox": [
+      1030.008179,
+      1866.451172,
+      1269.478683,
+      1894.118683
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 4,
+    "radius_m": 4.5,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      1866.451172,
+      1545.0,
+      1894.118683
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 0,
+    "radius_m": 5.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.1,
+    "source_bbox": [
+      240.0,
+      1894.118683,
+      554.7837753,
+      1921.786194
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 1,
+    "radius_m": 5.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.2,
+    "source_bbox": [
+      554.7837753,
+      1894.118683,
+      790.5376511,
+      1921.786194
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 2,
+    "radius_m": 5.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 10.85,
+    "source_bbox": [
+      790.5376511,
+      1894.118683,
+      1030.008179,
+      1921.786194
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 3,
+    "radius_m": 5.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 10.6,
+    "source_bbox": [
+      1030.008179,
+      1894.118683,
+      1269.478683,
+      1921.786194
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 4,
+    "radius_m": 5.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      1894.118683,
+      1545.0,
+      1921.786194
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 0,
+    "radius_m": 6.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.05,
+    "source_bbox": [
+      240.0,
+      1921.786194,
+      554.7837753,
+      1949.453705
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 1,
+    "radius_m": 6.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.15,
+    "source_bbox": [
+      554.7837753,
+      1921.786194,
+      790.5376511,
+      1949.453705
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 2,
+    "radius_m": 6.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.05,
+    "source_bbox": [
+      790.5376511,
+      1921.786194,
+      1030.008179,
+      1949.453705
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 3,
+    "radius_m": 6.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 7.85,
+    "source_bbox": [
+      1030.008179,
+      1921.786194,
+      1269.478683,
+      1949.453705
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 4,
+    "radius_m": 6.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      1921.786194,
+      1545.0,
+      1949.453705
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 0,
+    "radius_m": 7.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1949.453705,
+      554.7837753,
+      1977.121216
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 1,
+    "radius_m": 7.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.2,
+    "source_bbox": [
+      554.7837753,
+      1949.453705,
+      790.5376511,
+      1977.121216
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 2,
+    "radius_m": 7.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.25,
+    "source_bbox": [
+      790.5376511,
+      1949.453705,
+      1030.008179,
+      1977.121216
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 3,
+    "radius_m": 7.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.1,
+    "source_bbox": [
+      1030.008179,
+      1949.453705,
+      1269.478683,
+      1977.121216
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 4,
+    "radius_m": 7.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      1949.453705,
+      1545.0,
+      1977.121216
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 0,
+    "radius_m": 8.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1977.121216,
+      554.7837753,
+      2004.788727
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 1,
+    "radius_m": 8.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.9,
+    "source_bbox": [
+      554.7837753,
+      1977.121216,
+      790.5376511,
+      2004.788727
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 2,
+    "radius_m": 8.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.9,
+    "source_bbox": [
+      790.5376511,
+      1977.121216,
+      1030.008179,
+      2004.788727
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 3,
+    "radius_m": 8.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.75,
+    "source_bbox": [
+      1030.008179,
+      1977.121216,
+      1269.478683,
+      2004.788727
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 4,
+    "radius_m": 8.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.7,
+    "source_bbox": [
+      1269.478683,
+      1977.121216,
+      1545.0,
+      2004.788727
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 0,
+    "radius_m": 9.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2004.788727,
+      554.7837753,
+      2032.456238
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 1,
+    "radius_m": 9.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.95,
+    "source_bbox": [
+      554.7837753,
+      2004.788727,
+      790.5376511,
+      2032.456238
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 2,
+    "radius_m": 9.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.95,
+    "source_bbox": [
+      790.5376511,
+      2004.788727,
+      1030.008179,
+      2032.456238
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 3,
+    "radius_m": 9.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.85,
+    "source_bbox": [
+      1030.008179,
+      2004.788727,
+      1269.478683,
+      2032.456238
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 4,
+    "radius_m": 9.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.8,
+    "source_bbox": [
+      1269.478683,
+      2004.788727,
+      1545.0,
+      2032.456238
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 0,
+    "radius_m": 10.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2032.456238,
+      554.7837753,
+      2060.123749
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 1,
+    "radius_m": 10.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.2,
+    "source_bbox": [
+      554.7837753,
+      2032.456238,
+      790.5376511,
+      2060.123749
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 2,
+    "radius_m": 10.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.25,
+    "source_bbox": [
+      790.5376511,
+      2032.456238,
+      1030.008179,
+      2060.123749
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 3,
+    "radius_m": 10.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.15,
+    "source_bbox": [
+      1030.008179,
+      2032.456238,
+      1269.478683,
+      2060.123749
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 4,
+    "radius_m": 10.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.1,
+    "source_bbox": [
+      1269.478683,
+      2032.456238,
+      1545.0,
+      2060.123749
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 0,
+    "radius_m": 11.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2060.123749,
+      554.7837753,
+      2087.79126
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 1,
+    "radius_m": 11.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.6,
+    "source_bbox": [
+      554.7837753,
+      2060.123749,
+      790.5376511,
+      2087.79126
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 2,
+    "radius_m": 11.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.65,
+    "source_bbox": [
+      790.5376511,
+      2060.123749,
+      1030.008179,
+      2087.79126
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 3,
+    "radius_m": 11.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.65,
+    "source_bbox": [
+      1030.008179,
+      2060.123749,
+      1269.478683,
+      2087.79126
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 4,
+    "radius_m": 11.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.55,
+    "source_bbox": [
+      1269.478683,
+      2060.123749,
+      1545.0,
+      2087.79126
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 0,
+    "radius_m": 12.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2087.79126,
+      554.7837753,
+      2115.458771
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 1,
+    "radius_m": 12.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2087.79126,
+      790.5376511,
+      2115.458771
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 2,
+    "radius_m": 12.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.15,
+    "source_bbox": [
+      790.5376511,
+      2087.79126,
+      1030.008179,
+      2115.458771
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 3,
+    "radius_m": 12.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.15,
+    "source_bbox": [
+      1030.008179,
+      2087.79126,
+      1269.478683,
+      2115.458771
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 4,
+    "radius_m": 12.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.15,
+    "source_bbox": [
+      1269.478683,
+      2087.79126,
+      1545.0,
+      2115.458771
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 0,
+    "radius_m": 13.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2115.458771,
+      554.7837753,
+      2143.126282
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 1,
+    "radius_m": 13.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2115.458771,
+      790.5376511,
+      2143.126282
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 2,
+    "radius_m": 13.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.8,
+    "source_bbox": [
+      790.5376511,
+      2115.458771,
+      1030.008179,
+      2143.126282
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 3,
+    "radius_m": 13.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.8,
+    "source_bbox": [
+      1030.008179,
+      2115.458771,
+      1269.478683,
+      2143.126282
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 4,
+    "radius_m": 13.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.8,
+    "source_bbox": [
+      1269.478683,
+      2115.458771,
+      1545.0,
+      2143.126282
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 0,
+    "radius_m": 14.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2143.126282,
+      554.7837753,
+      2170.793793
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 1,
+    "radius_m": 14.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2143.126282,
+      790.5376511,
+      2170.793793
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 2,
+    "radius_m": 14.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.45,
+    "source_bbox": [
+      790.5376511,
+      2143.126282,
+      1030.008179,
+      2170.793793
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 3,
+    "radius_m": 14.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.45,
+    "source_bbox": [
+      1030.008179,
+      2143.126282,
+      1269.478683,
+      2170.793793
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 4,
+    "radius_m": 14.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.45,
+    "source_bbox": [
+      1269.478683,
+      2143.126282,
+      1545.0,
+      2170.793793
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 0,
+    "radius_m": 15.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2170.793793,
+      554.7837753,
+      2198.461304
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 1,
+    "radius_m": 15.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2170.793793,
+      790.5376511,
+      2198.461304
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 2,
+    "radius_m": 15.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.2,
+    "source_bbox": [
+      790.5376511,
+      2170.793793,
+      1030.008179,
+      2198.461304
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 3,
+    "radius_m": 15.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.2,
+    "source_bbox": [
+      1030.008179,
+      2170.793793,
+      1269.478683,
+      2198.461304
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 4,
+    "radius_m": 15.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.2,
+    "source_bbox": [
+      1269.478683,
+      2170.793793,
+      1545.0,
+      2198.461304
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 0,
+    "radius_m": 16.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2198.461304,
+      554.7837753,
+      2226.128815
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 1,
+    "radius_m": 16.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2198.461304,
+      790.5376511,
+      2226.128815
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 2,
+    "radius_m": 16.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.95,
+    "source_bbox": [
+      790.5376511,
+      2198.461304,
+      1030.008179,
+      2226.128815
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 3,
+    "radius_m": 16.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.95,
+    "source_bbox": [
+      1030.008179,
+      2198.461304,
+      1269.478683,
+      2226.128815
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 4,
+    "radius_m": 16.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.95,
+    "source_bbox": [
+      1269.478683,
+      2198.461304,
+      1545.0,
+      2226.128815
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 0,
+    "radius_m": 17.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2226.128815,
+      554.7837753,
+      2253.796326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 1,
+    "radius_m": 17.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2226.128815,
+      790.5376511,
+      2253.796326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 2,
+    "radius_m": 17.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.75,
+    "source_bbox": [
+      790.5376511,
+      2226.128815,
+      1030.008179,
+      2253.796326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 3,
+    "radius_m": 17.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.75,
+    "source_bbox": [
+      1030.008179,
+      2226.128815,
+      1269.478683,
+      2253.796326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 4,
+    "radius_m": 17.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.8,
+    "source_bbox": [
+      1269.478683,
+      2226.128815,
+      1545.0,
+      2253.796326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 0,
+    "radius_m": 18.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2253.796326,
+      554.7837753,
+      2281.463837
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 1,
+    "radius_m": 18.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2253.796326,
+      790.5376511,
+      2281.463837
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 2,
+    "radius_m": 18.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      2253.796326,
+      1030.008179,
+      2281.463837
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 3,
+    "radius_m": 18.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.6,
+    "source_bbox": [
+      1030.008179,
+      2253.796326,
+      1269.478683,
+      2281.463837
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 4,
+    "radius_m": 18.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.6,
+    "source_bbox": [
+      1269.478683,
+      2253.796326,
+      1545.0,
+      2281.463837
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 0,
+    "radius_m": 19.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2281.463837,
+      554.7837753,
+      2309.131348
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 1,
+    "radius_m": 19.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2281.463837,
+      790.5376511,
+      2309.131348
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 2,
+    "radius_m": 19.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      2281.463837,
+      1030.008179,
+      2309.131348
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 3,
+    "radius_m": 19.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.4,
+    "source_bbox": [
+      1030.008179,
+      2281.463837,
+      1269.478683,
+      2309.131348
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 4,
+    "radius_m": 19.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.45,
+    "source_bbox": [
+      1269.478683,
+      2281.463837,
+      1545.0,
+      2309.131348
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 0,
+    "radius_m": 20.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      2309.131348,
+      554.7837753,
+      2343.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 1,
+    "radius_m": 20.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      2309.131348,
+      790.5376511,
+      2343.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 2,
+    "radius_m": 20.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      2309.131348,
+      1030.008179,
+      2343.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 3,
+    "radius_m": 20.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.3,
+    "source_bbox": [
+      1030.008179,
+      2309.131348,
+      1269.478683,
+      2343.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_LOWER_50_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 4,
+    "radius_m": 20.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.3,
+    "source_bbox": [
+      1269.478683,
+      2309.131348,
+      1545.0,
+      2343.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:00:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  }
+]

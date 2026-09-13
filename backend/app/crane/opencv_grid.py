@@ -30,6 +30,7 @@ class GridReconstructionConfig:
     # Some manufacturer tables have no internal vertical rules. In that case
     # validated boom-header centres are the column geometry source.
     column_centers_px: tuple[float, ...] | None = None
+    min_column_center_span_ratio: float = 0.60
     row_centers_px: tuple[float, ...] | None = None
 
 
@@ -64,7 +65,9 @@ def reconstruct_grid(image: np.ndarray, config: GridReconstructionConfig) -> Ocr
             raise TableStructureUnresolved("boom header centres are not monotonic or have the wrong count")
         if not all(0 < center < x1 - x0 for center in centers):
             raise TableStructureUnresolved("boom header centre is outside table ROI")
-        if (centers[-1] - centers[0]) / (x1 - x0) < 0.60:
+        if not 0 < config.min_column_center_span_ratio <= 1:
+            raise TableStructureUnresolved("invalid boom header span ratio")
+        if (centers[-1] - centers[0]) / (x1 - x0) < config.min_column_center_span_ratio:
             raise TableStructureUnresolved("boom header centres do not span enough of the table ROI")
         xs = [0.0] + [(left + right) / 2 for left, right in zip(centers, centers[1:])] + [float(x1 - x0)]
     if config.row_centers_px is not None:

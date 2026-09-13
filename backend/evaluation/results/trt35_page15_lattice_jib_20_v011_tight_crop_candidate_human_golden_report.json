@@ -1,0 +1,27 @@
+{
+  "profile": "TEREX_TRT35_OCR_V1",
+  "slice": "PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG",
+  "freeze_status": "CANDIDATE_VALIDATED_PENDING_GITHUB_ACTIONS",
+  "acceptance_status": "HUMAN_GOLDEN_GATE_PASSED",
+  "golden_validation_errors": [],
+  "metrics": {
+    "total_human_golden_cells": 160,
+    "correct_available": 60,
+    "wrong_numeric_capacity": 0,
+    "false_available": 0,
+    "wrong_cell_association": 0,
+    "correct_not_available": 38,
+    "false_not_available": 0,
+    "unresolved": 62,
+    "missing_evidence": 0,
+    "cross_configuration": 0
+  },
+  "acceptance_invariants": {
+    "false_available_must_be_zero": true,
+    "wrong_numeric_capacity_must_be_zero": true,
+    "wrong_cell_association_must_be_zero": true,
+    "false_not_available_must_be_zero": true,
+    "cross_configuration_must_be_zero": true,
+    "unresolved_zero_not_required": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "candidate_status": "READY_TO_FREEZE_REVIEW",
+  "approval_status": "NOT_APPROVED_UNTIL_VERSIONED_FREEZE",
+  "configuration": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+  "golden_validation_errors": [],
+  "metrics": {
+    "total_human_golden_cells": 51,
+    "correct_available": 27,
+    "wrong_numeric_capacity": 0,
+    "false_available": 0,
+    "wrong_cell_association": 0,
+    "correct_not_available": 6,
+    "false_not_available": 0,
+    "unresolved": 18,
+    "missing_evidence": 0,
+    "cross_configuration": 0
+  },
+  "candidate_result_hash": "dc643ede7f3461d3341b7ab1638af828cee6e505aa3fdad6959a489bd27e511a"
+}
