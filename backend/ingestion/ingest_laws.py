@@ -23,6 +23,8 @@ class TargetLaw:
     law_name: str
     law_short_name: str
     law_type: str = "법률"
+    expected_amendment_date: str | None = None
+    expected_law_no: str | None = None
 
 
 TARGET_LAWS = [
@@ -32,7 +34,8 @@ TARGET_LAWS = [
     TargetLaw("시설물의 안전 및 유지관리에 관한 특별법", "시설물안전법"),
     TargetLaw("시설물의 안전 및 유지관리에 관한 특별법 시행령", "시설물안전법 시행령", "대통령령"),
     TargetLaw("시설물의 안전 및 유지관리에 관한 특별법 시행규칙", "시설물안전법 시행규칙", "국토교통부령"),
-    TargetLaw("건설산업기본법", "건산법"),
+    # Guard the scheduled ingestion against an older search result.
+    TargetLaw("건설산업기본법", "건산법", expected_amendment_date="20260908", expected_law_no="제21894호"),
     TargetLaw("건설산업기본법 시행령", "건산법 시행령", "대통령령"),
     TargetLaw("건설산업기본법 시행규칙", "건산법 시행규칙", "국토교통부령"),
     TargetLaw("건설기술 진흥법", "건설기술진흥법"),
@@ -49,6 +52,11 @@ def parse_args() -> argparse.Namespace:
         "--all-target-laws",
         action="store_true",
         help="Ingest the five target laws and their 시행령/시행규칙.",
+    )
+    parser.add_argument(
+        "--target-law-name",
+        required=False,
+        help="Fetch and ingest one named law from TARGET_LAWS.",
     )
     parser.add_argument("--prefer-local", action="store_true", help="Use local fallback files before Open API.")
     parser.add_argument("--fallback-dir", default="data/raw/laws", help="Directory containing local PDF/TXT fallback files.")
@@ -104,11 +112,33 @@ class LawOpenApiClient:
             raise ValueError(f"Law not found via Open API search: {target.law_name}")
 
         params = {"OC": self.oc, "target": "law", "MST": mst, "type": "JSON"}
+        if target.expected_amendment_date:
+            # When LD/LN are supplied, the API selects the promulgated
+            # historical version. Do not let MST force the current version.
+            params.pop("MST")
+            params["LM"] = target.law_name
+            params["LD"] = _normalize_date(target.expected_amendment_date)
+        if target.expected_law_no:
+            params["LN"] = _normalize_law_no(target.expected_law_no)
         api_url = f"{self.base_url}?{urlencode(params)}"
         with urlopen(api_url, timeout=30) as response:
             payload = json.loads(response.read().decode("utf-8"))
+        source = law_api_payload_to_source_document(payload=payload, target=target, source_url="")
+        if target.expected_amendment_date and _normalize_date(source.amendment_date) != _normalize_date(
+            target.expected_amendment_date
+        ):
+            raise ValueError(
+                f"Unexpected amendment date for {target.law_name}: expected "
+                f"{target.expected_amendment_date}, got {source.amendment_date}"
+            )
+        if target.expected_law_no and _normalize_law_no(source.law_no) != _normalize_law_no(target.expected_law_no):
+            raise ValueError(
+                f"Unexpected promulgation number for {target.law_name}: expected "
+                f"{target.expected_law_no}, got {source.law_no}"
+            )
         display_url = f"{LAW_HTML_BASE_URL}?lsiSeq={mst}"
-        return law_api_payload_to_source_document(payload=payload, target=target, source_url=display_url)
+        source.source_url = display_url
+        return source
 
 
 def law_api_payload_to_source_document(payload: dict[str, Any], target: TargetLaw, source_url: str) -> LawSourceDocument:
@@ -245,6 +275,18 @@ def _first_string(payload: dict[str, Any], keys: list[str]) -> str | None:
     return None
 
 
+def _normalize_date(value: str | None) -> str | None:
+    if not value:
+        return None
+    return value.strip().replace("-", "").replace(".", "")
+
+
+def _normalize_law_no(value: str | None) -> str | None:
+    if not value:
+        return None
+    return re.sub(r"[^0-9]", "", value)
+
+
 def find_local_fallback_file(fallback_dir: str, target: TargetLaw) -> Path | None:
     root = Path(fallback_dir)
     if not root.exists():
@@ -313,8 +355,13 @@ def main() -> None:
     db = SessionLocal()
     try:
         service = LawIngestionService(db=db, embedding_service=EmbeddingService())
-        if args.all_target_laws:
+        if args.all_target_laws or args.target_law_name:
             api_client = LawOpenApiClient(args.law_api_oc) if args.law_api_oc and not args.prefer_local else None
+            targets = TARGET_LAWS
+            if args.target_law_name:
+                targets = [target for target in TARGET_LAWS if target.law_name == args.target_law_name]
+                if not targets:
+                    raise SystemExit(f"Unknown target law: {args.target_law_name}")
             results = [
                 ingest_target_law(
                     service=service,
@@ -323,7 +370,7 @@ def main() -> None:
                     fallback_dir=args.fallback_dir,
                     prefer_local=args.prefer_local,
                 )
-                for target in TARGET_LAWS
+                for target in targets
             ]
             for result in results:
                 print(json.dumps(result, ensure_ascii=False))
