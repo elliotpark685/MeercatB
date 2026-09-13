@@ -1,0 +1,29 @@
+{
+  "profile": "TEREX_TRT35_OCR_V1",
+  "slice": "PAGE_11_UPPER_100_OUTRIGGER",
+  "freeze_status": "PARSER_FROZEN_PENDING_FULL_HUMAN_GOLDEN",
+  "acceptance_status": "PARSER_VALIDATION_PENDING",
+  "golden_validation_errors": [
+    "every human Golden cell must be verified"
+  ],
+  "metrics": {
+    "total_human_golden_cells": 135,
+    "correct_available": 56,
+    "wrong_numeric_capacity": 2,
+    "false_available": 0,
+    "wrong_cell_association": 0,
+    "correct_not_available": 54,
+    "false_not_available": 0,
+    "unresolved": 23,
+    "missing_evidence": 0,
+    "cross_configuration": 0
+  },
+  "acceptance_invariants": {
+    "false_available_must_be_zero": true,
+    "wrong_numeric_capacity_must_be_zero": false,
+    "wrong_cell_association_must_be_zero": true,
+    "false_not_available_must_be_zero": true,
+    "cross_configuration_must_be_zero": true,
+    "unresolved_zero_not_required": true
+  }
+}

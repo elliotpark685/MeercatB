@@ -1,0 +1,36 @@
+{
+  "freeze_status": "PARSER_FROZEN_PENDING_FULL_HUMAN_GOLDEN",
+  "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+  "source_page": 11,
+  "table_segment": "PAGE_11_UPPER_100_OUTRIGGER",
+  "parser_profile": "TEREX_TRT35_OCR_V1",
+  "parser_version": "0.1.0-slice",
+  "canonical_result_hash": "4d7eb31598f46f05a52b6a2fe37152273d6925f61bfec8fed7effadd9fb67bf8",
+  "frozen_capture": "evaluation/baselines/trt35_page11_100_frozen_capture.json",
+  "render_scale": 3.0,
+  "table_roi_pdf": [80, 224, 515, 478],
+  "ocr_engine": "EasyOCR",
+  "ocr_engine_version": "1.7.2",
+  "ocr_allowlist": "0123456789.-",
+  "confidence_threshold": 0.85,
+  "threshold_status": "EXPERIMENTAL",
+  "grid_parameters": {
+    "expected_rows": 27,
+    "expected_columns": 5,
+    "min_line_length_ratio": 0.65,
+    "merge_tolerance_px": 4,
+    "column_geometry": "validated_boom_header_centers",
+    "row_geometry": "validated_radius_row_centers"
+  },
+  "dash_detection_parameters": {
+    "threshold": 180,
+    "requires_single_central_component": true,
+    "requires_no_other_foreground_components": true
+  },
+  "result_counts": {
+    "total": 135,
+    "available": 58,
+    "not_available": 54,
+    "unresolved": 23
+  }
+}
