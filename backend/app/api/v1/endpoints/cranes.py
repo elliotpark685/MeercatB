@@ -8,6 +8,7 @@ from app.crane.document_intake import EquipmentDocumentIntakeService
 from app.crane.supabase_mapping import TRT60SupabaseMapper
 from app.crane.trt60_parser import TerexTRT60Parser
 from app.crane.trt60_reference import REFERENCE_FILE_HASH_SHA256, load_golden_dataset
+from app.crane.trt35_runtime import parse_trt35_reference_pdf
 from app.crane.engineering_review import EngineeringReviewInput, MainBoomEngineeringReviewService
 from app.crane.postgres_repository import PostgresTRT60Repository
 from app.core.config import settings
@@ -76,6 +77,23 @@ async def parse_trt60_pdf(file: UploadFile = File(...), db: Session = Depends(ge
         response["persistence"] = PostgresTRT60Repository(db).save(data, original_filename=file.filename)
         response["persisted"] = True
     return response
+
+
+@router.post(
+    "/trt35/parse",
+    description="Parse one explicitly selected Golden-validated TRT35 configuration. Never persists or grants approval.",
+)
+async def parse_trt35_pdf(file: UploadFile = File(...), configuration: str = Form(...)):
+    try:
+        payload = await _read_pdf_upload(file)
+        result = await run_in_threadpool(parse_trt35_reference_pdf, payload, configuration=configuration)
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    return {
+        "parser_result": result.model_dump(mode="json"),
+        "persisted": False,
+        "approval": "NOT_GRANTED",
+    }
 
 
 @router.post(
