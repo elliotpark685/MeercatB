@@ -1,6 +1,6 @@
 import numpy as np
 
-from app.crane.cell_ocr import EasyOcrCellRunner, detect_confirmed_dash
+from app.crane.cell_ocr import EasyOcrCellRunner, TightCropRecognitionReader, detect_confirmed_dash
 from app.crane.ocr_table_association import GridAxisPoint, OcrTableGrid
 
 
@@ -47,3 +47,18 @@ def test_dash_detector_rejects_dash_with_other_digit_or_decimal_ink():
     crop[10:20, 60:63] = 255
     crop[20, 60] = 0
     assert detect_confirmed_dash(crop) is None
+
+
+class _RecognitionReader:
+    def recognize(self, image, *, detail, allowlist, paragraph):
+        assert image.shape == (21, 21)
+        assert allowlist == "0123456789.-"
+        return [([], "16.25", 0.99)]
+
+
+def test_tight_crop_reader_preserves_border_adjacent_glyphs_without_repair():
+    image = np.full((20, 20, 3), 255, dtype=np.uint8)
+    image[4:9, 1:6] = 0
+    reader = TightCropRecognitionReader(_RecognitionReader())
+    observed = reader.readtext(image, detail=1, paragraph=False, allowlist="0123456789.-")
+    assert observed == [([[1, 4], [6, 4], [6, 9], [1, 9]], "16.25", 0.99)]

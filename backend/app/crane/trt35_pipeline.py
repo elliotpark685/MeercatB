@@ -100,6 +100,7 @@ class Trt35Page11Pipeline:
         boom_header_centers_pdf: tuple[float, ...] | None = None,
         radius_row_centers_pdf: tuple[float, ...] | None = None,
         cell_ocr_runner: CellOcrRunner | None = None,
+        parser_version: str = "0.1.0-slice",
     ) -> Trt35VerticalSliceResult:
         image, file_hash = self.render_page(payload, page_number=11)
         bbox_px = tuple(value * self.render_scale for value in table_bbox_pdf)
@@ -130,4 +131,5 @@ class Trt35Page11Pipeline:
             identity=expected,
             file_hash_sha256=file_hash,
             minimum_confidence=minimum_confidence,
+            parser_version=parser_version,
         )

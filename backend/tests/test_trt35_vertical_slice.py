@@ -53,3 +53,14 @@ def test_trt35_slice_rejects_whole_number_when_the_source_decimal_is_lost():
         identity=identity,
     )
     assert result.cells[0].cell_status == "UNRESOLVED"
+
+
+def test_trt35_slice_includes_explicit_parser_version_in_canonical_output():
+    identity = Trt35TableIdentity(boom_lengths_m=[9.1, 14.4], radii_m=[3.0, 3.5])
+    result = Trt35VerticalSliceParser().parse(
+        _grid(),
+        [],
+        identity=identity,
+        parser_version="0.1.1-tight-crop-candidate",
+    )
+    assert result.parser_version == "0.1.1-tight-crop-candidate"
