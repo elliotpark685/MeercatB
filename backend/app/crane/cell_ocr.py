@@ -18,6 +18,51 @@ class EasyOcrReader(Protocol):
     def readtext(self, image: np.ndarray, *, detail: int, paragraph: bool, allowlist: str): ...
 
 
+class EasyOcrRecognitionReader(EasyOcrReader, Protocol):
+    def recognize(self, image: np.ndarray, *, detail: int, allowlist: str, paragraph: bool): ...
+
+
+class TightCropRecognitionReader:
+    """Experimental reader adapter that removes only table-rule pixels.
+
+    It never repairs a recognised string.  Its sole purpose is to keep digits
+    near a cell border (notably the leading ``1.`` in 16.25) inside the OCR
+    crop while excluding horizontal grid rules from the recognition image.
+    """
+
+    def __init__(self, reader: EasyOcrRecognitionReader, *, threshold: int = 180, padding_px: int = 8):
+        self._reader = reader
+        self.threshold = threshold
+        self.padding_px = padding_px
+
+    def readtext(self, image: np.ndarray, *, detail: int, paragraph: bool, allowlist: str):
+        gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY) if image.ndim == 3 else image
+        if detect_confirmed_dash(image) is not None:
+            return []
+        ink = gray < self.threshold
+        # A row that spans almost the complete crop is a grid rule, not a
+        # character.  No character-level morphology or substitution occurs.
+        ink[ink.sum(axis=1) > gray.shape[1] * 0.8] = False
+        y_values, x_values = np.where(ink)
+        if not len(x_values):
+            return []
+        left, right = int(x_values.min()), int(x_values.max()) + 1
+        top, bottom = int(y_values.min()), int(y_values.max()) + 1
+        tight = gray[top:bottom, left:right]
+        padded = cv2.copyMakeBorder(
+            tight,
+            self.padding_px,
+            self.padding_px,
+            self.padding_px,
+            self.padding_px,
+            cv2.BORDER_CONSTANT,
+            value=255,
+        )
+        observations = self._reader.recognize(padded, detail=detail, allowlist=allowlist, paragraph=paragraph)
+        polygon = [[left, top], [right, top], [right, bottom], [left, bottom]]
+        return [(polygon, text, confidence) for _, text, confidence in observations]
+
+
 class EasyOcrCellRunner:
     """Runs OCR independently for every validated capacity cell.
 
@@ -75,6 +120,18 @@ class EasyOcrCellRunner:
                         dx0, dy0, dx1, dy1 = dash_bbox
                         tokens.append(OcrToken(text="-", confidence=1.0, bbox=(dx0 + crop_left, dy0 + crop_top, dx1 + crop_left, dy1 + crop_top)))
         return tokens
+
+
+class TightCropEasyOcrCellRunner(EasyOcrCellRunner):
+    """Opt-in candidate runner; default frozen runner remains unchanged."""
+
+    def _get_reader(self) -> EasyOcrReader:
+        if self._reader is None:
+            import easyocr
+
+            raw_reader = easyocr.Reader(["en"], gpu=False, verbose=False)
+            self._reader = TightCropRecognitionReader(raw_reader)
+        return self._reader
 
 
 def detect_confirmed_dash(crop: np.ndarray) -> tuple[float, float, float, float] | None:

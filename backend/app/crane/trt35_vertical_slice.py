@@ -82,6 +82,7 @@ class Trt35VerticalSliceParser:
         identity: Trt35TableIdentity | None = None,
         file_hash_sha256: str | None = None,
         minimum_confidence: float = 0.85,
+        parser_version: str = "0.1.0-slice",
     ) -> Trt35VerticalSliceResult:
         identity = identity or Trt35TableIdentity()
         errors = self._validate_identity(grid, identity)
@@ -116,6 +117,7 @@ class Trt35VerticalSliceParser:
             )
             cells.append(cell)
         result = Trt35VerticalSliceResult(
+            parser_version=parser_version,
             source_page=identity.source_page,
             table_segment=identity.table_segment,
             grid_status="PASS" if not errors else "TABLE_STRUCTURE_UNRESOLVED",
