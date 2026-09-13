@@ -21,6 +21,7 @@ import LandingPage from './pages/LandingPage';
 import Pricing from './pages/Pricing';
 import { PublicContentDetail, PublicContentIndex } from './pages/PublicContent';
 import TodoList from './pages/TodoList';
+import CraneCapacity from './pages/CraneCapacity';
 import { useBackendWarmup } from './hooks/useBackendWarmup';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -119,6 +120,7 @@ export default function App() {
               <Route path="kosha-guide" element={<KoshaGuide />} />
               <Route path="documents" element={<DocumentGenerate />} />
               <Route path="todos" element={<TodoList />} />
+              <Route path="crane-capacity" element={<CraneCapacity />} />
             </Route>
           </Routes>
         </BrowserRouter>
