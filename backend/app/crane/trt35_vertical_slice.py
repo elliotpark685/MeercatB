@@ -19,6 +19,7 @@ from app.crane.ocr_table_association import OcrTableAssociator, OcrTableGrid, Oc
 
 
 TRT35_PROFILE = "TEREX_TRT35_OCR_V1"
+TRT35_PAGE11_UPPER_100_TABLE_BBOX_PDF = (80.0, 224.0, 515.0, 478.0)
 # The supplied TRT35 page-11 capacity cells are printed with two decimal
 # places. Requiring that source form prevents a lost decimal point (1.90 ->
 # 90) from becoming an engineering value. This is a profile-specific safety

@@ -15,6 +15,7 @@ import fitz
 from pydantic import BaseModel, ConfigDict, Field
 
 from app.crane.trt60_schema import SourceEvidence
+from app.crane.trt35_runtime import TRT35_REFERENCE_FILE_HASH_SHA256
 
 
 class DocumentSupportStatus(str):
@@ -52,12 +53,23 @@ class RegisteredParserProfile:
     parser_version: str
     manufacturer_pattern: re.Pattern[str]
     model_pattern: re.Pattern[str]
+    reference_file_hash_sha256: str | None = None
 
     def matches(self, text: str) -> bool:
         return bool(self.manufacturer_pattern.search(text) and self.model_pattern.search(text))
 
 
 REGISTERED_PARSER_PROFILES: tuple[RegisteredParserProfile, ...] = (
+    RegisteredParserProfile(
+        manufacturer="Terex",
+        model="TRT35",
+        equipment_type="rough_terrain_crane",
+        parser_profile="TEREX_TRT35_OCR_V1",
+        parser_version="0.1.1-tight-crop-candidate",
+        manufacturer_pattern=re.compile(r"\bterex\b", re.IGNORECASE),
+        model_pattern=re.compile(r"\btrt\s*35\b", re.IGNORECASE),
+        reference_file_hash_sha256=TRT35_REFERENCE_FILE_HASH_SHA256,
+    ),
     RegisteredParserProfile(
         manufacturer="Terex",
         model="TRT60",
@@ -96,6 +108,12 @@ class EquipmentDocumentIntakeService:
                 return EquipmentDocumentIntakeResult(
                     support_status=DocumentSupportStatus.ONBOARDING_REQUIRED,
                     reason="No registered parser profile matches this PDF; do not run a model-specific parser",
+                    **result_base,
+                )
+            if profile.reference_file_hash_sha256 and result_base["file_hash_sha256"] != profile.reference_file_hash_sha256:
+                return EquipmentDocumentIntakeResult(
+                    support_status=DocumentSupportStatus.ONBOARDING_REQUIRED,
+                    reason="Registered parser profile exists, but this PDF revision is not Golden-validated",
                     **result_base,
                 )
             model_page_number, model_text = next((item for item in page_text if profile.model_pattern.search(item[1])), page_text[0])
