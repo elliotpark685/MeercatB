@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -30,12 +31,99 @@ class Trt35TableIdentity(BaseModel):
     source_page: int = Field(default=11, ge=1)
     table_segment: str = "PAGE_11_UPPER_100_OUTRIGGER"
     counterweight_t: float = Field(default=4.2, gt=0)
-    outrigger_percent: float = Field(default=100, gt=0, le=100)
-    outrigger_width_m: float = Field(default=5.9, gt=0)
-    outrigger_length_m: float = Field(default=5.8, gt=0)
+    support_mode: Literal["OUTRIGGER", "ON_TIRES"] = "OUTRIGGER"
+    outrigger_percent: float | None = Field(default=100, gt=0, le=100)
+    outrigger_width_m: float | None = Field(default=5.9, gt=0)
+    outrigger_length_m: float | None = Field(default=5.8, gt=0)
     working_area: str = "360 deg"
     boom_lengths_m: list[float] = Field(default=[9.1, 14.4, 19.6, 24.9, 30.1], min_length=1)
     radii_m: list[float] = Field(default_factory=lambda: [3.0, 3.5, 4.0, 4.5] + [float(i) for i in range(5, 28)])
+    header_x_bounds_pdf: tuple[float, float] = (0.0, 1000.0)
+    header_y_bounds_pdf: tuple[float, float] = (195.0, 215.0)
+    radius_geometry_x_bounds_pdf: tuple[float, float] = (40.0, 90.0)
+    radius_geometry_y_bounds_pdf: tuple[float, float] = (220.0, 500.0)
+    min_column_center_span_ratio: float = Field(default=0.60, gt=0, le=1)
+
+
+TRT35_PAGE11_LOWER_50_TABLE_BBOX_PDF = (80.0, 584.0, 515.0, 781.0)
+TRT35_PAGE12_UPPER_ON_TIRES_TABLE_BBOX_PDF = (80.0, 224.0, 515.0, 386.0)
+TRT35_PAGE12_LOWER_ON_TIRES_TABLE_BBOX_PDF = (80.0, 456.0, 515.0, 618.0)
+TRT35_PAGE15_LEFT_LATTICE_JIB_0_TABLE_BBOX_PDF = (54.0, 280.0, 292.0, 590.0)
+TRT35_PAGE15_RIGHT_LATTICE_JIB_20_TABLE_BBOX_PDF = (292.0, 280.0, 541.0, 590.0)
+
+
+def trt35_page11_lower_50_identity() -> Trt35TableIdentity:
+    """Return the independently bounded page-11 50% Outrigger identity."""
+    return Trt35TableIdentity(
+        table_segment="PAGE_11_LOWER_50_OUTRIGGER",
+        outrigger_percent=50.0,
+        outrigger_width_m=5.9,
+        outrigger_length_m=3.3,
+        radii_m=[3.0, 3.5, 4.0, 4.5, 5.0] + [float(value) for value in range(6, 21)],
+        header_y_bounds_pdf=(560.0, 585.0),
+        radius_geometry_y_bounds_pdf=(590.0, 775.0),
+    )
+
+
+def trt35_page12_upper_on_tires_identity() -> Trt35TableIdentity:
+    """Return the independently bounded page-12 On Tires / 360° / 0 km/h identity."""
+    return Trt35TableIdentity(
+        source_page=12,
+        table_segment="PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+        support_mode="ON_TIRES",
+        outrigger_percent=None,
+        outrigger_width_m=None,
+        outrigger_length_m=None,
+        boom_lengths_m=[9.1, 14.4, 19.6, 24.9],
+        radii_m=[3.0, 3.5, 4.0, 4.5, 5.0] + [float(value) for value in range(6, 18)],
+        radius_geometry_y_bounds_pdf=(220.0, 380.0),
+        min_column_center_span_ratio=0.50,
+    )
+
+
+def trt35_page12_lower_on_tires_identity() -> Trt35TableIdentity:
+    """Return page-12 On Tires / 0° / max. 2 km/h identity."""
+    return Trt35TableIdentity(
+        source_page=12,
+        table_segment="PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        support_mode="ON_TIRES",
+        outrigger_percent=None,
+        outrigger_width_m=None,
+        outrigger_length_m=None,
+        working_area="0 deg",
+        boom_lengths_m=[9.1, 14.4, 19.6],
+        radii_m=[3.0, 3.5, 4.0, 4.5, 5.0] + [float(value) for value in range(6, 18)],
+        header_y_bounds_pdf=(425.0, 450.0),
+        radius_geometry_y_bounds_pdf=(455.0, 615.0),
+        min_column_center_span_ratio=0.30,
+    )
+
+
+def trt35_page15_left_lattice_jib_0_identity() -> Trt35TableIdentity:
+    """Return page-15 8 m lattice-jib / 0 deg identity, isolated from 20 deg."""
+    return Trt35TableIdentity(
+        source_page=15,
+        table_segment="PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        boom_lengths_m=[9.1, 14.4, 19.6, 24.9, 30.1],
+        radii_m=[3.0, 3.5, 4.0, 4.5, 5.0] + [float(value) for value in range(6, 33)],
+        header_x_bounds_pdf=(100.0, 290.0),
+        header_y_bounds_pdf=(260.0, 280.0),
+        radius_geometry_y_bounds_pdf=(290.0, 590.0),
+    )
+
+
+def trt35_page15_right_lattice_jib_20_identity() -> Trt35TableIdentity:
+    """Return page-15 8 m lattice-jib / 20 deg identity, isolated from 0 deg."""
+    return Trt35TableIdentity(
+        source_page=15,
+        table_segment="PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG",
+        boom_lengths_m=[9.1, 14.4, 19.6, 24.9, 30.1],
+        radii_m=[3.0, 3.5, 4.0, 4.5, 5.0] + [float(value) for value in range(6, 33)],
+        header_x_bounds_pdf=(335.0, 535.0),
+        header_y_bounds_pdf=(260.0, 280.0),
+        radius_geometry_x_bounds_pdf=(300.0, 330.0),
+        radius_geometry_y_bounds_pdf=(290.0, 590.0),
+    )
 
 
 class Trt35CellResult(BaseModel):

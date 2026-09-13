@@ -27,6 +27,7 @@ def main() -> None:
     cli = argparse.ArgumentParser()
     cli.add_argument("--csv", type=Path, required=True)
     cli.add_argument("--output", type=Path, required=True)
+    cli.add_argument("--expected-cells", type=int, default=135)
     args = cli.parse_args()
 
     records: list[dict] = []
@@ -34,6 +35,11 @@ def main() -> None:
         for row in csv.DictReader(handle):
             status = _required(row, "expected_cell_status")
             capacity = row.get("expected_capacity_t", "").strip()
+            # The source table uses '-' for unavailable cells.  Accept that
+            # explicit notation only when the reviewer has also declared the
+            # cell NOT_AVAILABLE; it is stored as JSON null, never a number.
+            if status == "NOT_AVAILABLE" and capacity == "-":
+                capacity = ""
             records.append({
                 "source_document_hash": _required(row, "source_document_hash"),
                 "source_page": int(_required(row, "source_page")),
@@ -58,8 +64,10 @@ def main() -> None:
         golden = [HumanGoldenCell.model_validate(record) for record in records]
     except ValidationError as exc:
         raise ValueError(f"CSV cannot become Human Golden JSON: {exc}") from exc
-    if len(golden) != 135:
-        raise ValueError(f"review CSV must contain exactly 135 rows, found {len(golden)}")
+    if args.expected_cells < 1:
+        raise ValueError("expected cell count must be positive")
+    if len(golden) != args.expected_cells:
+        raise ValueError(f"review CSV must contain exactly {args.expected_cells} rows, found {len(golden)}")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps([cell.model_dump(mode="json") for cell in golden], indent=2), encoding="utf-8")
 

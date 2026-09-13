@@ -1,0 +1,19 @@
+{
+  "candidate_status": "READY_TO_FREEZE_REVIEW",
+  "approval_status": "NOT_APPROVED_UNTIL_VERSIONED_FREEZE",
+  "configuration": "PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG",
+  "golden_validation_errors": [],
+  "metrics": {
+    "total_human_golden_cells": 160,
+    "correct_available": 60,
+    "wrong_numeric_capacity": 0,
+    "false_available": 0,
+    "wrong_cell_association": 0,
+    "correct_not_available": 38,
+    "false_not_available": 0,
+    "unresolved": 62,
+    "missing_evidence": 0,
+    "cross_configuration": 0
+  },
+  "candidate_result_hash": "ad5fdd03fabae9e1a013ca45b5b419487a4239c51df38cf1faf89ec35f490f46"
+}

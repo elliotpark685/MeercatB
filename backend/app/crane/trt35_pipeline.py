@@ -59,7 +59,13 @@ class Trt35Page11Pipeline:
         finally:
             document.close()
 
-    def derive_page11_axis_geometry(self, payload: bytes, *, identity: Trt35TableIdentity | None = None) -> Trt35Page11AxisGeometry:
+    def derive_page11_axis_geometry(
+        self,
+        payload: bytes,
+        *,
+        identity: Trt35TableIdentity | None = None,
+        page_number: int = 11,
+    ) -> Trt35Page11AxisGeometry:
         """Read only stable header positions and row y-coordinates from page 11.
 
         TRT35 native text may scramble *radius values*, so those words are
@@ -70,23 +76,39 @@ class Trt35Page11Pipeline:
         expected = identity or Trt35TableIdentity()
         document = fitz.open(stream=payload, filetype="pdf")
         try:
-            if document.page_count < 11:
-                raise ValueError("PDF has no page 11")
-            words = document.load_page(10).get_text("words")
+            if document.page_count < page_number:
+                raise ValueError(f"PDF has no page {page_number}")
+            words = document.load_page(page_number - 1).get_text("words")
         finally:
             document.close()
-        header_words = [word for word in words if 195 <= word[1] <= 215 and re.fullmatch(r"\d+\.\d+", word[4])]
+        header_x_min, header_x_max = expected.header_x_bounds_pdf
+        header_y_min, header_y_max = expected.header_y_bounds_pdf
+        header_words = [
+            word
+            for word in words
+            if header_x_min <= word[0] <= header_x_max
+            and header_y_min <= word[1] <= header_y_max
+            and re.fullmatch(r"\d+\.\d+", word[4])
+        ]
         header_words.sort(key=lambda word: word[0])
         header_values = [float(word[4]) for word in header_words]
         if header_values != expected.boom_lengths_m:
-            raise ValueError("TRT35 page 11 boom header does not match the expected 100% Outrigger axis")
+            raise ValueError(f"TRT35 page {page_number} boom header does not match the expected configuration axis")
         boom_centers = tuple((word[0] + word[2]) / 2 for word in header_words)
         # These two margin columns contain the same visual row lattice. The
         # number strings themselves are intentionally ignored.
-        row_words = [word for word in words if 40 < word[0] < 90 and 220 < word[1] < 500 and re.fullmatch(r"\d+(?:\.\d+)?", word[4])]
+        radius_x_min, radius_x_max = expected.radius_geometry_x_bounds_pdf
+        radius_y_min, radius_y_max = expected.radius_geometry_y_bounds_pdf
+        row_words = [
+            word
+            for word in words
+            if radius_x_min < word[0] < radius_x_max
+            and radius_y_min < word[1] < radius_y_max
+            and re.fullmatch(r"\d+(?:\.\d+)?", word[4])
+        ]
         row_centers = tuple((word[1] + word[3]) / 2 for word in row_words)
         if len(row_centers) != len(expected.radii_m) or any(b <= a for a, b in zip(row_centers, row_centers[1:])):
-            raise ValueError("TRT35 page 11 radius-row geometry is unresolved")
+            raise ValueError(f"TRT35 page {page_number} radius-row geometry is unresolved")
         return Trt35Page11AxisGeometry(boom_header_centers_pdf=boom_centers, radius_row_centers_pdf=row_centers)
 
     def parse_page11(
@@ -101,24 +123,26 @@ class Trt35Page11Pipeline:
         radius_row_centers_pdf: tuple[float, ...] | None = None,
         cell_ocr_runner: CellOcrRunner | None = None,
         parser_version: str = "0.1.0-slice",
+        page_number: int = 11,
     ) -> Trt35VerticalSliceResult:
-        image, file_hash = self.render_page(payload, page_number=11)
+        image, file_hash = self.render_page(payload, page_number=page_number)
         bbox_px = tuple(value * self.render_scale for value in table_bbox_pdf)
         expected = identity or Trt35TableIdentity()
         if boom_header_centers_pdf is None or radius_row_centers_pdf is None:
-            geometry = self.derive_page11_axis_geometry(payload, identity=expected)
+            geometry = self.derive_page11_axis_geometry(payload, identity=expected, page_number=page_number)
             boom_header_centers_pdf = boom_header_centers_pdf or geometry.boom_header_centers_pdf
             radius_row_centers_pdf = radius_row_centers_pdf or geometry.radius_row_centers_pdf
         try:
             grid = reconstruct_grid(
                 image,
                 GridReconstructionConfig(
-                    source_page=11,
+                    source_page=page_number,
                     table_bbox=bbox_px,
                     expected_columns=len(expected.boom_lengths_m),
                     expected_rows=len(expected.radii_m),
                     render_scale=self.render_scale,
                     column_centers_px=tuple(value * self.render_scale for value in boom_header_centers_pdf) if boom_header_centers_pdf else None,
+                    min_column_center_span_ratio=expected.min_column_center_span_ratio,
                     row_centers_px=tuple(value * self.render_scale for value in radius_row_centers_pdf) if radius_row_centers_pdf else None,
                 ),
             )

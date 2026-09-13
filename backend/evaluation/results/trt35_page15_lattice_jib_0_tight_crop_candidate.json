@@ -1,0 +1,3056 @@
+{
+  "capture_role": "UNFROZEN_CANDIDATE_OUTPUT",
+  "runner": "tight-crop",
+  "result": {
+    "parser_profile": "TEREX_TRT35_OCR_V1",
+    "parser_version": "0.1.1-tight-crop-candidate",
+    "file_hash_sha256": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 15,
+    "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+    "grid_status": "PASS",
+    "cells": [
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 0,
+        "column_index": 0,
+        "radius_m": 3.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          840.0,
+          402.5633354187012,
+          909.5272064208984
+        ],
+        "source_text": "1306.00",
+        "confidence": 0.20662155578368324,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 0,
+        "column_index": 1,
+        "radius_m": 3.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          840.0,
+          514.1577072143555,
+          909.5272064208984
+        ],
+        "source_text": "6.00",
+        "confidence": 0.9973644614219666,
+        "rated_capacity_t": 6.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 0,
+        "column_index": 2,
+        "radius_m": 3.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          840.0,
+          629.4686965942383,
+          909.5272064208984
+        ],
+        "source_text": "1",
+        "confidence": 0.8880217815489146,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 0,
+        "column_index": 3,
+        "radius_m": 3.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          840.0,
+          744.7797088623047,
+          909.5272064208984
+        ],
+        "source_text": "1",
+        "confidence": 0.9599715706941083,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 0,
+        "column_index": 4,
+        "radius_m": 3.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          840.0,
+          876.0,
+          909.5272064208984
+        ],
+        "source_text": "1",
+        "confidence": 0.9464281247054238,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 1,
+        "column_index": 0,
+        "radius_m": 3.5,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          909.5272064208984,
+          402.5633354187012,
+          937.1946258544922
+        ],
+        "source_text": "3.515.50",
+        "confidence": 0.5556697350319608,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 1,
+        "column_index": 1,
+        "radius_m": 3.5,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          909.5272064208984,
+          514.1577072143555,
+          937.1946258544922
+        ],
+        "source_text": "5.50",
+        "confidence": 0.99978107213974,
+        "rated_capacity_t": 5.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 1,
+        "column_index": 2,
+        "radius_m": 3.5,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          909.5272064208984,
+          629.4686965942383,
+          937.1946258544922
+        ],
+        "source_text": "6.90",
+        "confidence": 0.9999882713485821,
+        "rated_capacity_t": 6.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 1,
+        "column_index": 3,
+        "radius_m": 3.5,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          909.5272064208984,
+          744.7797088623047,
+          937.1946258544922
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 1,
+        "column_index": 4,
+        "radius_m": 3.5,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          909.5272064208984,
+          876.0,
+          937.1946258544922
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 2,
+        "column_index": 0,
+        "radius_m": 4.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          937.1946258544922,
+          402.5633354187012,
+          964.8620452880859
+        ],
+        "source_text": "4.015.20",
+        "confidence": 0.7846720186123277,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 2,
+        "column_index": 1,
+        "radius_m": 4.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          937.1946258544922,
+          514.1577072143555,
+          964.8620452880859
+        ],
+        "source_text": "5.20",
+        "confidence": 0.9994091391563416,
+        "rated_capacity_t": 5.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 2,
+        "column_index": 2,
+        "radius_m": 4.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          937.1946258544922,
+          629.4686965942383,
+          964.8620452880859
+        ],
+        "source_text": "6.50",
+        "confidence": 0.9999948143959045,
+        "rated_capacity_t": 6.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 2,
+        "column_index": 3,
+        "radius_m": 4.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          937.1946258544922,
+          744.7797088623047,
+          964.8620452880859
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 2,
+        "column_index": 4,
+        "radius_m": 4.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          937.1946258544922,
+          876.0,
+          964.8620452880859
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 3,
+        "column_index": 0,
+        "radius_m": 4.5,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          964.8620452880859,
+          402.5633354187012,
+          992.5295104980469
+        ],
+        "source_text": "4.54.90",
+        "confidence": 0.7269159683267109,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 3,
+        "column_index": 1,
+        "radius_m": 4.5,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          964.8620452880859,
+          514.1577072143555,
+          992.5295104980469
+        ],
+        "source_text": "4.90",
+        "confidence": 0.9999973177909851,
+        "rated_capacity_t": 4.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 3,
+        "column_index": 2,
+        "radius_m": 4.5,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          964.8620452880859,
+          629.4686965942383,
+          992.5295104980469
+        ],
+        "source_text": "6.10",
+        "confidence": 0.9999899864196777,
+        "rated_capacity_t": 6.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 3,
+        "column_index": 3,
+        "radius_m": 4.5,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          964.8620452880859,
+          744.7797088623047,
+          992.5295104980469
+        ],
+        "source_text": "6.00",
+        "confidence": 0.9999961256980896,
+        "rated_capacity_t": 6.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 3,
+        "column_index": 4,
+        "radius_m": 4.5,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          964.8620452880859,
+          876.0,
+          992.5295104980469
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 4,
+        "column_index": 0,
+        "radius_m": 5.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          992.5295104980469,
+          402.5633354187012,
+          1020.197021484375
+        ],
+        "source_text": "5.014.70",
+        "confidence": 0.73541602718995,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 4,
+        "column_index": 1,
+        "radius_m": 5.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          992.5295104980469,
+          514.1577072143555,
+          1020.197021484375
+        ],
+        "source_text": "4.70",
+        "confidence": 0.9999968409538269,
+        "rated_capacity_t": 4.7,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 4,
+        "column_index": 2,
+        "radius_m": 5.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          992.5295104980469,
+          629.4686965942383,
+          1020.197021484375
+        ],
+        "source_text": "5.80",
+        "confidence": 0.9979827404022217,
+        "rated_capacity_t": 5.8,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 4,
+        "column_index": 3,
+        "radius_m": 5.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          992.5295104980469,
+          744.7797088623047,
+          1020.197021484375
+        ],
+        "source_text": "5.70",
+        "confidence": 0.7111826965679059,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 4,
+        "column_index": 4,
+        "radius_m": 5.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          992.5295104980469,
+          876.0,
+          1020.197021484375
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 5,
+        "column_index": 0,
+        "radius_m": 6.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1020.197021484375,
+          402.5633354187012,
+          1047.8645324707031
+        ],
+        "source_text": "6.04.30",
+        "confidence": 0.9998234170676896,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 5,
+        "column_index": 1,
+        "radius_m": 6.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1020.197021484375,
+          514.1577072143555,
+          1047.8645324707031
+        ],
+        "source_text": "4.30",
+        "confidence": 0.7434716542457495,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 5,
+        "column_index": 2,
+        "radius_m": 6.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1020.197021484375,
+          629.4686965942383,
+          1047.8645324707031
+        ],
+        "source_text": "5.20",
+        "confidence": 0.9921285510063171,
+        "rated_capacity_t": 5.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 5,
+        "column_index": 3,
+        "radius_m": 6.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1020.197021484375,
+          744.7797088623047,
+          1047.8645324707031
+        ],
+        "source_text": "5.10",
+        "confidence": 0.9987901040210007,
+        "rated_capacity_t": 5.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 5,
+        "column_index": 4,
+        "radius_m": 6.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1020.197021484375,
+          876.0,
+          1047.8645324707031
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 6,
+        "column_index": 0,
+        "radius_m": 7.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1047.8645324707031,
+          402.5633354187012,
+          1075.5320434570312
+        ],
+        "source_text": "7.014.00",
+        "confidence": 0.8484646568594594,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 6,
+        "column_index": 1,
+        "radius_m": 7.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1047.8645324707031,
+          514.1577072143555,
+          1075.5320434570312
+        ],
+        "source_text": "4.00",
+        "confidence": 0.9999990463256836,
+        "rated_capacity_t": 4.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 6,
+        "column_index": 2,
+        "radius_m": 7.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1047.8645324707031,
+          629.4686965942383,
+          1075.5320434570312
+        ],
+        "source_text": "4.60",
+        "confidence": 0.795397754569679,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 6,
+        "column_index": 3,
+        "radius_m": 7.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1047.8645324707031,
+          744.7797088623047,
+          1075.5320434570312
+        ],
+        "source_text": "4.50",
+        "confidence": 0.9999760628714502,
+        "rated_capacity_t": 4.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 6,
+        "column_index": 4,
+        "radius_m": 7.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1047.8645324707031,
+          876.0,
+          1075.5320434570312
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 7,
+        "column_index": 0,
+        "radius_m": 8.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1075.5320434570312,
+          402.5633354187012,
+          1103.1995544433594
+        ],
+        "source_text": "8.013.65",
+        "confidence": 0.8912806651319097,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 7,
+        "column_index": 1,
+        "radius_m": 8.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1075.5320434570312,
+          514.1577072143555,
+          1103.1995544433594
+        ],
+        "source_text": "3.65",
+        "confidence": 0.9986738562583923,
+        "rated_capacity_t": 3.65,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 7,
+        "column_index": 2,
+        "radius_m": 8.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1075.5320434570312,
+          629.4686965942383,
+          1103.1995544433594
+        ],
+        "source_text": "4.10",
+        "confidence": 0.9323172290904089,
+        "rated_capacity_t": 4.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 7,
+        "column_index": 3,
+        "radius_m": 8.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1075.5320434570312,
+          744.7797088623047,
+          1103.1995544433594
+        ],
+        "source_text": "4.00",
+        "confidence": 0.9576449284269678,
+        "rated_capacity_t": 4.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 7,
+        "column_index": 4,
+        "radius_m": 8.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1075.5320434570312,
+          876.0,
+          1103.1995544433594
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 8,
+        "column_index": 0,
+        "radius_m": 9.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1103.1995544433594,
+          402.5633354187012,
+          1130.8670654296875
+        ],
+        "source_text": "9.03.25",
+        "confidence": 0.8659136045150012,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 8,
+        "column_index": 1,
+        "radius_m": 9.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1103.1995544433594,
+          514.1577072143555,
+          1130.8670654296875
+        ],
+        "source_text": "3.35",
+        "confidence": 0.6750866644440013,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 8,
+        "column_index": 2,
+        "radius_m": 9.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1103.1995544433594,
+          629.4686965942383,
+          1130.8670654296875
+        ],
+        "source_text": "3.75",
+        "confidence": 0.8343400472962469,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 8,
+        "column_index": 3,
+        "radius_m": 9.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1103.1995544433594,
+          744.7797088623047,
+          1130.8670654296875
+        ],
+        "source_text": "3.65",
+        "confidence": 0.8203533005828405,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 8,
+        "column_index": 4,
+        "radius_m": 9.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1103.1995544433594,
+          876.0,
+          1130.8670654296875
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 9,
+        "column_index": 0,
+        "radius_m": 10.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1130.8670654296875,
+          402.5633354187012,
+          1158.5345764160156
+        ],
+        "source_text": "10.013.00",
+        "confidence": 0.9359365517160392,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 9,
+        "column_index": 1,
+        "radius_m": 10.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1130.8670654296875,
+          514.1577072143555,
+          1158.5345764160156
+        ],
+        "source_text": "3.10",
+        "confidence": 0.941506343063397,
+        "rated_capacity_t": 3.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 9,
+        "column_index": 2,
+        "radius_m": 10.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1130.8670654296875,
+          629.4686965942383,
+          1158.5345764160156
+        ],
+        "source_text": "3.50",
+        "confidence": 0.9999961256980896,
+        "rated_capacity_t": 3.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 9,
+        "column_index": 3,
+        "radius_m": 10.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1130.8670654296875,
+          744.7797088623047,
+          1158.5345764160156
+        ],
+        "source_text": "3.40",
+        "confidence": 0.9999987483024597,
+        "rated_capacity_t": 3.4,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 9,
+        "column_index": 4,
+        "radius_m": 10.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1130.8670654296875,
+          876.0,
+          1158.5345764160156
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 10,
+        "column_index": 0,
+        "radius_m": 11.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1158.5345764160156,
+          402.5633354187012,
+          1186.2020874023438
+        ],
+        "source_text": "11.012.70",
+        "confidence": 0.613922789248399,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 10,
+        "column_index": 1,
+        "radius_m": 11.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1158.5345764160156,
+          514.1577072143555,
+          1186.2020874023438
+        ],
+        "source_text": "2.85",
+        "confidence": 0.9998475909233093,
+        "rated_capacity_t": 2.85,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 10,
+        "column_index": 2,
+        "radius_m": 11.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1158.5345764160156,
+          629.4686965942383,
+          1186.2020874023438
+        ],
+        "source_text": "3.25",
+        "confidence": 0.9999891519546509,
+        "rated_capacity_t": 3.25,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 10,
+        "column_index": 3,
+        "radius_m": 11.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1158.5345764160156,
+          744.7797088623047,
+          1186.2020874023438
+        ],
+        "source_text": "3.15",
+        "confidence": 0.9998932686736584,
+        "rated_capacity_t": 3.15,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 10,
+        "column_index": 4,
+        "radius_m": 11.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1158.5345764160156,
+          876.0,
+          1186.2020874023438
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 11,
+        "column_index": 0,
+        "radius_m": 12.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1186.2020874023438,
+          402.5633354187012,
+          1213.8695983886719
+        ],
+        "source_text": "12.012.40",
+        "confidence": 0.88583533579521,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 11,
+        "column_index": 1,
+        "radius_m": 12.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1186.2020874023438,
+          514.1577072143555,
+          1213.8695983886719
+        ],
+        "source_text": "2.70",
+        "confidence": 0.9954656110020091,
+        "rated_capacity_t": 2.7,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 11,
+        "column_index": 2,
+        "radius_m": 12.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1186.2020874023438,
+          629.4686965942383,
+          1213.8695983886719
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999970197677612,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 11,
+        "column_index": 3,
+        "radius_m": 12.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1186.2020874023438,
+          744.7797088623047,
+          1213.8695983886719
+        ],
+        "source_text": "2.90",
+        "confidence": 0.652359477996284,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 11,
+        "column_index": 4,
+        "radius_m": 12.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1186.2020874023438,
+          876.0,
+          1213.8695983886719
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 12,
+        "column_index": 0,
+        "radius_m": 13.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1213.8695983886719,
+          402.5633354187012,
+          1241.537109375
+        ],
+        "source_text": "13.012.10",
+        "confidence": 0.9303515298334111,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 12,
+        "column_index": 1,
+        "radius_m": 13.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1213.8695983886719,
+          514.1577072143555,
+          1241.537109375
+        ],
+        "source_text": "2.55",
+        "confidence": 0.998704731464386,
+        "rated_capacity_t": 2.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 12,
+        "column_index": 2,
+        "radius_m": 13.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1213.8695983886719,
+          629.4686965942383,
+          1241.537109375
+        ],
+        "source_text": "2.80",
+        "confidence": 0.9999635815620422,
+        "rated_capacity_t": 2.8,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 12,
+        "column_index": 3,
+        "radius_m": 13.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1213.8695983886719,
+          744.7797088623047,
+          1241.537109375
+        ],
+        "source_text": "2.70",
+        "confidence": 0.8876216667258607,
+        "rated_capacity_t": 2.7,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 12,
+        "column_index": 4,
+        "radius_m": 13.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1213.8695983886719,
+          876.0,
+          1241.537109375
+        ],
+        "source_text": "3.00",
+        "confidence": 0.9999971985816956,
+        "rated_capacity_t": 3.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 13,
+        "column_index": 0,
+        "radius_m": 14.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1241.537109375,
+          402.5633354187012,
+          1269.2046203613281
+        ],
+        "source_text": "14.011.80",
+        "confidence": 0.9047034933645814,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 13,
+        "column_index": 1,
+        "radius_m": 14.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1241.537109375,
+          514.1577072143555,
+          1269.2046203613281
+        ],
+        "source_text": "2.40",
+        "confidence": 0.6391142252958494,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 13,
+        "column_index": 2,
+        "radius_m": 14.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1241.537109375,
+          629.4686965942383,
+          1269.2046203613281
+        ],
+        "source_text": "2.65",
+        "confidence": 0.9987862706184387,
+        "rated_capacity_t": 2.65,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 13,
+        "column_index": 3,
+        "radius_m": 14.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1241.537109375,
+          744.7797088623047,
+          1269.2046203613281
+        ],
+        "source_text": "2.55",
+        "confidence": 0.9999751448631287,
+        "rated_capacity_t": 2.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 13,
+        "column_index": 4,
+        "radius_m": 14.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1241.537109375,
+          876.0,
+          1269.2046203613281
+        ],
+        "source_text": "2.80",
+        "confidence": 0.9998157024383545,
+        "rated_capacity_t": 2.8,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 14,
+        "column_index": 0,
+        "radius_m": 15.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1269.2046203613281,
+          402.5633354187012,
+          1296.8721313476562
+        ],
+        "source_text": "15.01-",
+        "confidence": 0.6338194180292064,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 14,
+        "column_index": 1,
+        "radius_m": 15.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1269.2046203613281,
+          514.1577072143555,
+          1296.8721313476562
+        ],
+        "source_text": "2.30",
+        "confidence": 0.42993231078739375,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 14,
+        "column_index": 2,
+        "radius_m": 15.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1269.2046203613281,
+          629.4686965942383,
+          1296.8721313476562
+        ],
+        "source_text": "2.50",
+        "confidence": 0.9999446868896484,
+        "rated_capacity_t": 2.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 14,
+        "column_index": 3,
+        "radius_m": 15.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1269.2046203613281,
+          744.7797088623047,
+          1296.8721313476562
+        ],
+        "source_text": "2.40",
+        "confidence": 0.9999985098838806,
+        "rated_capacity_t": 2.4,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 14,
+        "column_index": 4,
+        "radius_m": 15.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1269.2046203613281,
+          876.0,
+          1296.8721313476562
+        ],
+        "source_text": "2.65",
+        "confidence": 0.9997826814651489,
+        "rated_capacity_t": 2.65,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 15,
+        "column_index": 0,
+        "radius_m": 16.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1296.8721313476562,
+          402.5633354187012,
+          1324.5396423339844
+        ],
+        "source_text": "16.01-",
+        "confidence": 0.9149861606455942,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 15,
+        "column_index": 1,
+        "radius_m": 16.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1296.8721313476562,
+          514.1577072143555,
+          1324.5396423339844
+        ],
+        "source_text": "2.20",
+        "confidence": 0.9719564318656921,
+        "rated_capacity_t": 2.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 15,
+        "column_index": 2,
+        "radius_m": 16.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1296.8721313476562,
+          629.4686965942383,
+          1324.5396423339844
+        ],
+        "source_text": "2.35",
+        "confidence": 0.9999608397483826,
+        "rated_capacity_t": 2.35,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 15,
+        "column_index": 3,
+        "radius_m": 16.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1296.8721313476562,
+          744.7797088623047,
+          1324.5396423339844
+        ],
+        "source_text": "2.25",
+        "confidence": 0.9998600482940674,
+        "rated_capacity_t": 2.25,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 15,
+        "column_index": 4,
+        "radius_m": 16.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1296.8721313476562,
+          876.0,
+          1324.5396423339844
+        ],
+        "source_text": "2.50",
+        "confidence": 0.9982121586799622,
+        "rated_capacity_t": 2.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 16,
+        "column_index": 0,
+        "radius_m": 17.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1324.5396423339844,
+          402.5633354187012,
+          1352.2071533203125
+        ],
+        "source_text": "17.01-",
+        "confidence": 0.6969408268994812,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 16,
+        "column_index": 1,
+        "radius_m": 17.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1324.5396423339844,
+          514.1577072143555,
+          1352.2071533203125
+        ],
+        "source_text": "2.10",
+        "confidence": 0.9742271079848718,
+        "rated_capacity_t": 2.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 16,
+        "column_index": 2,
+        "radius_m": 17.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1324.5396423339844,
+          629.4686965942383,
+          1352.2071533203125
+        ],
+        "source_text": "2.20",
+        "confidence": 0.9997836351394653,
+        "rated_capacity_t": 2.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 16,
+        "column_index": 3,
+        "radius_m": 17.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1324.5396423339844,
+          744.7797088623047,
+          1352.2071533203125
+        ],
+        "source_text": "2.10",
+        "confidence": 0.9999409914016724,
+        "rated_capacity_t": 2.1,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 16,
+        "column_index": 4,
+        "radius_m": 17.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1324.5396423339844,
+          876.0,
+          1352.2071533203125
+        ],
+        "source_text": "2.35",
+        "confidence": 0.8436941148891656,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 17,
+        "column_index": 0,
+        "radius_m": 18.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1352.2071533203125,
+          402.5633354187012,
+          1379.8746643066406
+        ],
+        "source_text": "18.01-",
+        "confidence": 0.862157025710648,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 17,
+        "column_index": 1,
+        "radius_m": 18.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1352.2071533203125,
+          514.1577072143555,
+          1379.8746643066406
+        ],
+        "source_text": "2.00",
+        "confidence": 0.9999459385871887,
+        "rated_capacity_t": 2.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 17,
+        "column_index": 2,
+        "radius_m": 18.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1352.2071533203125,
+          629.4686965942383,
+          1379.8746643066406
+        ],
+        "source_text": "2.05",
+        "confidence": 0.9999861121177673,
+        "rated_capacity_t": 2.05,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 17,
+        "column_index": 3,
+        "radius_m": 18.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1352.2071533203125,
+          744.7797088623047,
+          1379.8746643066406
+        ],
+        "source_text": "1.95",
+        "confidence": 0.5471043090197611,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 17,
+        "column_index": 4,
+        "radius_m": 18.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1352.2071533203125,
+          876.0,
+          1379.8746643066406
+        ],
+        "source_text": "2.20",
+        "confidence": 0.9719564318656921,
+        "rated_capacity_t": 2.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 18,
+        "column_index": 0,
+        "radius_m": 19.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1379.8746643066406,
+          402.5633354187012,
+          1407.5421752929688
+        ],
+        "source_text": "19.01-",
+        "confidence": 0.9275552107845769,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 18,
+        "column_index": 1,
+        "radius_m": 19.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1379.8746643066406,
+          514.1577072143555,
+          1407.5421752929688
+        ],
+        "source_text": "1.90",
+        "confidence": 0.8916746622580467,
+        "rated_capacity_t": 1.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 18,
+        "column_index": 2,
+        "radius_m": 19.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1379.8746643066406,
+          629.4686965942383,
+          1407.5421752929688
+        ],
+        "source_text": "1.90",
+        "confidence": 0.698900103091384,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 18,
+        "column_index": 3,
+        "radius_m": 19.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1379.8746643066406,
+          744.7797088623047,
+          1407.5421752929688
+        ],
+        "source_text": "1.80",
+        "confidence": 0.8406710512324185,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 18,
+        "column_index": 4,
+        "radius_m": 19.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1379.8746643066406,
+          876.0,
+          1407.5421752929688
+        ],
+        "source_text": "1.80",
+        "confidence": 0.9981102513767359,
+        "rated_capacity_t": 1.8,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 19,
+        "column_index": 0,
+        "radius_m": 20.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1407.5421752929688,
+          402.5633354187012,
+          1435.2096862792969
+        ],
+        "source_text": "20.01-",
+        "confidence": 0.9426203588894286,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 19,
+        "column_index": 1,
+        "radius_m": 20.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1407.5421752929688,
+          514.1577072143555,
+          1435.2096862792969
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 19,
+        "column_index": 2,
+        "radius_m": 20.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1407.5421752929688,
+          629.4686965942383,
+          1435.2096862792969
+        ],
+        "source_text": "1.70",
+        "confidence": 0.9780609702662325,
+        "rated_capacity_t": 1.7,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 19,
+        "column_index": 3,
+        "radius_m": 20.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1407.5421752929688,
+          744.7797088623047,
+          1435.2096862792969
+        ],
+        "source_text": "1.50",
+        "confidence": 0.6753376719105266,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 19,
+        "column_index": 4,
+        "radius_m": 20.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1407.5421752929688,
+          876.0,
+          1435.2096862792969
+        ],
+        "source_text": "1.55",
+        "confidence": 0.9999002814292908,
+        "rated_capacity_t": 1.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 20,
+        "column_index": 0,
+        "radius_m": 21.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1435.2096862792969,
+          402.5633354187012,
+          1462.877197265625
+        ],
+        "source_text": "21.01-",
+        "confidence": 0.888939266209337,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 20,
+        "column_index": 1,
+        "radius_m": 21.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1435.2096862792969,
+          514.1577072143555,
+          1462.877197265625
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 20,
+        "column_index": 2,
+        "radius_m": 21.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1435.2096862792969,
+          629.4686965942383,
+          1462.877197265625
+        ],
+        "source_text": "1.50",
+        "confidence": 0.9999834895133972,
+        "rated_capacity_t": 1.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 20,
+        "column_index": 3,
+        "radius_m": 21.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1435.2096862792969,
+          744.7797088623047,
+          1462.877197265625
+        ],
+        "source_text": "1.30",
+        "confidence": 0.5403009332018683,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 20,
+        "column_index": 4,
+        "radius_m": 21.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1435.2096862792969,
+          876.0,
+          1462.877197265625
+        ],
+        "source_text": "1.35",
+        "confidence": 0.9758616187854098,
+        "rated_capacity_t": 1.35,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 21,
+        "column_index": 0,
+        "radius_m": 22.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1462.877197265625,
+          402.5633354187012,
+          1490.5447082519531
+        ],
+        "source_text": "22.01-",
+        "confidence": 0.9519591796807416,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 21,
+        "column_index": 1,
+        "radius_m": 22.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1462.877197265625,
+          514.1577072143555,
+          1490.5447082519531
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 21,
+        "column_index": 2,
+        "radius_m": 22.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1462.877197265625,
+          629.4686965942383,
+          1490.5447082519531
+        ],
+        "source_text": "1.30",
+        "confidence": 0.9944323932087462,
+        "rated_capacity_t": 1.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 21,
+        "column_index": 3,
+        "radius_m": 22.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1462.877197265625,
+          744.7797088623047,
+          1490.5447082519531
+        ],
+        "source_text": "1.20",
+        "confidence": 0.5721985122762328,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 21,
+        "column_index": 4,
+        "radius_m": 22.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1462.877197265625,
+          876.0,
+          1490.5447082519531
+        ],
+        "source_text": "1.20",
+        "confidence": 0.9913169293568057,
+        "rated_capacity_t": 1.2,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 22,
+        "column_index": 0,
+        "radius_m": 23.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1490.5447082519531,
+          402.5633354187012,
+          1518.2122192382812
+        ],
+        "source_text": "23.0-1-",
+        "confidence": 0.42811872600529394,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 22,
+        "column_index": 1,
+        "radius_m": 23.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1490.5447082519531,
+          514.1577072143555,
+          1518.2122192382812
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 22,
+        "column_index": 2,
+        "radius_m": 23.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1490.5447082519531,
+          629.4686965942383,
+          1518.2122192382812
+        ],
+        "source_text": "1.20",
+        "confidence": 0.6255216853795075,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 22,
+        "column_index": 3,
+        "radius_m": 23.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1490.5447082519531,
+          744.7797088623047,
+          1518.2122192382812
+        ],
+        "source_text": "1.00",
+        "confidence": 0.9404960518422216,
+        "rated_capacity_t": 1.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 22,
+        "column_index": 4,
+        "radius_m": 23.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1490.5447082519531,
+          876.0,
+          1518.2122192382812
+        ],
+        "source_text": "1.05",
+        "confidence": 0.9954120568487022,
+        "rated_capacity_t": 1.05,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 23,
+        "column_index": 0,
+        "radius_m": 24.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1518.2122192382812,
+          402.5633354187012,
+          1545.8797988891602
+        ],
+        "source_text": "24.01-",
+        "confidence": 0.952147348705346,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 23,
+        "column_index": 1,
+        "radius_m": 24.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1518.2122192382812,
+          514.1577072143555,
+          1545.8797988891602
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 23,
+        "column_index": 2,
+        "radius_m": 24.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1518.2122192382812,
+          629.4686965942383,
+          1545.8797988891602
+        ],
+        "source_text": "1.05",
+        "confidence": 0.9999935626983643,
+        "rated_capacity_t": 1.05,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 23,
+        "column_index": 3,
+        "radius_m": 24.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1518.2122192382812,
+          744.7797088623047,
+          1545.8797988891602
+        ],
+        "source_text": "0.90",
+        "confidence": 0.983255286257095,
+        "rated_capacity_t": 0.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 23,
+        "column_index": 4,
+        "radius_m": 24.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1518.2122192382812,
+          876.0,
+          1545.8797988891602
+        ],
+        "source_text": "0.85",
+        "confidence": 0.8733893661701014,
+        "rated_capacity_t": 0.85,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 24,
+        "column_index": 0,
+        "radius_m": 25.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1545.8797988891602,
+          402.5633354187012,
+          1573.5473327636719
+        ],
+        "source_text": "25.01-",
+        "confidence": 0.8815770467669656,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 24,
+        "column_index": 1,
+        "radius_m": 25.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1545.8797988891602,
+          514.1577072143555,
+          1573.5473327636719
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 24,
+        "column_index": 2,
+        "radius_m": 25.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1545.8797988891602,
+          629.4686965942383,
+          1573.5473327636719
+        ],
+        "source_text": "0.90",
+        "confidence": 0.9238458565707959,
+        "rated_capacity_t": 0.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 24,
+        "column_index": 3,
+        "radius_m": 25.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1545.8797988891602,
+          744.7797088623047,
+          1573.5473327636719
+        ],
+        "source_text": "0.70",
+        "confidence": 0.999998927116394,
+        "rated_capacity_t": 0.7,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 24,
+        "column_index": 4,
+        "radius_m": 25.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1545.8797988891602,
+          876.0,
+          1573.5473327636719
+        ],
+        "source_text": "0.75",
+        "confidence": 0.9479676285235111,
+        "rated_capacity_t": 0.75,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 25,
+        "column_index": 0,
+        "radius_m": 26.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1573.5473327636719,
+          402.5633354187012,
+          1601.2147521972656
+        ],
+        "source_text": "26.01-",
+        "confidence": 0.9058881037349785,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 25,
+        "column_index": 1,
+        "radius_m": 26.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1573.5473327636719,
+          514.1577072143555,
+          1601.2147521972656
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 25,
+        "column_index": 2,
+        "radius_m": 26.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1573.5473327636719,
+          629.4686965942383,
+          1601.2147521972656
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 25,
+        "column_index": 3,
+        "radius_m": 26.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1573.5473327636719,
+          744.7797088623047,
+          1601.2147521972656
+        ],
+        "source_text": "0.50",
+        "confidence": 0.9999805410921793,
+        "rated_capacity_t": 0.5,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 25,
+        "column_index": 4,
+        "radius_m": 26.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1573.5473327636719,
+          876.0,
+          1601.2147521972656
+        ],
+        "source_text": "0.65",
+        "confidence": 0.5976006701114523,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 26,
+        "column_index": 0,
+        "radius_m": 27.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1601.2147521972656,
+          402.5633354187012,
+          1628.8822631835938
+        ],
+        "source_text": "27.01-",
+        "confidence": 0.9001430240565365,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 26,
+        "column_index": 1,
+        "radius_m": 27.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1601.2147521972656,
+          514.1577072143555,
+          1628.8822631835938
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 26,
+        "column_index": 2,
+        "radius_m": 27.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1601.2147521972656,
+          629.4686965942383,
+          1628.8822631835938
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 26,
+        "column_index": 3,
+        "radius_m": 27.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1601.2147521972656,
+          744.7797088623047,
+          1628.8822631835938
+        ],
+        "source_text": "0.40",
+        "confidence": 0.9999995827674866,
+        "rated_capacity_t": 0.4,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 26,
+        "column_index": 4,
+        "radius_m": 27.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1601.2147521972656,
+          876.0,
+          1628.8822631835938
+        ],
+        "source_text": "0.55",
+        "confidence": 0.9999943971633911,
+        "rated_capacity_t": 0.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 27,
+        "column_index": 0,
+        "radius_m": 28.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1628.8822631835938,
+          402.5633354187012,
+          1656.5498657226562
+        ],
+        "source_text": "28.0-1-",
+        "confidence": 0.46760003049548393,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 27,
+        "column_index": 1,
+        "radius_m": 28.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1628.8822631835938,
+          514.1577072143555,
+          1656.5498657226562
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 27,
+        "column_index": 2,
+        "radius_m": 28.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1628.8822631835938,
+          629.4686965942383,
+          1656.5498657226562
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 27,
+        "column_index": 3,
+        "radius_m": 28.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1628.8822631835938,
+          744.7797088623047,
+          1656.5498657226562
+        ],
+        "source_text": "0.30",
+        "confidence": 0.9999986886978149,
+        "rated_capacity_t": 0.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 27,
+        "column_index": 4,
+        "radius_m": 28.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1628.8822631835938,
+          876.0,
+          1656.5498657226562
+        ],
+        "source_text": "0.40",
+        "confidence": 0.9997745938018612,
+        "rated_capacity_t": 0.4,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 28,
+        "column_index": 0,
+        "radius_m": 29.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1656.5498657226562,
+          402.5633354187012,
+          1684.2173767089844
+        ],
+        "source_text": "29.01-",
+        "confidence": 0.6478009321486358,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 28,
+        "column_index": 1,
+        "radius_m": 29.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1656.5498657226562,
+          514.1577072143555,
+          1684.2173767089844
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 28,
+        "column_index": 2,
+        "radius_m": 29.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1656.5498657226562,
+          629.4686965942383,
+          1684.2173767089844
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 28,
+        "column_index": 3,
+        "radius_m": 29.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1656.5498657226562,
+          744.7797088623047,
+          1684.2173767089844
+        ],
+        "source_text": "0.20",
+        "confidence": 0.6415305495600736,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 28,
+        "column_index": 4,
+        "radius_m": 29.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1656.5498657226562,
+          876.0,
+          1684.2173767089844
+        ],
+        "source_text": "0.35",
+        "confidence": 0.7410791404252891,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 29,
+        "column_index": 0,
+        "radius_m": 30.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1684.2173767089844,
+          402.5633354187012,
+          1711.8847961425781
+        ],
+        "source_text": "30.01-",
+        "confidence": 0.9619745817173351,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 29,
+        "column_index": 1,
+        "radius_m": 30.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1684.2173767089844,
+          514.1577072143555,
+          1711.8847961425781
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 29,
+        "column_index": 2,
+        "radius_m": 30.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1684.2173767089844,
+          629.4686965942383,
+          1711.8847961425781
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 29,
+        "column_index": 3,
+        "radius_m": 30.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1684.2173767089844,
+          744.7797088623047,
+          1711.8847961425781
+        ],
+        "source_text": "0.20",
+        "confidence": 0.6415305495600736,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 29,
+        "column_index": 4,
+        "radius_m": 30.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1684.2173767089844,
+          876.0,
+          1711.8847961425781
+        ],
+        "source_text": "0.25",
+        "confidence": 0.8927109935532992,
+        "rated_capacity_t": 0.25,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 30,
+        "column_index": 0,
+        "radius_m": 31.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1711.8847961425781,
+          402.5633354187012,
+          1739.5523071289062
+        ],
+        "source_text": "31.01-",
+        "confidence": 0.5654093290439604,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 30,
+        "column_index": 1,
+        "radius_m": 31.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1711.8847961425781,
+          514.1577072143555,
+          1739.5523071289062
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 30,
+        "column_index": 2,
+        "radius_m": 31.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1711.8847961425781,
+          629.4686965942383,
+          1739.5523071289062
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 30,
+        "column_index": 3,
+        "radius_m": 31.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1711.8847961425781,
+          744.7797088623047,
+          1739.5523071289062
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 30,
+        "column_index": 4,
+        "radius_m": 31.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1711.8847961425781,
+          876.0,
+          1739.5523071289062
+        ],
+        "source_text": "0.15",
+        "confidence": 0.9999672174453735,
+        "rated_capacity_t": 0.15,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 31,
+        "column_index": 0,
+        "radius_m": 32.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          162.0,
+          1739.5523071289062,
+          402.5633354187012,
+          1770.0
+        ],
+        "source_text": "32.01-",
+        "confidence": 0.9656159212350474,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR token is not a numeric capacity or a dash cell"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 31,
+        "column_index": 1,
+        "radius_m": 32.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          402.5633354187012,
+          1739.5523071289062,
+          514.1577072143555,
+          1770.0
+        ],
+        "source_text": "-",
+        "confidence": 0.6990760379412144,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 31,
+        "column_index": 2,
+        "radius_m": 32.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          514.1577072143555,
+          1739.5523071289062,
+          629.4686965942383,
+          1770.0
+        ],
+        "source_text": "-",
+        "confidence": 0.6990760379412144,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 31,
+        "column_index": 3,
+        "radius_m": 32.0,
+        "boom_length_m": 24.9,
+        "cell_bbox": [
+          629.4686965942383,
+          1739.5523071289062,
+          744.7797088623047,
+          1770.0
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 15,
+        "table_segment": "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        "row_index": 31,
+        "column_index": 4,
+        "radius_m": 32.0,
+        "boom_length_m": 30.1,
+        "cell_bbox": [
+          744.7797088623047,
+          1739.5523071289062,
+          876.0,
+          1770.0
+        ],
+        "source_text": "-",
+        "confidence": 0.6990760379412144,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      }
+    ],
+    "critical_errors": [],
+    "canonical_content_hash": "e078b6469ccfd8b4020b8fdf36626555300855d4235f32818a26b955ed926fcd"
+  }
+}

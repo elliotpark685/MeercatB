@@ -66,3 +66,19 @@ def test_reconstruct_grid_accepts_validated_radius_centres_when_some_row_rules_a
         ),
     )
     assert grid.row_edges == [0.0, 28.0, 60.0, 92.0, 120.0]
+
+
+def test_reconstruct_grid_allows_an_explicit_configuration_specific_header_span():
+    grid = reconstruct_grid(
+        _grid_image(),
+        GridReconstructionConfig(
+            source_page=11,
+            table_bbox=(0, 0, 180, 120),
+            expected_columns=3,
+            expected_rows=4,
+            column_centers_px=(40, 100, 140),
+            min_column_center_span_ratio=0.50,
+            row_centers_px=(12, 44, 76, 108),
+        ),
+    )
+    assert len(grid.boom_columns) == 3

@@ -1,0 +1,1362 @@
+[
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 0,
+    "column_index": 0,
+    "radius_m": 3.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.9,
+    "source_bbox": [
+      240.0,
+      672.0,
+      665.33741,
+      713.9341278
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 0,
+    "column_index": 1,
+    "radius_m": 3.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      672.0,
+      901.0913086,
+      713.9341278
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 0,
+    "column_index": 2,
+    "radius_m": 3.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      672.0,
+      1140.561813,
+      713.9341278
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 0,
+    "column_index": 3,
+    "radius_m": 3.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      672.0,
+      1545.0,
+      713.9341278
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 1,
+    "column_index": 0,
+    "radius_m": 3.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 10.25,
+    "source_bbox": [
+      240.0,
+      713.9341278,
+      665.33741,
+      741.6015472
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 1,
+    "column_index": 1,
+    "radius_m": 3.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      713.9341278,
+      901.0913086,
+      741.6015472
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 1,
+    "column_index": 2,
+    "radius_m": 3.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      713.9341278,
+      1140.561813,
+      741.6015472
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 1,
+    "column_index": 3,
+    "radius_m": 3.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      713.9341278,
+      1545.0,
+      741.6015472
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 2,
+    "column_index": 0,
+    "radius_m": 4.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.95,
+    "source_bbox": [
+      240.0,
+      741.6015472,
+      665.33741,
+      769.2689667
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 2,
+    "column_index": 1,
+    "radius_m": 4.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      741.6015472,
+      901.0913086,
+      769.2689667
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 2,
+    "column_index": 2,
+    "radius_m": 4.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      741.6015472,
+      1140.561813,
+      769.2689667
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 2,
+    "column_index": 3,
+    "radius_m": 4.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      741.6015472,
+      1545.0,
+      769.2689667
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 3,
+    "column_index": 0,
+    "radius_m": 4.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 7.0,
+    "source_bbox": [
+      240.0,
+      769.2689667,
+      665.33741,
+      796.9363861
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 3,
+    "column_index": 1,
+    "radius_m": 4.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.7,
+    "source_bbox": [
+      665.33741,
+      769.2689667,
+      901.0913086,
+      796.9363861
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 3,
+    "column_index": 2,
+    "radius_m": 4.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      769.2689667,
+      1140.561813,
+      796.9363861
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 3,
+    "column_index": 3,
+    "radius_m": 4.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      769.2689667,
+      1545.0,
+      796.9363861
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 4,
+    "column_index": 0,
+    "radius_m": 5.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.95,
+    "source_bbox": [
+      240.0,
+      796.9363861,
+      665.33741,
+      824.6038055
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 4,
+    "column_index": 1,
+    "radius_m": 5.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.7,
+    "source_bbox": [
+      665.33741,
+      796.9363861,
+      901.0913086,
+      824.6038055
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 4,
+    "column_index": 2,
+    "radius_m": 5.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      796.9363861,
+      1140.561813,
+      824.6038055
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 4,
+    "column_index": 3,
+    "radius_m": 5.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      796.9363861,
+      1545.0,
+      824.6038055
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 5,
+    "column_index": 0,
+    "radius_m": 6.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.3,
+    "source_bbox": [
+      240.0,
+      824.6038055,
+      665.33741,
+      852.271225
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 5,
+    "column_index": 1,
+    "radius_m": 6.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.1,
+    "source_bbox": [
+      665.33741,
+      824.6038055,
+      901.0913086,
+      852.271225
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 5,
+    "column_index": 2,
+    "radius_m": 6.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      824.6038055,
+      1140.561813,
+      852.271225
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 5,
+    "column_index": 3,
+    "radius_m": 6.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      824.6038055,
+      1545.0,
+      852.271225
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 6,
+    "column_index": 0,
+    "radius_m": 7.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      852.271225,
+      665.33741,
+      879.9386444
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 6,
+    "column_index": 1,
+    "radius_m": 7.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.15,
+    "source_bbox": [
+      665.33741,
+      852.271225,
+      901.0913086,
+      879.9386444
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 6,
+    "column_index": 2,
+    "radius_m": 7.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.05,
+    "source_bbox": [
+      901.0913086,
+      852.271225,
+      1140.561813,
+      879.9386444
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 6,
+    "column_index": 3,
+    "radius_m": 7.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      852.271225,
+      1545.0,
+      879.9386444
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 7,
+    "column_index": 0,
+    "radius_m": 8.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      879.9386444,
+      665.33741,
+      907.6060638
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 7,
+    "column_index": 1,
+    "radius_m": 8.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.5,
+    "source_bbox": [
+      665.33741,
+      879.9386444,
+      901.0913086,
+      907.6060638
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 7,
+    "column_index": 2,
+    "radius_m": 8.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.4,
+    "source_bbox": [
+      901.0913086,
+      879.9386444,
+      1140.561813,
+      907.6060638
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 7,
+    "column_index": 3,
+    "radius_m": 8.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      879.9386444,
+      1545.0,
+      907.6060638
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 8,
+    "column_index": 0,
+    "radius_m": 9.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      907.6060638,
+      665.33741,
+      935.2734833
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 8,
+    "column_index": 1,
+    "radius_m": 9.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.0,
+    "source_bbox": [
+      665.33741,
+      907.6060638,
+      901.0913086,
+      935.2734833
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 8,
+    "column_index": 2,
+    "radius_m": 9.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.9,
+    "source_bbox": [
+      901.0913086,
+      907.6060638,
+      1140.561813,
+      935.2734833
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 8,
+    "column_index": 3,
+    "radius_m": 9.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.85,
+    "source_bbox": [
+      1140.561813,
+      907.6060638,
+      1545.0,
+      935.2734833
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 9,
+    "column_index": 0,
+    "radius_m": 10.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      935.2734833,
+      665.33741,
+      962.9409027
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 9,
+    "column_index": 1,
+    "radius_m": 10.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.8,
+    "source_bbox": [
+      665.33741,
+      935.2734833,
+      901.0913086,
+      962.9409027
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 9,
+    "column_index": 2,
+    "radius_m": 10.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.5,
+    "source_bbox": [
+      901.0913086,
+      935.2734833,
+      1140.561813,
+      962.9409027
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 9,
+    "column_index": 3,
+    "radius_m": 10.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.45,
+    "source_bbox": [
+      1140.561813,
+      935.2734833,
+      1545.0,
+      962.9409027
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 10,
+    "column_index": 0,
+    "radius_m": 11.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      962.9409027,
+      665.33741,
+      990.6083679
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 10,
+    "column_index": 1,
+    "radius_m": 11.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.4,
+    "source_bbox": [
+      665.33741,
+      962.9409027,
+      901.0913086,
+      990.6083679
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 10,
+    "column_index": 2,
+    "radius_m": 11.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.2,
+    "source_bbox": [
+      901.0913086,
+      962.9409027,
+      1140.561813,
+      990.6083679
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 10,
+    "column_index": 3,
+    "radius_m": 11.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.15,
+    "source_bbox": [
+      1140.561813,
+      962.9409027,
+      1545.0,
+      990.6083679
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 11,
+    "column_index": 0,
+    "radius_m": 12.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      990.6083679,
+      665.33741,
+      1018.275879
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 11,
+    "column_index": 1,
+    "radius_m": 12.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      990.6083679,
+      901.0913086,
+      1018.275879
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 11,
+    "column_index": 2,
+    "radius_m": 12.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.05,
+    "source_bbox": [
+      901.0913086,
+      990.6083679,
+      1140.561813,
+      1018.275879
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 11,
+    "column_index": 3,
+    "radius_m": 12.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.9,
+    "source_bbox": [
+      1140.561813,
+      990.6083679,
+      1545.0,
+      1018.275879
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 12,
+    "column_index": 0,
+    "radius_m": 13.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1018.275879,
+      665.33741,
+      1045.94339
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 12,
+    "column_index": 1,
+    "radius_m": 13.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      1018.275879,
+      901.0913086,
+      1045.94339
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 12,
+    "column_index": 2,
+    "radius_m": 13.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.8,
+    "source_bbox": [
+      901.0913086,
+      1018.275879,
+      1140.561813,
+      1045.94339
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 12,
+    "column_index": 3,
+    "radius_m": 13.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.65,
+    "source_bbox": [
+      1140.561813,
+      1018.275879,
+      1545.0,
+      1045.94339
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 13,
+    "column_index": 0,
+    "radius_m": 14.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1045.94339,
+      665.33741,
+      1073.610901
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 13,
+    "column_index": 1,
+    "radius_m": 14.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      1045.94339,
+      901.0913086,
+      1073.610901
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 13,
+    "column_index": 2,
+    "radius_m": 14.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.55,
+    "source_bbox": [
+      901.0913086,
+      1045.94339,
+      1140.561813,
+      1073.610901
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 13,
+    "column_index": 3,
+    "radius_m": 14.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.5,
+    "source_bbox": [
+      1140.561813,
+      1045.94339,
+      1545.0,
+      1073.610901
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 14,
+    "column_index": 0,
+    "radius_m": 15.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1073.610901,
+      665.33741,
+      1101.278412
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 14,
+    "column_index": 1,
+    "radius_m": 15.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      1073.610901,
+      901.0913086,
+      1101.278412
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 14,
+    "column_index": 2,
+    "radius_m": 15.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.35,
+    "source_bbox": [
+      901.0913086,
+      1073.610901,
+      1140.561813,
+      1101.278412
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 14,
+    "column_index": 3,
+    "radius_m": 15.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.3,
+    "source_bbox": [
+      1140.561813,
+      1073.610901,
+      1545.0,
+      1101.278412
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 15,
+    "column_index": 0,
+    "radius_m": 16.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1101.278412,
+      665.33741,
+      1128.945923
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 15,
+    "column_index": 1,
+    "radius_m": 16.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      1101.278412,
+      901.0913086,
+      1128.945923
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 15,
+    "column_index": 2,
+    "radius_m": 16.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.2,
+    "source_bbox": [
+      901.0913086,
+      1101.278412,
+      1140.561813,
+      1128.945923
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 15,
+    "column_index": 3,
+    "radius_m": 16.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.2,
+    "source_bbox": [
+      1140.561813,
+      1101.278412,
+      1545.0,
+      1128.945923
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 16,
+    "column_index": 0,
+    "radius_m": 17.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1128.945923,
+      665.33741,
+      1158.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 16,
+    "column_index": 1,
+    "radius_m": 17.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      665.33741,
+      1128.945923,
+      901.0913086,
+      1158.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 16,
+    "column_index": 2,
+    "radius_m": 17.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      901.0913086,
+      1128.945923,
+      1140.561813,
+      1158.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "configuration": "PAGE_12_UPPER_ON_TIRES_360_0_KMH",
+    "row_index": 16,
+    "column_index": 3,
+    "radius_m": 17.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1140.561813,
+      1128.945923,
+      1545.0,
+      1158.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-13T17:30:00Z",
+    "verification_note": "Direct independent PDF review required; no parser value supplied."
+  }
+]

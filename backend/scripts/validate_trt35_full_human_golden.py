@@ -43,7 +43,12 @@ def main() -> None:
         capture = capture["baseline"]
     result = _load_result(capture)
 
-    golden_errors = validate_full_human_golden(golden, expected_document_hash=manifest["source_document_hash"])
+    golden_errors = validate_full_human_golden(
+        golden,
+        expected_document_hash=manifest["source_document_hash"],
+        expected_cell_count=manifest["result_counts"]["total"],
+        expected_configuration=manifest["table_segment"],
+    )
     if result.file_hash_sha256 != manifest["source_document_hash"]:
         golden_errors.append("frozen parser source document hash mismatch")
     if result.canonical_content_hash != manifest["canonical_result_hash"]:
@@ -53,9 +58,9 @@ def main() -> None:
     accepted = human_golden_acceptance(metrics, golden_errors=golden_errors)
     report = {
         "profile": "TEREX_TRT35_OCR_V1",
-        "slice": "PAGE_11_UPPER_100_OUTRIGGER",
+        "slice": manifest["table_segment"],
         "freeze_status": manifest["freeze_status"],
-        "acceptance_status": "ACCEPTED_FOR_NEXT_CONFIGURATION" if accepted else "PARSER_VALIDATION_PENDING",
+        "acceptance_status": "HUMAN_GOLDEN_GATE_PASSED" if accepted else "PARSER_VALIDATION_PENDING",
         "golden_validation_errors": golden_errors,
         "metrics": metrics.model_dump(),
         "acceptance_invariants": {

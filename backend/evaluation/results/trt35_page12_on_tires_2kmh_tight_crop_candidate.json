@@ -1,0 +1,985 @@
+{
+  "capture_role": "UNFROZEN_CANDIDATE_OUTPUT",
+  "runner": "tight-crop",
+  "result": {
+    "parser_profile": "TEREX_TRT35_OCR_V1",
+    "parser_version": "0.1.1-tight-crop-candidate",
+    "file_hash_sha256": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 12,
+    "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+    "grid_status": "PASS",
+    "cells": [
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 0,
+        "column_index": 0,
+        "radius_m": 3.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1368.0,
+          795.9474563598633,
+          1411.2569274902344
+        ],
+        "source_text": "11.95",
+        "confidence": 0.9993153394330265,
+        "rated_capacity_t": 11.95,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 0,
+        "column_index": 1,
+        "radius_m": 3.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1368.0,
+          1031.7013549804688,
+          1411.2569274902344
+        ],
+        "source_text": "12.00",
+        "confidence": 0.9996236621266228,
+        "rated_capacity_t": 12.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 0,
+        "column_index": 2,
+        "radius_m": 3.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1368.0,
+          1545.0,
+          1411.2569274902344
+        ],
+        "source_text": "12.05",
+        "confidence": 0.9951792585787439,
+        "rated_capacity_t": 12.05,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 1,
+        "column_index": 0,
+        "radius_m": 3.5,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1411.2569274902344,
+          795.9474563598633,
+          1438.9244384765625
+        ],
+        "source_text": "10.55",
+        "confidence": 0.9999965880303532,
+        "rated_capacity_t": 10.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 1,
+        "column_index": 1,
+        "radius_m": 3.5,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1411.2569274902344,
+          1031.7013549804688,
+          1438.9244384765625
+        ],
+        "source_text": "10.60",
+        "confidence": 0.6123036599996075,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 1,
+        "column_index": 2,
+        "radius_m": 3.5,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1411.2569274902344,
+          1545.0,
+          1438.9244384765625
+        ],
+        "source_text": "10.60",
+        "confidence": 0.6123036599996075,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 2,
+        "column_index": 0,
+        "radius_m": 4.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1438.9244384765625,
+          795.9474563598633,
+          1466.5919494628906
+        ],
+        "source_text": "9.40",
+        "confidence": 0.9999995827674866,
+        "rated_capacity_t": 9.4,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 2,
+        "column_index": 1,
+        "radius_m": 4.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1438.9244384765625,
+          1031.7013549804688,
+          1466.5919494628906
+        ],
+        "source_text": "9.45",
+        "confidence": 0.9999993443489075,
+        "rated_capacity_t": 9.45,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 2,
+        "column_index": 2,
+        "radius_m": 4.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1438.9244384765625,
+          1545.0,
+          1466.5919494628906
+        ],
+        "source_text": "9.45",
+        "confidence": 0.9999993443489075,
+        "rated_capacity_t": 9.45,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 3,
+        "column_index": 0,
+        "radius_m": 4.5,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1466.5919494628906,
+          795.9474563598633,
+          1494.2594604492188
+        ],
+        "source_text": "8.40",
+        "confidence": 0.4384137705559198,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 3,
+        "column_index": 1,
+        "radius_m": 4.5,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1466.5919494628906,
+          1031.7013549804688,
+          1494.2594604492188
+        ],
+        "source_text": "8.45",
+        "confidence": 0.9999996423721313,
+        "rated_capacity_t": 8.45,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 3,
+        "column_index": 2,
+        "radius_m": 4.5,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1466.5919494628906,
+          1545.0,
+          1494.2594604492188
+        ],
+        "source_text": "8.50",
+        "confidence": 0.6673343897003731,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 4,
+        "column_index": 0,
+        "radius_m": 5.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1494.2594604492188,
+          795.9474563598633,
+          1521.927017211914
+        ],
+        "source_text": "7.60",
+        "confidence": 0.9851781129837036,
+        "rated_capacity_t": 7.6,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 4,
+        "column_index": 1,
+        "radius_m": 5.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1494.2594604492188,
+          1031.7013549804688,
+          1521.927017211914
+        ],
+        "source_text": "7.65",
+        "confidence": 0.9999818801879883,
+        "rated_capacity_t": 7.65,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 4,
+        "column_index": 2,
+        "radius_m": 5.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1494.2594604492188,
+          1545.0,
+          1521.927017211914
+        ],
+        "source_text": "7.65",
+        "confidence": 0.9999818801879883,
+        "rated_capacity_t": 7.65,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 5,
+        "column_index": 0,
+        "radius_m": 6.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1521.927017211914,
+          795.9474563598633,
+          1549.5945510864258
+        ],
+        "source_text": "6.25",
+        "confidence": 0.8879947229459884,
+        "rated_capacity_t": 6.25,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 5,
+        "column_index": 1,
+        "radius_m": 6.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1521.927017211914,
+          1031.7013549804688,
+          1549.5945510864258
+        ],
+        "source_text": "6.30",
+        "confidence": 0.9999955892562866,
+        "rated_capacity_t": 6.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 5,
+        "column_index": 2,
+        "radius_m": 6.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1521.927017211914,
+          1545.0,
+          1549.5945510864258
+        ],
+        "source_text": "6.35",
+        "confidence": 0.9999887943267822,
+        "rated_capacity_t": 6.35,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 6,
+        "column_index": 0,
+        "radius_m": 7.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1549.5945510864258,
+          795.9474563598633,
+          1577.2619934082031
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 6,
+        "column_index": 1,
+        "radius_m": 7.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1549.5945510864258,
+          1031.7013549804688,
+          1577.2619934082031
+        ],
+        "source_text": "5.30",
+        "confidence": 0.9007094126070437,
+        "rated_capacity_t": 5.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 6,
+        "column_index": 2,
+        "radius_m": 7.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1549.5945510864258,
+          1545.0,
+          1577.2619934082031
+        ],
+        "source_text": "5.30",
+        "confidence": 0.9007094126070437,
+        "rated_capacity_t": 5.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 7,
+        "column_index": 0,
+        "radius_m": 8.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1577.2619934082031,
+          795.9474563598633,
+          1604.9295043945312
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 7,
+        "column_index": 1,
+        "radius_m": 8.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1577.2619934082031,
+          1031.7013549804688,
+          1604.9295043945312
+        ],
+        "source_text": "4.35",
+        "confidence": 0.6619894013010543,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 7,
+        "column_index": 2,
+        "radius_m": 8.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1577.2619934082031,
+          1545.0,
+          1604.9295043945312
+        ],
+        "source_text": "4.40",
+        "confidence": 0.6926956715212559,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 8,
+        "column_index": 0,
+        "radius_m": 9.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1604.9295043945312,
+          795.9474563598633,
+          1632.5971069335938
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 8,
+        "column_index": 1,
+        "radius_m": 9.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1604.9295043945312,
+          1031.7013549804688,
+          1632.5971069335938
+        ],
+        "source_text": "3.50",
+        "confidence": 0.5488307425367656,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 8,
+        "column_index": 2,
+        "radius_m": 9.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1604.9295043945312,
+          1545.0,
+          1632.5971069335938
+        ],
+        "source_text": "3.55",
+        "confidence": 0.9999787211418152,
+        "rated_capacity_t": 3.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 9,
+        "column_index": 0,
+        "radius_m": 10.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1632.5971069335938,
+          795.9474563598633,
+          1660.2646179199219
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 9,
+        "column_index": 1,
+        "radius_m": 10.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1632.5971069335938,
+          1031.7013549804688,
+          1660.2646179199219
+        ],
+        "source_text": "2.85",
+        "confidence": 0.999980092048645,
+        "rated_capacity_t": 2.85,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 9,
+        "column_index": 2,
+        "radius_m": 10.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1632.5971069335938,
+          1545.0,
+          1660.2646179199219
+        ],
+        "source_text": "2.85",
+        "confidence": 0.999980092048645,
+        "rated_capacity_t": 2.85,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 10,
+        "column_index": 0,
+        "radius_m": 11.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1660.2646179199219,
+          795.9474563598633,
+          1687.9320373535156
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 10,
+        "column_index": 1,
+        "radius_m": 11.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1660.2646179199219,
+          1031.7013549804688,
+          1687.9320373535156
+        ],
+        "source_text": "2.30",
+        "confidence": 0.9985080917792546,
+        "rated_capacity_t": 2.3,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 10,
+        "column_index": 2,
+        "radius_m": 11.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1660.2646179199219,
+          1545.0,
+          1687.9320373535156
+        ],
+        "source_text": "2.35",
+        "confidence": 0.9976471204553942,
+        "rated_capacity_t": 2.35,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 11,
+        "column_index": 0,
+        "radius_m": 12.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1687.9320373535156,
+          795.9474563598633,
+          1715.5995483398438
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 11,
+        "column_index": 1,
+        "radius_m": 12.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1687.9320373535156,
+          1031.7013549804688,
+          1715.5995483398438
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 11,
+        "column_index": 2,
+        "radius_m": 12.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1687.9320373535156,
+          1545.0,
+          1715.5995483398438
+        ],
+        "source_text": "1.90",
+        "confidence": 0.945887428317377,
+        "rated_capacity_t": 1.9,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 12,
+        "column_index": 0,
+        "radius_m": 13.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1715.5995483398438,
+          795.9474563598633,
+          1743.2671508789062
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 12,
+        "column_index": 1,
+        "radius_m": 13.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1715.5995483398438,
+          1031.7013549804688,
+          1743.2671508789062
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 12,
+        "column_index": 2,
+        "radius_m": 13.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1715.5995483398438,
+          1545.0,
+          1743.2671508789062
+        ],
+        "source_text": "1.55",
+        "confidence": 0.9999466345049123,
+        "rated_capacity_t": 1.55,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 13,
+        "column_index": 0,
+        "radius_m": 14.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1743.2671508789062,
+          795.9474563598633,
+          1770.9346618652344
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 13,
+        "column_index": 1,
+        "radius_m": 14.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1743.2671508789062,
+          1031.7013549804688,
+          1770.9346618652344
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 13,
+        "column_index": 2,
+        "radius_m": 14.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1743.2671508789062,
+          1545.0,
+          1770.9346618652344
+        ],
+        "source_text": "1.25",
+        "confidence": 0.999855416581563,
+        "rated_capacity_t": 1.25,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 14,
+        "column_index": 0,
+        "radius_m": 15.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1770.9346618652344,
+          795.9474563598633,
+          1798.6020812988281
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 14,
+        "column_index": 1,
+        "radius_m": 15.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1770.9346618652344,
+          1031.7013549804688,
+          1798.6020812988281
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 14,
+        "column_index": 2,
+        "radius_m": 15.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1770.9346618652344,
+          1545.0,
+          1798.6020812988281
+        ],
+        "source_text": "1.00",
+        "confidence": 0.9404960518422216,
+        "rated_capacity_t": 1.0,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 15,
+        "column_index": 0,
+        "radius_m": 16.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1798.6020812988281,
+          795.9474563598633,
+          1826.2695922851562
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 15,
+        "column_index": 1,
+        "radius_m": 16.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1798.6020812988281,
+          1031.7013549804688,
+          1826.2695922851562
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 15,
+        "column_index": 2,
+        "radius_m": 16.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1798.6020812988281,
+          1545.0,
+          1826.2695922851562
+        ],
+        "source_text": "0.75",
+        "confidence": 0.9999987483024597,
+        "rated_capacity_t": 0.75,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 16,
+        "column_index": 0,
+        "radius_m": 17.0,
+        "boom_length_m": 9.1,
+        "cell_bbox": [
+          240.0,
+          1826.2695922851562,
+          795.9474563598633,
+          1854.0
+        ],
+        "source_text": "-",
+        "confidence": 0.43079111917018054,
+        "rated_capacity_t": null,
+        "cell_status": "UNRESOLVED",
+        "reason": "OCR confidence is below the configured threshold"
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 16,
+        "column_index": 1,
+        "radius_m": 17.0,
+        "boom_length_m": 14.4,
+        "cell_bbox": [
+          795.9474563598633,
+          1826.2695922851562,
+          1031.7013549804688,
+          1854.0
+        ],
+        "source_text": "-",
+        "confidence": 1.0,
+        "rated_capacity_t": null,
+        "cell_status": "NOT_AVAILABLE",
+        "reason": null
+      },
+      {
+        "source_page": 12,
+        "table_segment": "PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH",
+        "row_index": 16,
+        "column_index": 2,
+        "radius_m": 17.0,
+        "boom_length_m": 19.6,
+        "cell_bbox": [
+          1031.7013549804688,
+          1826.2695922851562,
+          1545.0,
+          1854.0
+        ],
+        "source_text": "0.60",
+        "confidence": 0.9203190849752829,
+        "rated_capacity_t": 0.6,
+        "cell_status": "AVAILABLE",
+        "reason": null
+      }
+    ],
+    "critical_errors": [],
+    "canonical_content_hash": "dc643ede7f3461d3341b7ab1638af828cee6e505aa3fdad6959a489bd27e511a"
+  }
+}
