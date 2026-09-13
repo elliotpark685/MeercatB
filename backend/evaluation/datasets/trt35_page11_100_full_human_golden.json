@@ -1,0 +1,2702 @@
+[
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 0,
+    "radius_m": 3.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 35.0,
+    "source_bbox": [
+      240.0,
+      672.0,
+      554.7837753,
+      714.1066132
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 1,
+    "radius_m": 3.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 21.7,
+    "source_bbox": [
+      554.7837753,
+      672.0,
+      790.5376511,
+      714.1066132
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 2,
+    "radius_m": 3.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 16.1,
+    "source_bbox": [
+      790.5376511,
+      672.0,
+      1030.008179,
+      714.1066132
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 3,
+    "radius_m": 3.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      672.0,
+      1269.478683,
+      714.1066132
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 0,
+    "column_index": 4,
+    "radius_m": 3.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      672.0,
+      1545.0,
+      714.1066132
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 0,
+    "radius_m": 3.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 31.0,
+    "source_bbox": [
+      240.0,
+      714.1066132,
+      554.7837753,
+      741.7740326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 1,
+    "radius_m": 3.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 20.75,
+    "source_bbox": [
+      554.7837753,
+      714.1066132,
+      790.5376511,
+      741.7740326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 2,
+    "radius_m": 3.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 15.0,
+    "source_bbox": [
+      790.5376511,
+      714.1066132,
+      1030.008179,
+      741.7740326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 3,
+    "radius_m": 3.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.9,
+    "source_bbox": [
+      1030.008179,
+      714.1066132,
+      1269.478683,
+      741.7740326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 1,
+    "column_index": 4,
+    "radius_m": 3.5,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      714.1066132,
+      1545.0,
+      741.7740326
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 0,
+    "radius_m": 4.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 28.4,
+    "source_bbox": [
+      240.0,
+      741.7740326,
+      554.7837753,
+      769.441452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 1,
+    "radius_m": 4.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 19.9,
+    "source_bbox": [
+      554.7837753,
+      741.7740326,
+      790.5376511,
+      769.441452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 2,
+    "radius_m": 4.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 14.05,
+    "source_bbox": [
+      790.5376511,
+      741.7740326,
+      1030.008179,
+      769.441452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 3,
+    "radius_m": 4.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.05,
+    "source_bbox": [
+      1030.008179,
+      741.7740326,
+      1269.478683,
+      769.441452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 2,
+    "column_index": 4,
+    "radius_m": 4.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1269.478683,
+      741.7740326,
+      1545.0,
+      769.441452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 0,
+    "radius_m": 4.5,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 25.5,
+    "source_bbox": [
+      240.0,
+      769.441452,
+      554.7837753,
+      797.1088715
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 1,
+    "radius_m": 4.5,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 19.15,
+    "source_bbox": [
+      554.7837753,
+      769.441452,
+      790.5376511,
+      797.1088715
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 2,
+    "radius_m": 4.5,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 13.2,
+    "source_bbox": [
+      790.5376511,
+      769.441452,
+      1030.008179,
+      797.1088715
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 3,
+    "radius_m": 4.5,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.3,
+    "source_bbox": [
+      1030.008179,
+      769.441452,
+      1269.478683,
+      797.1088715
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 3,
+    "column_index": 4,
+    "radius_m": 4.5,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      769.441452,
+      1545.0,
+      797.1088715
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 0,
+    "radius_m": 5.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 23.0,
+    "source_bbox": [
+      240.0,
+      797.1088715,
+      554.7837753,
+      824.7762909
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 1,
+    "radius_m": 5.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 18.45,
+    "source_bbox": [
+      554.7837753,
+      797.1088715,
+      790.5376511,
+      824.7762909
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 2,
+    "radius_m": 5.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.45,
+    "source_bbox": [
+      790.5376511,
+      797.1088715,
+      1030.008179,
+      824.7762909
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 3,
+    "radius_m": 5.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 10.6,
+    "source_bbox": [
+      1030.008179,
+      797.1088715,
+      1269.478683,
+      824.7762909
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 4,
+    "column_index": 4,
+    "radius_m": 5.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      797.1088715,
+      1545.0,
+      824.7762909
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 0,
+    "radius_m": 6.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 16.25,
+    "source_bbox": [
+      240.0,
+      824.7762909,
+      554.7837753,
+      852.4437103
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 1,
+    "radius_m": 6.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 17.25,
+    "source_bbox": [
+      554.7837753,
+      824.7762909,
+      790.5376511,
+      852.4437103
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 2,
+    "radius_m": 6.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 11.0,
+    "source_bbox": [
+      790.5376511,
+      824.7762909,
+      1030.008179,
+      852.4437103
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 3,
+    "radius_m": 6.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 9.4,
+    "source_bbox": [
+      1030.008179,
+      824.7762909,
+      1269.478683,
+      852.4437103
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 5,
+    "column_index": 4,
+    "radius_m": 6.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      824.7762909,
+      1545.0,
+      852.4437103
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 0,
+    "radius_m": 7.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      852.4437103,
+      554.7837753,
+      880.1111298
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 1,
+    "radius_m": 7.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 12.1,
+    "source_bbox": [
+      554.7837753,
+      852.4437103,
+      790.5376511,
+      880.1111298
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 2,
+    "radius_m": 7.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 9.8,
+    "source_bbox": [
+      790.5376511,
+      852.4437103,
+      1030.008179,
+      880.1111298
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 3,
+    "radius_m": 7.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.35,
+    "source_bbox": [
+      1030.008179,
+      852.4437103,
+      1269.478683,
+      880.1111298
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 6,
+    "column_index": 4,
+    "radius_m": 7.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      852.4437103,
+      1545.0,
+      880.1111298
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 0,
+    "radius_m": 8.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      880.1111298,
+      554.7837753,
+      907.7785492
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 1,
+    "radius_m": 8.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 9.45,
+    "source_bbox": [
+      554.7837753,
+      880.1111298,
+      790.5376511,
+      907.7785492
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 2,
+    "radius_m": 8.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.85,
+    "source_bbox": [
+      790.5376511,
+      880.1111298,
+      1030.008179,
+      907.7785492
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 3,
+    "radius_m": 8.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 7.5,
+    "source_bbox": [
+      1030.008179,
+      880.1111298,
+      1269.478683,
+      907.7785492
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 7,
+    "column_index": 4,
+    "radius_m": 8.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      880.1111298,
+      1545.0,
+      907.7785492
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 0,
+    "radius_m": 9.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      907.7785492,
+      554.7837753,
+      935.4459686
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 1,
+    "radius_m": 9.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 7.6,
+    "source_bbox": [
+      554.7837753,
+      907.7785492,
+      790.5376511,
+      935.4459686
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 2,
+    "radius_m": 9.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 8.05,
+    "source_bbox": [
+      790.5376511,
+      907.7785492,
+      1030.008179,
+      935.4459686
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 3,
+    "radius_m": 9.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.8,
+    "source_bbox": [
+      1030.008179,
+      907.7785492,
+      1269.478683,
+      935.4459686
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 8,
+    "column_index": 4,
+    "radius_m": 9.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      907.7785492,
+      1545.0,
+      935.4459686
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 0,
+    "radius_m": 10.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      935.4459686,
+      554.7837753,
+      963.1133881
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 1,
+    "radius_m": 10.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.25,
+    "source_bbox": [
+      554.7837753,
+      935.4459686,
+      790.5376511,
+      963.1133881
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 2,
+    "radius_m": 10.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.3,
+    "source_bbox": [
+      790.5376511,
+      935.4459686,
+      1030.008179,
+      963.1133881
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 3,
+    "radius_m": 10.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 6.2,
+    "source_bbox": [
+      1030.008179,
+      935.4459686,
+      1269.478683,
+      963.1133881
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 9,
+    "column_index": 4,
+    "radius_m": 10.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.0,
+    "source_bbox": [
+      1269.478683,
+      935.4459686,
+      1545.0,
+      963.1133881
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 0,
+    "radius_m": 11.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      963.1133881,
+      554.7837753,
+      990.7808533
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 1,
+    "radius_m": 11.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.25,
+    "source_bbox": [
+      554.7837753,
+      963.1133881,
+      790.5376511,
+      990.7808533
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 2,
+    "radius_m": 11.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.3,
+    "source_bbox": [
+      790.5376511,
+      963.1133881,
+      1030.008179,
+      990.7808533
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 3,
+    "radius_m": 11.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 5.7,
+    "source_bbox": [
+      1030.008179,
+      963.1133881,
+      1269.478683,
+      990.7808533
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 10,
+    "column_index": 4,
+    "radius_m": 11.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.8,
+    "source_bbox": [
+      1269.478683,
+      963.1133881,
+      1545.0,
+      990.7808533
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 0,
+    "radius_m": 12.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      990.7808533,
+      554.7837753,
+      1018.448364
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 1,
+    "radius_m": 12.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      990.7808533,
+      790.5376511,
+      1018.448364
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 2,
+    "radius_m": 12.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.5,
+    "source_bbox": [
+      790.5376511,
+      990.7808533,
+      1030.008179,
+      1018.448364
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 3,
+    "radius_m": 12.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.5,
+    "source_bbox": [
+      1030.008179,
+      990.7808533,
+      1269.478683,
+      1018.448364
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 11,
+    "column_index": 4,
+    "radius_m": 12.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 4.5,
+    "source_bbox": [
+      1269.478683,
+      990.7808533,
+      1545.0,
+      1018.448364
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 0,
+    "radius_m": 13.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1018.448364,
+      554.7837753,
+      1046.115875
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 1,
+    "radius_m": 13.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1018.448364,
+      790.5376511,
+      1046.115875
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 2,
+    "radius_m": 13.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.85,
+    "source_bbox": [
+      790.5376511,
+      1018.448364,
+      1030.008179,
+      1046.115875
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 3,
+    "radius_m": 13.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.8,
+    "source_bbox": [
+      1030.008179,
+      1018.448364,
+      1269.478683,
+      1046.115875
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 12,
+    "column_index": 4,
+    "radius_m": 13.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.7,
+    "source_bbox": [
+      1269.478683,
+      1018.448364,
+      1545.0,
+      1046.115875
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 0,
+    "radius_m": 14.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1046.115875,
+      554.7837753,
+      1073.783386
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 1,
+    "radius_m": 14.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1046.115875,
+      790.5376511,
+      1073.783386
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 2,
+    "radius_m": 14.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.3,
+    "source_bbox": [
+      790.5376511,
+      1046.115875,
+      1030.008179,
+      1073.783386
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 3,
+    "radius_m": 14.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.3,
+    "source_bbox": [
+      1030.008179,
+      1046.115875,
+      1269.478683,
+      1073.783386
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 13,
+    "column_index": 4,
+    "radius_m": 14.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 3.3,
+    "source_bbox": [
+      1269.478683,
+      1046.115875,
+      1545.0,
+      1073.783386
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 0,
+    "radius_m": 15.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1073.783386,
+      554.7837753,
+      1101.450897
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 1,
+    "radius_m": 15.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1073.783386,
+      790.5376511,
+      1101.450897
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 2,
+    "radius_m": 15.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.9,
+    "source_bbox": [
+      790.5376511,
+      1073.783386,
+      1030.008179,
+      1101.450897
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 3,
+    "radius_m": 15.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.85,
+    "source_bbox": [
+      1030.008179,
+      1073.783386,
+      1269.478683,
+      1101.450897
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 14,
+    "column_index": 4,
+    "radius_m": 15.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.85,
+    "source_bbox": [
+      1269.478683,
+      1073.783386,
+      1545.0,
+      1101.450897
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 0,
+    "radius_m": 16.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1101.450897,
+      554.7837753,
+      1129.118408
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 1,
+    "radius_m": 16.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1101.450897,
+      790.5376511,
+      1129.118408
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 2,
+    "radius_m": 16.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.45,
+    "source_bbox": [
+      790.5376511,
+      1101.450897,
+      1030.008179,
+      1129.118408
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 3,
+    "radius_m": 16.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.5,
+    "source_bbox": [
+      1030.008179,
+      1101.450897,
+      1269.478683,
+      1129.118408
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 15,
+    "column_index": 4,
+    "radius_m": 16.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.5,
+    "source_bbox": [
+      1269.478683,
+      1101.450897,
+      1545.0,
+      1129.118408
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 0,
+    "radius_m": 17.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1129.118408,
+      554.7837753,
+      1156.785919
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 1,
+    "radius_m": 17.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1129.118408,
+      790.5376511,
+      1156.785919
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 2,
+    "radius_m": 17.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.15,
+    "source_bbox": [
+      790.5376511,
+      1129.118408,
+      1030.008179,
+      1156.785919
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 3,
+    "radius_m": 17.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.15,
+    "source_bbox": [
+      1030.008179,
+      1129.118408,
+      1269.478683,
+      1156.785919
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 16,
+    "column_index": 4,
+    "radius_m": 17.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 2.2,
+    "source_bbox": [
+      1269.478683,
+      1129.118408,
+      1545.0,
+      1156.785919
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 0,
+    "radius_m": 18.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1156.785919,
+      554.7837753,
+      1184.45343
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 1,
+    "radius_m": 18.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1156.785919,
+      790.5376511,
+      1184.45343
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 2,
+    "radius_m": 18.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1156.785919,
+      1030.008179,
+      1184.45343
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 3,
+    "radius_m": 18.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.9,
+    "source_bbox": [
+      1030.008179,
+      1156.785919,
+      1269.478683,
+      1184.45343
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 17,
+    "column_index": 4,
+    "radius_m": 18.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.9,
+    "source_bbox": [
+      1269.478683,
+      1156.785919,
+      1545.0,
+      1184.45343
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 0,
+    "radius_m": 19.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1184.45343,
+      554.7837753,
+      1212.120941
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 1,
+    "radius_m": 19.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1184.45343,
+      790.5376511,
+      1212.120941
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 2,
+    "radius_m": 19.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1184.45343,
+      1030.008179,
+      1212.120941
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 3,
+    "radius_m": 19.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.65,
+    "source_bbox": [
+      1030.008179,
+      1184.45343,
+      1269.478683,
+      1212.120941
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 18,
+    "column_index": 4,
+    "radius_m": 19.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.65,
+    "source_bbox": [
+      1269.478683,
+      1184.45343,
+      1545.0,
+      1212.120941
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 0,
+    "radius_m": 20.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1212.120941,
+      554.7837753,
+      1239.788452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 1,
+    "radius_m": 20.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1212.120941,
+      790.5376511,
+      1239.788452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 2,
+    "radius_m": 20.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1212.120941,
+      1030.008179,
+      1239.788452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 3,
+    "radius_m": 20.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.4,
+    "source_bbox": [
+      1030.008179,
+      1212.120941,
+      1269.478683,
+      1239.788452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 19,
+    "column_index": 4,
+    "radius_m": 20.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.45,
+    "source_bbox": [
+      1269.478683,
+      1212.120941,
+      1545.0,
+      1239.788452
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 20,
+    "column_index": 0,
+    "radius_m": 21.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1239.788452,
+      554.7837753,
+      1267.455963
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 20,
+    "column_index": 1,
+    "radius_m": 21.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1239.788452,
+      790.5376511,
+      1267.455963
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 20,
+    "column_index": 2,
+    "radius_m": 21.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1239.788452,
+      1030.008179,
+      1267.455963
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 20,
+    "column_index": 3,
+    "radius_m": 21.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.2,
+    "source_bbox": [
+      1030.008179,
+      1239.788452,
+      1269.478683,
+      1267.455963
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 20,
+    "column_index": 4,
+    "radius_m": 21.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.25,
+    "source_bbox": [
+      1269.478683,
+      1239.788452,
+      1545.0,
+      1267.455963
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 21,
+    "column_index": 0,
+    "radius_m": 22.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1267.455963,
+      554.7837753,
+      1295.123474
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 21,
+    "column_index": 1,
+    "radius_m": 22.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1267.455963,
+      790.5376511,
+      1295.123474
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 21,
+    "column_index": 2,
+    "radius_m": 22.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1267.455963,
+      1030.008179,
+      1295.123474
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 21,
+    "column_index": 3,
+    "radius_m": 22.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.05,
+    "source_bbox": [
+      1030.008179,
+      1267.455963,
+      1269.478683,
+      1295.123474
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 21,
+    "column_index": 4,
+    "radius_m": 22.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 1.05,
+    "source_bbox": [
+      1269.478683,
+      1267.455963,
+      1545.0,
+      1295.123474
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 22,
+    "column_index": 0,
+    "radius_m": 23.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1295.123474,
+      554.7837753,
+      1322.790985
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 22,
+    "column_index": 1,
+    "radius_m": 23.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1295.123474,
+      790.5376511,
+      1322.790985
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 22,
+    "column_index": 2,
+    "radius_m": 23.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1295.123474,
+      1030.008179,
+      1322.790985
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 22,
+    "column_index": 3,
+    "radius_m": 23.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1295.123474,
+      1269.478683,
+      1322.790985
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 22,
+    "column_index": 4,
+    "radius_m": 23.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.9,
+    "source_bbox": [
+      1269.478683,
+      1295.123474,
+      1545.0,
+      1322.790985
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 23,
+    "column_index": 0,
+    "radius_m": 24.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1322.790985,
+      554.7837753,
+      1350.458496
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 23,
+    "column_index": 1,
+    "radius_m": 24.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1322.790985,
+      790.5376511,
+      1350.458496
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 23,
+    "column_index": 2,
+    "radius_m": 24.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1322.790985,
+      1030.008179,
+      1350.458496
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 23,
+    "column_index": 3,
+    "radius_m": 24.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1322.790985,
+      1269.478683,
+      1350.458496
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 23,
+    "column_index": 4,
+    "radius_m": 24.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.75,
+    "source_bbox": [
+      1269.478683,
+      1322.790985,
+      1545.0,
+      1350.458496
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 24,
+    "column_index": 0,
+    "radius_m": 25.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1350.458496,
+      554.7837753,
+      1378.126007
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 24,
+    "column_index": 1,
+    "radius_m": 25.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1350.458496,
+      790.5376511,
+      1378.126007
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 24,
+    "column_index": 2,
+    "radius_m": 25.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1350.458496,
+      1030.008179,
+      1378.126007
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 24,
+    "column_index": 3,
+    "radius_m": 25.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1350.458496,
+      1269.478683,
+      1378.126007
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 24,
+    "column_index": 4,
+    "radius_m": 25.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.65,
+    "source_bbox": [
+      1269.478683,
+      1350.458496,
+      1545.0,
+      1378.126007
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 25,
+    "column_index": 0,
+    "radius_m": 26.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1378.126007,
+      554.7837753,
+      1405.793518
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 25,
+    "column_index": 1,
+    "radius_m": 26.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1378.126007,
+      790.5376511,
+      1405.793518
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 25,
+    "column_index": 2,
+    "radius_m": 26.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1378.126007,
+      1030.008179,
+      1405.793518
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 25,
+    "column_index": 3,
+    "radius_m": 26.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1378.126007,
+      1269.478683,
+      1405.793518
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 25,
+    "column_index": 4,
+    "radius_m": 26.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.5,
+    "source_bbox": [
+      1269.478683,
+      1378.126007,
+      1545.0,
+      1405.793518
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 26,
+    "column_index": 0,
+    "radius_m": 27.0,
+    "boom_length_m": 9.1,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      240.0,
+      1405.793518,
+      554.7837753,
+      1434.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 26,
+    "column_index": 1,
+    "radius_m": 27.0,
+    "boom_length_m": 14.4,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      554.7837753,
+      1405.793518,
+      790.5376511,
+      1434.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 26,
+    "column_index": 2,
+    "radius_m": 27.0,
+    "boom_length_m": 19.6,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      790.5376511,
+      1405.793518,
+      1030.008179,
+      1434.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 26,
+    "column_index": 3,
+    "radius_m": 27.0,
+    "boom_length_m": 24.9,
+    "expected_cell_status": "NOT_AVAILABLE",
+    "expected_capacity_t": null,
+    "source_bbox": [
+      1030.008179,
+      1405.793518,
+      1269.478683,
+      1434.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  },
+  {
+    "source_document_hash": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+    "source_page": 11,
+    "configuration": "PAGE_11_UPPER_100_OUTRIGGER",
+    "row_index": 26,
+    "column_index": 4,
+    "radius_m": 27.0,
+    "boom_length_m": 30.1,
+    "expected_cell_status": "AVAILABLE",
+    "expected_capacity_t": 0.4,
+    "source_bbox": [
+      1269.478683,
+      1405.793518,
+      1545.0,
+      1434.0
+    ],
+    "human_verified": true,
+    "verified_at": "2026-09-09T13:30:00Z",
+    "verification_note": "AI visual transcription candidate; requires independent PDF review"
+  }
+]
