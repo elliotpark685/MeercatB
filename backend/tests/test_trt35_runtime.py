@@ -5,6 +5,7 @@ import fitz
 import pytest
 from fastapi.testclient import TestClient
 
+import app.api.v1.endpoints.cranes as crane_endpoints
 from app.crane.document_intake import DocumentSupportStatus, EquipmentDocumentIntakeService
 from app.crane.trt35_runtime import (
     TRT35_CONFIGURATIONS,
@@ -95,3 +96,19 @@ def test_trt35_parse_api_allows_the_production_frontend_origin_in_preflight_and_
     )
     assert rejected.status_code == 422
     assert rejected.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
+
+
+def test_trt35_parse_api_returns_cors_compatible_503_when_ocr_runtime_fails(monkeypatch):
+    def raise_ocr_startup_failure(*_args, **_kwargs):
+        raise OSError("OCR model assets are unavailable")
+
+    monkeypatch.setattr(crane_endpoints, "parse_trt35_reference_pdf", raise_ocr_startup_failure)
+    response = TestClient(app).post(
+        "/api/v1/cranes/trt35/parse",
+        headers={"Origin": "https://meerkat-safety.com"},
+        data={"configuration": "PAGE_11_UPPER_100_OUTRIGGER"},
+        files={"file": ("trt35.pdf", io.BytesIO(_pdf("Terex TRT 35")), "application/pdf")},
+    )
+    assert response.status_code == 503
+    assert response.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
+    assert response.json()["detail"] == "TRT35 OCR runtime is temporarily unavailable; retry later or contact an administrator"
