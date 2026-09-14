@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from threading import Lock
 from typing import Protocol
 
 # Must precede NumPy/OpenCV/Torch imports on Windows.
@@ -20,6 +21,23 @@ class EasyOcrReader(Protocol):
 
 class EasyOcrRecognitionReader(EasyOcrReader, Protocol):
     def recognize(self, image: np.ndarray, *, detail: int, allowlist: str, paragraph: bool): ...
+
+
+_shared_reader: EasyOcrRecognitionReader | None = None
+_shared_reader_lock = Lock()
+
+
+def _get_shared_reader() -> EasyOcrRecognitionReader:
+    """Load one CPU OCR model per worker process, not once per PDF request."""
+    global _shared_reader
+    if _shared_reader is None:
+        with _shared_reader_lock:
+            if _shared_reader is None:
+                # EasyOCR/Torch can otherwise load two OpenMP runtimes on Windows.
+                import easyocr
+
+                _shared_reader = easyocr.Reader(["en"], gpu=False, verbose=False)
+    return _shared_reader
 
 
 class TightCropRecognitionReader:
@@ -78,10 +96,7 @@ class EasyOcrCellRunner:
 
     def _get_reader(self) -> EasyOcrReader:
         if self._reader is None:
-            # EasyOCR/Torch can otherwise load two OpenMP runtimes on Windows.
-            import easyocr
-
-            self._reader = easyocr.Reader(["en"], gpu=False, verbose=False)
+            self._reader = _get_shared_reader()
         return self._reader
 
     def read(self, image: np.ndarray, grid: OcrTableGrid) -> list[OcrToken]:
@@ -127,10 +142,7 @@ class TightCropEasyOcrCellRunner(EasyOcrCellRunner):
 
     def _get_reader(self) -> EasyOcrReader:
         if self._reader is None:
-            import easyocr
-
-            raw_reader = easyocr.Reader(["en"], gpu=False, verbose=False)
-            self._reader = TightCropRecognitionReader(raw_reader)
+            self._reader = TightCropRecognitionReader(_get_shared_reader())
         return self._reader
 
 

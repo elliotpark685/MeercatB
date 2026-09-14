@@ -1,6 +1,7 @@
 import numpy as np
 
-from app.crane.cell_ocr import EasyOcrCellRunner, TightCropRecognitionReader, detect_confirmed_dash
+import app.crane.cell_ocr as cell_ocr
+from app.crane.cell_ocr import EasyOcrCellRunner, TightCropEasyOcrCellRunner, TightCropRecognitionReader, detect_confirmed_dash
 from app.crane.ocr_table_association import GridAxisPoint, OcrTableGrid
 
 
@@ -62,3 +63,13 @@ def test_tight_crop_reader_preserves_border_adjacent_glyphs_without_repair():
     reader = TightCropRecognitionReader(_RecognitionReader())
     observed = reader.readtext(image, detail=1, paragraph=False, allowlist="0123456789.-")
     assert observed == [([[1, 4], [6, 4], [6, 9], [1, 9]], "16.25", 0.99)]
+
+
+def test_cell_runners_reuse_the_process_scoped_easyocr_reader(monkeypatch):
+    raw_reader = _RecognitionReader()
+    monkeypatch.setattr(cell_ocr, "_shared_reader", raw_reader)
+
+    assert EasyOcrCellRunner()._get_reader() is raw_reader
+    tight_reader = TightCropEasyOcrCellRunner()._get_reader()
+    assert isinstance(tight_reader, TightCropRecognitionReader)
+    assert tight_reader._reader is raw_reader
