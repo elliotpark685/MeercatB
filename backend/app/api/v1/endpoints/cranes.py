@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile, status
 from pydantic import ValidationError
 from sqlalchemy.orm import Session
@@ -14,6 +16,7 @@ from app.crane.postgres_repository import PostgresTRT60Repository
 from app.core.config import settings
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 PDF_MEDIA_TYPES = {"application/pdf", "application/x-pdf"}
 UPLOAD_READ_CHUNK_BYTES = 1024 * 1024
 
@@ -89,6 +92,14 @@ async def parse_trt35_pdf(file: UploadFile = File(...), configuration: str = For
         result = await run_in_threadpool(parse_trt35_reference_pdf, payload, configuration=configuration)
     except (ValueError, RuntimeError) as exc:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    except Exception as exc:
+        # Surface OCR engine/model failures as an API response rather than an
+        # unhandled 500 response that browsers often report only as CORS.
+        logger.exception("TRT35 parser runtime failure")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="TRT35 OCR runtime is temporarily unavailable; retry later or contact an administrator",
+        ) from exc
     return {
         "parser_result": result.model_dump(mode="json"),
         "persisted": False,
