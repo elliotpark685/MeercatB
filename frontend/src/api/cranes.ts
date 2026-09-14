@@ -42,8 +42,7 @@ export async function parseTrt35Pdf(file: File, configuration: Trt35Configuratio
   const form = new FormData();
   form.append('file', file);
   form.append('configuration', configuration);
-  const response = await apiClient.post<Trt35ParseResponse>('/api/v1/cranes/trt35/parse', form, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+  // Leave Content-Type unset: the browser must add the multipart boundary.
+  const response = await apiClient.post<Trt35ParseResponse>('/api/v1/cranes/trt35/parse', form);
   return response.data;
 }

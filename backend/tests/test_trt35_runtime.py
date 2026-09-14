@@ -72,3 +72,26 @@ def test_trt35_parse_api_rejects_unvalidated_revision_without_persistence():
     )
     assert response.status_code == 422
     assert "revision" in response.json()["detail"]
+
+
+def test_trt35_parse_api_allows_the_production_frontend_origin_in_preflight_and_errors():
+    client = TestClient(app)
+    preflight = client.options(
+        "/api/v1/cranes/trt35/parse",
+        headers={
+            "Origin": "https://meerkat-safety.com",
+            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Headers": "content-type",
+        },
+    )
+    assert preflight.status_code == 200
+    assert preflight.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
+
+    rejected = client.post(
+        "/api/v1/cranes/trt35/parse",
+        headers={"Origin": "https://meerkat-safety.com"},
+        data={"configuration": "PAGE_11_UPPER_100_OUTRIGGER"},
+        files={"file": ("unvalidated.pdf", io.BytesIO(_pdf("Terex TRT 35")), "application/pdf")},
+    )
+    assert rejected.status_code == 422
+    assert rejected.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
