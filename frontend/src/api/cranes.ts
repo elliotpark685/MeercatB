@@ -38,11 +38,61 @@ export interface Trt35ParseResponse {
   approval: 'NOT_GRANTED';
 }
 
+export type Trt35CapacityStatus =
+  | 'PASS'
+  | 'FAIL'
+  | 'CONFIGURATION_NOT_CONFIRMED'
+  | 'CELL_NOT_FOUND'
+  | 'CELL_NOT_AVAILABLE';
+
+export interface Trt35ReviewInput {
+  radius_m: number;
+  boom_length_m: number;
+  required_height_m: number;
+  payload_t: number;
+  rigging_t?: number;
+  sling_leg_count?: number;
+  sling_weight_per_leg_t?: number;
+  hook_block_t: number;
+  spreader_t: number;
+  configuration_confirmed: boolean;
+}
+
+export interface Trt35ReviewResult {
+  gross_load_t: number;
+  rigging_total_t: number;
+  required_height_m: number;
+  capacity_status: Trt35CapacityStatus;
+  geometry_status: 'REFERENCE_DATASET_REQUIRED';
+  rated_capacity_t: number | null;
+  capacity_margin_t: number | null;
+  utilization_percent: number | null;
+  source_page: number | null;
+  reason: string | null;
+  geometry_reason: string;
+  approval: 'NOT_GRANTED';
+}
+
+export interface Trt35ReviewResponse {
+  review_result: Trt35ReviewResult;
+  persisted: false;
+  approval: 'NOT_GRANTED';
+}
+
 export async function parseTrt35Pdf(file: File, configuration: Trt35Configuration): Promise<Trt35ParseResponse> {
   const form = new FormData();
   form.append('file', file);
   form.append('configuration', configuration);
   // Leave Content-Type unset: the browser must add the multipart boundary.
   const response = await apiClient.post<Trt35ParseResponse>('/api/v1/cranes/trt35/parse', form);
+  return response.data;
+}
+
+export async function reviewTrt35Pdf(file: File, configuration: Trt35Configuration, review: Trt35ReviewInput): Promise<Trt35ReviewResponse> {
+  const form = new FormData();
+  form.append('file', file);
+  form.append('configuration', configuration);
+  form.append('review', JSON.stringify(review));
+  const response = await apiClient.post<Trt35ReviewResponse>('/api/v1/cranes/trt35/review', form);
   return response.data;
 }

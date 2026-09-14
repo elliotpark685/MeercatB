@@ -11,6 +11,7 @@ from app.crane.supabase_mapping import TRT60SupabaseMapper
 from app.crane.trt60_parser import TerexTRT60Parser
 from app.crane.trt60_reference import REFERENCE_FILE_HASH_SHA256, load_golden_dataset
 from app.crane.trt35_runtime import parse_trt35_reference_pdf
+from app.crane.trt35_review import Trt35EngineeringReviewService, Trt35ReviewInput
 from app.crane.engineering_review import EngineeringReviewInput, MainBoomEngineeringReviewService
 from app.crane.postgres_repository import PostgresTRT60Repository
 from app.core.config import settings
@@ -93,15 +94,54 @@ async def parse_trt35_pdf(file: UploadFile = File(...), configuration: str = For
     except (ValueError, RuntimeError) as exc:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
     except Exception as exc:
-        # Surface OCR engine/model failures as an API response rather than an
-        # unhandled 500 response that browsers often report only as CORS.
+        # Surface unavailable verified-reference assets as an API response
+        # rather than an unhandled 500 response that browsers often report only as CORS.
         logger.exception("TRT35 parser runtime failure")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="TRT35 OCR runtime is temporarily unavailable; retry later or contact an administrator",
+            detail="TRT35 verified reference data is temporarily unavailable; retry later or contact an administrator",
         ) from exc
     return {
         "parser_result": result.model_dump(mode="json"),
+        "persisted": False,
+        "approval": "NOT_GRANTED",
+    }
+
+
+@router.post(
+    "/trt35/review",
+    description="Multipart form: `file`, selected `configuration`, and JSON-encoded TRT35 lift-review inputs. Never approves work.",
+)
+async def review_trt35_pdf(
+    file: UploadFile = File(...),
+    configuration: str = Form(...),
+    review: str = Form(...),
+):
+    """Run an exact-cell capacity check and explicitly block unverified height review."""
+    try:
+        request = Trt35ReviewInput.model_validate_json(review)
+        payload = await _read_pdf_upload(file)
+        chart = await run_in_threadpool(parse_trt35_reference_pdf, payload, configuration=configuration)
+        result = Trt35EngineeringReviewService().review(chart, request)
+    except ValidationError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=exc.errors()) from exc
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    except Exception as exc:
+        logger.exception("TRT35 review runtime failure")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="TRT35 verified reference data is temporarily unavailable; retry later or contact an administrator",
+        ) from exc
+    return {
+        "review_result": result.model_dump(mode="json"),
+        "parser_metadata": {
+            "file_hash_sha256": chart.file_hash_sha256,
+            "parser_profile": chart.parser_profile,
+            "parser_version": chart.parser_version,
+            "canonical_content_hash": chart.canonical_content_hash,
+            "table_segment": chart.table_segment,
+        },
         "persisted": False,
         "approval": "NOT_GRANTED",
     }
