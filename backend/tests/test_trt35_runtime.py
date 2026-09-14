@@ -13,6 +13,7 @@ from app.crane.trt35_runtime import (
     Trt35OnboardingRequiredError,
     parse_trt35_reference_pdf,
 )
+from app.crane.trt35_golden_reference import load_trt35_human_golden_result
 from app.main import app
 
 
@@ -34,6 +35,29 @@ def test_trt35_runtime_exposes_only_the_six_human_golden_configurations():
         "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
         "PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG",
     }
+
+
+@pytest.mark.parametrize(
+    ("configuration", "expected_cell_count"),
+    [
+        ("PAGE_11_UPPER_100_OUTRIGGER", 135),
+        ("PAGE_11_LOWER_50_OUTRIGGER", 100),
+        ("PAGE_12_UPPER_ON_TIRES_360_0_KMH", 68),
+        ("PAGE_12_LOWER_ON_TIRES_0_MAX_2_KMH", 51),
+        ("PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG", 160),
+        ("PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG", 160),
+    ],
+)
+def test_human_golden_runtime_reference_has_no_unresolved_cells(configuration, expected_cell_count):
+    result = load_trt35_human_golden_result(
+        configuration,
+        expected_document_hash=TRT35_REFERENCE_FILE_HASH_SHA256,
+        parser_version="test",
+    )
+    assert result.grid_status == "PASS"
+    assert len(result.cells) == expected_cell_count
+    assert all(cell.cell_status in {"AVAILABLE", "NOT_AVAILABLE"} for cell in result.cells)
+    assert not result.critical_errors
 
 
 def test_trt35_runtime_rejects_unknown_configuration_before_parsing():
@@ -98,11 +122,11 @@ def test_trt35_parse_api_allows_the_production_frontend_origin_in_preflight_and_
     assert rejected.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
 
 
-def test_trt35_parse_api_returns_cors_compatible_503_when_ocr_runtime_fails(monkeypatch):
-    def raise_ocr_startup_failure(*_args, **_kwargs):
-        raise OSError("OCR model assets are unavailable")
+def test_trt35_parse_api_returns_cors_compatible_503_when_reference_loading_fails(monkeypatch):
+    def raise_reference_loading_failure(*_args, **_kwargs):
+        raise OSError("reference assets are unavailable")
 
-    monkeypatch.setattr(crane_endpoints, "parse_trt35_reference_pdf", raise_ocr_startup_failure)
+    monkeypatch.setattr(crane_endpoints, "parse_trt35_reference_pdf", raise_reference_loading_failure)
     response = TestClient(app).post(
         "/api/v1/cranes/trt35/parse",
         headers={"Origin": "https://meerkat-safety.com"},
@@ -111,4 +135,4 @@ def test_trt35_parse_api_returns_cors_compatible_503_when_ocr_runtime_fails(monk
     )
     assert response.status_code == 503
     assert response.headers["access-control-allow-origin"] == "https://meerkat-safety.com"
-    assert response.json()["detail"] == "TRT35 OCR runtime is temporarily unavailable; retry later or contact an administrator"
+    assert response.json()["detail"] == "TRT35 verified reference data is temporarily unavailable; retry later or contact an administrator"

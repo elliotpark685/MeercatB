@@ -5,8 +5,7 @@ from __future__ import annotations
 import hashlib
 from dataclasses import dataclass
 
-from app.crane.cell_ocr import TightCropEasyOcrCellRunner
-from app.crane.trt35_pipeline import Trt35Page11Pipeline
+from app.crane.trt35_golden_reference import load_trt35_human_golden_result
 from app.crane.trt35_vertical_slice import (
     TRT35_PAGE11_LOWER_50_TABLE_BBOX_PDF,
     TRT35_PAGE11_UPPER_100_TABLE_BBOX_PDF,
@@ -25,7 +24,7 @@ from app.crane.trt35_vertical_slice import (
 
 
 TRT35_REFERENCE_FILE_HASH_SHA256 = "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207"
-TRT35_RUNTIME_VERSION = "0.1.1-tight-crop-candidate"
+TRT35_RUNTIME_VERSION = "0.2.0-human-golden-reference"
 
 
 class Trt35OnboardingRequiredError(ValueError):
@@ -74,22 +73,18 @@ TRT35_CONFIGURATIONS: dict[str, Trt35ConfigurationDefinition] = {
 
 
 def parse_trt35_reference_pdf(payload: bytes, *, configuration: str) -> Trt35VerticalSliceResult:
-    """Parse exactly one approved configuration from the exact Golden PDF revision."""
+    """Return reviewed cells for exactly one approved PDF revision/configuration."""
     definition = TRT35_CONFIGURATIONS.get(configuration)
     if definition is None:
         raise Trt35OnboardingRequiredError("TRT35 configuration is not Golden-validated; onboarding required")
     if hashlib.sha256(payload).hexdigest() != TRT35_REFERENCE_FILE_HASH_SHA256:
         raise Trt35OnboardingRequiredError("TRT35 PDF revision is not Golden-validated; onboarding required")
 
-    result = Trt35Page11Pipeline().parse_page11(
-        payload,
-        page_number=definition.identity.source_page,
-        table_bbox_pdf=definition.table_bbox_pdf,
-        identity=definition.identity,
-        ocr_runner=lambda _: [],
-        cell_ocr_runner=TightCropEasyOcrCellRunner().read,
+    # The exact document and every returned cell are Human Golden-verified.
+    # Do not rerun OCR here: a less certain OCR observation must not replace a
+    # verified manufacturer-table value during a safety review.
+    return load_trt35_human_golden_result(
+        configuration,
+        expected_document_hash=TRT35_REFERENCE_FILE_HASH_SHA256,
         parser_version=TRT35_RUNTIME_VERSION,
     )
-    if result.grid_status != "PASS" or result.critical_errors:
-        raise Trt35OnboardingRequiredError("TRT35 table structure is unresolved; onboarding required")
-    return result
