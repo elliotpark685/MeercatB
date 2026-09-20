@@ -1,0 +1,717 @@
+{
+  "manufacturer": "Terex",
+  "model": "TRT35",
+  "file_hash_sha256": "7048039dfe68b0626f72966c3ce2db635559443cb131652ff89fa834e27e3207",
+  "parser_profile": "TEREX_TRT35_GEOMETRY_GOLDEN_V1",
+  "parser_version": "0.1.0-human-golden",
+  "datasets": [
+    {
+      "configuration": "LATTICE_JIB_8M_0DEG",
+      "height_reference": "HOOK_BALL",
+      "capacity_boom_length_m": 30.1,
+      "geometry_boom_length_m": 38.1,
+      "source_page": 14,
+      "points": [
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 5.5,
+          "maximum_hook_height_m": 40.4,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset peak hook height (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              419.3,
+              541.4,
+              427.3,
+              549.4
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 8.0,
+          "maximum_hook_height_m": 39.5,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 8m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              388.6,
+              530.4,
+              396.6,
+              538.4
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 12.0,
+          "maximum_hook_height_m": 37.6,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 12m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              339.5,
+              507.0,
+              347.5,
+              515.0
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 16.0,
+          "maximum_hook_height_m": 34.8,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 16m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              290.4,
+              472.5,
+              298.4,
+              480.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 20.0,
+          "maximum_hook_height_m": 31.1,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 20m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              241.2,
+              426.9,
+              249.2,
+              434.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 24.0,
+          "maximum_hook_height_m": 26.1,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 24m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              192.1,
+              365.4,
+              200.1,
+              373.4
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 28.0,
+          "maximum_hook_height_m": 19.1,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset grid point at 28m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              143.0,
+              279.2,
+              151.0,
+              287.2
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 31.5,
+          "maximum_hook_height_m": 6.3,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 0 deg offset max working radius reach (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              100.0,
+              121.7,
+              108.0,
+              129.7
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "LATTICE_JIB_8M_20DEG",
+      "height_reference": "HOOK_BALL",
+      "capacity_boom_length_m": 30.1,
+      "geometry_boom_length_m": 38.1,
+      "source_page": 14,
+      "points": [
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 7.5,
+          "maximum_hook_height_m": 39.1,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset peak hook height (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              394.7,
+              525.4,
+              402.7,
+              533.4
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 10.0,
+          "maximum_hook_height_m": 38.3,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 10m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              364.0,
+              515.6,
+              372.0,
+              523.6
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 14.0,
+          "maximum_hook_height_m": 36.1,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 14m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              314.9,
+              488.5,
+              322.9,
+              496.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 18.0,
+          "maximum_hook_height_m": 32.8,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 18m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              265.8,
+              447.9,
+              273.8,
+              455.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 22.0,
+          "maximum_hook_height_m": 28.3,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 22m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              216.7,
+              392.5,
+              224.7,
+              400.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 26.0,
+          "maximum_hook_height_m": 22.8,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 26m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              167.6,
+              324.8,
+              175.6,
+              332.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 30.0,
+          "maximum_hook_height_m": 14.8,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset grid point at 30m radius (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              118.5,
+              226.3,
+              126.5,
+              234.3
+            ]
+          }
+        },
+        {
+          "boom_length_m": 38.1,
+          "working_radius_m": 33.2,
+          "maximum_hook_height_m": 6.8,
+          "source": {
+            "source_page": 14,
+            "source_text": "Jib 8m 20 deg offset max working radius reach (hook ball -0.7m deduction applied)",
+            "source_bbox": [
+              79.2,
+              127.8,
+              87.2,
+              135.8
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "MAIN_BOOM_14.4M",
+      "height_reference": "HOOK_BLOCK",
+      "capacity_boom_length_m": 14.4,
+      "geometry_boom_length_m": 14.4,
+      "source_page": 10,
+      "points": [
+        {
+          "boom_length_m": 14.4,
+          "working_radius_m": 3.5,
+          "maximum_hook_height_m": 14.6,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 14.4m peak hook height (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              408.6,
+              230.8,
+              416.6,
+              238.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 14.4,
+          "working_radius_m": 5.0,
+          "maximum_hook_height_m": 13.7,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 14.4m grid point at 5m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              388.1,
+              218.7,
+              396.1,
+              226.7
+            ]
+          }
+        },
+        {
+          "boom_length_m": 14.4,
+          "working_radius_m": 8.0,
+          "maximum_hook_height_m": 11.9,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 14.4m grid point at 8m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              347.1,
+              194.6,
+              355.1,
+              202.6
+            ]
+          }
+        },
+        {
+          "boom_length_m": 14.4,
+          "working_radius_m": 10.0,
+          "maximum_hook_height_m": 9.9,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 14.4m grid point at 10m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              319.7,
+              167.9,
+              327.7,
+              175.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 14.4,
+          "working_radius_m": 11.8,
+          "maximum_hook_height_m": 3.6,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 14.4m max working radius reach (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              295.1,
+              83.6,
+              303.1,
+              91.6
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "MAIN_BOOM_19.6M",
+      "height_reference": "HOOK_BLOCK",
+      "capacity_boom_length_m": 19.6,
+      "geometry_boom_length_m": 19.6,
+      "source_page": 10,
+      "points": [
+        {
+          "boom_length_m": 19.6,
+          "working_radius_m": 4.0,
+          "maximum_hook_height_m": 19.8,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 19.6m peak hook height (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              401.8,
+              300.4,
+              409.8,
+              308.4
+            ]
+          }
+        },
+        {
+          "boom_length_m": 19.6,
+          "working_radius_m": 6.0,
+          "maximum_hook_height_m": 18.7,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 19.6m grid point at 6m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              374.4,
+              285.6,
+              382.4,
+              293.6
+            ]
+          }
+        },
+        {
+          "boom_length_m": 19.6,
+          "working_radius_m": 10.0,
+          "maximum_hook_height_m": 16.4,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 19.6m grid point at 10m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              319.7,
+              254.9,
+              327.7,
+              262.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 19.6,
+          "working_radius_m": 14.0,
+          "maximum_hook_height_m": 12.4,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 19.6m grid point at 14m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              265.0,
+              201.3,
+              273.0,
+              209.3
+            ]
+          }
+        },
+        {
+          "boom_length_m": 19.6,
+          "working_radius_m": 16.9,
+          "maximum_hook_height_m": 3.7,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 19.6m max working radius reach (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              225.4,
+              84.9,
+              233.4,
+              92.9
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "MAIN_BOOM_24.9M",
+      "height_reference": "HOOK_BLOCK",
+      "capacity_boom_length_m": 24.9,
+      "geometry_boom_length_m": 24.9,
+      "source_page": 10,
+      "points": [
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 4.5,
+          "maximum_hook_height_m": 25.0,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m peak hook height (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              394.9,
+              370.0,
+              402.9,
+              378.0
+            ]
+          }
+        },
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 8.0,
+          "maximum_hook_height_m": 23.7,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m grid point at 8m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              347.1,
+              352.5,
+              355.1,
+              360.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 12.0,
+          "maximum_hook_height_m": 21.4,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m grid point at 12m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              292.4,
+              321.8,
+              300.4,
+              329.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 16.0,
+          "maximum_hook_height_m": 17.9,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m grid point at 16m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              237.7,
+              274.9,
+              245.7,
+              282.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 20.0,
+          "maximum_hook_height_m": 12.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m grid point at 20m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              182.9,
+              198.7,
+              190.9,
+              206.7
+            ]
+          }
+        },
+        {
+          "boom_length_m": 24.9,
+          "working_radius_m": 22.0,
+          "maximum_hook_height_m": 5.9,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 24.9m max working radius reach (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              155.6,
+              114.4,
+              163.6,
+              122.4
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "MAIN_BOOM_30.1M",
+      "height_reference": "HOOK_BLOCK",
+      "capacity_boom_length_m": 30.1,
+      "geometry_boom_length_m": 30.1,
+      "source_page": 10,
+      "points": [
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 4.5,
+          "maximum_hook_height_m": 31.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m peak hook height at max elevation 78 deg (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              394.9,
+              452.9,
+              402.9,
+              460.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 8.0,
+          "maximum_hook_height_m": 30.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m grid point at 8m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              347.1,
+              439.5,
+              355.1,
+              447.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 12.0,
+          "maximum_hook_height_m": 28.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m grid point at 12m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              292.4,
+              412.8,
+              300.4,
+              420.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 16.0,
+          "maximum_hook_height_m": 25.4,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m grid point at 16m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              237.7,
+              375.3,
+              245.7,
+              383.3
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 20.0,
+          "maximum_hook_height_m": 21.4,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m grid point at 20m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              182.9,
+              321.8,
+              190.9,
+              329.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 24.0,
+          "maximum_hook_height_m": 15.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m grid point at 24m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              128.2,
+              238.8,
+              136.2,
+              246.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 30.1,
+          "working_radius_m": 27.2,
+          "maximum_hook_height_m": 5.6,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 30.1m max working radius reach (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              84.5,
+              110.3,
+              92.5,
+              118.3
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "configuration": "MAIN_BOOM_9.1M",
+      "height_reference": "HOOK_BLOCK",
+      "capacity_boom_length_m": 9.1,
+      "geometry_boom_length_m": 9.1,
+      "source_page": 10,
+      "points": [
+        {
+          "boom_length_m": 9.1,
+          "working_radius_m": 3.0,
+          "maximum_hook_height_m": 9.6,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 9.1m peak hook height (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              415.5,
+              163.9,
+              423.5,
+              171.9
+            ]
+          }
+        },
+        {
+          "boom_length_m": 9.1,
+          "working_radius_m": 4.0,
+          "maximum_hook_height_m": 8.9,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 9.1m grid point at 4m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              401.8,
+              154.5,
+              409.8,
+              162.5
+            ]
+          }
+        },
+        {
+          "boom_length_m": 9.1,
+          "working_radius_m": 6.0,
+          "maximum_hook_height_m": 7.2,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 9.1m grid point at 6m radius (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              374.4,
+              131.8,
+              382.4,
+              139.8
+            ]
+          }
+        },
+        {
+          "boom_length_m": 9.1,
+          "working_radius_m": 7.0,
+          "maximum_hook_height_m": 5.7,
+          "source": {
+            "source_page": 10,
+            "source_text": "Main boom 9.1m max working radius reach (hook block -1.6m deduction applied)",
+            "source_bbox": [
+              360.8,
+              111.7,
+              368.8,
+              119.7
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

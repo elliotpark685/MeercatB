@@ -88,3 +88,26 @@ def parse_trt35_reference_pdf(payload: bytes, *, configuration: str) -> Trt35Ver
         expected_document_hash=TRT35_REFERENCE_FILE_HASH_SHA256,
         parser_version=TRT35_RUNTIME_VERSION,
     )
+
+
+def get_trt35_review_input_options(*, configuration: str) -> dict[str, object]:
+    """Expose only Human Golden-approved capacity coordinates for the review UI."""
+    if configuration not in TRT35_CONFIGURATIONS:
+        raise Trt35OnboardingRequiredError("TRT35 configuration is not Golden-validated; onboarding required")
+    result = load_trt35_human_golden_result(
+        configuration,
+        expected_document_hash=TRT35_REFERENCE_FILE_HASH_SHA256,
+        parser_version=TRT35_RUNTIME_VERSION,
+    )
+    available_cells = [cell for cell in result.cells if cell.cell_status == "AVAILABLE" and cell.rated_capacity_t is not None]
+    boom_lengths = sorted({cell.boom_length_m for cell in available_cells})
+    radii_by_boom = {
+        f"{boom:.1f}": sorted({cell.radius_m for cell in available_cells if cell.boom_length_m == boom})
+        for boom in boom_lengths
+    }
+    return {
+        "configuration": configuration,
+        "unit_system": "METRIC",
+        "boom_lengths_m": boom_lengths,
+        "available_radii_by_boom_m": radii_by_boom,
+    }

@@ -1,6 +1,8 @@
 from app.crane.trt35_golden_reference import load_trt35_human_golden_result
-from app.crane.trt35_review import Trt35CapacityStatus, Trt35EngineeringReviewService, Trt35ReviewInput
+from app.crane.trt35_review import Trt35CapacityStatus, Trt35EngineeringReviewService, Trt35OverallStatus, Trt35ReviewInput
 from app.crane.trt35_runtime import TRT35_REFERENCE_FILE_HASH_SHA256
+from app.crane.geometry_review import ReachStatus
+from app.crane.trt35_geometry_reference import get_trt35_geometry_lookup
 
 
 def _chart():
@@ -30,7 +32,11 @@ def test_review_calculates_exact_cell_capacity_and_total_lifted_load():
     assert result.rated_capacity_t == 35.0
     assert result.capacity_margin_t == 2.0
     assert result.capacity_status == Trt35CapacityStatus.PASS
-    assert result.geometry_status == "REFERENCE_DATASET_REQUIRED"
+    assert result.geometry_status == ReachStatus.PASS
+    assert result.maximum_hook_height_m == 9.6
+    assert result.height_margin_m == 4.6
+    assert result.height_reference == "HOOK_BLOCK"
+    assert result.overall_status == Trt35OverallStatus.REVIEW_PASS
 
 
 def test_review_refuses_interpolation_and_unconfirmed_configuration():
@@ -40,11 +46,29 @@ def test_review_refuses_interpolation_and_unconfirmed_configuration():
         Trt35ReviewInput(radius_m=3, boom_length_m=9.1, required_height_m=5, payload_t=1),
     )
     assert unconfirmed.capacity_status == Trt35CapacityStatus.CONFIGURATION_NOT_CONFIRMED
+    assert unconfirmed.overall_status == Trt35OverallStatus.CONFIGURATION_NOT_CONFIRMED
     no_cell = service.review(
         _chart(),
         Trt35ReviewInput(radius_m=3.1, boom_length_m=9.1, required_height_m=5, payload_t=1, configuration_confirmed=True),
     )
     assert no_cell.capacity_status == Trt35CapacityStatus.CELL_NOT_FOUND
+    assert no_cell.overall_status == Trt35OverallStatus.CAPACITY_CELL_NOT_FOUND
+
+
+def test_review_blocks_when_capacity_passes_but_height_fails():
+    result = Trt35EngineeringReviewService().review(
+        _chart(),
+        Trt35ReviewInput(
+            radius_m=3.0,
+            boom_length_m=9.1,
+            required_height_m=10.0,
+            payload_t=1.0,
+            configuration_confirmed=True,
+        ),
+    )
+    assert result.capacity_status == Trt35CapacityStatus.PASS
+    assert result.geometry_status == ReachStatus.FAIL
+    assert result.overall_status == Trt35OverallStatus.GEOMETRY_FAIL
 
 
 def test_review_api_returns_exact_capacity_check_without_persistence(monkeypatch):
@@ -63,8 +87,20 @@ def test_review_api_returns_exact_capacity_check_without_persistence(monkeypatch
     )
     assert response.status_code == 200
     assert response.json()["review_result"]["capacity_status"] == "PASS"
-    assert response.json()["review_result"]["geometry_status"] == "REFERENCE_DATASET_REQUIRED"
+    assert response.json()["review_result"]["geometry_status"] == "PASS"
+    assert response.json()["review_result"]["overall_status"] == "REVIEW_PASS"
     assert response.json()["persisted"] is False
+
+
+def test_jib_geometry_uses_explicit_registered_effective_length():
+    lookup = get_trt35_geometry_lookup(
+        capacity_configuration="PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
+        capacity_boom_length_m=30.1,
+        expected_document_hash=TRT35_REFERENCE_FILE_HASH_SHA256,
+    )
+    assert lookup is not None
+    assert lookup.geometry_boom_length_m == 38.1
+    assert lookup.height_reference == "HOOK_BALL"
 import io
 import json
 
