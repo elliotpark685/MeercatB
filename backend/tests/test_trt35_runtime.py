@@ -12,6 +12,7 @@ from app.crane.trt35_runtime import (
     TRT35_REFERENCE_FILE_HASH_SHA256,
     Trt35OnboardingRequiredError,
     parse_trt35_reference_pdf,
+    get_trt35_review_input_options,
 )
 from app.crane.trt35_golden_reference import load_trt35_human_golden_result
 from app.main import app
@@ -35,6 +36,13 @@ def test_trt35_runtime_exposes_only_the_six_human_golden_configurations():
         "PAGE_15_LEFT_LATTICE_JIB_8M_0_DEG",
         "PAGE_15_RIGHT_LATTICE_JIB_8M_20_DEG",
     }
+
+
+def test_review_input_options_contain_only_available_human_golden_cells():
+    options = get_trt35_review_input_options(configuration="PAGE_11_UPPER_100_OUTRIGGER")
+    assert options["unit_system"] == "METRIC"
+    assert options["boom_lengths_m"] == [9.1, 14.4, 19.6, 24.9, 30.1]
+    assert options["available_radii_by_boom_m"]["9.1"] == [3.0, 3.5, 4.0, 4.5, 5.0, 6.0]
 
 
 @pytest.mark.parametrize(

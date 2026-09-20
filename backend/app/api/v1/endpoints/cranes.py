@@ -10,7 +10,7 @@ from app.crane.document_intake import EquipmentDocumentIntakeService
 from app.crane.supabase_mapping import TRT60SupabaseMapper
 from app.crane.trt60_parser import TerexTRT60Parser
 from app.crane.trt60_reference import REFERENCE_FILE_HASH_SHA256, load_golden_dataset
-from app.crane.trt35_runtime import parse_trt35_reference_pdf
+from app.crane.trt35_runtime import get_trt35_review_input_options, parse_trt35_reference_pdf
 from app.crane.trt35_review import Trt35EngineeringReviewService, Trt35ReviewInput
 from app.crane.engineering_review import EngineeringReviewInput, MainBoomEngineeringReviewService
 from app.crane.postgres_repository import PostgresTRT60Repository
@@ -106,6 +106,18 @@ async def parse_trt35_pdf(file: UploadFile = File(...), configuration: str = For
         "persisted": False,
         "approval": "NOT_GRANTED",
     }
+
+
+@router.get(
+    "/trt35/configurations/{configuration}/input-options",
+    description="Return only Human Golden-approved TRT35 capacity coordinates for the selected configuration.",
+)
+async def trt35_review_input_options(configuration: str):
+    try:
+        options = await run_in_threadpool(get_trt35_review_input_options, configuration=configuration)
+    except (ValueError, RuntimeError) as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(exc)) from exc
+    return {"input_options": options, "persisted": False}
 
 
 @router.post(

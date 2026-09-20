@@ -45,6 +45,16 @@ export type Trt35CapacityStatus =
   | 'CELL_NOT_FOUND'
   | 'CELL_NOT_AVAILABLE';
 
+export type Trt35OverallStatus =
+  | 'REVIEW_PASS'
+  | 'CONFIGURATION_NOT_CONFIRMED'
+  | 'CAPACITY_FAIL'
+  | 'CAPACITY_CELL_NOT_FOUND'
+  | 'CAPACITY_CELL_NOT_AVAILABLE'
+  | 'GEOMETRY_FAIL'
+  | 'GEOMETRY_POINT_NOT_FOUND'
+  | 'GEOMETRY_REFERENCE_DATASET_REQUIRED';
+
 export interface Trt35ReviewInput {
   radius_m: number;
   boom_length_m: number;
@@ -63,12 +73,18 @@ export interface Trt35ReviewResult {
   rigging_total_t: number;
   required_height_m: number;
   capacity_status: Trt35CapacityStatus;
-  geometry_status: 'REFERENCE_DATASET_REQUIRED';
+  geometry_status: 'PASS' | 'FAIL' | 'POINT_NOT_FOUND' | 'REFERENCE_DATASET_REQUIRED';
+  overall_status: Trt35OverallStatus;
+  overall_reason: string;
   rated_capacity_t: number | null;
   capacity_margin_t: number | null;
   utilization_percent: number | null;
   source_page: number | null;
   reason: string | null;
+  maximum_hook_height_m: number | null;
+  height_margin_m: number | null;
+  height_reference: 'HOOK_BLOCK' | 'HOOK_BALL' | null;
+  geometry_source_page: number | null;
   geometry_reason: string;
   approval: 'NOT_GRANTED';
 }
@@ -77,6 +93,13 @@ export interface Trt35ReviewResponse {
   review_result: Trt35ReviewResult;
   persisted: false;
   approval: 'NOT_GRANTED';
+}
+
+export interface Trt35ReviewInputOptions {
+  configuration: Trt35Configuration;
+  unit_system: 'METRIC';
+  boom_lengths_m: number[];
+  available_radii_by_boom_m: Record<string, number[]>;
 }
 
 export async function parseTrt35Pdf(file: File, configuration: Trt35Configuration): Promise<Trt35ParseResponse> {
@@ -95,4 +118,9 @@ export async function reviewTrt35Pdf(file: File, configuration: Trt35Configurati
   form.append('review', JSON.stringify(review));
   const response = await apiClient.post<Trt35ReviewResponse>('/api/v1/cranes/trt35/review', form);
   return response.data;
+}
+
+export async function getTrt35ReviewInputOptions(configuration: Trt35Configuration): Promise<Trt35ReviewInputOptions> {
+  const response = await apiClient.get<{ input_options: Trt35ReviewInputOptions }>(`/api/v1/cranes/trt35/configurations/${configuration}/input-options`);
+  return response.data.input_options;
 }
